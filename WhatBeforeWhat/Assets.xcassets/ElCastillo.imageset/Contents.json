@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "A3833-Achitecture-marvels-of-the-Ancient-World_El-Castillo_Image-1-2.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

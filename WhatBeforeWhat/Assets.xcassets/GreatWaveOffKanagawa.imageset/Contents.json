@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "1440xAUTO_processed_article_2023_08_f0f42440-b6ec-4f67-b2a4-197f04cff2e3-banner-master.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
