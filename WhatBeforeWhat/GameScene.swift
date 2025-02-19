@@ -11,6 +11,7 @@ import UIKit
 
 class GameScene: SKScene {
     
+    let cornerRadius = 20
     let centralMargin = 25
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
@@ -28,6 +29,8 @@ class GameScene: SKScene {
     var score: Int = 0
     var gameCounter: Int = 0
     
+    var topImageElement: ImageElement!
+    var bottomImageElement: ImageElement!
     var container1: SKShapeNode!
     var container2: SKShapeNode!
     var topSprite: SKSpriteNode?
@@ -50,37 +53,28 @@ class GameScene: SKScene {
         centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         addChild(centralLabel)
         
-        container1 = SKShapeNode(rectOf: containerSize, cornerRadius: 20)
-        container1.strokeColor = .clear
-        container1.lineWidth = 0
-        container1.position = CGPoint(x: self.frame.midX, y: self.frame.maxY - container1.frame.height / 2)
-        addChild(container1)
-        
-        setupTopPic()
-        
-        container2 = SKShapeNode(rectOf: CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin)), cornerRadius: 20)
-        container2.strokeColor = .white
-        container2.lineWidth = 0
-        container2.position = CGPoint(x: self.frame.midX, y: self.frame.minY + container2.frame.height / 2)
-        addChild(container2)
-        
-        setupBottomPic()
+        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top")
+        topImageElement.position = CGPoint(x: self.frame.midX, y: self.frame.maxY - containerSize.height / 2)
+        addChild(topImageElement)
+        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom")
+        bottomImageElement.position = CGPoint(x: self.frame.midX, y: self.frame.minY + containerSize.height / 2)
+        addChild(bottomImageElement)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let node = atPoint(location)
-        
+        print(node.name)
         if node.name == "top" {
             print("TOP clicked")
             guessRight = topObject.date < bottomObject.date
             if guessRight {
-                responseAnimation(text: positiveMessage, target: container1, location: location)
+                responseAnimation(text: positiveMessage, location: location)
                 print("RIGHT :)")
                 score += 1
             } else {
-                responseAnimation(text: negativeMessage, target: container1, location: location)
+                responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
             if !isTouchBlocked {
@@ -94,11 +88,11 @@ class GameScene: SKScene {
             print("BOTTOM clicked")
             guessRight = bottomObject.date < topObject.date
             if guessRight {
-                responseAnimation(text: positiveMessage, target: container2, location: location)
+                responseAnimation(text: positiveMessage, location: location)
                 print("RIGHT :)")
                 score += 1
             } else {
-                responseAnimation(text: negativeMessage, target: container2, location: location)
+                responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
             if !isTouchBlocked {
@@ -111,100 +105,73 @@ class GameScene: SKScene {
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
-        
-    }
-    
     func didTapPicture() {
         gameCounter += 1
         if gameCounter == gameLimit {
             showAlert(title: "Game Over", message: "Your score is: \(score)")
         } else {
-            let items = dataProvider.provideItems()
-            topObject = items.0
-            bottomObject = items.1
-            setupTopPic()
-            setupBottomPic()
+            setNewImages()
         }
     }
     
-    func setupTopPic() {
-        topSprite?.removeFromParent()
-        maskNode1?.removeFromParent()
-        cropNode1?.removeFromParent()
-        
-        topSprite = createSpriteNode(withImage: topObject.picture)
-        
-        guard let topSprite else { return }
-        topSprite.position = CGPoint(x: 0, y: 0)
-        topSprite.name = "top"
-        
-        maskNode1 = SKShapeNode(rectOf: container1.frame.size, cornerRadius: 20)
-        guard let maskNode1 else { return }
-        maskNode1.fillColor = .white
-        
-        cropNode1 = SKCropNode()
-        guard let cropNode1 else { return }
-        cropNode1.maskNode = maskNode1
-        cropNode1.position = container1.position
-        cropNode1.addChild(topSprite)
-        addChild(cropNode1)
-    }
-    
-    func setupBottomPic() {
-        bottomSprite?.removeFromParent()
-        maskNode2?.removeFromParent()
-        cropNode2?.removeFromParent()
-        
-        bottomSprite = createSpriteNode(withImage: bottomObject.picture)
-        
-        guard let bottomSprite else { return }
-        bottomSprite.position = CGPoint(x: 0, y: 0)
-        bottomSprite.name = "bottom"
-        
-        maskNode2 = SKShapeNode(rectOf: container2.frame.size, cornerRadius: 20)
-        guard let maskNode2 else { return }
-        maskNode2.fillColor = .white
-        
-        cropNode2 = SKCropNode()
-        guard let cropNode2 else { return }
-        cropNode2.maskNode = maskNode2
-        cropNode2.position = container2.position
-        cropNode2.addChild(bottomSprite)
-        addChild(cropNode2)
-    }
-    
-    func createSpriteNode(withImage imageName: String) -> SKSpriteNode {
-        guard let currentImage = UIImage(named: imageName) else { return SKSpriteNode() }
-        let texture = SKTexture(image: currentImage)
-        let size = getImageSize(image: currentImage)
-        let spriteNode = SKSpriteNode(texture: texture, size: size)
-        return spriteNode
-    }
-    
-    func getImageSize(image: UIImage) -> CGSize {
-        if image.size.width > image.size.height {
-            let multiplier = image.size.height / containerSize.height
-            let height = containerSize.height
-            let width = image.size.width / multiplier
-            return CGSize(width: width, height: height)
-        } else {
-            let multiplier = image.size.width / containerSize.width
-            let height = image.size.height / multiplier
-            let width = containerSize.width
-            return CGSize(width: width, height: height)
-        }
-        
-    }
+//    func setupTopPic() {
+//        topSprite?.removeFromParent()
+//        maskNode1?.removeFromParent()
+//        cropNode1?.removeFromParent()
+//        
+//        topSprite = createSpriteNode(withImage: topObject.picture)
+//        
+//        guard let topSprite else { return }
+//        topSprite.position = CGPoint(x: 0, y: 0)
+//        topSprite.name = "top"
+//        
+//        maskNode1 = SKShapeNode(rectOf: container1.frame.size, cornerRadius: 20)
+//        guard let maskNode1 else { return }
+//        maskNode1.fillColor = .white
+//        
+//        cropNode1 = SKCropNode()
+//        guard let cropNode1 else { return }
+//        cropNode1.maskNode = maskNode1
+//        cropNode1.position = container1.position
+//        cropNode1.addChild(topSprite)
+//        addChild(cropNode1)
+//    }
+//    
+//    func setupBottomPic() {
+//        bottomSprite?.removeFromParent()
+//        maskNode2?.removeFromParent()
+//        cropNode2?.removeFromParent()
+//        
+//        bottomSprite = createSpriteNode(withImage: bottomObject.picture)
+//        
+//        guard let bottomSprite else { return }
+//        bottomSprite.position = CGPoint(x: 0, y: 0)
+//        bottomSprite.name = "bottom"
+//        
+//        maskNode2 = SKShapeNode(rectOf: container2.frame.size, cornerRadius: 20)
+//        guard let maskNode2 else { return }
+//        maskNode2.fillColor = .white
+//        
+//        cropNode2 = SKCropNode()
+//        guard let cropNode2 else { return }
+//        cropNode2.maskNode = maskNode2
+//        cropNode2.position = container2.position
+//        cropNode2.addChild(bottomSprite)
+//        addChild(cropNode2)
+//    }
     
     func restartGame() {
         score = 0
         gameCounter = 0
+        setNewImages()
+    }
+    
+    func setNewImages() {
         let items = dataProvider.provideItems()
         topObject = items.0
         bottomObject = items.1
-        setupTopPic()
-        setupBottomPic()
+        topImageElement.updateImage(with: topObject.picture)
+        bottomImageElement.updateImage(with: bottomObject.picture)
     }
     
     func showAlert(title: String, message: String) {
@@ -220,7 +187,7 @@ class GameScene: SKScene {
             }
         }
     
-    func responseAnimation(text: String, target: SKShapeNode, location: CGPoint) {
+    func responseAnimation(text: String, location: CGPoint) {
         let responseLabel = SKLabelNode(text: text)
         responseLabel.fontName = "Helvetica-Bold"
         responseLabel.fontSize = 70
