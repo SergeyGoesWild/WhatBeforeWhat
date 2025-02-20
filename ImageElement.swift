@@ -71,9 +71,9 @@ class ImageElement: SKNode {
             let width = image.size.width / multiplier
             return CGSize(width: width, height: height)
         } else {
-            let multiplier = image.size.width / container.frame.height
+            let multiplier = image.size.width / container.frame.width
             let height = image.size.height / multiplier
-            let width = container.frame.height
+            let width = container.frame.width
             return CGSize(width: width, height: height)
         }
     }
