@@ -114,51 +114,51 @@ class GameScene: SKScene {
         }
     }
     
-//    func setupTopPic() {
-//        topSprite?.removeFromParent()
-//        maskNode1?.removeFromParent()
-//        cropNode1?.removeFromParent()
-//        
-//        topSprite = createSpriteNode(withImage: topObject.picture)
-//        
-//        guard let topSprite else { return }
-//        topSprite.position = CGPoint(x: 0, y: 0)
-//        topSprite.name = "top"
-//        
-//        maskNode1 = SKShapeNode(rectOf: container1.frame.size, cornerRadius: 20)
-//        guard let maskNode1 else { return }
-//        maskNode1.fillColor = .white
-//        
-//        cropNode1 = SKCropNode()
-//        guard let cropNode1 else { return }
-//        cropNode1.maskNode = maskNode1
-//        cropNode1.position = container1.position
-//        cropNode1.addChild(topSprite)
-//        addChild(cropNode1)
-//    }
-//    
-//    func setupBottomPic() {
-//        bottomSprite?.removeFromParent()
-//        maskNode2?.removeFromParent()
-//        cropNode2?.removeFromParent()
-//        
-//        bottomSprite = createSpriteNode(withImage: bottomObject.picture)
-//        
-//        guard let bottomSprite else { return }
-//        bottomSprite.position = CGPoint(x: 0, y: 0)
-//        bottomSprite.name = "bottom"
-//        
-//        maskNode2 = SKShapeNode(rectOf: container2.frame.size, cornerRadius: 20)
-//        guard let maskNode2 else { return }
-//        maskNode2.fillColor = .white
-//        
-//        cropNode2 = SKCropNode()
-//        guard let cropNode2 else { return }
-//        cropNode2.maskNode = maskNode2
-//        cropNode2.position = container2.position
-//        cropNode2.addChild(bottomSprite)
-//        addChild(cropNode2)
-//    }
+    //    func setupTopPic() {
+    //        topSprite?.removeFromParent()
+    //        maskNode1?.removeFromParent()
+    //        cropNode1?.removeFromParent()
+    //
+    //        topSprite = createSpriteNode(withImage: topObject.picture)
+    //
+    //        guard let topSprite else { return }
+    //        topSprite.position = CGPoint(x: 0, y: 0)
+    //        topSprite.name = "top"
+    //
+    //        maskNode1 = SKShapeNode(rectOf: container1.frame.size, cornerRadius: 20)
+    //        guard let maskNode1 else { return }
+    //        maskNode1.fillColor = .white
+    //
+    //        cropNode1 = SKCropNode()
+    //        guard let cropNode1 else { return }
+    //        cropNode1.maskNode = maskNode1
+    //        cropNode1.position = container1.position
+    //        cropNode1.addChild(topSprite)
+    //        addChild(cropNode1)
+    //    }
+    //
+    //    func setupBottomPic() {
+    //        bottomSprite?.removeFromParent()
+    //        maskNode2?.removeFromParent()
+    //        cropNode2?.removeFromParent()
+    //
+    //        bottomSprite = createSpriteNode(withImage: bottomObject.picture)
+    //
+    //        guard let bottomSprite else { return }
+    //        bottomSprite.position = CGPoint(x: 0, y: 0)
+    //        bottomSprite.name = "bottom"
+    //
+    //        maskNode2 = SKShapeNode(rectOf: container2.frame.size, cornerRadius: 20)
+    //        guard let maskNode2 else { return }
+    //        maskNode2.fillColor = .white
+    //
+    //        cropNode2 = SKCropNode()
+    //        guard let cropNode2 else { return }
+    //        cropNode2.maskNode = maskNode2
+    //        cropNode2.position = container2.position
+    //        cropNode2.addChild(bottomSprite)
+    //        addChild(cropNode2)
+    //    }
     
     func restartGame() {
         score = 0
@@ -175,17 +175,17 @@ class GameScene: SKScene {
     }
     
     func showAlert(title: String, message: String) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                self.restartGame()
-            }
-            alert.addAction(okAction)
-            
-            if let viewController = self.view?.window?.rootViewController {
-                viewController.present(alert, animated: true, completion: nil)
-            }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.restartGame()
         }
+        alert.addAction(okAction)
+        
+        if let viewController = self.view?.window?.rootViewController {
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
     
     func responseAnimation(text: String, location: CGPoint) {
         let responseLabel = SKLabelNode(text: text)
