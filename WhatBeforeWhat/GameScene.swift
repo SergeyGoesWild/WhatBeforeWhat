@@ -11,6 +11,7 @@ import UIKit
 
 class GameScene: SKScene {
     
+    var hasInitialized = false
     let cornerRadius = 20
     let centralMargin = 25
     let gameLimit: Int = 5
@@ -18,9 +19,7 @@ class GameScene: SKScene {
     let positiveMessage = "Yes!"
     let negativeMessage = "No!"
     
-    var containerSize: CGSize {
-        return CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
-    }
+    var containerSize: CGSize!
     var isTouchBlocked = false
     let dataProvider = DataProvider.shared
     var guessRight = false
@@ -29,28 +28,42 @@ class GameScene: SKScene {
     var score: Int = 0
     var gameCounter: Int = 0
     
+    var centralLabel: SKLabelNode!
     var topImageElement: ImageElement!
     var bottomImageElement: ImageElement!
     
+    override func didChangeSize(_ oldSize: CGSize) {
+        super.didChangeSize(oldSize)
+        guard size != oldSize else { return }
+        guard hasInitialized else { return }
+        updatePosition()
+        print("size")
+    }
+    
     override func didMove(to view: SKView) {
+        print("move")
         let items = dataProvider.provideItems()
         topObject = items.0
         bottomObject = items.1
         
-        let centralLabel = SKLabelNode(text: "What came first?")
+        centralLabel = SKLabelNode(text: "What came first?")
         centralLabel.fontSize = 25
         centralLabel.fontColor = .white
         centralLabel.horizontalAlignmentMode = .center
         centralLabel.verticalAlignmentMode = .center
-        centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        addChild(centralLabel)
+        
+        containerSize = CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top")
-        topImageElement.position = CGPoint(x: self.frame.midX, y: self.frame.maxY - containerSize.height / 2)
-        addChild(topImageElement)
         bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom")
-        bottomImageElement.position = CGPoint(x: self.frame.midX, y: self.frame.minY + containerSize.height / 2)
+        
+        updatePosition()
+        
+        addChild(centralLabel)
+        addChild(topImageElement)
         addChild(bottomImageElement)
+        
+        hasInitialized = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -94,6 +107,15 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    private func updatePosition() {
+        containerSize = CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
+        topImageElement.updateSize(newSize: containerSize)
+        bottomImageElement.updateSize(newSize: containerSize)
+        centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        topImageElement.position = CGPoint(x: self.frame.minX, y: self.frame.maxY - containerSize.height)
+        bottomImageElement.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
     }
     
     func didTapPicture() {

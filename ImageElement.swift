@@ -12,11 +12,16 @@ class ImageElement: SKNode {
     private var container: SKShapeNode!
     private var cropNode: SKCropNode!
     private var maskNode: SKShapeNode!
+    private var touchArea: SKShapeNode!
     private var spriteNode: SKSpriteNode!
+    private var cornerRadius: CGFloat!
+    private var imageName: String!
     
     init(containerSize: CGSize, imageName: String, cornerRadius: CGFloat = 20, name: String) {
         super.init()
         
+        self.imageName = imageName
+        self.cornerRadius = cornerRadius
         self.container = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.cropNode = SKCropNode()
         self.maskNode = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
@@ -30,26 +35,33 @@ class ImageElement: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateSize(newSize: CGSize) {
+        container.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
+                                cornerWidth: cornerRadius,
+                                cornerHeight: cornerRadius,
+                                transform: nil)
+        maskNode.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
+                              cornerWidth: cornerRadius,
+                              cornerHeight: cornerRadius,
+                              transform: nil)
+        touchArea.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
+                              cornerWidth: cornerRadius,
+                              cornerHeight: cornerRadius,
+                              transform: nil)
+        spriteNode.position = CGPoint(x: container.frame.width / 2, y: container.frame.height / 2)
+        spriteNode.size = getImageSize(image: UIImage(named: imageName) ?? UIImage())
+    }
+    
     private func setupNodes() {
-        
-        container.name = "Container"
-        spriteNode.name = "Sprite"
-        cropNode.name = "CropNode"
-        
         container.strokeColor = .clear
-        container.lineWidth = 0
-        
-        spriteNode.position = .zero
-        
         maskNode.fillColor = .white
-        
         cropNode.maskNode = maskNode
-        cropNode.addChild(spriteNode)
         
+        cropNode.addChild(spriteNode)
         addChild(container)
         addChild(cropNode)
         
-        let touchArea = SKShapeNode(rectOf: container.frame.size)
+        touchArea = SKShapeNode(rectOf: container.frame.size)
         touchArea.fillColor = .clear
         touchArea.strokeColor = .clear
         touchArea.name = self.name
