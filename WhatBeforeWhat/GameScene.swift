@@ -12,8 +12,9 @@ import UIKit
 class GameScene: SKScene {
     
     var hasInitialized = false
-    let cornerRadius = 20
+    let cornerRadius = 35
     let centralMargin = 25
+    let sideMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
     let positiveMessage = "Yes!"
@@ -48,11 +49,12 @@ class GameScene: SKScene {
         
         centralLabel = SKLabelNode(text: "What came first?")
         centralLabel.fontSize = 25
-        centralLabel.fontColor = .white
+        centralLabel.fontName = "HelveticaNeue-Medium"
+        centralLabel.fontColor = .black
         centralLabel.horizontalAlignmentMode = .center
         centralLabel.verticalAlignmentMode = .center
         
-        containerSize = CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top")
         bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom")
@@ -110,12 +112,12 @@ class GameScene: SKScene {
     }
     
     private func updatePosition() {
-        containerSize = CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
         topImageElement.updateSize(newSize: containerSize)
         bottomImageElement.updateSize(newSize: containerSize)
         centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        topImageElement.position = CGPoint(x: self.frame.minX, y: self.frame.maxY - containerSize.height)
-        bottomImageElement.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
+        topImageElement.position = CGPoint(x: 10, y: self.frame.maxY - containerSize.height)
+        bottomImageElement.position = CGPoint(x: 10, y: self.frame.minY)
     }
     
     func didTapPicture() {

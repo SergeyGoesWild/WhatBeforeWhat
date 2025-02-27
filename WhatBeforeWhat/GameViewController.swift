@@ -11,6 +11,7 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    private let bgColour = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
     private let gameContainerView = UIView()
     private var gameView: SKView!
     private var gameSceneLoaded = false
@@ -29,7 +30,7 @@ class GameViewController: UIViewController {
     }
     
     private func setupGameContainer() {
-        gameContainerView.backgroundColor = .black
+        gameContainerView.backgroundColor = bgColour
         gameContainerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(gameContainerView)
         
@@ -57,7 +58,7 @@ class GameViewController: UIViewController {
     func setupGameScene() {
         let scene = GameScene(size: gameContainerView.bounds.size)
         scene.scaleMode = .resizeFill
-        scene.backgroundColor = .black
+        scene.backgroundColor = bgColour
         gameView.ignoresSiblingOrder = true
         gameView.showsFPS = true
         gameView.showsNodeCount = true
