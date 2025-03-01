@@ -17,6 +17,9 @@ final class DataProvider {
     static let shared = DataProvider()
     private init() {}
     
+    private var prevIndex1: Int?
+    private var prevIndex2: Int?
+    
     let data: [HistoricItem] = [
         HistoricItem(id: UUID(), picture: "HandsCave", date: -25000),
         HistoricItem(id: UUID(), picture: "BlackSquare", date: 1915),
@@ -66,11 +69,26 @@ final class DataProvider {
     ]
     
     func provideItems() -> (HistoricItem, HistoricItem) {
-        let random1 = Int.random(in: 0..<data.count)
+        guard let previous1 = prevIndex1, let previous2 = prevIndex2 else {
+            let random1 = Int.random(in: 0..<data.count)
+            var random2 = Int.random(in: 0..<data.count)
+            while random2 == random1 {
+                random2 = Int.random(in: 0..<data.count)
+            }
+            prevIndex1 = random1
+            prevIndex2 = random2
+            return (data[random1], data[random2])
+        }
+        var random1 = Int.random(in: 0..<data.count)
+        while random1 == previous1 {
+            random1 = Int.random(in: 0..<data.count)
+        }
         var random2 = Int.random(in: 0..<data.count)
-        while random2 == random1 {
+        while random2 == random1 || random2 == previous1 || random2 == previous2 {
             random2 = Int.random(in: 0..<data.count)
         }
+        prevIndex1 = random1
+        prevIndex2 = random2
         return (data[random1], data[random2])
     }
 }
