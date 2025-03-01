@@ -12,8 +12,9 @@ import UIKit
 class GameScene: SKScene {
     
     var hasInitialized = false
+    let strokeWidth = 6
     let cornerRadius = 35
-    let centralMargin = 25
+    let centralMargin = 45
     let sideMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
@@ -56,8 +57,8 @@ class GameScene: SKScene {
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
         
-        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top")
-        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom")
+        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth)
+        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth)
         
         updatePosition()
         
@@ -112,12 +113,12 @@ class GameScene: SKScene {
     }
     
     private func updatePosition() {
-        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2  - CGFloat(centralMargin))
         topImageElement.updateSize(newSize: containerSize)
         bottomImageElement.updateSize(newSize: containerSize)
         centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        topImageElement.position = CGPoint(x: 10, y: self.frame.maxY - containerSize.height)
-        bottomImageElement.position = CGPoint(x: 10, y: self.frame.minY)
+        topImageElement.position = CGPoint(x: 10, y: Int(self.frame.maxY - containerSize.height) - strokeWidth / 2)
+        bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
     }
     
     func didTapPicture() {

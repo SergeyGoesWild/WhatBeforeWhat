@@ -45,7 +45,6 @@
 		2AB417AC2D454BC400FF6147 = {
 			isa = PBXGroup;
 			children = (
-				2AB417D32D4D2DE300FF6147 /* ImageElement.swift */,
 				2AB417B72D454BC400FF6147 /* WhatBeforeWhat */,
 				2AB417B62D454BC400FF6147 /* Products */,
 			);
@@ -62,6 +61,7 @@
 		2AB417B72D454BC400FF6147 /* WhatBeforeWhat */ = {
 			isa = PBXGroup;
 			children = (
+				2AB417D32D4D2DE300FF6147 /* ImageElement.swift */,
 				2AB417D12D45AD0C00FF6147 /* DataProvider.swift */,
 				2AB417B82D454BC400FF6147 /* AppDelegate.swift */,
 				2AB417BA2D454BC400FF6147 /* GameScene.sks */,

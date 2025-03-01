@@ -16,8 +16,9 @@ class ImageElement: SKNode {
     private var spriteNode: SKSpriteNode!
     private var cornerRadius: CGFloat!
     private var imageName: String!
+    private var strokeWidth: Int!
     
-    init(containerSize: CGSize, imageName: String, cornerRadius: CGFloat = 20, name: String) {
+    init(containerSize: CGSize, imageName: String, cornerRadius: CGFloat = 20, name: String, strokeWidth: Int) {
         super.init()
         
         self.imageName = imageName
@@ -27,6 +28,7 @@ class ImageElement: SKNode {
         self.maskNode = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.spriteNode = createSpriteNode(withImage: imageName)
         self.name = name
+        self.strokeWidth = strokeWidth
         
         setupNodes()
     }
@@ -53,7 +55,8 @@ class ImageElement: SKNode {
     }
     
     private func setupNodes() {
-        container.strokeColor = .clear
+        container.strokeColor = .black
+        container.lineWidth = CGFloat(strokeWidth)
         maskNode.fillColor = .white
         cropNode.maskNode = maskNode
         
