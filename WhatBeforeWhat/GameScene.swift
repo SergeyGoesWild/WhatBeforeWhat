@@ -12,7 +12,7 @@ import UIKit
 class GameScene: SKScene {
     
     var hasInitialized = false
-    let strokeWidth = 6
+    let strokeWidth = 3
     let cornerRadius = 35
     let centralMargin = 45
     let buttonMargin = 60
@@ -56,7 +56,7 @@ class GameScene: SKScene {
         nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
         nextButton.fillColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
         nextButton.strokeColor = .black
-        nextButton.lineWidth = 3
+        nextButton.lineWidth = 2
         nextButton.name = "nextButton"
         nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
@@ -68,7 +68,7 @@ class GameScene: SKScene {
         introLabel.verticalAlignmentMode = .center
         introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
-        buttonLabel = SKLabelNode(text: "Next >>>")
+        buttonLabel = SKLabelNode(text: "Next ➡️")
         buttonLabel.fontSize = 25
         buttonLabel.fontName = "HelveticaNeue-Medium"
         buttonLabel.fontColor = .black
@@ -78,8 +78,8 @@ class GameScene: SKScene {
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
         
-        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth)
-        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth)
+        topImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth, historicItem: topObject)
+        bottomImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth, historicItem: bottomObject)
         
         topImageElement.updateSize(newSize: containerSize)
         bottomImageElement.updateSize(newSize: containerSize)
@@ -107,6 +107,8 @@ class GameScene: SKScene {
         if node.name == "top" {
             print("TOP clicked")
             if !introOFF { switchToButtonLayout() }
+            topImageElement.updateState(showingInfo: true)
+            bottomImageElement.updateState(showingInfo: true)
             guessRight = topObject.date < bottomObject.date
             if guessRight {
                 responseAnimation(text: positiveMessage, location: location)
@@ -119,6 +121,8 @@ class GameScene: SKScene {
             if !isTouchBlocked {
                 isTouchBlocked = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
+                    self.topImageElement.updateState(showingInfo: false)
+                    self.bottomImageElement.updateState(showingInfo: false)
                     self.didTapPicture()
                     self.isTouchBlocked = false
                 }
@@ -126,6 +130,8 @@ class GameScene: SKScene {
         } else if node.name == "bottom" {
             print("BOTTOM clicked")
             if !introOFF { switchToButtonLayout() }
+            topImageElement.updateState(showingInfo: true)
+            bottomImageElement.updateState(showingInfo: true)
             guessRight = bottomObject.date < topObject.date
             if guessRight {
                 responseAnimation(text: positiveMessage, location: location)
@@ -138,6 +144,8 @@ class GameScene: SKScene {
             if !isTouchBlocked {
                 isTouchBlocked = true
                 DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
+                    self.topImageElement.updateState(showingInfo: false)
+                    self.bottomImageElement.updateState(showingInfo: false)
                     self.didTapPicture()
                     self.isTouchBlocked = false
                 }
@@ -146,42 +154,21 @@ class GameScene: SKScene {
     }
     
     private func updatePosition() {
-        nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
-        nextButton.fillColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
-        nextButton.strokeColor = .black
-        nextButton.lineWidth = 3
-        nextButton.name = "nextButton"
+        let newWidth = self.size.width - CGFloat(buttonMargin * 2)
+        let newRect = CGRect(x: -newWidth/2, y: -25, width: newWidth, height: 50)
+        nextButton.path = CGPath(roundedRect: newRect, cornerWidth: 15, cornerHeight: 15, transform: nil)
         nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
-        introLabel = SKLabelNode(text: "What came first?")
-        introLabel.fontSize = 25
-        introLabel.fontName = "HelveticaNeue-Medium"
-        introLabel.fontColor = .black
-        introLabel.horizontalAlignmentMode = .center
-        introLabel.verticalAlignmentMode = .center
         introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
-        buttonLabel = SKLabelNode(text: "Next >>>")
-        buttonLabel.fontSize = 25
-        buttonLabel.fontName = "HelveticaNeue-Medium"
-        buttonLabel.fontColor = .black
-        buttonLabel.horizontalAlignmentMode = .center
-        buttonLabel.verticalAlignmentMode = .center
         buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
-        
-        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth)
-        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth)
         
         topImageElement.updateSize(newSize: containerSize)
         bottomImageElement.updateSize(newSize: containerSize)
         topImageElement.position = CGPoint(x: 10, y: Int(self.frame.maxY - containerSize.height) - strokeWidth / 2)
         bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
-        
-        introLabel.isHidden = false
-        nextButton.isHidden = true
-        buttonLabel.isHidden = true
     }
     
     func didTapPicture() {
@@ -204,6 +191,9 @@ class GameScene: SKScene {
         score = 0
         gameCounter = 0
         introOFF = false
+        introLabel.isHidden = false
+        nextButton.isHidden = true
+        buttonLabel.isHidden = true
         setNewImages()
     }
     
@@ -211,8 +201,8 @@ class GameScene: SKScene {
         let items = dataProvider.provideItems()
         topObject = items.0
         bottomObject = items.1
-        topImageElement.updateImage(with: topObject.picture)
-        bottomImageElement.updateImage(with: bottomObject.picture)
+        topImageElement.updateObjects(with: topObject)
+        bottomImageElement.updateObjects(with: bottomObject)
     }
     
     func showAlert(title: String, message: String) {
