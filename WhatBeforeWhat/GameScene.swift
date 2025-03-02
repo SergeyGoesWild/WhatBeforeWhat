@@ -15,6 +15,7 @@ class GameScene: SKScene {
     let strokeWidth = 6
     let cornerRadius = 35
     let centralMargin = 45
+    let buttonMargin = 60
     let sideMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
@@ -25,12 +26,15 @@ class GameScene: SKScene {
     var isTouchBlocked = false
     let dataProvider = DataProvider.shared
     var guessRight = false
+    var introOFF = false
     var topObject: HistoricItem!
     var bottomObject: HistoricItem!
     var score: Int = 0
     var gameCounter: Int = 0
     
-    var centralLabel: SKLabelNode!
+    var introLabel: SKLabelNode!
+    var buttonLabel: SKLabelNode!
+    var nextButton: SKShapeNode!
     var topImageElement: ImageElement!
     var bottomImageElement: ImageElement!
     
@@ -48,24 +52,51 @@ class GameScene: SKScene {
         topObject = items.0
         bottomObject = items.1
         
-        centralLabel = SKLabelNode(text: "What came first?")
-        centralLabel.fontSize = 25
-        centralLabel.fontName = "HelveticaNeue-Medium"
-        centralLabel.fontColor = .black
-        centralLabel.horizontalAlignmentMode = .center
-        centralLabel.verticalAlignmentMode = .center
+        ///
+        nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
+        nextButton.fillColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
+        nextButton.strokeColor = .black
+        nextButton.lineWidth = 3
+        nextButton.name = "nextButton"
+        nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        introLabel = SKLabelNode(text: "What came first?")
+        introLabel.fontSize = 25
+        introLabel.fontName = "HelveticaNeue-Medium"
+        introLabel.fontColor = .black
+        introLabel.horizontalAlignmentMode = .center
+        introLabel.verticalAlignmentMode = .center
+        introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        buttonLabel = SKLabelNode(text: "Next >>>")
+        buttonLabel.fontSize = 25
+        buttonLabel.fontName = "HelveticaNeue-Medium"
+        buttonLabel.fontColor = .black
+        buttonLabel.horizontalAlignmentMode = .center
+        buttonLabel.verticalAlignmentMode = .center
+        buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth)
         bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth)
         
-        updatePosition()
-        
-        addChild(centralLabel)
+        topImageElement.updateSize(newSize: containerSize)
+        bottomImageElement.updateSize(newSize: containerSize)
+        topImageElement.position = CGPoint(x: 10, y: Int(self.frame.maxY - containerSize.height) - strokeWidth / 2)
+        bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
+
         addChild(topImageElement)
         addChild(bottomImageElement)
+        addChild(nextButton)
+        addChild(introLabel)
+        addChild(buttonLabel)
         
+        introLabel.isHidden = false
+        nextButton.isHidden = true
+        buttonLabel.isHidden = true
+        ///
+        updatePosition()
         hasInitialized = true
     }
     
@@ -75,6 +106,7 @@ class GameScene: SKScene {
         let node = atPoint(location)
         if node.name == "top" {
             print("TOP clicked")
+            if !introOFF { switchToButtonLayout() }
             guessRight = topObject.date < bottomObject.date
             if guessRight {
                 responseAnimation(text: positiveMessage, location: location)
@@ -93,6 +125,7 @@ class GameScene: SKScene {
             }
         } else if node.name == "bottom" {
             print("BOTTOM clicked")
+            if !introOFF { switchToButtonLayout() }
             guessRight = bottomObject.date < topObject.date
             if guessRight {
                 responseAnimation(text: positiveMessage, location: location)
@@ -113,12 +146,42 @@ class GameScene: SKScene {
     }
     
     private func updatePosition() {
-        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2  - CGFloat(centralMargin))
+        nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
+        nextButton.fillColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
+        nextButton.strokeColor = .black
+        nextButton.lineWidth = 3
+        nextButton.name = "nextButton"
+        nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        introLabel = SKLabelNode(text: "What came first?")
+        introLabel.fontSize = 25
+        introLabel.fontName = "HelveticaNeue-Medium"
+        introLabel.fontColor = .black
+        introLabel.horizontalAlignmentMode = .center
+        introLabel.verticalAlignmentMode = .center
+        introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        buttonLabel = SKLabelNode(text: "Next >>>")
+        buttonLabel.fontSize = 25
+        buttonLabel.fontName = "HelveticaNeue-Medium"
+        buttonLabel.fontColor = .black
+        buttonLabel.horizontalAlignmentMode = .center
+        buttonLabel.verticalAlignmentMode = .center
+        buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
+        
+        topImageElement = ImageElement(containerSize: containerSize, imageName: topObject.picture, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth)
+        bottomImageElement = ImageElement(containerSize: containerSize, imageName: bottomObject.picture, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth)
+        
         topImageElement.updateSize(newSize: containerSize)
         bottomImageElement.updateSize(newSize: containerSize)
-        centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         topImageElement.position = CGPoint(x: 10, y: Int(self.frame.maxY - containerSize.height) - strokeWidth / 2)
         bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
+        
+        introLabel.isHidden = false
+        nextButton.isHidden = true
+        buttonLabel.isHidden = true
     }
     
     func didTapPicture() {
@@ -130,9 +193,17 @@ class GameScene: SKScene {
         }
     }
     
+    func switchToButtonLayout() {
+        introOFF = true
+        introLabel.isHidden = true
+        nextButton.isHidden = false
+        buttonLabel.isHidden = false
+    }
+    
     func restartGame() {
         score = 0
         gameCounter = 0
+        introOFF = false
         setNewImages()
     }
     
