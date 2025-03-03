@@ -71,7 +71,11 @@ class ImageElement: SKNode {
         spriteNode.position = CGPoint(x: container.frame.width / 2, y: container.frame.height / 2)
         spriteNode.size = getImageSize(image: UIImage(named: historicItem.picture) ?? UIImage())
         
-        textContainer.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        textContainer.position = CGPoint(x: newSize.width/2, y: newSize.height/2)
+        let textContainerHeight = flavourText.frame.height + dateText.frame.height + 10
+        
+        flavourText.position = CGPoint(x: 0, y: textContainerHeight / 2 - flavourText.frame.height / 2)
+        dateText.position = CGPoint(x: 0, y: -textContainerHeight / 2 + dateText.frame.height / 2)
     }
     
     func updateState(showingInfo: Bool) {
@@ -101,12 +105,15 @@ class ImageElement: SKNode {
         dateText.verticalAlignmentMode = .center
         dateText.isHidden = true
         
-        flavourText.position = CGPoint(x: 0, y: flavourText.frame.height/2 + 5)
-        dateText.position = CGPoint(x: 0, y: -dateText.frame.height/2 - 5)
-
-        textContainer.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
+        let textContainerHeight = flavourText.frame.height + dateText.frame.height + 10
+        
+        flavourText.position = CGPoint(x: 0, y: textContainerHeight / 2 - flavourText.frame.height / 2)
+        dateText.position = CGPoint(x: 0, y: textContainerHeight / 2 - dateText.frame.height / 2)
+        
         textContainer.addChild(flavourText)
         textContainer.addChild(dateText)
+        
+        textContainer.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2)
         
         container.fillColor = .clear
         maskNode.fillColor = .white
