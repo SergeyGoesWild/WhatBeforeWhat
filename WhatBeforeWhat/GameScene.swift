@@ -24,6 +24,7 @@ class GameScene: SKScene {
     
     var containerSize: CGSize!
     var isTouchBlocked = false
+    var buttonActive = false
     let dataProvider = DataProvider.shared
     var guessRight = false
     var introOFF = false
@@ -85,7 +86,7 @@ class GameScene: SKScene {
         bottomImageElement.updateSize(newSize: containerSize)
         topImageElement.position = CGPoint(x: 10, y: Int(self.frame.maxY - containerSize.height) - strokeWidth / 2)
         bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
-
+        
         addChild(topImageElement)
         addChild(bottomImageElement)
         addChild(nextButton)
@@ -104,7 +105,9 @@ class GameScene: SKScene {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let node = atPoint(location)
-        if node.name == "top" {
+        if node.name == "top" && !isTouchBlocked {
+            buttonActive = true
+            isTouchBlocked = true
             print("TOP clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -118,16 +121,10 @@ class GameScene: SKScene {
                 responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
-            if !isTouchBlocked {
-                isTouchBlocked = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
-                    self.topImageElement.updateState(showingInfo: false)
-                    self.bottomImageElement.updateState(showingInfo: false)
-                    self.didTapPicture()
-                    self.isTouchBlocked = false
-                }
-            }
-        } else if node.name == "bottom" {
+            checkIfGameOver()
+        } else if node.name == "bottom" && !isTouchBlocked {
+            buttonActive = true
+            isTouchBlocked = true
             print("BOTTOM clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -141,16 +138,18 @@ class GameScene: SKScene {
                 responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
-            if !isTouchBlocked {
-                isTouchBlocked = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
-                    self.topImageElement.updateState(showingInfo: false)
-                    self.bottomImageElement.updateState(showingInfo: false)
-                    self.didTapPicture()
-                    self.isTouchBlocked = false
-                }
-            }
+            checkIfGameOver()
+        } else if node.name == "nextButton" && buttonActive == true {
+            nextButtonPressed()
         }
+    }
+    
+    private func nextButtonPressed(){
+        buttonActive = false
+        isTouchBlocked = false
+        topImageElement.updateState(showingInfo: false)
+        bottomImageElement.updateState(showingInfo: false)
+        setNewImages()
     }
     
     private func updatePosition() {
@@ -171,12 +170,10 @@ class GameScene: SKScene {
         bottomImageElement.position = CGPoint(x: 10, y: Int(self.frame.minY) + strokeWidth / 2)
     }
     
-    func didTapPicture() {
+    func checkIfGameOver() {
         gameCounter += 1
         if gameCounter == gameLimit {
             showAlert(title: "Game Over", message: "Your score is: \(score)")
-        } else {
-            setNewImages()
         }
     }
     
@@ -194,6 +191,10 @@ class GameScene: SKScene {
         introLabel.isHidden = false
         nextButton.isHidden = true
         buttonLabel.isHidden = true
+        buttonActive = false
+        isTouchBlocked = false
+        topImageElement.updateState(showingInfo: false)
+        bottomImageElement.updateState(showingInfo: false)
         setNewImages()
     }
     
