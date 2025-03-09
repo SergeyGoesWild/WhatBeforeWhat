@@ -48,7 +48,7 @@ class ImageElement: SKNode {
         self.maskNode = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.spriteNode = createSpriteNode(withImage: historicItem.picture)
         self.textContainer = SKShapeNode()
-        self.flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: containerSize.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
+        self.flavourText = SKNode()
         self.name = name
         self.strokeWidth = strokeWidth
         
@@ -73,6 +73,7 @@ class ImageElement: SKNode {
     
     private func setupNodes() {
         
+        flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
         flavourText.isHidden = true
         flavourText.name = "flavourText"
         
@@ -210,7 +211,11 @@ class ImageElement: SKNode {
     func updateObjects(with newObject: HistoricItem) {
         historicItem = newObject
         
-        flavourText =  createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
+        flavourText.removeFromParent()
+        flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
+        textContainer.addChild(flavourText)
+        flavourText.isHidden = true
+        
         flavourText.position = CGPoint(x: flavourText.frame.width / 2, y: flavourText.frame.height + CGFloat(lineSpacing))
         let textContainerHeight = dateText.frame.height + flavourText.frame.height + CGFloat(lineSpacing)
         textContainer.path = CGPath(rect: CGRect(x: 0, y: 0, width: Int(container.frame.width - CGFloat(horizontalMargin * 2)), height: Int(textContainerHeight)), transform: nil)
