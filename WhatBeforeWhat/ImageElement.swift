@@ -209,7 +209,13 @@ class ImageElement: SKNode {
     
     func updateObjects(with newObject: HistoricItem) {
         historicItem = newObject
+        
         flavourText =  createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
+        flavourText.position = CGPoint(x: flavourText.frame.width / 2, y: flavourText.frame.height + CGFloat(lineSpacing))
+        let textContainerHeight = dateText.frame.height + flavourText.frame.height + CGFloat(lineSpacing)
+        textContainer.path = CGPath(rect: CGRect(x: 0, y: 0, width: Int(container.frame.width - CGFloat(horizontalMargin * 2)), height: Int(textContainerHeight)), transform: nil)
+        textContainer.position = CGPoint(x: container.frame.minX + CGFloat(horizontalMargin), y: container.frame.midY-textContainer.frame.height / 2)
+        
         dateText.text = "Created: \(historicItem.circa ? "circa" : "") \(String(historicItem.date))"
         guard let newImage = UIImage(named: historicItem.picture) else { return }
         spriteNode.texture = SKTexture(image: newImage)
