@@ -28,6 +28,7 @@ class GameScene: SKScene {
     let dataProvider = DataProvider.shared
     var guessRight = false
     var introOFF = false
+    var isEnding = false
     var topObject: HistoricItem!
     var bottomObject: HistoricItem!
     var score: Int = 0
@@ -63,7 +64,7 @@ class GameScene: SKScene {
         introLabel.name = "introLabel"
         addChild(introLabel)
         
-        buttonLabel = SKLabelNode(text: "Next ➡️")
+        buttonLabel = SKLabelNode(text: "Next")
         buttonLabel.fontSize = 25
         buttonLabel.fontName = "Helvetica-Bold"
         buttonLabel.fontColor = .white
@@ -135,7 +136,11 @@ class GameScene: SKScene {
             }
             checkIfGameOver()
         } else if node.name == "nextButton" && buttonActive == true {
-            nextButtonPressed()
+            if isEnding {
+                showAlert(title: "Game Over", message: "Your score is: \(score)")
+            } else {
+                nextButtonPressed()
+            }
         }
     }
     
@@ -150,7 +155,8 @@ class GameScene: SKScene {
     func checkIfGameOver() {
         gameCounter += 1
         if gameCounter == gameLimit {
-            showAlert(title: "Game Over", message: "Your score is: \(score)")
+            isEnding = true
+            buttonLabel.text = "Finish"
         }
     }
     
@@ -168,8 +174,10 @@ class GameScene: SKScene {
         introLabel.isHidden = false
         nextButton.isHidden = true
         buttonLabel.isHidden = true
+        buttonLabel.text = "Next"
         buttonActive = false
         isTouchBlocked = false
+        isEnding = false
         topImageElement.updateState(showingInfo: false)
         bottomImageElement.updateState(showingInfo: false)
         setNewImages()
