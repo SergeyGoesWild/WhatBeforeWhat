@@ -19,8 +19,11 @@ class GameScene: SKScene {
     let verticalMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
+    let shadowOffset = 10
     let positiveMessage = "Yes!"
     let negativeMessage = "No!"
+    let buttonColorActive = UIColor(red: 0.13, green: 0.58, blue: 0.33, alpha: 1.00)
+    let buttonColorInactive = UIColor(red: 0.66, green: 0.85, blue: 0.75, alpha: 1.00)
     
     var containerSize: CGSize!
     var isTouchBlocked = false
@@ -37,6 +40,7 @@ class GameScene: SKScene {
     var introLabel: SKLabelNode!
     var buttonLabel: SKLabelNode!
     var nextButton: SKShapeNode!
+    var buttonShadow: SKShapeNode!
     var buttonTouchArea: SKShapeNode!
     var topImageElement: ImageElement!
     var bottomImageElement: ImageElement!
@@ -51,7 +55,14 @@ class GameScene: SKScene {
         nextButton.strokeColor = .black
         nextButton.lineWidth = 2
         nextButton.name = "nextButton 2"
-        nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY+CGFloat(shadowOffset/2))
+        buttonShadow = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
+        buttonShadow.fillColor = .black
+        buttonShadow.strokeColor = .black
+        buttonShadow.lineWidth = 2
+        buttonShadow.name = "nextButtonShadow"
+        buttonShadow.position = CGPoint(x: self.frame.midX, y: nextButton.position.y-CGFloat(shadowOffset))
+        addChild(buttonShadow)
         addChild(nextButton)
         
         introLabel = SKLabelNode(text: "What came first?")
@@ -70,7 +81,7 @@ class GameScene: SKScene {
         buttonLabel.fontColor = .white
         buttonLabel.horizontalAlignmentMode = .center
         buttonLabel.verticalAlignmentMode = .center
-        buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY+CGFloat(shadowOffset/2))
         buttonLabel.name = "buttonLabel"
         addChild(buttonLabel)
         
@@ -104,6 +115,7 @@ class GameScene: SKScene {
         if node.name == "top" && !isTouchBlocked {
             buttonActive = true
             isTouchBlocked = true
+            checkButtonStatus()
             print("TOP clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -121,6 +133,7 @@ class GameScene: SKScene {
         } else if node.name == "bottom" && !isTouchBlocked {
             buttonActive = true
             isTouchBlocked = true
+            checkButtonStatus()
             print("BOTTOM clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -144,9 +157,18 @@ class GameScene: SKScene {
         }
     }
     
+    private func checkButtonStatus() {
+        if buttonActive {
+            nextButton.fillColor = buttonColorActive
+        } else {
+            nextButton.fillColor = buttonColorInactive
+        }
+    }
+    
     private func nextButtonPressed(){
         buttonActive = false
         isTouchBlocked = false
+        checkButtonStatus()
         topImageElement.updateState(showingInfo: false)
         bottomImageElement.updateState(showingInfo: false)
         setNewImages()
