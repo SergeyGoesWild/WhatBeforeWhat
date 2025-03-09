@@ -64,6 +64,9 @@ class ImageElement: SKNode {
             overlay.isHidden = false
             flavourText.isHidden = false
             dateText.isHidden = false
+            overlay.alpha = 0.0
+            let fadeToHalf = SKAction.fadeAlpha(to: 0.7, duration: 0.3)
+            overlay.run(fadeToHalf)
         } else {
             overlay.isHidden = true
             flavourText.isHidden = true
