@@ -16,6 +16,7 @@ class GameScene: SKScene {
     let centralMargin = 45
     let buttonMargin = 60
     let sideMargin = 10
+    let verticalMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
     let positiveMessage = "Yes!"
@@ -35,6 +36,7 @@ class GameScene: SKScene {
     var introLabel: SKLabelNode!
     var buttonLabel: SKLabelNode!
     var nextButton: SKShapeNode!
+    var buttonTouchArea: SKShapeNode!
     var topImageElement: ImageElement!
     var bottomImageElement: ImageElement!
     
@@ -44,40 +46,50 @@ class GameScene: SKScene {
         bottomObject = items.1
         
         nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
-        nextButton.fillColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
+        nextButton.fillColor = UIColor(red: 0.13, green: 0.58, blue: 0.33, alpha: 1.00)
         nextButton.strokeColor = .black
         nextButton.lineWidth = 2
-        nextButton.name = "nextButton"
+        nextButton.name = "nextButton 2"
         nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         addChild(nextButton)
         
         introLabel = SKLabelNode(text: "What came first?")
         introLabel.fontSize = 25
-        introLabel.fontName = "HelveticaNeue-Medium"
+        introLabel.fontName = "Helvetica-Bold"
         introLabel.fontColor = .black
         introLabel.horizontalAlignmentMode = .center
         introLabel.verticalAlignmentMode = .center
         introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        introLabel.name = "introLabel"
         addChild(introLabel)
         
         buttonLabel = SKLabelNode(text: "Next ➡️")
         buttonLabel.fontSize = 25
-        buttonLabel.fontName = "HelveticaNeue-Medium"
-        buttonLabel.fontColor = .black
+        buttonLabel.fontName = "Helvetica-Bold"
+        buttonLabel.fontColor = .white
         buttonLabel.horizontalAlignmentMode = .center
         buttonLabel.verticalAlignmentMode = .center
         buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        buttonLabel.name = "buttonLabel"
         addChild(buttonLabel)
         
-        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin))
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin) - CGFloat(verticalMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth, historicItem: topObject)
-        topImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.maxY - containerSize.height / 2))
+        topImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.maxY - containerSize.height / 2) - verticalMargin)
         addChild(topImageElement)
         
         bottomImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth, historicItem: bottomObject)
-        bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2))
+        bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2) + verticalMargin)
         addChild(bottomImageElement)
+        
+        buttonTouchArea = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
+        buttonTouchArea.fillColor = .clear
+        buttonTouchArea.strokeColor = .clear
+        buttonTouchArea.lineWidth = 0
+        buttonTouchArea.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        buttonTouchArea.name = "nextButton"
+        addChild(buttonTouchArea)
         
         introLabel.isHidden = false
         nextButton.isHidden = true

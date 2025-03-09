@@ -17,6 +17,10 @@ class ImageElement: SKNode {
     private let dateFontSize: CGFloat = 24
     private let dateFontColour: UIColor = .white
     
+    private let horizontalMargin = 20
+    private let verticalMargin = 20
+    private let lineSpacing = 40
+    
     private var container: SKShapeNode!
     private var strokeNode: SKShapeNode!
     private var overlay: SKShapeNode!
@@ -43,8 +47,8 @@ class ImageElement: SKNode {
         self.cropNode = SKCropNode()
         self.maskNode = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.spriteNode = createSpriteNode(withImage: historicItem.picture)
-        self.textContainer = SKShapeNode(rectOf: CGSize(width: containerSize.width - 40, height: 100))
-        self.flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: textContainer.frame.width, position: CGPoint(x: 0, y: 0))
+        self.textContainer = SKShapeNode()
+        self.flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: containerSize.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
         self.name = name
         self.strokeWidth = strokeWidth
         
@@ -54,37 +58,6 @@ class ImageElement: SKNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    func updateSize(newSize: CGSize) {
-//        container.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
-//                                cornerWidth: cornerRadius,
-//                                cornerHeight: cornerRadius,
-//                                transform: nil)
-//        overlay.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
-//                                cornerWidth: cornerRadius,
-//                                cornerHeight: cornerRadius,
-//                                transform: nil)
-//        strokeNode.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
-//                                cornerWidth: cornerRadius,
-//                                cornerHeight: cornerRadius,
-//                                transform: nil)
-//        maskNode.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
-//                              cornerWidth: cornerRadius,
-//                              cornerHeight: cornerRadius,
-//                              transform: nil)
-//        touchArea.path = CGPath(roundedRect: CGRect(origin: .zero, size: newSize),
-//                              cornerWidth: cornerRadius,
-//                              cornerHeight: cornerRadius,
-//                              transform: nil)
-//        spriteNode.position = CGPoint(x: container.frame.width / 2, y: container.frame.height / 2)
-//        spriteNode.size = getImageSize(image: UIImage(named: historicItem.picture) ?? UIImage())
-//        
-//        textContainer.position = CGPoint(x: newSize.width/2, y: newSize.height/2)
-//        let textContainerHeight = flavourText.frame.height + dateText.frame.height + 10
-//        
-//        flavourText.position = CGPoint(x: 0, y: textContainerHeight / 2 - flavourText.frame.height / 2)
-//        dateText.position = CGPoint(x: 0, y: -textContainerHeight / 2 + dateText.frame.height / 2)
-//    }
     
     func updateState(showingInfo: Bool) {
         if showingInfo {
@@ -99,24 +72,29 @@ class ImageElement: SKNode {
     }
     
     private func setupNodes() {
-
+        
         flavourText.isHidden = true
+        flavourText.name = "flavourText"
         
         dateText.fontSize = dateFontSize
         dateText.fontName = dateFontName
         dateText.fontColor = dateFontColour
         dateText.horizontalAlignmentMode = .left
-        dateText.verticalAlignmentMode = .center
         dateText.isHidden = true
+        dateText.name = "dateText"
         
-        flavourText.position = CGPoint(x: -textContainer.frame.width / 2, y: textContainer.frame.maxY)
-        dateText.position = CGPoint(x: -textContainer.frame.width / 2, y: textContainer.frame.minY)
+        flavourText.position = CGPoint(x: flavourText.frame.width / 2, y: flavourText.frame.height + CGFloat(lineSpacing))
+        dateText.position = CGPoint(x: 0, y: textContainer.frame.minY)
+        
+        let textContainerHeight = dateText.frame.height + flavourText.frame.height + CGFloat(lineSpacing)
         
         textContainer.strokeColor = .red
-        textContainer.lineWidth = 5
-        textContainer.position = CGPoint(x: 0, y: 0)
+        textContainer.lineWidth = 0
+        textContainer.path = CGPath(rect: CGRect(x: 0, y: 0, width: Int(container.frame.width - CGFloat(horizontalMargin * 2)), height: Int(textContainerHeight)), transform: nil)
+        textContainer.position = CGPoint(x: container.frame.minX + CGFloat(horizontalMargin), y: container.frame.midY-textContainer.frame.height / 2)
         textContainer.addChild(flavourText)
         textContainer.addChild(dateText)
+        textContainer.name = "textContainer"
         
         container.fillColor = .clear
         maskNode.fillColor = .white
@@ -150,8 +128,12 @@ class ImageElement: SKNode {
         maskNode.position = CGPoint(x: 0, y: 0)
     }
     
-    func createMultilineLabel(text: String, maxWidth: CGFloat, position: CGPoint) -> SKNode {
-        let containerNode = SKNode()
+    func createMultilineLabel(text: String, maxWidth: CGFloat, position: CGPoint) -> SKShapeNode {
+        
+        let containerNode = SKShapeNode()
+        containerNode.strokeColor = .blue
+        containerNode.lineWidth = 0
+        containerNode.fillColor = .clear
         containerNode.position = position
         
         let words = text.components(separatedBy: " ")
@@ -183,15 +165,23 @@ class ImageElement: SKNode {
         lastLabel.fontName = flavourFontName
         lastLabel.fontColor = flavourFontColour
         lineNodes.append(lastLabel)
-
+        
         // Position lines properly (Top to Bottom)
         let lineSpacing: CGFloat = 25
         for (index, label) in lineNodes.enumerated() {
             label.horizontalAlignmentMode = .left
-            label.position = CGPoint(x: 0, y: -CGFloat(index) * lineSpacing)
+            label.position = CGPoint(x: -maxWidth / 2, y: -CGFloat(index) * lineSpacing)
             containerNode.addChild(label)
         }
-
+        
+        // Calculate total height dynamically
+        let totalHeight = CGFloat(lineNodes.count - 1) * lineSpacing
+        let padding: CGFloat = 0
+        
+        // Set the shape node's size
+        let rect = CGRect(x: -maxWidth / 2 - padding, y: -totalHeight - padding, width: maxWidth + padding * 2, height: totalHeight + padding * 2)
+        containerNode.path = CGPath(rect: rect, transform: nil)
+        
         return containerNode
     }
     
@@ -219,7 +209,7 @@ class ImageElement: SKNode {
     
     func updateObjects(with newObject: HistoricItem) {
         historicItem = newObject
-        flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: textContainer.frame.width, position: CGPoint(x: 0, y: 0))
+        flavourText =  createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
         dateText.text = "Created: \(historicItem.circa ? "circa" : "") \(String(historicItem.date))"
         guard let newImage = UIImage(named: historicItem.picture) else { return }
         spriteNode.texture = SKTexture(image: newImage)
