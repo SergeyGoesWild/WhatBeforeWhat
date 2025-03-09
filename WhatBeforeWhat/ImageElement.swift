@@ -40,7 +40,7 @@ class ImageElement: SKNode {
         
         self.historicItem = historicItem
         self.cornerRadius = cornerRadius
-        self.dateText = SKLabelNode(text: "Created: \(historicItem.circa ? "circa" : "") \(String(historicItem.date))")
+        self.dateText = SKLabelNode(text: "Created: \(historicItem.circa ? "circa" : "") \(bcORad(date: historicItem.date))")
         self.overlay = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.strokeNode = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
         self.container = SKShapeNode(rectOf: containerSize, cornerRadius: cornerRadius)
@@ -224,9 +224,17 @@ class ImageElement: SKNode {
         textContainer.path = CGPath(rect: CGRect(x: 0, y: 0, width: Int(container.frame.width - CGFloat(horizontalMargin * 2)), height: Int(textContainerHeight)), transform: nil)
         textContainer.position = CGPoint(x: container.frame.minX + CGFloat(horizontalMargin), y: container.frame.midY-textContainer.frame.height / 2)
         
-        dateText.text = "Created: \(historicItem.circa ? "circa" : "") \(String(historicItem.date))"
+        dateText.text = "Created: \(historicItem.circa ? "circa" : "") \(bcORad(date: historicItem.date))"
         guard let newImage = UIImage(named: historicItem.picture) else { return }
         spriteNode.texture = SKTexture(image: newImage)
         spriteNode.size = getImageSize(image: newImage)
+    }
+    
+    func bcORad(date: Int) -> String {
+        if date < 0 {
+            return "\(abs(date)) BC"
+        } else {
+            return "\(abs(date)) AD"
+        }
     }
 }
