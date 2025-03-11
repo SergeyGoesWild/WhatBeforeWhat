@@ -11,6 +11,7 @@ import UIKit
 
 class GameScene: SKScene {
     
+    let animationLength = 0.3
     let strokeWidth = 3
     let cornerRadius = 35
     let centralMargin = 45
@@ -23,7 +24,9 @@ class GameScene: SKScene {
     let positiveMessage = "Yes!"
     let negativeMessage = "No!"
     let buttonColorActive = UIColor(red: 0.13, green: 0.58, blue: 0.33, alpha: 1.00)
-    let buttonColorInactive = UIColor(red: 0.66, green: 0.85, blue: 0.75, alpha: 1.00)
+    let buttonColorInactive = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+    let shadowColorActive = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00)
+    let shadowColorInactive = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
     
     var containerSize: CGSize!
     var isTouchBlocked = false
@@ -38,10 +41,7 @@ class GameScene: SKScene {
     var gameCounter: Int = 0
     
     var introLabel: SKLabelNode!
-    var buttonLabel: SKLabelNode!
-    var nextButton: SKShapeNode!
-    var buttonShadow: SKShapeNode!
-    var buttonTouchArea: SKShapeNode!
+    var buttonNext: CustomButton!
     var topImageElement: ImageElement!
     var bottomImageElement: ImageElement!
     
@@ -50,20 +50,14 @@ class GameScene: SKScene {
         topObject = items.0
         bottomObject = items.1
         
-        nextButton = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
-        nextButton.fillColor = UIColor(red: 0.13, green: 0.58, blue: 0.33, alpha: 1.00)
-        nextButton.strokeColor = .black
-        nextButton.lineWidth = 2
-        nextButton.name = "nextButton 2"
-        nextButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY+CGFloat(shadowOffset/2))
-        buttonShadow = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
-        buttonShadow.fillColor = .black
-        buttonShadow.strokeColor = .black
-        buttonShadow.lineWidth = 2
-        buttonShadow.name = "nextButtonShadow"
-        buttonShadow.position = CGPoint(x: self.frame.midX, y: nextButton.position.y-CGFloat(shadowOffset))
-        addChild(buttonShadow)
-        addChild(nextButton)
+        buttonNext = CustomButton(buttonText: "Next",
+                               shadowOffset: 10,
+                               animationLength: animationLength,
+                               activeBodyColour: buttonColorActive,
+                               inactiveBodyColour: buttonColorInactive,
+                               activeShadowColour: shadowColorActive,
+                               inactiveShadowColour: shadowColorInactive)
+        buttonNext.position = CGPoint(x: view.frame.midX, y: view.frame.midY)
         
         introLabel = SKLabelNode(text: "What came first?")
         introLabel.fontSize = 25
@@ -75,16 +69,6 @@ class GameScene: SKScene {
         introLabel.name = "introLabel"
         addChild(introLabel)
         
-        buttonLabel = SKLabelNode(text: "Next")
-        buttonLabel.fontSize = 25
-        buttonLabel.fontName = "Helvetica-Bold"
-        buttonLabel.fontColor = .white
-        buttonLabel.horizontalAlignmentMode = .center
-        buttonLabel.verticalAlignmentMode = .center
-        buttonLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY+CGFloat(shadowOffset/2))
-        buttonLabel.name = "buttonLabel"
-        addChild(buttonLabel)
-        
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin) - CGFloat(verticalMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth, historicItem: topObject)
@@ -94,28 +78,20 @@ class GameScene: SKScene {
         bottomImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth, historicItem: bottomObject)
         bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2) + verticalMargin)
         addChild(bottomImageElement)
-        
-        buttonTouchArea = SKShapeNode(rectOf: CGSize(width: Int(self.size.width) - buttonMargin * 2, height: 50), cornerRadius: 15)
-        buttonTouchArea.fillColor = .clear
-        buttonTouchArea.strokeColor = .clear
-        buttonTouchArea.lineWidth = 0
-        buttonTouchArea.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        buttonTouchArea.name = "nextButton"
-        addChild(buttonTouchArea)
-        
+        addChild(buttonNext)
         introLabel.isHidden = false
-        nextButton.isHidden = true
-        buttonLabel.isHidden = true
+        buttonNext.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let node = atPoint(location)
+        print(node.name)
         if node.name == "top" && !isTouchBlocked {
             buttonActive = true
             isTouchBlocked = true
-            checkButtonStatus()
+            buttonNext.changeButtonState(isActive: true)
             print("TOP clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -133,7 +109,7 @@ class GameScene: SKScene {
         } else if node.name == "bottom" && !isTouchBlocked {
             buttonActive = true
             isTouchBlocked = true
-            checkButtonStatus()
+            buttonNext.changeButtonState(isActive: true)
             print("BOTTOM clicked")
             if !introOFF { switchToButtonLayout() }
             topImageElement.updateState(showingInfo: true)
@@ -149,44 +125,39 @@ class GameScene: SKScene {
             }
             checkIfGameOver()
         } else if node.name == "nextButton" && buttonActive == true {
-            if isEnding {
-                showAlert(title: "Game Over", message: "Your score is: \(score)")
-            } else {
-                nextButtonPressed()
-            }
-        }
-    }
-    
-    private func checkButtonStatus() {
-        if buttonActive {
-            nextButton.fillColor = buttonColorActive
-        } else {
-            nextButton.fillColor = buttonColorInactive
+            nextButtonPressed()
         }
     }
     
     private func nextButtonPressed(){
         buttonActive = false
-        isTouchBlocked = false
-        checkButtonStatus()
-        topImageElement.updateState(showingInfo: false)
-        bottomImageElement.updateState(showingInfo: false)
-        setNewImages()
+        buttonNext.launchClick()
+        
+        if isEnding {
+            DispatchQueue.main.asyncAfter(deadline: .now() + animationLength) {
+                self.showAlert(title: "Game Over", message: "Your score is: \(self.score)")
+            }
+        } else {
+            isTouchBlocked = false
+            buttonNext.changeButtonState(isActive: false)
+            topImageElement.updateState(showingInfo: false)
+            bottomImageElement.updateState(showingInfo: false)
+            setNewImages()
+        }
     }
     
     func checkIfGameOver() {
         gameCounter += 1
         if gameCounter == gameLimit {
             isEnding = true
-            buttonLabel.text = "Finish"
+            buttonNext.changeLabel(newText: "Finish")
         }
     }
     
     func switchToButtonLayout() {
         introOFF = true
         introLabel.isHidden = true
-        nextButton.isHidden = false
-        buttonLabel.isHidden = false
+        buttonNext.isHidden = false
     }
     
     func restartGame() {
@@ -194,9 +165,8 @@ class GameScene: SKScene {
         gameCounter = 0
         introOFF = false
         introLabel.isHidden = false
-        nextButton.isHidden = true
-        buttonLabel.isHidden = true
-        buttonLabel.text = "Next"
+        buttonNext.isHidden = true
+        buttonNext.changeLabel(newText: "Next")
         buttonActive = false
         isTouchBlocked = false
         isEnding = false
