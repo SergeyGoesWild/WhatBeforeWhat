@@ -57,7 +57,9 @@ class GameScene: SKScene {
                                inactiveBodyColour: buttonColorInactive,
                                activeShadowColour: shadowColorActive,
                                inactiveShadowColour: shadowColorInactive)
-        buttonNext.position = CGPoint(x: view.frame.midX, y: view.frame.midY)
+        buttonNext.position = CGPoint(x: view.frame.midX, y: view.frame.midY + 80)
+        buttonNext.zPosition = 2
+        addChild(buttonNext)
         
         introLabel = SKLabelNode(text: "What came first?")
         introLabel.fontSize = 25
@@ -67,20 +69,20 @@ class GameScene: SKScene {
         introLabel.verticalAlignmentMode = .center
         introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         introLabel.name = "introLabel"
+        introLabel.zPosition = 1
         addChild(introLabel)
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin) - CGFloat(verticalMargin))
         
         topImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth, historicItem: topObject)
         topImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.maxY - containerSize.height / 2) - verticalMargin)
+        topImageElement.zPosition = 3
         addChild(topImageElement)
         
         bottomImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth, historicItem: bottomObject)
         bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2) + verticalMargin)
+        bottomImageElement.zPosition = 4
         addChild(bottomImageElement)
-        addChild(buttonNext)
-        introLabel.isHidden = false
-        buttonNext.isHidden = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -156,16 +158,20 @@ class GameScene: SKScene {
     
     func switchToButtonLayout() {
         introOFF = true
-        introLabel.isHidden = true
-        buttonNext.isHidden = false
+        buttonActive = false
+        let slideDownAction = SKAction.moveBy(x: 0, y: -80, duration: 0.5)
+        slideDownAction.timingMode = .easeInEaseOut
+        introLabel.run(slideDownAction)
+        buttonNext.run(slideDownAction)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.buttonActive = true
+        }
     }
     
     func restartGame() {
         score = 0
         gameCounter = 0
         introOFF = false
-        introLabel.isHidden = false
-        buttonNext.isHidden = true
         buttonNext.changeLabel(newText: "Next")
         buttonActive = false
         isTouchBlocked = false
@@ -205,6 +211,7 @@ class GameScene: SKScene {
         responseLabel.verticalAlignmentMode = .center
         responseLabel.position = CGPoint(x: location.x, y: location.y)
         responseLabel.zRotation = 10 * .pi / 180
+        responseLabel.zPosition = 4
         addChild(responseLabel)
         
         let move = SKAction.moveBy(x: 0, y: 30, duration: responseDelay)

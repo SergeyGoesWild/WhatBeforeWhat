@@ -41,7 +41,7 @@ class CustomButton: SKNode {
         self.containerNode = SKShapeNode(rectOf: CGSize(width: 300, height: 50 + shadowOffset))
         self.containerNode.fillColor = .clear
         self.containerNode.strokeColor = .red
-        self.containerNode.lineWidth = 5
+        self.containerNode.lineWidth = 0
         self.buttonTouchArea = SKShapeNode(rectOf: CGSize(width: 300, height: 50 + shadowOffset))
         self.buttonTouchArea.fillColor = .clear
         self.buttonTouchArea.strokeColor = .clear
