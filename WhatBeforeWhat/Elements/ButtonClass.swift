@@ -20,7 +20,6 @@ class CustomButton: SKNode {
     var buttonBody: SKShapeNode!
     var buttonShadow: SKShapeNode!
     var buttonLabel: SKLabelNode!
-    var buttonTouchArea: SKShapeNode!
     
     init(buttonText: String,
          shadowOffset: Int,
@@ -42,10 +41,7 @@ class CustomButton: SKNode {
         self.containerNode.fillColor = .clear
         self.containerNode.strokeColor = .red
         self.containerNode.lineWidth = 0
-        self.buttonTouchArea = SKShapeNode(rectOf: CGSize(width: 300, height: 50 + shadowOffset))
-        self.buttonTouchArea.fillColor = .clear
-        self.buttonTouchArea.strokeColor = .clear
-        self.buttonTouchArea.name = "nextButton"
+        
         self.buttonBody = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 300, height: 50), cornerRadius: 15)
         self.buttonBody.fillColor = activeBodyColour
         self.buttonBody.strokeColor = activeShadowColour
@@ -65,10 +61,8 @@ class CustomButton: SKNode {
         containerNode.addChild(buttonShadow)
         containerNode.addChild(buttonBody)
         buttonBody.addChild(buttonLabel)
-        addChild(buttonTouchArea)
         
         self.containerNode.position = CGPoint(x: 0, y: 0)
-        self.buttonTouchArea.position = CGPoint(x: 0, y: 0)
         let adjustX = -self.buttonBody.frame.width / 2 + 2
         let adjustY = -self.buttonBody.frame.height / 2 + 2
         let firstPart = (Int(self.buttonBody.frame.height) + shadowOffset) / 2

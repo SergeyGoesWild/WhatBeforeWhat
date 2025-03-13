@@ -26,7 +26,6 @@ class ImageElement: SKNode {
     private var overlay: SKShapeNode!
     private var cropNode: SKCropNode!
     private var maskNode: SKShapeNode!
-    private var touchArea: SKShapeNode!
     private var spriteNode: SKSpriteNode!
     private var cornerRadius: CGFloat!
     private var strokeWidth: Int!
@@ -120,13 +119,6 @@ class ImageElement: SKNode {
         addChild(overlay)
         addChild(strokeNode)
         addChild(textContainer)
-        
-        touchArea = SKShapeNode(rectOf: container.frame.size)
-        touchArea.fillColor = .clear
-        touchArea.strokeColor = .red
-        touchArea.lineWidth = 5
-        touchArea.name = self.name
-        addChild(touchArea)
         
         spriteNode.position = CGPoint(x: 0, y: 0)
         spriteNode.size = getImageSize(image: UIImage(named: historicItem.picture) ?? UIImage())

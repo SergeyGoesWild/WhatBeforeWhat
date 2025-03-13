@@ -42,8 +42,11 @@ class GameScene: SKScene {
     
     var introLabel: SKLabelNode!
     var buttonNext: CustomButton!
+    var buttonTouchArea: SKShapeNode!
     var topImageElement: ImageElement!
+    var topTouchArea: SKShapeNode!
     var bottomImageElement: ImageElement!
+    var bottomTouchArea: SKShapeNode!
     
     override func didMove(to view: SKView) {
         let items = dataProvider.provideItems()
@@ -58,7 +61,7 @@ class GameScene: SKScene {
                                activeShadowColour: shadowColorActive,
                                inactiveShadowColour: shadowColorInactive)
         buttonNext.position = CGPoint(x: view.frame.midX, y: view.frame.midY + 80)
-        buttonNext.zPosition = 2
+        buttonNext.zPosition = 1
         addChild(buttonNext)
         
         introLabel = SKLabelNode(text: "What came first?")
@@ -69,7 +72,7 @@ class GameScene: SKScene {
         introLabel.verticalAlignmentMode = .center
         introLabel.position = CGPoint(x: view.frame.midX, y: view.frame.midY)
         introLabel.name = "introLabel"
-        introLabel.zPosition = 1
+        introLabel.zPosition = 2
         addChild(introLabel)
         
         containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin) - CGFloat(verticalMargin))
@@ -83,6 +86,34 @@ class GameScene: SKScene {
         bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2) + verticalMargin)
         bottomImageElement.zPosition = 4
         addChild(bottomImageElement)
+        
+        setupTouchAreas()
+    }
+    
+    func setupTouchAreas() {
+        topTouchArea = SKShapeNode(rectOf: containerSize)
+        topTouchArea.strokeColor = .blue
+        topTouchArea.lineWidth = 0
+        topTouchArea.zPosition = 10
+        topTouchArea.name = "top"
+        bottomTouchArea = SKShapeNode(rectOf: containerSize)
+        bottomTouchArea.strokeColor = .orange
+        bottomTouchArea.lineWidth = 0
+        bottomTouchArea.zPosition = 11
+        bottomTouchArea.name = "bottom"
+        buttonTouchArea = SKShapeNode(rectOf: CGSize(width: 300, height: 50 + shadowOffset))
+        buttonTouchArea.strokeColor = .magenta
+        buttonTouchArea.lineWidth = 0
+        buttonTouchArea.zPosition = 12
+        buttonTouchArea.name = "nextButton"
+        
+        topTouchArea.position = topImageElement.position
+        bottomTouchArea.position = bottomImageElement.position
+        buttonTouchArea.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        addChild(topTouchArea)
+        addChild(bottomTouchArea)
+        addChild(buttonTouchArea)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -165,7 +196,6 @@ class GameScene: SKScene {
         buttonNext.run(slideDownAction)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.buttonActive = true
-            self.buttonNext.zPosition = 10
         }
     }
     
@@ -177,7 +207,6 @@ class GameScene: SKScene {
         buttonActive = false
         isTouchBlocked = false
         isEnding = false
-        buttonNext.zPosition = 2
         buttonNext.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 80)
         introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         topImageElement.updateState(showingInfo: false)
