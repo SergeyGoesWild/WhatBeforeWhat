@@ -102,6 +102,8 @@ class ImageElement: SKNode {
         
         container.fillColor = .clear
         maskNode.fillColor = .white
+        maskNode.strokeColor = .red
+        maskNode.lineWidth = 0
         cropNode.maskNode = maskNode
         
         overlay.fillColor = .black
@@ -121,15 +123,19 @@ class ImageElement: SKNode {
         
         touchArea = SKShapeNode(rectOf: container.frame.size)
         touchArea.fillColor = .clear
-        touchArea.strokeColor = .clear
+        touchArea.strokeColor = .red
+        touchArea.lineWidth = 5
         touchArea.name = self.name
         addChild(touchArea)
         
         spriteNode.position = CGPoint(x: 0, y: 0)
         spriteNode.size = getImageSize(image: UIImage(named: historicItem.picture) ?? UIImage())
+        spriteNode.name = "SPRITE NODE"
         
         cropNode.position = CGPoint(x: 0, y: 0)
+        cropNode.name = "CROP NODE"
         maskNode.position = CGPoint(x: 0, y: 0)
+        maskNode.name = "MASK NODE"
     }
     
     func createMultilineLabel(text: String, maxWidth: CGFloat, position: CGPoint) -> SKShapeNode {

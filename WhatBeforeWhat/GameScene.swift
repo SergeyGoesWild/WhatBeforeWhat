@@ -67,7 +67,7 @@ class GameScene: SKScene {
         introLabel.fontColor = .black
         introLabel.horizontalAlignmentMode = .center
         introLabel.verticalAlignmentMode = .center
-        introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        introLabel.position = CGPoint(x: view.frame.midX, y: view.frame.midY)
         introLabel.name = "introLabel"
         introLabel.zPosition = 1
         addChild(introLabel)
@@ -165,6 +165,7 @@ class GameScene: SKScene {
         buttonNext.run(slideDownAction)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.buttonActive = true
+            self.buttonNext.zPosition = 10
         }
     }
     
@@ -176,6 +177,9 @@ class GameScene: SKScene {
         buttonActive = false
         isTouchBlocked = false
         isEnding = false
+        buttonNext.zPosition = 2
+        buttonNext.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 80)
+        introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         topImageElement.updateState(showingInfo: false)
         bottomImageElement.updateState(showingInfo: false)
         setNewImages()
