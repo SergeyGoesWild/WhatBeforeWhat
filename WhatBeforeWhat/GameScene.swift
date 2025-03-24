@@ -11,215 +11,231 @@ import UIKit
 
 class GameScene: SKScene {
     
-    let centralMargin = 25
+    let animationLength = 0.3
+    let strokeWidth = 3
+    let cornerRadius = 35
+    let centralMargin = 45
+    let buttonMargin = 60
+    let sideMargin = 10
+    let verticalMargin = 10
     let gameLimit: Int = 5
     let responseDelay: Double = 1.0
+    let shadowOffset = 10
     let positiveMessage = "Yes!"
     let negativeMessage = "No!"
+    let buttonColorActive = UIColor(red: 0.13, green: 0.58, blue: 0.33, alpha: 1.00)
+    let buttonColorInactive = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1.0)
+    let shadowColorActive = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00)
+    let shadowColorInactive = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
     
-    var containerSize: CGSize {
-        return CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin))
-    }
+    var containerSize: CGSize!
     var isTouchBlocked = false
+    var buttonActive = false
     let dataProvider = DataProvider.shared
     var guessRight = false
+    var introOFF = false
+    var isEnding = false
     var topObject: HistoricItem!
     var bottomObject: HistoricItem!
     var score: Int = 0
     var gameCounter: Int = 0
     
-    var container1: SKShapeNode!
-    var container2: SKShapeNode!
-    var topSprite: SKSpriteNode?
-    var bottomSprite: SKSpriteNode?
-    var maskNode1: SKShapeNode?
-    var maskNode2: SKShapeNode?
-    var cropNode1: SKCropNode?
-    var cropNode2: SKCropNode?
+    var introLabel: SKLabelNode!
+    var buttonNext: CustomButton!
+    var buttonTouchArea: SKShapeNode!
+    var topImageElement: ImageElement!
+    var topTouchArea: SKShapeNode!
+    var bottomImageElement: ImageElement!
+    var bottomTouchArea: SKShapeNode!
     
     override func didMove(to view: SKView) {
         let items = dataProvider.provideItems()
         topObject = items.0
         bottomObject = items.1
         
-        let centralLabel = SKLabelNode(text: "What came first?")
-        centralLabel.fontSize = 25
-        centralLabel.fontColor = .white
-        centralLabel.horizontalAlignmentMode = .center
-        centralLabel.verticalAlignmentMode = .center
-        centralLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-        addChild(centralLabel)
+        buttonNext = CustomButton(buttonText: "Next",
+                               shadowOffset: 10,
+                               animationLength: animationLength,
+                               activeBodyColour: buttonColorActive,
+                               inactiveBodyColour: buttonColorInactive,
+                               activeShadowColour: shadowColorActive,
+                               inactiveShadowColour: shadowColorInactive)
+        buttonNext.position = CGPoint(x: view.frame.midX, y: view.frame.midY + 80)
+        buttonNext.zPosition = 1
+        addChild(buttonNext)
         
-        container1 = SKShapeNode(rectOf: containerSize, cornerRadius: 20)
-        container1.strokeColor = .clear
-        container1.lineWidth = 0
-        container1.position = CGPoint(x: self.frame.midX, y: self.frame.maxY - container1.frame.height / 2)
-        addChild(container1)
+        introLabel = SKLabelNode(text: "What came first?")
+        introLabel.fontSize = 25
+        introLabel.fontName = "Helvetica-Bold"
+        introLabel.fontColor = .black
+        introLabel.horizontalAlignmentMode = .center
+        introLabel.verticalAlignmentMode = .center
+        introLabel.position = CGPoint(x: view.frame.midX, y: view.frame.midY)
+        introLabel.name = "introLabel"
+        introLabel.zPosition = 2
+        addChild(introLabel)
         
-        setupTopPic()
+        containerSize = CGSize(width: self.size.width - CGFloat(sideMargin * 2), height: self.size.height / 2 - CGFloat(centralMargin) - CGFloat(verticalMargin))
         
-        container2 = SKShapeNode(rectOf: CGSize(width: self.size.width, height: self.size.height / 2 - CGFloat(centralMargin)), cornerRadius: 20)
-        container2.strokeColor = .white
-        container2.lineWidth = 0
-        container2.position = CGPoint(x: self.frame.midX, y: self.frame.minY + container2.frame.height / 2)
-        addChild(container2)
+        topImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "top", strokeWidth: strokeWidth, historicItem: topObject)
+        topImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.maxY - containerSize.height / 2) - verticalMargin)
+        topImageElement.zPosition = 3
+        addChild(topImageElement)
         
-        setupBottomPic()
+        bottomImageElement = ImageElement(containerSize: containerSize, cornerRadius: CGFloat(cornerRadius), name: "bottom", strokeWidth: strokeWidth, historicItem: bottomObject)
+        bottomImageElement.position = CGPoint(x: Int(self.size.width) / 2, y: Int(self.frame.minY + containerSize.height / 2) + verticalMargin)
+        bottomImageElement.zPosition = 4
+        addChild(bottomImageElement)
+        
+        setupTouchAreas()
+    }
+    
+    func setupTouchAreas() {
+        topTouchArea = SKShapeNode(rectOf: containerSize)
+        topTouchArea.strokeColor = .blue
+        topTouchArea.lineWidth = 0
+        topTouchArea.zPosition = 10
+        topTouchArea.name = "top"
+        bottomTouchArea = SKShapeNode(rectOf: containerSize)
+        bottomTouchArea.strokeColor = .orange
+        bottomTouchArea.lineWidth = 0
+        bottomTouchArea.zPosition = 11
+        bottomTouchArea.name = "bottom"
+        buttonTouchArea = SKShapeNode(rectOf: CGSize(width: 300, height: 50 + shadowOffset))
+        buttonTouchArea.strokeColor = .magenta
+        buttonTouchArea.lineWidth = 0
+        buttonTouchArea.zPosition = 12
+        buttonTouchArea.name = "nextButton"
+        
+        topTouchArea.position = topImageElement.position
+        bottomTouchArea.position = bottomImageElement.position
+        buttonTouchArea.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        addChild(topTouchArea)
+        addChild(bottomTouchArea)
+        addChild(buttonTouchArea)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let node = atPoint(location)
-        
-        if node.name == "top" {
+        print(node.name)
+        if node.name == "top" && !isTouchBlocked {
+            buttonActive = true
+            isTouchBlocked = true
+            buttonNext.changeButtonState(isActive: true)
             print("TOP clicked")
+            if !introOFF { switchToButtonLayout() }
+            topImageElement.updateState(showingInfo: true)
+            bottomImageElement.updateState(showingInfo: true)
             guessRight = topObject.date < bottomObject.date
             if guessRight {
-                responseAnimation(text: positiveMessage, target: container1, location: location)
+                responseAnimation(text: positiveMessage, location: location)
                 print("RIGHT :)")
                 score += 1
             } else {
-                responseAnimation(text: negativeMessage, target: container1, location: location)
+                responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
-            if !isTouchBlocked {
-                isTouchBlocked = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
-                    self.didTapPicture()
-                    self.isTouchBlocked = false
-                }
-            }
-        } else if node.name == "bottom" {
+            checkIfGameOver()
+        } else if node.name == "bottom" && !isTouchBlocked {
+            buttonActive = true
+            isTouchBlocked = true
+            buttonNext.changeButtonState(isActive: true)
             print("BOTTOM clicked")
+            if !introOFF { switchToButtonLayout() }
+            topImageElement.updateState(showingInfo: true)
+            bottomImageElement.updateState(showingInfo: true)
             guessRight = bottomObject.date < topObject.date
             if guessRight {
-                responseAnimation(text: positiveMessage, target: container2, location: location)
+                responseAnimation(text: positiveMessage, location: location)
                 print("RIGHT :)")
                 score += 1
             } else {
-                responseAnimation(text: negativeMessage, target: container2, location: location)
+                responseAnimation(text: negativeMessage, location: location)
                 print(":(")
             }
-            if !isTouchBlocked {
-                isTouchBlocked = true
-                DispatchQueue.main.asyncAfter(deadline: .now() + responseDelay) {
-                    self.didTapPicture()
-                    self.isTouchBlocked = false
-                }
-            }
+            checkIfGameOver()
+        } else if node.name == "nextButton" && buttonActive == true {
+            nextButtonPressed()
         }
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    private func nextButtonPressed(){
+        buttonActive = false
+        buttonNext.launchClick()
         
+        if isEnding {
+            DispatchQueue.main.asyncAfter(deadline: .now() + animationLength) {
+                self.showAlert(title: "Game Over", message: "Your score is: \(self.score)")
+            }
+        } else {
+            isTouchBlocked = false
+            buttonNext.changeButtonState(isActive: false)
+            topImageElement.updateState(showingInfo: false)
+            bottomImageElement.updateState(showingInfo: false)
+            setNewImages()
+        }
     }
     
-    func didTapPicture() {
+    func checkIfGameOver() {
         gameCounter += 1
         if gameCounter == gameLimit {
-            showAlert(title: "Game Over", message: "Your score is: \(score)")
-        } else {
-            let items = dataProvider.provideItems()
-            topObject = items.0
-            bottomObject = items.1
-            setupTopPic()
-            setupBottomPic()
+            isEnding = true
+            buttonNext.changeLabel(newText: "Finish")
         }
     }
     
-    func setupTopPic() {
-        topSprite?.removeFromParent()
-        maskNode1?.removeFromParent()
-        cropNode1?.removeFromParent()
-        
-        topSprite = createSpriteNode(withImage: topObject.picture)
-        
-        guard let topSprite else { return }
-        topSprite.position = CGPoint(x: 0, y: 0)
-        topSprite.name = "top"
-        
-        maskNode1 = SKShapeNode(rectOf: container1.frame.size, cornerRadius: 20)
-        guard let maskNode1 else { return }
-        maskNode1.fillColor = .white
-        
-        cropNode1 = SKCropNode()
-        guard let cropNode1 else { return }
-        cropNode1.maskNode = maskNode1
-        cropNode1.position = container1.position
-        cropNode1.addChild(topSprite)
-        addChild(cropNode1)
-    }
-    
-    func setupBottomPic() {
-        bottomSprite?.removeFromParent()
-        maskNode2?.removeFromParent()
-        cropNode2?.removeFromParent()
-        
-        bottomSprite = createSpriteNode(withImage: bottomObject.picture)
-        
-        guard let bottomSprite else { return }
-        bottomSprite.position = CGPoint(x: 0, y: 0)
-        bottomSprite.name = "bottom"
-        
-        maskNode2 = SKShapeNode(rectOf: container2.frame.size, cornerRadius: 20)
-        guard let maskNode2 else { return }
-        maskNode2.fillColor = .white
-        
-        cropNode2 = SKCropNode()
-        guard let cropNode2 else { return }
-        cropNode2.maskNode = maskNode2
-        cropNode2.position = container2.position
-        cropNode2.addChild(bottomSprite)
-        addChild(cropNode2)
-    }
-    
-    func createSpriteNode(withImage imageName: String) -> SKSpriteNode {
-        guard let currentImage = UIImage(named: imageName) else { return SKSpriteNode() }
-        let texture = SKTexture(image: currentImage)
-        let size = getImageSize(image: currentImage)
-        let spriteNode = SKSpriteNode(texture: texture, size: size)
-        return spriteNode
-    }
-    
-    func getImageSize(image: UIImage) -> CGSize {
-        if image.size.width > image.size.height {
-            let multiplier = image.size.height / containerSize.height
-            let height = containerSize.height
-            let width = image.size.width / multiplier
-            return CGSize(width: width, height: height)
-        } else {
-            let multiplier = image.size.width / containerSize.width
-            let height = image.size.height / multiplier
-            let width = containerSize.width
-            return CGSize(width: width, height: height)
+    func switchToButtonLayout() {
+        introOFF = true
+        buttonActive = false
+        let slideDownAction = SKAction.moveBy(x: 0, y: -80, duration: 0.5)
+        slideDownAction.timingMode = .easeInEaseOut
+        introLabel.run(slideDownAction)
+        buttonNext.run(slideDownAction)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.buttonActive = true
         }
     }
     
     func restartGame() {
         score = 0
         gameCounter = 0
+        introOFF = false
+        buttonNext.changeLabel(newText: "Next")
+        buttonActive = false
+        isTouchBlocked = false
+        isEnding = false
+        buttonNext.position = CGPoint(x: self.frame.midX, y: self.frame.midY + 80)
+        introLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        topImageElement.updateState(showingInfo: false)
+        bottomImageElement.updateState(showingInfo: false)
+        setNewImages()
+    }
+    
+    func setNewImages() {
         let items = dataProvider.provideItems()
         topObject = items.0
         bottomObject = items.1
-        setupTopPic()
-        setupBottomPic()
+        topImageElement.updateObjects(with: topObject)
+        bottomImageElement.updateObjects(with: bottomObject)
     }
     
     func showAlert(title: String, message: String) {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-                self.restartGame()
-            }
-            alert.addAction(okAction)
-            
-            if let viewController = self.view?.window?.rootViewController {
-                viewController.present(alert, animated: true, completion: nil)
-            }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.restartGame()
         }
+        alert.addAction(okAction)
+        
+        if let viewController = self.view?.window?.rootViewController {
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
     
-    func responseAnimation(text: String, target: SKShapeNode, location: CGPoint) {
+    func responseAnimation(text: String, location: CGPoint) {
         let responseLabel = SKLabelNode(text: text)
         responseLabel.fontName = "Helvetica-Bold"
         responseLabel.fontSize = 70
@@ -228,6 +244,7 @@ class GameScene: SKScene {
         responseLabel.verticalAlignmentMode = .center
         responseLabel.position = CGPoint(x: location.x, y: location.y)
         responseLabel.zRotation = 10 * .pi / 180
+        responseLabel.zPosition = 4
         addChild(responseLabel)
         
         let move = SKAction.moveBy(x: 0, y: 30, duration: responseDelay)
