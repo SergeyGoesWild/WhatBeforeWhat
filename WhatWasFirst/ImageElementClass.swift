@@ -8,9 +8,10 @@
 import UIKit
 
 class ImageElement: UIView {
+    weak var delegate: ImageElementDelegate?
     private let containerID: String!
     
-    private let currentItem: HistoricItem!
+    private var currentItem: HistoricItem!
     private var image: UIImage!
     private var imageView: UIImageView!
     private var scrollView: UIScrollView!
@@ -44,9 +45,11 @@ class ImageElement: UIView {
     //    private var historicItem: HistoricItem!
     //    private var textContainer: SKShapeNode!
     
-    init(frame: CGRect, id: String, historicItem: HistoricItem) {
+    init(frame: CGRect, id: String, historicItem: HistoricItem, delegate: ImageElementDelegate?) {
         self.containerID = id
         self.currentItem = historicItem
+        self.delegate = delegate
+        
         super.init(frame: frame)
         
         //        containerSize: CGSize, cornerRadius: CGFloat = 20, name: String, strokeWidth: Int, historicItem: HistoricItem
@@ -73,6 +76,7 @@ class ImageElement: UIView {
     
     @objc private func handleTap() {
         print(containerID!)
+        delegate?.didTapImageElement(with: containerID)
     }
     //    func updateState(showingInfo: Bool) {
     //        if showingInfo {
@@ -90,10 +94,11 @@ class ImageElement: UIView {
     //    }
     
     private func formDateText(dateText: Int, circa: Bool) -> String {
-        return "Created: \(circa ? "circa" : "") \(dateText) \(dateText > 0 ? "AD" : "BC")"
+        return "Created: \(circa ? "circa" : "") \(abs(dateText)) \(dateText > 0 ? "AD" : "BC")"
     }
     
-    func setNewItem() {
+    func updateItem(with newItem: HistoricItem) {
+        currentItem = newItem
         flavorText.text = currentItem.flavourText
         dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
         image = UIImage(named: currentItem.picture)
@@ -105,8 +110,12 @@ class ImageElement: UIView {
         placeholderView.backgroundColor = .systemGray6
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
         
+        image = UIImage(named: currentItem.picture)
+        
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = image
         
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -123,19 +132,21 @@ class ImageElement: UIView {
         blackOverlay = UIView()
         blackOverlay.translatesAutoresizingMaskIntoConstraints = false
         blackOverlay.backgroundColor = .black
-        blackOverlay.alpha = 0.75
+        blackOverlay.alpha = 0.4
         
         flavorText = UILabel()
         flavorText.translatesAutoresizingMaskIntoConstraints = false
         flavorText.textColor = .white
         flavorText.font = UIFont.systemFont(ofSize: 22, weight: .thin)
         flavorText.numberOfLines = 0
+        flavorText.text = currentItem.flavourText
         
         dateText = UILabel()
         dateText.translatesAutoresizingMaskIntoConstraints = false
         dateText.textColor = .white
         dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dateText.numberOfLines = 0
+        dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
         
         let stackView = UIStackView(arrangedSubviews: [flavorText, dateText])
         stackView.axis = .vertical
@@ -173,7 +184,7 @@ class ImageElement: UIView {
             blackOverlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
             stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
         //        flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))

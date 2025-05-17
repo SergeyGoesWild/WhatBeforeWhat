@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ImageElementDelegate: AnyObject {
+    func didTapImageElement(with id: String)
+}
+
 class ViewController: UIViewController {
 
     private let bgColour = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
@@ -18,6 +22,8 @@ class ViewController: UIViewController {
     private let animDistanceOffset: CGFloat = 100
     
     private let dataProvider = DataProvider.shared
+    private var topElementData: HistoricItem!
+    private var bottomElementData: HistoricItem!
     private var bgView: UIView!
     private var containerView: UIView!
     private var topElement: ImageElement!
@@ -29,6 +35,9 @@ class ViewController: UIViewController {
     private var topHeightConstraint: NSLayoutConstraint!
     private var bottomHeightConstraint: NSLayoutConstraint!
     private var endGameAlert: CustomAlert!
+    
+    private var score: Int = 0
+    private var roundCounter: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +52,10 @@ class ViewController: UIViewController {
     }
     
     private func setupLayout() {
+        let firstTurnDataItems = dataProvider.provideItems()
+        topElementData = firstTurnDataItems.0
+        bottomElementData = firstTurnDataItems.1
+        
         bgView = UIView()
         bgView.backgroundColor = bgColour
         bgView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,8 +64,7 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        topElement = ImageElement(frame: .zero, id: "top", historicItem: dataProvider.data[0])
-        topElement.setNewItem()
+        topElement = ImageElement(frame: .zero, id: "top", historicItem: topElementData, delegate: self)
         topElement.translatesAutoresizingMaskIntoConstraints = false
         topElement.layer.cornerRadius = cornerRadius
         topElement.layer.borderWidth = borderWidth
@@ -60,8 +72,7 @@ class ViewController: UIViewController {
         topElement.clipsToBounds = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
         
-        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: dataProvider.data[1])
-        bottomElement.setNewItem()
+        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: bottomElementData, delegate: self)
         bottomElement.translatesAutoresizingMaskIntoConstraints = false
         bottomElement.layer.cornerRadius = cornerRadius
         bottomElement.layer.borderWidth = borderWidth
@@ -89,18 +100,18 @@ class ViewController: UIViewController {
         endGameAlert = CustomAlert(alertText: "Your result is 8/10")
         endGameAlert.translatesAutoresizingMaskIntoConstraints = false
         
-//        let testButton = UIButton(type: .system)
-//        testButton.setTitle("Next", for: .normal)
-//        testButton.setTitleColor(.systemBlue, for: .normal)
-//        testButton.backgroundColor = .white
-//        testButton.layer.cornerRadius = 12
-//        testButton.addTarget(self, action: #selector(testButtonTapped), for: .touchUpInside)
-//        testButton.translatesAutoresizingMaskIntoConstraints = false
+        let testButton = UIButton(type: .system)
+        testButton.setTitle("Next", for: .normal)
+        testButton.setTitleColor(.systemBlue, for: .normal)
+        testButton.backgroundColor = .white
+        testButton.layer.cornerRadius = 12
+        testButton.addTarget(self, action: #selector(testButtonTapped), for: .touchUpInside)
+        testButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(bgView)
         view.addSubview(containerView)
 //        view.addSubview(endGameAlert)
-//        view.addSubview(testButton)
+        view.addSubview(testButton)
         containerView.addSubview(introLabel)
         containerView.addSubview(nextButton)
         containerView.addSubview(topElement)
@@ -122,10 +133,10 @@ class ViewController: UIViewController {
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
             
-//            testButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            testButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            testButton.heightAnchor.constraint(equalToConstant: 50),
-//            testButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
+            testButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            testButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            testButton.heightAnchor.constraint(equalToConstant: 50),
+            testButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
             
             introLabelAnimConstraint,
             introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
@@ -149,6 +160,25 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func startNewRound() {
+        let historicItems = dataProvider.provideItems()
+        topElementData = historicItems.0
+        bottomElementData = historicItems.1
+        
+        topElement.updateItem(with: topElementData)
+        bottomElement.updateItem(with: bottomElementData)
+    }
+    
+    private func checkResult(given id: String) {
+        if (id == "top" && topElementData.date < bottomElementData.date) || (id == "bottom" && bottomElementData.date < topElementData.date) {
+            score += 1
+        }
+        roundCounter += 1
+        print("score =   ", score)
+        print("round =   ", roundCounter)
+        startNewRound()
+    }
+    
     private func buttonSwitchAnimation() {
         nextButtonAnimConstraint.constant += animDistanceOffset
         introLabelAnimConstraint.constant += animDistanceOffset
@@ -162,6 +192,12 @@ class ViewController: UIViewController {
     }
     
     @objc private func testButtonTapped() {
-        buttonSwitchAnimation()
+        startNewRound()
+    }
+}
+
+extension ViewController: ImageElementDelegate {
+    func didTapImageElement(with id: String) {
+        checkResult(given: id)
     }
 }
