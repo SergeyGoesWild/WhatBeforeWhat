@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
     
+    private let dataProvider = DataProvider.shared
     private var bgView: UIView!
     private var containerView: UIView!
     private var topElement: ImageElement!
@@ -50,7 +51,8 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        topElement = ImageElement(frame: .zero)
+        topElement = ImageElement(frame: .zero, id: "top", historicItem: dataProvider.data[0])
+        topElement.setNewItem()
         topElement.translatesAutoresizingMaskIntoConstraints = false
         topElement.layer.cornerRadius = cornerRadius
         topElement.layer.borderWidth = borderWidth
@@ -58,7 +60,8 @@ class ViewController: UIViewController {
         topElement.clipsToBounds = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
         
-        bottomElement = ImageElement(frame: .zero)
+        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: dataProvider.data[1])
+        bottomElement.setNewItem()
         bottomElement.translatesAutoresizingMaskIntoConstraints = false
         bottomElement.layer.cornerRadius = cornerRadius
         bottomElement.layer.borderWidth = borderWidth
