@@ -218,6 +218,9 @@ extension ViewController: ImageElementDelegate {
             buttonSwitchAnimation(goingDown: true)
             isFirstRound = false
         }
+        topElement.showingOverlay(isShowing: true)
+        bottomElement.showingOverlay(isShowing: true)
+
         checkResult(given: id)
     }
 }

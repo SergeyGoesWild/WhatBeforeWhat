@@ -20,6 +20,7 @@ class ImageElement: UIView {
     private var blackOverlay: UIView!
     private var flavorText: UILabel!
     private var dateText: UILabel!
+    private var dataStackView: UIStackView!
     
     //    private let flavourFontName: String = "Helvetica-LightOblique"
     //    private let flavourFontSize: CGFloat = 20
@@ -31,19 +32,6 @@ class ImageElement: UIView {
     //    private let horizontalMargin = 20
     //    private let verticalMargin = 20
     //    private let lineSpacing = 40
-    //
-    //    private var container: SKShapeNode!
-    //    private var strokeNode: SKShapeNode!
-    //    private var overlay: SKShapeNode!
-    //    private var cropNode: SKCropNode!
-    //    private var maskNode: SKShapeNode!
-    //    private var spriteNode: SKSpriteNode!
-    //    private var cornerRadius: CGFloat!
-    //    private var strokeWidth: Int!
-    //    private var flavourText: SKNode!
-    //    private var dateText: SKLabelNode!
-    //    private var historicItem: HistoricItem!
-    //    private var textContainer: SKShapeNode!
     
     init(frame: CGRect, id: String, historicItem: HistoricItem, delegate: ImageElementDelegate?) {
         self.containerID = id
@@ -103,6 +91,13 @@ class ImageElement: UIView {
         dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
         image = UIImage(named: currentItem.picture)
         imageView.image = image
+        
+        showingOverlay(isShowing: false)
+    }
+    
+    func showingOverlay(isShowing: Bool) {
+        blackOverlay.isHidden = !isShowing
+        dataStackView.isHidden = !isShowing
     }
     
     private func setupLayout() {
@@ -132,7 +127,8 @@ class ImageElement: UIView {
         blackOverlay = UIView()
         blackOverlay.translatesAutoresizingMaskIntoConstraints = false
         blackOverlay.backgroundColor = .black
-        blackOverlay.alpha = 0.4
+        blackOverlay.alpha = 0.7
+        blackOverlay.isHidden = true
         
         flavorText = UILabel()
         flavorText.translatesAutoresizingMaskIntoConstraints = false
@@ -148,18 +144,19 @@ class ImageElement: UIView {
         dateText.numberOfLines = 0
         dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
         
-        let stackView = UIStackView(arrangedSubviews: [flavorText, dateText])
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        dataStackView = UIStackView(arrangedSubviews: [flavorText, dateText])
+        dataStackView.axis = .vertical
+        dataStackView.spacing = 10
+        dataStackView.alignment = .fill
+        dataStackView.distribution = .fill
+        dataStackView.translatesAutoresizingMaskIntoConstraints = false
+        dataStackView.isHidden = true
         
         addSubview(placeholderView)
         addSubview(scrollView)
         scrollView.addSubview(imageView)
         addSubview(blackOverlay)
-        addSubview(stackView)
+        addSubview(dataStackView)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(gestureRecognizer)
@@ -183,9 +180,9 @@ class ImageElement: UIView {
             blackOverlay.topAnchor.constraint(equalTo: self.topAnchor),
             blackOverlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
-            stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            dataStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
+            dataStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+            dataStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
         //        flavourText = createMultilineLabel(text: historicItem.flavourText, maxWidth: container.frame.width - CGFloat(horizontalMargin * 2), position: CGPoint(x: 0, y: 0))
         //        flavourText.isHidden = true
