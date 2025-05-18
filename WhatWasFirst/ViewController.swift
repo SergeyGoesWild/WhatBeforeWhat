@@ -11,6 +11,10 @@ protocol ImageElementDelegate: AnyObject {
     func didTapImageElement(with id: String)
 }
 
+protocol EndGameAlertDelegate: AnyObject {
+    func didTapOkButton()
+}
+
 class ViewController: UIViewController {
 
     private let bgColour = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
@@ -37,7 +41,10 @@ class ViewController: UIViewController {
     private var endGameAlert: CustomAlert!
     
     private var score: Int = 0
-    private var roundCounter: Int = 1
+    private var roundCounter: Int = 0
+    private var totalRounds: Int = 3
+    private var isFirstRound: Bool = true
+    private var wasLastRound: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,21 +104,13 @@ class ViewController: UIViewController {
         introLabel.text = "What was first?"
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
         
-        endGameAlert = CustomAlert(alertText: "Your result is 8/10")
+        endGameAlert = CustomAlert(delegate: self)
         endGameAlert.translatesAutoresizingMaskIntoConstraints = false
-        
-        let testButton = UIButton(type: .system)
-        testButton.setTitle("Next", for: .normal)
-        testButton.setTitleColor(.systemBlue, for: .normal)
-        testButton.backgroundColor = .white
-        testButton.layer.cornerRadius = 12
-        testButton.addTarget(self, action: #selector(testButtonTapped), for: .touchUpInside)
-        testButton.translatesAutoresizingMaskIntoConstraints = false
+        endGameAlert.isHidden = true
         
         view.addSubview(bgView)
         view.addSubview(containerView)
-//        view.addSubview(endGameAlert)
-        view.addSubview(testButton)
+        view.addSubview(endGameAlert)
         containerView.addSubview(introLabel)
         containerView.addSubview(nextButton)
         containerView.addSubview(topElement)
@@ -133,11 +132,6 @@ class ViewController: UIViewController {
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
             
-            testButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            testButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            testButton.heightAnchor.constraint(equalToConstant: 50),
-            testButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
-            
             introLabelAnimConstraint,
             introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             
@@ -153,10 +147,10 @@ class ViewController: UIViewController {
             bottomElement.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             bottomElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
-//            endGameAlert.topAnchor.constraint(equalTo: view.topAnchor),
-//            endGameAlert.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//            endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            endGameAlert.topAnchor.constraint(equalTo: view.topAnchor),
+            endGameAlert.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -176,7 +170,10 @@ class ViewController: UIViewController {
         roundCounter += 1
         print("score =   ", score)
         print("round =   ", roundCounter)
-        startNewRound()
+        
+        if roundCounter == totalRounds {
+            wasLastRound = true
+        }
     }
     
     private func buttonSwitchAnimation() {
@@ -187,17 +184,39 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc private func nextButtonTapped() {
-        print("Next button tapped!")
+    private func resetGame() {
+        score = 0
+        roundCounter = 0
+        wasLastRound = false
+        isFirstRound = true
+        endGameAlert.isHidden = true
+        startNewRound()
     }
     
-    @objc private func testButtonTapped() {
-        startNewRound()
+    @objc private func nextButtonTapped() {
+        print("------- ", wasLastRound)
+        if wasLastRound {
+            print("FINAL SCORE: \(score)")
+            endGameAlert.setText(withScore: score, outOf: totalRounds)
+            endGameAlert.isHidden = false
+        } else {
+            startNewRound()
+        }
     }
 }
 
 extension ViewController: ImageElementDelegate {
     func didTapImageElement(with id: String) {
+        if isFirstRound {
+            buttonSwitchAnimation()
+            isFirstRound = false
+        }
         checkResult(given: id)
+    }
+}
+
+extension ViewController: EndGameAlertDelegate {
+    func didTapOkButton() {
+        resetGame()
     }
 }

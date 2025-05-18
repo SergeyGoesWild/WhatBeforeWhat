@@ -8,21 +8,26 @@
 import UIKit
 
 final class CustomAlert: UIView {
-    var labelText: String!
+    
+    weak var delegate: EndGameAlertDelegate?
     
     private var alertBackgroundView: UIView!
     private var fadeBackgroundView: UIView!
     private var labelView: UILabel!
     private var buttonView: UIButton!
     
-    init(alertText: String) {
+    init(delegate: EndGameAlertDelegate?) {
         super.init(frame: .zero)
-        labelText = alertText
+        self.delegate = delegate
         setupViews()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setText(withScore score: Int, outOf total: Int) {
+        labelView.text = "Your score is \(score) out of \(total)"
     }
     
     private func setupViews() {
@@ -42,7 +47,6 @@ final class CustomAlert: UIView {
         labelView = UILabel()
         labelView.textColor = .label
         labelView.textAlignment = .center
-        labelView.text = labelText
         labelView.numberOfLines = 0
         labelView.setContentHuggingPriority(.required, for: .vertical)
         labelView.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -94,7 +98,28 @@ final class CustomAlert: UIView {
     }
     
     @objc func buttonTapped() {
-        print("Button CLICK")
-        removeFromSuperview()
+        delegate?.didTapOkButton()
     }
 }
+
+//Нужен ли здесь синглтон такого типа?
+//class AlertService {
+//    static let shared = AlertService()
+//    
+//    private var alertView: CustomAlertView?
+//
+//    func showAlert(in parent: UIView, message: String) {
+//        if alertView == nil {
+//            alertView = CustomAlertView()
+//            parent.addSubview(alertView!)
+//            // setup constraints here
+//        }
+//        
+//        alertView?.setMessage(message)
+//        alertView?.show()
+//    }
+//
+//    func dismissAlert() {
+//        alertView?.hide()
+//    }
+//}
