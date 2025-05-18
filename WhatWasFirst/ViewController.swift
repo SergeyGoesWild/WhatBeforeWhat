@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     private let cornerRadius: CGFloat = 25
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
-    private let animLenght: Double = 0.4
+    private let animLenght: Double = 1.0
     
     private let dataProvider = DataProvider.shared
     private var topElementData: HistoricItem!
@@ -78,6 +78,7 @@ class ViewController: UIViewController {
         topElement.layer.borderWidth = borderWidth
         topElement.layer.borderColor = borderColour
         topElement.clipsToBounds = true
+        topElement.isUserInteractionEnabled = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
         
         bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: bottomElementData, delegate: self)
@@ -86,6 +87,7 @@ class ViewController: UIViewController {
         bottomElement.layer.borderWidth = borderWidth
         bottomElement.layer.borderColor = borderColour
         bottomElement.clipsToBounds = true
+        bottomElement.isUserInteractionEnabled = true
         bottomHeightConstraint = bottomElement.heightAnchor.constraint(equalToConstant: 0)
         
         nextButton = UIButton(type: .system)
@@ -95,6 +97,7 @@ class ViewController: UIViewController {
         nextButton.layer.cornerRadius = 12
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.isEnabled = false
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
         
         introLabel = UILabel()
@@ -178,6 +181,7 @@ class ViewController: UIViewController {
     }
     
     private func buttonSwitchAnimation(goingDown: Bool) {
+        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         if goingDown {
             nextButtonAnimConstraint.constant += animDistanceOffset
             introLabelAnimConstraint.constant += animDistanceOffset
@@ -185,9 +189,18 @@ class ViewController: UIViewController {
             nextButtonAnimConstraint.constant -= animDistanceOffset
             introLabelAnimConstraint.constant -= animDistanceOffset
         }
-        UIView.animate(withDuration: animLenght) {
+        UIView.animate(withDuration: animLenght, animations: {
             self.view.layoutIfNeeded()
-        }
+        }, completion: { _ in
+            self.blockingUI(withImagesBlocked: goingDown ? true : false, withButtonBlocked: goingDown ? false : true)
+        } )
+    }
+    
+    private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
+        topElement.isUserInteractionEnabled = !withImagesBlocked
+        bottomElement.isUserInteractionEnabled = !withImagesBlocked
+        nextButton.isEnabled = !withButtonBlocked
+        nextButton.alpha = withButtonBlocked ? 0.5 : 1
     }
     
     private func resetGame() {
@@ -208,6 +221,7 @@ class ViewController: UIViewController {
             endGameAlert.isHidden = false
         } else {
             startNewRound()
+            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
 }
@@ -217,6 +231,8 @@ extension ViewController: ImageElementDelegate {
         if isFirstRound {
             buttonSwitchAnimation(goingDown: true)
             isFirstRound = false
+        } else {
+            blockingUI(withImagesBlocked: true, withButtonBlocked: false)
         }
         topElement.showingOverlay(isShowing: true)
         bottomElement.showingOverlay(isShowing: true)
