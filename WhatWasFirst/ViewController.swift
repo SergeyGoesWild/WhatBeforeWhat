@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     private let cornerRadius: CGFloat = 25
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
+    private let animLenght: Double = 0.4
     
     private let dataProvider = DataProvider.shared
     private var topElementData: HistoricItem!
@@ -176,10 +177,15 @@ class ViewController: UIViewController {
         }
     }
     
-    private func buttonSwitchAnimation() {
-        nextButtonAnimConstraint.constant += animDistanceOffset
-        introLabelAnimConstraint.constant += animDistanceOffset
-        UIView.animate(withDuration: 0.5) {
+    private func buttonSwitchAnimation(goingDown: Bool) {
+        if goingDown {
+            nextButtonAnimConstraint.constant += animDistanceOffset
+            introLabelAnimConstraint.constant += animDistanceOffset
+        } else {
+            nextButtonAnimConstraint.constant -= animDistanceOffset
+            introLabelAnimConstraint.constant -= animDistanceOffset
+        }
+        UIView.animate(withDuration: animLenght) {
             self.view.layoutIfNeeded()
         }
     }
@@ -190,6 +196,7 @@ class ViewController: UIViewController {
         wasLastRound = false
         isFirstRound = true
         endGameAlert.isHidden = true
+        buttonSwitchAnimation(goingDown: false)
         startNewRound()
     }
     
@@ -208,7 +215,7 @@ class ViewController: UIViewController {
 extension ViewController: ImageElementDelegate {
     func didTapImageElement(with id: String) {
         if isFirstRound {
-            buttonSwitchAnimation()
+            buttonSwitchAnimation(goingDown: true)
             isFirstRound = false
         }
         checkResult(given: id)
