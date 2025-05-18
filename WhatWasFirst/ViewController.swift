@@ -177,10 +177,11 @@ class ViewController: UIViewController {
         
         if roundCounter == totalRounds {
             wasLastRound = true
+            nextButton.setTitle("Finish", for: .normal)
         }
     }
     
-    private func buttonSwitchAnimation(goingDown: Bool) {
+    private func buttonSwitchAnimation(goingDown: Bool, resetting: Bool) {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         if goingDown {
             nextButtonAnimConstraint.constant += animDistanceOffset
@@ -193,6 +194,9 @@ class ViewController: UIViewController {
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.blockingUI(withImagesBlocked: goingDown ? true : false, withButtonBlocked: goingDown ? false : true)
+            if resetting {
+                self.nextButton.setTitle("Next", for: .normal)
+            }
         } )
     }
     
@@ -200,7 +204,10 @@ class ViewController: UIViewController {
         topElement.isUserInteractionEnabled = !withImagesBlocked
         bottomElement.isUserInteractionEnabled = !withImagesBlocked
         nextButton.isEnabled = !withButtonBlocked
-        nextButton.alpha = withButtonBlocked ? 0.5 : 1
+        // TODO: Maybe check those animations again
+        UIView.animate(withDuration: 0.1) {
+            self.nextButton.alpha = withButtonBlocked ? 0.5 : 1
+        }
     }
     
     private func resetGame() {
@@ -209,7 +216,7 @@ class ViewController: UIViewController {
         wasLastRound = false
         isFirstRound = true
         endGameAlert.isHidden = true
-        buttonSwitchAnimation(goingDown: false)
+        buttonSwitchAnimation(goingDown: false, resetting: true)
         startNewRound()
     }
     
@@ -229,7 +236,7 @@ class ViewController: UIViewController {
 extension ViewController: ImageElementDelegate {
     func didTapImageElement(with id: String) {
         if isFirstRound {
-            buttonSwitchAnimation(goingDown: true)
+            buttonSwitchAnimation(goingDown: true, resetting: false)
             isFirstRound = false
         } else {
             blockingUI(withImagesBlocked: true, withButtonBlocked: false)
