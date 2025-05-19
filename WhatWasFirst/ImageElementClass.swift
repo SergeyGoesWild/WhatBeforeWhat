@@ -22,11 +22,9 @@ class ImageElement: UIView {
     private var dateText: UILabel!
     private var dataStackView: UIStackView!
     
-    init(frame: CGRect, id: String, historicItem: HistoricItem, delegate: ImageElementDelegate?, isRightAnswer: Bool) {
+    init(frame: CGRect, id: String, delegate: ImageElementDelegate?) {
         self.containerID = id
-        self.currentItem = historicItem
         self.delegate = delegate
-        self.isRightAnswer = isRightAnswer
         
         super.init(frame: frame)
         setupLayout()
@@ -89,12 +87,9 @@ class ImageElement: UIView {
         placeholderView.backgroundColor = .systemGray6
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
         
-        image = UIImage(named: currentItem.picture)
-        
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = image
         
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -119,14 +114,13 @@ class ImageElement: UIView {
         flavorText.textColor = .white
         flavorText.font = UIFont.systemFont(ofSize: 22, weight: .thin)
         flavorText.numberOfLines = 0
-        flavorText.text = currentItem.flavourText
         
         dateText = UILabel()
         dateText.translatesAutoresizingMaskIntoConstraints = false
         dateText.textColor = .white
         dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dateText.numberOfLines = 0
-        dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
+
         
         dataStackView = UIStackView(arrangedSubviews: [flavorText, dateText])
         dataStackView.axis = .vertical

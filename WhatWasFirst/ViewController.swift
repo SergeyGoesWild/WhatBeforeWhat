@@ -60,10 +60,6 @@ class ViewController: UIViewController {
     }
     
     private func setupLayout() {
-        let firstTurnDataItems = dataProvider.provideItems()
-        topElementData = firstTurnDataItems.0
-        bottomElementData = firstTurnDataItems.1
-        
         bgView = UIView()
         bgView.backgroundColor = bgColour
         bgView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +68,7 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        topElement = ImageElement(frame: .zero, id: "top", historicItem: topElementData, delegate: self, isRightAnswer: topElementData.date < bottomElementData.date)
+        topElement = ImageElement(frame: .zero, id: "top", delegate: self)
         topElement.translatesAutoresizingMaskIntoConstraints = false
         topElement.layer.cornerRadius = cornerRadius
         topElement.layer.borderWidth = borderWidth
@@ -81,7 +77,7 @@ class ViewController: UIViewController {
         topElement.isUserInteractionEnabled = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
         
-        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: bottomElementData, delegate: self, isRightAnswer: bottomElementData.date < topElementData.date)
+        bottomElement = ImageElement(frame: .zero, id: "bottom", delegate: self)
         bottomElement.translatesAutoresizingMaskIntoConstraints = false
         bottomElement.layer.cornerRadius = cornerRadius
         bottomElement.layer.borderWidth = borderWidth
@@ -156,9 +152,11 @@ class ViewController: UIViewController {
             endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+        
+        fillElementsAndStartNewRound()
     }
     
-    private func startNewRound() {
+    private func fillElementsAndStartNewRound() {
         let historicItems = dataProvider.provideItems()
         topElementData = historicItems.0
         bottomElementData = historicItems.1
@@ -214,7 +212,7 @@ class ViewController: UIViewController {
         isFirstRound = true
         endGameAlert.isHidden = true
         buttonSwitchAnimation(goingDown: false, resetting: true)
-        startNewRound()
+        fillElementsAndStartNewRound()
     }
     
     @objc private func nextButtonTapped() {
@@ -224,7 +222,7 @@ class ViewController: UIViewController {
             endGameAlert.setText(withScore: score, outOf: totalRounds)
             endGameAlert.isHidden = false
         } else {
-            startNewRound()
+            fillElementsAndStartNewRound()
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
