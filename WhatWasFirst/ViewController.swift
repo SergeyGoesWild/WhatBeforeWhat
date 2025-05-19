@@ -47,16 +47,11 @@ class ViewController: UIViewController {
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
     
+    // MARK: - Setup
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let sideSize = containerView.bounds.height / 2 - buttonMargin
-        topHeightConstraint.constant = sideSize
-        bottomHeightConstraint.constant = sideSize
     }
     
     private func setupLayout() {
@@ -156,6 +151,49 @@ class ViewController: UIViewController {
         fillElementsAndStartNewRound()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let sideSize = containerView.bounds.height / 2 - buttonMargin
+        topHeightConstraint.constant = sideSize
+        bottomHeightConstraint.constant = sideSize
+    }
+    
+    // MARK: - Flow
+    
+    @objc private func nextButtonTapped() {
+        if wasLastRound {
+            endGameAlert.setText(withScore: score, outOf: totalRounds)
+            endGameAlert.isHidden = false
+        } else {
+            fillElementsAndStartNewRound()
+            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+        }
+    }
+    
+    private func checkResult(given id: String) {
+        if (id == "top" && topElementData.date < bottomElementData.date) || (id == "bottom" && bottomElementData.date < topElementData.date) {
+            score += 1
+        }
+        roundCounter += 1
+        
+        if roundCounter == totalRounds {
+            wasLastRound = true
+            nextButton.setTitle("Finish", for: .normal)
+        }
+    }
+    
+    private func resetGame() {
+        score = 0
+        roundCounter = 0
+        wasLastRound = false
+        isFirstRound = true
+        endGameAlert.isHidden = true
+        buttonSwitchAnimation(goingDown: false, resetting: true)
+        fillElementsAndStartNewRound()
+    }
+    
+    // MARK: - Service
+    
     private func fillElementsAndStartNewRound() {
         let historicItems = dataProvider.provideItems()
         topElementData = historicItems.0
@@ -165,18 +203,11 @@ class ViewController: UIViewController {
         bottomElement.updateItem(with: bottomElementData, isRightAnswer: bottomElementData.date < topElementData.date)
     }
     
-    private func checkResult(given id: String) {
-        if (id == "top" && topElementData.date < bottomElementData.date) || (id == "bottom" && bottomElementData.date < topElementData.date) {
-            score += 1
-        }
-        roundCounter += 1
-        print("score =   ", score)
-        print("round =   ", roundCounter)
-        
-        if roundCounter == totalRounds {
-            wasLastRound = true
-            nextButton.setTitle("Finish", for: .normal)
-        }
+    private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
+        topElement.isUserInteractionEnabled = !withImagesBlocked
+        bottomElement.isUserInteractionEnabled = !withImagesBlocked
+        nextButton.isEnabled = !withButtonBlocked
+        nextButton.alpha = withButtonBlocked ? 0.5 : 1
     }
     
     private func buttonSwitchAnimation(goingDown: Bool, resetting: Bool) {
@@ -197,36 +228,9 @@ class ViewController: UIViewController {
             }
         } )
     }
-    
-    private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
-        topElement.isUserInteractionEnabled = !withImagesBlocked
-        bottomElement.isUserInteractionEnabled = !withImagesBlocked
-        nextButton.isEnabled = !withButtonBlocked
-        nextButton.alpha = withButtonBlocked ? 0.5 : 1
-    }
-    
-    private func resetGame() {
-        score = 0
-        roundCounter = 0
-        wasLastRound = false
-        isFirstRound = true
-        endGameAlert.isHidden = true
-        buttonSwitchAnimation(goingDown: false, resetting: true)
-        fillElementsAndStartNewRound()
-    }
-    
-    @objc private func nextButtonTapped() {
-        print("------- ", wasLastRound)
-        if wasLastRound {
-            print("FINAL SCORE: \(score)")
-            endGameAlert.setText(withScore: score, outOf: totalRounds)
-            endGameAlert.isHidden = false
-        } else {
-            fillElementsAndStartNewRound()
-            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
-        }
-    }
 }
+
+// MARK: - Extensions
 
 extension ViewController: ImageElementDelegate {
     func didTapImageElement(with id: String) {

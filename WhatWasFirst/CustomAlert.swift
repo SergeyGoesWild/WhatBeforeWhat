@@ -16,6 +16,8 @@ final class CustomAlert: UIView {
     private var labelView: UILabel!
     private var buttonView: UIButton!
     
+    // MARK: - Setup
+    
     init(delegate: EndGameAlertDelegate?) {
         super.init(frame: .zero)
         self.delegate = delegate
@@ -24,10 +26,6 @@ final class CustomAlert: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setText(withScore score: Int, outOf total: Int) {
-        labelView.text = "Your score is \(score) out of \(total)"
     }
     
     private func setupViews() {
@@ -97,8 +95,16 @@ final class CustomAlert: UIView {
         ])
     }
     
+    // MARK: - Flow
+    
     @objc func buttonTapped() {
         delegate?.didTapOkButton()
+    }
+    
+    // MARK: - Service
+    
+    func setText(withScore score: Int, outOf total: Int) {
+        labelView.text = "Your score is \(score) out of \(total)"
     }
 }
 

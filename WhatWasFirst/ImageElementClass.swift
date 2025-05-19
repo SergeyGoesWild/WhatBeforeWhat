@@ -22,64 +22,14 @@ class ImageElement: UIView {
     private var dateText: UILabel!
     private var dataStackView: UIStackView!
     
+    // MARK: - Setup
+    
     init(frame: CGRect, id: String, delegate: ImageElementDelegate?) {
         self.containerID = id
         self.delegate = delegate
         
         super.init(frame: frame)
         setupLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    @objc private func handleTap() {
-        launchEmoji()
-        delegate?.didTapImageElement(with: containerID)
-    }
-    
-    private func formDateText(dateText: Int, circa: Bool) -> String {
-        return "Created: \(circa ? "circa" : "") \(abs(dateText)) \(dateText > 0 ? "AD" : "BC")"
-    }
-    
-    func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
-        currentItem = newItem
-        flavorText.text = currentItem.flavourText
-        dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
-        image = UIImage(named: currentItem.picture)
-        imageView.image = image
-        self.isRightAnswer = isRightAnswer
-        
-        hidingOverlay()
-    }
-    
-    func showingOverlay() {
-        self.blackOverlay.isHidden = false
-        self.dataStackView.isHidden = false
-    }
-    
-    func hidingOverlay() {
-        blackOverlay.isHidden = true
-        dataStackView.isHidden = true
-    }
-    
-    func launchEmoji() {
-        let emojiLabel = UILabel()
-        emojiLabel.text = isRightAnswer ? "✅" : "❌"
-        emojiLabel.font = .systemFont(ofSize: 200)
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(emojiLabel)
-        emojiLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        let centerYConstraint = emojiLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0)
-        centerYConstraint.isActive = true
-        self.layoutIfNeeded()
-        centerYConstraint.constant = -270
-        UIView.animate(withDuration: 1.0, animations: {
-            self.layoutIfNeeded()
-        }, completion: { _ in
-            emojiLabel.removeFromSuperview()
-        })
     }
     
     private func setupLayout() {
@@ -163,7 +113,65 @@ class ImageElement: UIView {
             dataStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Flow
+    
+    func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
+        currentItem = newItem
+        flavorText.text = currentItem.flavourText
+        dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
+        image = UIImage(named: currentItem.picture)
+        imageView.image = image
+        self.isRightAnswer = isRightAnswer
+        
+        hidingOverlay()
+    }
+    
+    @objc private func handleTap() {
+        launchEmoji()
+        delegate?.didTapImageElement(with: containerID)
+    }
+    
+    // MARK: - Service
+    
+    func showingOverlay() {
+        self.blackOverlay.isHidden = false
+        self.dataStackView.isHidden = false
+    }
+    
+    func hidingOverlay() {
+        blackOverlay.isHidden = true
+        dataStackView.isHidden = true
+    }
+    
+    private func formDateText(dateText: Int, circa: Bool) -> String {
+        return "Created: \(circa ? "circa" : "") \(abs(dateText)) \(dateText > 0 ? "AD" : "BC")"
+    }
+    
+    func launchEmoji() {
+        let emojiLabel = UILabel()
+        emojiLabel.text = isRightAnswer ? "✅" : "❌"
+        emojiLabel.font = .systemFont(ofSize: 200)
+        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(emojiLabel)
+        emojiLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        let centerYConstraint = emojiLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0)
+        centerYConstraint.isActive = true
+        self.layoutIfNeeded()
+        centerYConstraint.constant = -270
+        UIView.animate(withDuration: 1.0, animations: {
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            emojiLabel.removeFromSuperview()
+        })
+    }
 }
+
+    // MARK: - Extensions
 
 extension ImageElement: UIScrollViewDelegate {
     
