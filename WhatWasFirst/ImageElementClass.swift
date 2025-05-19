@@ -15,6 +15,9 @@ class ImageElement: UIView {
     private var currentItem: HistoricItem!
     private var image: UIImage!
     private var imageView: UIImageView!
+    private var backgroundImageView: UIImageView!
+    private var backgroundEffectView: UIVisualEffectView!
+    private var blurEffect: UIBlurEffect!
     private var scrollView: UIScrollView!
     private var placeholderView: UIView!
     private var blackOverlay: UIView!
@@ -24,6 +27,9 @@ class ImageElement: UIView {
     
     private var imageViewHeightConstraint: NSLayoutConstraint!
     private var imageViewWidthConstraint: NSLayoutConstraint!
+    private var backgroundImageHeightConstraint: NSLayoutConstraint!
+    private var backgroundImageWidthConstraint: NSLayoutConstraint!
+    private let zoomMargin: CGFloat = 60
     
     // MARK: - Setup
     
@@ -48,6 +54,15 @@ class ImageElement: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 0)
         imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 0)
+        
+        backgroundImageView = UIImageView()
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalToConstant: 0)
+        backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalToConstant: 0)
+        
+        blurEffect = UIBlurEffect(style: .regular)
+        backgroundEffectView = UIVisualEffectView(effect: blurEffect)
+        backgroundEffectView.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +94,6 @@ class ImageElement: UIView {
         dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dateText.numberOfLines = 0
 
-        
         dataStackView = UIStackView(arrangedSubviews: [flavorText, dateText])
         dataStackView.axis = .vertical
         dataStackView.spacing = 10
@@ -89,6 +103,8 @@ class ImageElement: UIView {
         dataStackView.isHidden = true
         
         addSubview(placeholderView)
+        addSubview(backgroundImageView)
+        addSubview(backgroundEffectView)
         addSubview(scrollView)
         scrollView.addSubview(imageView)
         addSubview(blackOverlay)
@@ -113,6 +129,16 @@ class ImageElement: UIView {
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             
+            backgroundImageWidthConstraint,
+            backgroundImageHeightConstraint,
+            backgroundImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            backgroundImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            
+            backgroundEffectView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            backgroundEffectView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            backgroundEffectView.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
             blackOverlay.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blackOverlay.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             blackOverlay.topAnchor.constraint(equalTo: self.topAnchor),
@@ -133,7 +159,10 @@ class ImageElement: UIView {
         flavorText.text = currentItem.flavourText
         dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
         self.isRightAnswer = isRightAnswer
-        resizeAndUpdateImage()
+        // TODO: спросить почему это работает
+        DispatchQueue.main.async {
+            self.resizeAndUpdateImage()
+        }
         
         hidingOverlay()
     }
@@ -163,8 +192,11 @@ class ImageElement: UIView {
         image = UIImage(named: currentItem.picture)
         let newImageSize = getImageSize(image: image)
         imageView.image = image
-        imageViewWidthConstraint.constant = newImageSize.width
-        imageViewHeightConstraint.constant = newImageSize.height
+        backgroundImageView.image = image
+        imageViewWidthConstraint.constant = newImageSize.width + zoomMargin
+        imageViewHeightConstraint.constant = newImageSize.height + zoomMargin
+        backgroundImageWidthConstraint.constant = newImageSize.width
+        backgroundImageHeightConstraint.constant = newImageSize.height
     }
     
     private func launchEmoji() {
