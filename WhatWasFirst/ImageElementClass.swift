@@ -22,6 +22,9 @@ class ImageElement: UIView {
     private var dateText: UILabel!
     private var dataStackView: UIStackView!
     
+    private var imageViewHeightConstraint: NSLayoutConstraint!
+    private var imageViewWidthConstraint: NSLayoutConstraint!
+    
     // MARK: - Setup
     
     init(frame: CGRect, id: String, delegate: ImageElementDelegate?) {
@@ -32,6 +35,10 @@ class ImageElement: UIView {
         setupLayout()
     }
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func setupLayout() {
         placeholderView = UIView()
         placeholderView.backgroundColor = .systemGray6
@@ -39,7 +46,8 @@ class ImageElement: UIView {
         
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 0)
+        imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 0)
         
         scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -100,6 +108,8 @@ class ImageElement: UIView {
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
+            imageViewWidthConstraint,
+            imageViewHeightConstraint,
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
             
@@ -114,9 +124,7 @@ class ImageElement: UIView {
         ])
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    
     
     // MARK: - Flow
     
@@ -124,9 +132,8 @@ class ImageElement: UIView {
         currentItem = newItem
         flavorText.text = currentItem.flavourText
         dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
-        image = UIImage(named: currentItem.picture)
-        imageView.image = image
         self.isRightAnswer = isRightAnswer
+        resizeAndUpdateImage()
         
         hidingOverlay()
     }
@@ -152,7 +159,15 @@ class ImageElement: UIView {
         return "Created: \(circa ? "circa" : "") \(abs(dateText)) \(dateText > 0 ? "AD" : "BC")"
     }
     
-    func launchEmoji() {
+    private func resizeAndUpdateImage() {
+        image = UIImage(named: currentItem.picture)
+        let newImageSize = getImageSize(image: image)
+        imageView.image = image
+        imageViewWidthConstraint.constant = newImageSize.width
+        imageViewHeightConstraint.constant = newImageSize.height
+    }
+    
+    private func launchEmoji() {
         let emojiLabel = UILabel()
         emojiLabel.text = isRightAnswer ? "✅" : "❌"
         emojiLabel.font = .systemFont(ofSize: 200)
@@ -168,6 +183,20 @@ class ImageElement: UIView {
         }, completion: { _ in
             emojiLabel.removeFromSuperview()
         })
+    }
+    
+    func getImageSize(image: UIImage) -> CGSize {
+        if image.size.width > image.size.height {
+            let multiplier = image.size.height / self.bounds.height
+            let height = self.bounds.height
+            let width = image.size.width / multiplier
+            return CGSize(width: width, height: height)
+        } else {
+            let multiplier = image.size.width / self.bounds.width
+            let height = image.size.height / multiplier
+            let width = self.bounds.width
+            return CGSize(width: width, height: height)
+        }
     }
 }
 
