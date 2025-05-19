@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        topElement = ImageElement(frame: .zero, id: "top", historicItem: topElementData, delegate: self)
+        topElement = ImageElement(frame: .zero, id: "top", historicItem: topElementData, delegate: self, isRightAnswer: topElementData.date < bottomElementData.date)
         topElement.translatesAutoresizingMaskIntoConstraints = false
         topElement.layer.cornerRadius = cornerRadius
         topElement.layer.borderWidth = borderWidth
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         topElement.isUserInteractionEnabled = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
         
-        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: bottomElementData, delegate: self)
+        bottomElement = ImageElement(frame: .zero, id: "bottom", historicItem: bottomElementData, delegate: self, isRightAnswer: bottomElementData.date < topElementData.date)
         bottomElement.translatesAutoresizingMaskIntoConstraints = false
         bottomElement.layer.cornerRadius = cornerRadius
         bottomElement.layer.borderWidth = borderWidth
@@ -162,9 +162,9 @@ class ViewController: UIViewController {
         let historicItems = dataProvider.provideItems()
         topElementData = historicItems.0
         bottomElementData = historicItems.1
-        
-        topElement.updateItem(with: topElementData)
-        bottomElement.updateItem(with: bottomElementData)
+
+        topElement.updateItem(with: topElementData, isRightAnswer: topElementData.date < bottomElementData.date)
+        bottomElement.updateItem(with: bottomElementData, isRightAnswer: bottomElementData.date < topElementData.date)
     }
     
     private func checkResult(given id: String) {
@@ -204,10 +204,7 @@ class ViewController: UIViewController {
         topElement.isUserInteractionEnabled = !withImagesBlocked
         bottomElement.isUserInteractionEnabled = !withImagesBlocked
         nextButton.isEnabled = !withButtonBlocked
-        // TODO: Maybe check those animations again
-        UIView.animate(withDuration: 0.1) {
-            self.nextButton.alpha = withButtonBlocked ? 0.5 : 1
-        }
+        nextButton.alpha = withButtonBlocked ? 0.5 : 1
     }
     
     private func resetGame() {
@@ -241,8 +238,8 @@ extension ViewController: ImageElementDelegate {
         } else {
             blockingUI(withImagesBlocked: true, withButtonBlocked: false)
         }
-        topElement.showingOverlay(isShowing: true)
-        bottomElement.showingOverlay(isShowing: true)
+        topElement.showingOverlay()
+        bottomElement.showingOverlay()
 
         checkResult(given: id)
     }
