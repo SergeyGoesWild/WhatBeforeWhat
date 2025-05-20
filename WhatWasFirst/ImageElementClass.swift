@@ -156,16 +156,15 @@ class ImageElement: UIView {
     
     func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
         currentItem = newItem
-        flavorText.text = currentItem.flavourText
-        dateText.text = formDateText(dateText: currentItem.date, circa: currentItem.circa)
-        self.isRightAnswer = isRightAnswer
-        // TODO: спросить почему это работает
-        DispatchQueue.main.async {
-            print(self.currentItem)
-            self.resizeAndUpdateImage()
-        }
         
-        hidingOverlay()
+        // TODO: спросить почему это работает и спросить как это обойти
+        DispatchQueue.main.async {
+            self.flavorText.text = self.currentItem.flavourText
+            self.dateText.text = self.formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
+            self.isRightAnswer = isRightAnswer
+            self.resizeAndUpdateImage()
+            self.hidingOverlay()
+        }
     }
     
     @objc private func handleTap() {
