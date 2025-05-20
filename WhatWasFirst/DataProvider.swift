@@ -112,7 +112,7 @@ final class DataProvider {
         guard let previous1 = prevIndex1, let previous2 = prevIndex2 else {
             let random1 = Int.random(in: 0..<data.count)
             var random2 = Int.random(in: 0..<data.count)
-            while random2 == random1 {
+            while data[random2].date == data[random1].date {
                 random2 = Int.random(in: 0..<data.count)
             }
             prevIndex1 = random1
@@ -124,7 +124,7 @@ final class DataProvider {
             random1 = Int.random(in: 0..<data.count)
         }
         var random2 = Int.random(in: 0..<data.count)
-        while random2 == random1 || random2 == previous1 || random2 == previous2 {
+        while data[random2].date == data[random1].date || random2 == previous1 || random2 == previous2 {
             random2 = Int.random(in: 0..<data.count)
         }
         prevIndex1 = random1

@@ -161,6 +161,7 @@ class ImageElement: UIView {
         self.isRightAnswer = isRightAnswer
         // TODO: спросить почему это работает
         DispatchQueue.main.async {
+            print(self.currentItem)
             self.resizeAndUpdateImage()
         }
         
