@@ -161,13 +161,16 @@ class ViewController: UIViewController {
     // MARK: - Flow
     
     @objc private func nextButtonTapped() {
+        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         if wasLastRound {
             endGameAlert.setText(withScore: score, outOf: totalRounds)
             endGameAlert.isHidden = false
         } else {
             fillElementsAndStartNewRound()
-            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
+        
+        // TODO: Вопрос здесь по повду async
+        blockingUI(withImagesBlocked: false, withButtonBlocked: true)
     }
     
     private func checkResult(given id: String) {
