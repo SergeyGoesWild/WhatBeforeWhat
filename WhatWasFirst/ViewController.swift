@@ -35,11 +35,14 @@ class ViewController: UIViewController {
     private var bottomElement: ImageElement!
     private var introLabel: UILabel!
     private var nextButton: UIButton!
+    private var endGameAlert: CustomAlert!
+    
     private var introLabelAnimConstraint: NSLayoutConstraint!
     private var nextButtonAnimConstraint: NSLayoutConstraint!
     private var topHeightConstraint: NSLayoutConstraint!
     private var bottomHeightConstraint: NSLayoutConstraint!
-    private var endGameAlert: CustomAlert!
+    private var containerPaddingConstraintTop: NSLayoutConstraint!
+    private var containerPaddingConstraintBottom: NSLayoutConstraint!
     
     private var score: Int = 0
     private var roundCounter: Int = 0
@@ -62,6 +65,8 @@ class ViewController: UIViewController {
         containerView = UIView()
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         
         topElement = ImageElement(frame: .zero, id: "top", delegate: self)
         topElement.translatesAutoresizingMaskIntoConstraints = false
@@ -117,15 +122,15 @@ class ViewController: UIViewController {
             bgView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bgView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            containerPaddingConstraintTop,
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sidePadding),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sidePadding),
-            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            containerPaddingConstraintBottom,
             
             nextButtonAnimConstraint,
             nextButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.75),
+            nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.85),
             
             introLabelAnimConstraint,
             introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
@@ -153,6 +158,9 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
+        containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
+        
         let sideSize = containerView.bounds.height / 2 - buttonMargin
         topHeightConstraint.constant = sideSize
         bottomHeightConstraint.constant = sideSize

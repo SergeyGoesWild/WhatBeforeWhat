@@ -29,6 +29,9 @@ final class CustomAlert: UIView {
     }
     
     private func setupViews() {
+//        let smallScreenHorizontal = UIScreen.main.bounds.width <= 375
+//        let smallScreenVertical = UIScreen.main.bounds.height <= 750
+        
         fadeBackgroundView = UIView()
         fadeBackgroundView.backgroundColor = .black
         fadeBackgroundView.alpha = 0.7
@@ -55,8 +58,6 @@ final class CustomAlert: UIView {
         buttonView.setTitleColor(.systemBlue, for: .normal)
         buttonView.backgroundColor = .white
         buttonView.layer.cornerRadius = 8
-//        buttonView.layer.borderWidth = 2
-//        buttonView.layer.borderColor = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)
         buttonView.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         buttonView.setContentHuggingPriority(.required, for: .vertical)
         buttonView.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -64,11 +65,8 @@ final class CustomAlert: UIView {
         
         let stackView = UIStackView(arrangedSubviews: [labelView, buttonView])
         stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.setContentHuggingPriority(.required, for: .vertical)
-        stackView.setContentCompressionResistancePriority(.required, for: .vertical)
+        stackView.spacing = 15
+        stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(fadeBackgroundView)
@@ -83,15 +81,25 @@ final class CustomAlert: UIView {
             
             alertBackgroundView.centerXAnchor.constraint(equalTo: fadeBackgroundView.centerXAnchor),
             alertBackgroundView.centerYAnchor.constraint(equalTo: fadeBackgroundView.centerYAnchor),
-            alertBackgroundView.widthAnchor.constraint(equalTo: fadeBackgroundView.widthAnchor, multiplier: 0.7),
-            alertBackgroundView.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
-            alertBackgroundView.heightAnchor.constraint(lessThanOrEqualToConstant: 100),
+//            alertBackgroundView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
+//            alertBackgroundView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: smallScreenHorizontal ? 0.23 : 0.15),
             
-            stackView.topAnchor.constraint(equalTo: alertBackgroundView.topAnchor, constant: 16),
-            stackView.bottomAnchor.constraint(equalTo: alertBackgroundView.bottomAnchor, constant: -16),
-            stackView.leadingAnchor.constraint(equalTo: alertBackgroundView.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: alertBackgroundView.trailingAnchor, constant: -16),
+//            stackView.topAnchor.constraint(equalTo: alertBackgroundView.topAnchor, constant: 16),
+//            stackView.bottomAnchor.constraint(equalTo: alertBackgroundView.bottomAnchor, constant: -16),
+//            stackView.leadingAnchor.constraint(equalTo: alertBackgroundView.leadingAnchor, constant: 16),
+//            stackView.trailingAnchor.constraint(equalTo: alertBackgroundView.trailingAnchor, constant: -16),
+//            stackView.centerXAnchor.constraint(equalTo: alertBackgroundView.centerXAnchor),
+//            stackView.centerYAnchor.constraint(equalTo: alertBackgroundView.centerYAnchor),
             
+            stackView.topAnchor.constraint(equalTo: alertBackgroundView.topAnchor, constant: 30),
+            stackView.bottomAnchor.constraint(equalTo: alertBackgroundView.bottomAnchor, constant: -30),
+            stackView.leadingAnchor.constraint(equalTo: alertBackgroundView.leadingAnchor, constant: 30),
+            stackView.trailingAnchor.constraint(equalTo: alertBackgroundView.trailingAnchor, constant: -30),
+            
+            alertBackgroundView.widthAnchor.constraint(lessThanOrEqualToConstant: 350),
+            
+            buttonView.widthAnchor.constraint(equalToConstant: 200),
+            buttonView.heightAnchor.constraint(equalToConstant: 50),
         ])
     }
     
@@ -104,7 +112,7 @@ final class CustomAlert: UIView {
     // MARK: - Service
     
     func setText(withScore score: Int, outOf total: Int) {
-        labelView.text = "Your score is \(score) out of \(total)"
+        labelView.text = "Your score: \n\(score) out of \(total)"
     }
 }
 
