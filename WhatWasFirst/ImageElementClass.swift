@@ -46,6 +46,9 @@ class ImageElement: UIView {
     }
     
     private func setupLayout() {
+        let screenSize = UIScreen.main.bounds
+        let smallScreen = screenSize.width <= 375 && screenSize.height < 812
+        
         placeholderView = UIView()
         placeholderView.backgroundColor = .systemGray6
         placeholderView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +88,7 @@ class ImageElement: UIView {
         flavorText = UILabel()
         flavorText.translatesAutoresizingMaskIntoConstraints = false
         flavorText.textColor = .white
-        flavorText.font = UIFont.systemFont(ofSize: 22, weight: .thin)
+        flavorText.font = UIFont.systemFont(ofSize: smallScreen ? 19 : 22, weight: .thin)
         flavorText.numberOfLines = 0
         
         dateText = UILabel()

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     private let bgColour = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
     private let borderColour = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)
+    private let buttonColour = UIColor.white
     private let borderWidth: CGFloat = 4
     private let buttonMargin: CGFloat = 50
     private let cornerRadius: CGFloat = 25
@@ -88,8 +89,8 @@ class ViewController: UIViewController {
         
         nextButton = UIButton(type: .system)
         nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(.systemBlue, for: .normal)
-        nextButton.backgroundColor = .white
+        nextButton.setTitleColor(bgColour, for: .normal)
+        nextButton.backgroundColor = buttonColour
         nextButton.layer.cornerRadius = 12
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
