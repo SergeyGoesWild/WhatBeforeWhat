@@ -17,9 +17,6 @@ protocol EndGameAlertDelegate: AnyObject {
 
 class ViewController: UIViewController {
 
-    private let bgColour = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
-    private let borderColour = CGColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.00)
-    private let buttonColour = UIColor.white
     private let borderWidth: CGFloat = 4
     private let buttonMargin: CGFloat = 50
     private let cornerRadius: CGFloat = 25
@@ -39,7 +36,7 @@ class ViewController: UIViewController {
     
     private lazy var bgView: UIView = {
         let bgView = UIView()
-        bgView.backgroundColor = bgColour
+        bgView.backgroundColor = AppColors.bgColour
         bgView.translatesAutoresizingMaskIntoConstraints = false
         return bgView
     }()
@@ -54,7 +51,7 @@ class ViewController: UIViewController {
         topElement.translatesAutoresizingMaskIntoConstraints = false
         topElement.layer.cornerRadius = cornerRadius
         topElement.layer.borderWidth = borderWidth
-        topElement.layer.borderColor = borderColour
+        topElement.layer.borderColor = AppColors.borderColour.cgColor
         topElement.clipsToBounds = true
         topElement.isUserInteractionEnabled = true
         return topElement
@@ -64,7 +61,7 @@ class ViewController: UIViewController {
         bottomElement.translatesAutoresizingMaskIntoConstraints = false
         bottomElement.layer.cornerRadius = cornerRadius
         bottomElement.layer.borderWidth = borderWidth
-        bottomElement.layer.borderColor = borderColour
+        bottomElement.layer.borderColor = AppColors.borderColour.cgColor
         bottomElement.clipsToBounds = true
         bottomElement.isUserInteractionEnabled = true
         return bottomElement
@@ -72,7 +69,7 @@ class ViewController: UIViewController {
     private lazy var introLabel: UILabel = {
         let introLabel = UILabel()
         introLabel.translatesAutoresizingMaskIntoConstraints = false
-        introLabel.textColor = .black
+        introLabel.textColor = AppColors.labelColour
         introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
         introLabel.numberOfLines = 0
         introLabel.text = "What was first?"
@@ -81,8 +78,8 @@ class ViewController: UIViewController {
     private lazy var nextButton: UIButton = {
         let nextButton = UIButton(type: .system)
         nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(bgColour, for: .normal)
-        nextButton.backgroundColor = buttonColour
+        nextButton.setTitleColor(AppColors.bgColour, for: .normal)
+        nextButton.backgroundColor = AppColors.buttonColour
         nextButton.layer.cornerRadius = 12
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false

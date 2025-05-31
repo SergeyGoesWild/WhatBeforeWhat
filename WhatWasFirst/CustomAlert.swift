@@ -13,10 +13,10 @@ final class CustomAlert: UIView {
     
     private var alertBackgroundView: UIView = {
         let alertBackgroundView = UIView()
-        alertBackgroundView.backgroundColor = UIColor(red: 0.15, green: 0.68, blue: 0.38, alpha: 1.00)
+        alertBackgroundView.backgroundColor = AppColors.bgColour
         alertBackgroundView.layer.cornerRadius = 20
         alertBackgroundView.layer.borderWidth = 4
-        alertBackgroundView.layer.borderColor = UIColor.black.cgColor
+        alertBackgroundView.layer.borderColor = AppColors.borderColour.cgColor
         alertBackgroundView.clipsToBounds = true
         alertBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         return alertBackgroundView
@@ -24,13 +24,13 @@ final class CustomAlert: UIView {
     private var fadeBackgroundView: UIView = {
         let fadeBackgroundView = UIView()
         fadeBackgroundView.backgroundColor = .black
-        fadeBackgroundView.alpha = 0.7
+        fadeBackgroundView.alpha = 0.75
         fadeBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         return fadeBackgroundView
     }()
     private var labelView: UILabel = {
         let labelView = UILabel()
-        labelView.textColor = .label
+        labelView.textColor = AppColors.labelColour
         labelView.textAlignment = .center
         labelView.numberOfLines = 0
         labelView.setContentHuggingPriority(.required, for: .vertical)
@@ -41,8 +41,8 @@ final class CustomAlert: UIView {
     private lazy var buttonView: UIButton = {
         let buttonView = UIButton(type: .system)
         buttonView.setTitle("OK", for: .normal)
-        buttonView.setTitleColor(.systemBlue, for: .normal)
-        buttonView.backgroundColor = .white
+        buttonView.setTitleColor(AppColors.bgColour, for: .normal)
+        buttonView.backgroundColor = AppColors.buttonColour
         buttonView.layer.cornerRadius = 8
         buttonView.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         buttonView.setContentHuggingPriority(.required, for: .vertical)
