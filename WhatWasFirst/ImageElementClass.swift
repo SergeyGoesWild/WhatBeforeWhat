@@ -14,16 +14,78 @@ class ImageElement: UIView {
     
     private var currentItem: HistoricItem!
     private var image: UIImage!
-    private var imageView: UIImageView!
-    private var backgroundImageView: UIImageView!
-    private var backgroundEffectView: UIVisualEffectView!
-    private var blurEffect: UIBlurEffect!
-    private var scrollView: UIScrollView!
-    private var placeholderView: UIView!
-    private var blackOverlay: UIView!
-    private var flavorText: UILabel!
-    private var dateText: UILabel!
-    private var dataStackView: UIStackView!
+    private var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    private var backgroundImageView: UIImageView = {
+        let backgroundImageView = UIImageView()
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        return backgroundImageView
+    }()
+    private lazy var backgroundEffectView: UIVisualEffectView = {
+        let backgroundEffectView = UIVisualEffectView(effect: blurEffect)
+        backgroundEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return backgroundEffectView
+    }()
+    private lazy var blurEffect: UIBlurEffect = {
+        let blurEffect = UIBlurEffect(style: .regular)
+        return blurEffect
+    }()
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.bounces = true
+        scrollView.alwaysBounceHorizontal = true
+        scrollView.alwaysBounceVertical = true
+        scrollView.isScrollEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 1.0
+        scrollView.delegate = self
+        return scrollView
+    }()
+    private var placeholderView: UIView = {
+        let placeholderView = UIView()
+        placeholderView.backgroundColor = .systemGray6
+        placeholderView.translatesAutoresizingMaskIntoConstraints = false
+        return placeholderView
+    }()
+    private var blackOverlay: UIView = {
+        let blackOverlay = UIView()
+        blackOverlay.translatesAutoresizingMaskIntoConstraints = false
+        blackOverlay.backgroundColor = .black
+        blackOverlay.alpha = 0.7
+        blackOverlay.isHidden = true
+        return blackOverlay
+    }()
+    private lazy var flavorText: UILabel = {
+        let flavorText = UILabel()
+        flavorText.translatesAutoresizingMaskIntoConstraints = false
+        flavorText.textColor = .white
+        flavorText.numberOfLines = 0
+        return flavorText
+    }()
+    private var dateText: UILabel = {
+        let dateText = UILabel()
+        dateText.translatesAutoresizingMaskIntoConstraints = false
+        dateText.textColor = .white
+        dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        dateText.numberOfLines = 0
+        return dateText
+    }()
+    private lazy var dataStackView: UIStackView = {
+        let dataStackView = UIStackView(arrangedSubviews: [flavorText, dateText])
+        dataStackView.axis = .vertical
+        dataStackView.spacing = 10
+        dataStackView.alignment = .fill
+        dataStackView.distribution = .fill
+        dataStackView.translatesAutoresizingMaskIntoConstraints = false
+        dataStackView.isHidden = true
+        return dataStackView
+    }()
     
     private var imageViewHeightConstraint: NSLayoutConstraint!
     private var imageViewWidthConstraint: NSLayoutConstraint!
@@ -49,61 +111,13 @@ class ImageElement: UIView {
         let screenSize = UIScreen.main.bounds
         let smallScreen = screenSize.width <= 375 && screenSize.height < 812
         
-        placeholderView = UIView()
-        placeholderView.backgroundColor = .systemGray6
-        placeholderView.translatesAutoresizingMaskIntoConstraints = false
-        
-        imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 0)
         imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 0)
         
-        backgroundImageView = UIImageView()
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalToConstant: 0)
         backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalToConstant: 0)
         
-        blurEffect = UIBlurEffect(style: .regular)
-        backgroundEffectView = UIVisualEffectView(effect: blurEffect)
-        backgroundEffectView.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.bounces = true
-        scrollView.alwaysBounceHorizontal = true
-        scrollView.alwaysBounceVertical = true
-        scrollView.isScrollEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.minimumZoomScale = 1.0
-        scrollView.maximumZoomScale = 1.0
-        scrollView.delegate = self
-        
-        blackOverlay = UIView()
-        blackOverlay.translatesAutoresizingMaskIntoConstraints = false
-        blackOverlay.backgroundColor = .black
-        blackOverlay.alpha = 0.7
-        blackOverlay.isHidden = true
-        
-        flavorText = UILabel()
-        flavorText.translatesAutoresizingMaskIntoConstraints = false
-        flavorText.textColor = .white
         flavorText.font = UIFont.systemFont(ofSize: smallScreen ? 19 : 22, weight: .thin)
-        flavorText.numberOfLines = 0
-        
-        dateText = UILabel()
-        dateText.translatesAutoresizingMaskIntoConstraints = false
-        dateText.textColor = .white
-        dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        dateText.numberOfLines = 0
-
-        dataStackView = UIStackView(arrangedSubviews: [flavorText, dateText])
-        dataStackView.axis = .vertical
-        dataStackView.spacing = 10
-        dataStackView.alignment = .fill
-        dataStackView.distribution = .fill
-        dataStackView.translatesAutoresizingMaskIntoConstraints = false
-        dataStackView.isHidden = true
         
         addSubview(placeholderView)
         addSubview(backgroundImageView)
@@ -192,6 +206,8 @@ class ImageElement: UIView {
     }
     
     private func resizeAndUpdateImage() {
+        imageView.image = nil
+        image = nil
         image = UIImage(named: currentItem.picture)
         let newImageSize = getImageSize(image: image)
         imageView.image = image

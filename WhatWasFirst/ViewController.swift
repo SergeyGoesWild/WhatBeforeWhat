@@ -30,13 +30,65 @@ class ViewController: UIViewController {
     private let dataProvider = DataProvider.shared
     private var topElementData: HistoricItem!
     private var bottomElementData: HistoricItem!
-    private var bgView: UIView!
-    private var containerView: UIView!
-    private var topElement: ImageElement!
-    private var bottomElement: ImageElement!
-    private var introLabel: UILabel!
-    private var nextButton: UIButton!
-    private var endGameAlert: CustomAlert!
+    private lazy var endGameAlert: CustomAlert = {
+        let endGameAlert = CustomAlert(delegate: self)
+        endGameAlert.translatesAutoresizingMaskIntoConstraints = false
+        endGameAlert.isHidden = true
+        return endGameAlert
+    }()
+    
+    private lazy var bgView: UIView = {
+        let bgView = UIView()
+        bgView.backgroundColor = bgColour
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        return bgView
+    }()
+    private lazy var containerView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+    private lazy var topElement: ImageElement = {
+        let topElement = ImageElement(frame: .zero, id: "top", delegate: self)
+        topElement.translatesAutoresizingMaskIntoConstraints = false
+        topElement.layer.cornerRadius = cornerRadius
+        topElement.layer.borderWidth = borderWidth
+        topElement.layer.borderColor = borderColour
+        topElement.clipsToBounds = true
+        topElement.isUserInteractionEnabled = true
+        return topElement
+    }()
+    private lazy var bottomElement: ImageElement = {
+        let bottomElement = ImageElement(frame: .zero, id: "bottom", delegate: self)
+        bottomElement.translatesAutoresizingMaskIntoConstraints = false
+        bottomElement.layer.cornerRadius = cornerRadius
+        bottomElement.layer.borderWidth = borderWidth
+        bottomElement.layer.borderColor = borderColour
+        bottomElement.clipsToBounds = true
+        bottomElement.isUserInteractionEnabled = true
+        return bottomElement
+    }()
+    private lazy var introLabel: UILabel = {
+        let introLabel = UILabel()
+        introLabel.translatesAutoresizingMaskIntoConstraints = false
+        introLabel.textColor = .black
+        introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
+        introLabel.numberOfLines = 0
+        introLabel.text = "What was first?"
+        return introLabel
+    }()
+    private lazy var nextButton: UIButton = {
+        let nextButton = UIButton(type: .system)
+        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitleColor(bgColour, for: .normal)
+        nextButton.backgroundColor = buttonColour
+        nextButton.layer.cornerRadius = 12
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.isEnabled = false
+        return nextButton
+    }()
     
     private var introLabelAnimConstraint: NSLayoutConstraint!
     private var nextButtonAnimConstraint: NSLayoutConstraint!
@@ -59,55 +111,14 @@ class ViewController: UIViewController {
     }
     
     private func setupLayout() {
-        bgView = UIView()
-        bgView.backgroundColor = bgColour
-        bgView.translatesAutoresizingMaskIntoConstraints = false
-        
-        containerView = UIView()
-        containerView.backgroundColor = .clear
-        containerView.translatesAutoresizingMaskIntoConstraints = false
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         
-        topElement = ImageElement(frame: .zero, id: "top", delegate: self)
-        topElement.translatesAutoresizingMaskIntoConstraints = false
-        topElement.layer.cornerRadius = cornerRadius
-        topElement.layer.borderWidth = borderWidth
-        topElement.layer.borderColor = borderColour
-        topElement.clipsToBounds = true
-        topElement.isUserInteractionEnabled = true
         topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
-        
-        bottomElement = ImageElement(frame: .zero, id: "bottom", delegate: self)
-        bottomElement.translatesAutoresizingMaskIntoConstraints = false
-        bottomElement.layer.cornerRadius = cornerRadius
-        bottomElement.layer.borderWidth = borderWidth
-        bottomElement.layer.borderColor = borderColour
-        bottomElement.clipsToBounds = true
-        bottomElement.isUserInteractionEnabled = true
         bottomHeightConstraint = bottomElement.heightAnchor.constraint(equalToConstant: 0)
         
-        nextButton = UIButton(type: .system)
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(bgColour, for: .normal)
-        nextButton.backgroundColor = buttonColour
-        nextButton.layer.cornerRadius = 12
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.isEnabled = false
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
-        
-        introLabel = UILabel()
-        introLabel.translatesAutoresizingMaskIntoConstraints = false
-        introLabel.textColor = .black
-        introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
-        introLabel.numberOfLines = 0
-        introLabel.text = "What was first?"
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
-        
-        endGameAlert = CustomAlert(delegate: self)
-        endGameAlert.translatesAutoresizingMaskIntoConstraints = false
-        endGameAlert.isHidden = true
         
         view.addSubview(bgView)
         view.addSubview(containerView)
