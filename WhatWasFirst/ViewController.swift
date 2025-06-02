@@ -182,12 +182,16 @@ class ViewController: UIViewController {
         if wasLastRound {
             endGameAlert.setText(withScore: score, outOf: totalRounds)
             endGameAlert.isHidden = false
+            DispatchQueue.main.async {
+                self.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+            }
         } else {
             fillElementsAndStartNewRound()
+            // TODO: спросить как оно точно работает
+            DispatchQueue.main.async {
+                self.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+            }
         }
-        
-        // TODO: Вопрос здесь по повду async
-        blockingUI(withImagesBlocked: false, withButtonBlocked: true)
     }
     
     private func checkResult(given id: String) {
@@ -203,24 +207,26 @@ class ViewController: UIViewController {
     }
     
     private func resetGame() {
-        score = 0
-        roundCounter = 0
-        wasLastRound = false
-        isFirstRound = true
-        endGameAlert.isHidden = true
+        self.score = 0
+        self.roundCounter = 0
+        self.wasLastRound = false
+        self.isFirstRound = true
         buttonSwitchAnimation(goingDown: false, resetting: true)
+        self.endGameAlert.isHidden = true
         fillElementsAndStartNewRound()
     }
     
     // MARK: - Service
     
-    private func fillElementsAndStartNewRound() {
+    private func fillElementsAndStartNewRound(completion: (() -> Void)? = nil) {
         let historicItems = dataProvider.provideItems()
         topElementData = historicItems.0
         bottomElementData = historicItems.1
 
         topElement.updateItem(with: topElementData, isRightAnswer: topElementData.date < bottomElementData.date)
         bottomElement.updateItem(with: bottomElementData, isRightAnswer: bottomElementData.date < topElementData.date)
+        // TODO: спросить здесь про escaping нужен ли он если нет асинка, в общем как добиться выполнения после функции
+        completion?()
     }
     
     private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {

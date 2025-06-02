@@ -8,6 +8,8 @@
 import UIKit
 
 class ImageElement: UIView {
+    private var firstLaunch: Bool = true
+    
     weak var delegate: ImageElementDelegate?
     private let containerID: String!
     private var isRightAnswer: Bool!
@@ -167,21 +169,24 @@ class ImageElement: UIView {
         ])
     }
     
-    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if firstLaunch {
+            firstLaunch = false
+            resizeAndUpdateImage()
+        }
+    }
     
     // MARK: - Flow
     
     func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
         currentItem = newItem
-        
-        // TODO: спросить почему это работает и спросить как это обойти
-        DispatchQueue.main.async {
-            self.flavorText.text = self.currentItem.flavourText
-            self.dateText.text = self.formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
-            self.isRightAnswer = isRightAnswer
-            self.resizeAndUpdateImage()
-            self.hidingOverlay()
-        }
+        flavorText.text = self.currentItem.flavourText
+        dateText.text = self.formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
+        self.isRightAnswer = isRightAnswer
+        resizeAndUpdateImage()
+        hidingOverlay()
     }
     
     @objc private func handleTap() {
