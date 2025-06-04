@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2A3ED1C72DD4A1A3001D80DF /* Exceptions for "WhatWasFirst" folder in "WhatWasFirst" target */ = {
+		2A2756CD2DEFB813002CC099 /* Exceptions for "WhatWasFirst" folder in "WhatWasFirst" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -43,7 +43,7 @@
 		2A3ED1A12DD4A1A2001D80DF /* WhatWasFirst */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				2A3ED1C72DD4A1A3001D80DF /* Exceptions for "WhatWasFirst" folder in "WhatWasFirst" target */,
+				2A2756CD2DEFB813002CC099 /* Exceptions for "WhatWasFirst" folder in "WhatWasFirst" target */,
 			);
 			path = WhatWasFirst;
 			sourceTree = "<group>";

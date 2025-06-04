@@ -211,9 +211,27 @@ class ImageElement: UIView {
     }
     
     private func resizeAndUpdateImage() {
-        imageView.image = nil
-        image = nil
-        image = UIImage(named: currentItem.picture)
+// TODO: почему тут без директории
+        guard let path = Bundle.main.path(forResource: currentItem.picture, ofType: "jpg") else {
+            print("PROBLEM WITH IMAGE")
+            print(currentItem.picture)
+            print("1. ", Bundle.main.resourcePath ?? "No path")
+            if let bundleURL = Bundle.main.resourceURL?.appendingPathComponent("ImageAssets") {
+                print("IN")
+                var isDirectory: ObjCBool = false
+                let exists = FileManager.default.fileExists(atPath: bundleURL.path, isDirectory: &isDirectory)
+                
+                if exists && isDirectory.boolValue {
+                    print("✅ Folder 'ImageAssets' exists in bundle.")
+                } else {
+                    print("❌ Folder not found or not a directory.")
+                }
+            } else {
+                print("❌ Could not construct path to folder.")
+            }
+            return
+        }
+        image = UIImage(contentsOfFile: path)
         let newImageSize = getImageSize(image: image)
         imageView.image = image
         backgroundImageView.image = image
