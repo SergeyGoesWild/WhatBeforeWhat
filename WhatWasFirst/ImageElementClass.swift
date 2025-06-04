@@ -212,25 +212,7 @@ class ImageElement: UIView {
     
     private func resizeAndUpdateImage() {
 // TODO: почему тут без директории
-        guard let path = Bundle.main.path(forResource: currentItem.picture, ofType: "jpg") else {
-            print("PROBLEM WITH IMAGE")
-            print(currentItem.picture)
-            print("1. ", Bundle.main.resourcePath ?? "No path")
-            if let bundleURL = Bundle.main.resourceURL?.appendingPathComponent("ImageAssets") {
-                print("IN")
-                var isDirectory: ObjCBool = false
-                let exists = FileManager.default.fileExists(atPath: bundleURL.path, isDirectory: &isDirectory)
-                
-                if exists && isDirectory.boolValue {
-                    print("✅ Folder 'ImageAssets' exists in bundle.")
-                } else {
-                    print("❌ Folder not found or not a directory.")
-                }
-            } else {
-                print("❌ Could not construct path to folder.")
-            }
-            return
-        }
+        guard let path = Bundle.main.path(forResource: currentItem.picture, ofType: "jpg") else { return }
         image = UIImage(contentsOfFile: path)
         let newImageSize = getImageSize(image: image)
         imageView.image = image
@@ -264,12 +246,22 @@ class ImageElement: UIView {
             let multiplier = image.size.height / self.bounds.height
             let height = self.bounds.height
             let width = image.size.width / multiplier
-            return CGSize(width: width, height: height)
+            let additionalMargin = self.bounds.width - width
+            if additionalMargin > 0 {
+                return CGSize(width: width + additionalMargin, height: height + additionalMargin)
+            } else {
+                return CGSize(width: width, height: height)
+            }
         } else {
             let multiplier = image.size.width / self.bounds.width
             let height = image.size.height / multiplier
             let width = self.bounds.width
-            return CGSize(width: width, height: height)
+            let additionalMargin = self.bounds.height - height
+            if additionalMargin > 0 {
+                return CGSize(width: width + additionalMargin, height: height + additionalMargin)
+            } else {
+                return CGSize(width: width, height: height)
+            }
         }
     }
 }
