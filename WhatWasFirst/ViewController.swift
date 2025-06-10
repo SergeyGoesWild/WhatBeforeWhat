@@ -162,6 +162,7 @@ class ViewController: UIViewController {
             endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
+        view.layoutIfNeeded()
         fillElementsAndStartNewRound()
     }
     
@@ -182,15 +183,10 @@ class ViewController: UIViewController {
         if wasLastRound {
             endGameAlert.setText(withScore: score, outOf: totalRounds)
             endGameAlert.isHidden = false
-            DispatchQueue.main.async {
-                self.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
-            }
+            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         } else {
             fillElementsAndStartNewRound()
-            // TODO: спросить как оно точно работает
-            DispatchQueue.main.async {
-                self.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
-            }
+            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
     
@@ -218,15 +214,13 @@ class ViewController: UIViewController {
     
     // MARK: - Service
     
-    private func fillElementsAndStartNewRound(completion: (() -> Void)? = nil) {
+    private func fillElementsAndStartNewRound() {
         let historicItems = dataProvider.provideItems()
         topElementData = historicItems.0
         bottomElementData = historicItems.1
 
         topElement.updateItem(with: topElementData, isRightAnswer: topElementData.date < bottomElementData.date)
         bottomElement.updateItem(with: bottomElementData, isRightAnswer: bottomElementData.date < topElementData.date)
-        // TODO: спросить здесь про escaping нужен ли он если нет асинка, в общем как добиться выполнения после функции
-        completion?()
     }
     
     private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {

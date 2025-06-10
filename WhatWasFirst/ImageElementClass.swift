@@ -8,7 +8,6 @@
 import UIKit
 
 class ImageElement: UIView {
-    private var firstLaunch: Bool = true
     
     weak var delegate: ImageElementDelegate?
     private let containerID: String!
@@ -169,15 +168,6 @@ class ImageElement: UIView {
         ])
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        if firstLaunch {
-            firstLaunch = false
-            resizeAndUpdateImage()
-        }
-    }
-    
     // MARK: - Flow
     
     func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
@@ -211,7 +201,6 @@ class ImageElement: UIView {
     }
     
     private func resizeAndUpdateImage() {
-// TODO: почему тут без директории
         guard let path = Bundle.main.path(forResource: currentItem.picture, ofType: "jpg") else { return }
         image = UIImage(contentsOfFile: path)
         let newImageSize = getImageSize(image: image)
