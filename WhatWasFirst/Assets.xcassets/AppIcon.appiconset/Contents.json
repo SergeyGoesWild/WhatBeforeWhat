@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "IconApp_00000.jpg",
+      "filename" : "WhatWasFirst-Normal.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "IconApp_00000 1.jpg",
+      "filename" : "WhatWasFirst-Dark.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "IconApp_00000 2.jpg",
+      "filename" : "WhatWasFirst-Normal 1.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
