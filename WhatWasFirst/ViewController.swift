@@ -168,12 +168,14 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        print("VIEW DID LAYOUT SUBVIEWS")
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
         containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
         
         let sideSize = containerView.bounds.height / 2 - buttonMargin
         topHeightConstraint.constant = sideSize
         bottomHeightConstraint.constant = sideSize
+        view.layoutIfNeeded()
     }
     
     // MARK: - Flow
