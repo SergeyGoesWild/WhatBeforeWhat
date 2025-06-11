@@ -90,6 +90,7 @@ class ImageElement: UIView {
     
     private var imageViewHeightConstraint: NSLayoutConstraint!
     private var imageViewWidthConstraint: NSLayoutConstraint!
+    private var imageViewOffsetConstraint: NSLayoutConstraint!
     private var backgroundImageHeightConstraint: NSLayoutConstraint!
     private var backgroundImageWidthConstraint: NSLayoutConstraint!
     private let zoomMargin: CGFloat = 60
@@ -114,6 +115,7 @@ class ImageElement: UIView {
         
         imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 0)
         imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 0)
+        imageViewOffsetConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: 0)
         
         backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalToConstant: 0)
         backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalToConstant: 0)
@@ -145,7 +147,7 @@ class ImageElement: UIView {
             imageViewWidthConstraint,
             imageViewHeightConstraint,
             imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            imageViewOffsetConstraint,
             
             backgroundImageWidthConstraint,
             backgroundImageHeightConstraint,
@@ -208,6 +210,11 @@ class ImageElement: UIView {
         backgroundImageView.image = image
         imageViewWidthConstraint.constant = newImageSize.width + zoomMargin
         imageViewHeightConstraint.constant = newImageSize.height + zoomMargin
+        if let offset = currentItem.yOffset {
+            imageViewOffsetConstraint.constant = self.bounds.height * offset
+        } else {
+            imageViewOffsetConstraint.constant = 0
+        }
         backgroundImageWidthConstraint.constant = newImageSize.width
         backgroundImageHeightConstraint.constant = newImageSize.height
     }

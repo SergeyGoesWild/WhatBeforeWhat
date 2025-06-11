@@ -13,6 +13,16 @@ struct HistoricItem {
     let date: Int
     let flavourText: String
     let circa: Bool
+    let yOffset: CGFloat?
+    
+    init(id: UUID, picture: String, date: Int, flavourText: String, circa: Bool, yOffset: CGFloat? = nil) {
+            self.id = id
+            self.picture = picture
+            self.date = date
+            self.flavourText = flavourText
+            self.circa = circa
+            self.yOffset = yOffset
+    }
 }
 
 final class DataProvider {
@@ -26,7 +36,7 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "HandsCave", date: -25000, flavourText: "Prehistoric hand paintings at the Cave of Hands in Argentina.", circa: true),
         HistoricItem(id: UUID(), picture: "BlackSquare", date: 1915, flavourText: "'Black square' painting by Kasimir Malevitch, considered one of the most radical artworks of its time.", circa: false),
         HistoricItem(id: UUID(), picture: "ElCastillo", date: 1100, flavourText: "Temple of Kukulcan - a Mesoamerican step-pyramid in Mexico, built by the Maya civilization.", circa: true),
-        HistoricItem(id: UUID(), picture: "MonaLisa", date: 1506, flavourText: "'Mona Lisa' a painting by Leonardo da Vinci, an archetypal masterpiece of the Italian Renaissance.", circa: false),
+        HistoricItem(id: UUID(), picture: "MonaLisa", date: 1506, flavourText: "'Mona Lisa' a painting by Leonardo da Vinci, an archetypal masterpiece of the Italian Renaissance.", circa: false, yOffset: 0.25),
         HistoricItem(id: UUID(), picture: "NotreDameDeParis", date: 1345, flavourText: "Notre-Dame is a famous Gothic cathedral in Paris, France.", circa: false),
         HistoricItem(id: UUID(), picture: "ParthenonAthens", date: -432, flavourText: "The Parthenon is an ancient Greek temple located on the Acropolis of Athens.", circa: true),
         HistoricItem(id: UUID(), picture: "SacreCoeur", date: 1923, flavourText: "Sacré-Cœur is a renowned Roman Catholic church located at the summit of Montmartre, Paris.", circa: false),
@@ -46,7 +56,7 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "SagradaFamilia", date: 1882, flavourText: "The Sagrada Família is a famous basilica in Barcelona, Spain. It is known for its intricate design and unfinished status.", circa: false),
         HistoricItem(id: UUID(), picture: "DancingHouse", date: 1996, flavourText: "The Dancing House is a modern architectural landmark in Prague, Czech Republic, known for its unusual design that resembles a dancing couple.", circa: false),
         HistoricItem(id: UUID(), picture: "WhiteHouse", date: 1800, flavourText: "The White House is the official residence and workplace of the President of the United States, located in Washington, D.C.", circa: false),
-        HistoricItem(id: UUID(), picture: "MaskOfTutankhamun", date: -1323, flavourText: "The Mask of Tutankhamun is an ancient Egyptian funerary mask made of solid gold that belonged to Pharaoh Tutankhamun, one of Egypt’s most famous rulers.", circa: true),
+        HistoricItem(id: UUID(), picture: "MaskOfTutankhamun", date: -1323, flavourText: "The Mask of Tutankhamun is an ancient Egyptian funerary mask made of solid gold that belonged to Pharaoh Tutankhamun, one of Egypt’s most famous rulers.", circa: true, yOffset: 0.1),
         HistoricItem(id: UUID(), picture: "SydneyOperaHouse", date: 1973, flavourText: "The Sydney Opera House is a world-famous performing arts center located in Sydney, Australia. It is known for its sail-like design.", circa: false),
         HistoricItem(id: UUID(), picture: "RosettaStone", date: -196, flavourText: "The Rosetta Stone is an ancient Egyptian artifact that was crucial in deciphering Egyptian hieroglyphs. It contains the same text written in three different scripts.", circa: true),
         HistoricItem(id: UUID(), picture: "Stonehenge", date: -2500, flavourText: "Stonehenge is a prehistoric monument located in Wiltshire, England, known for its massive standing stones arranged in a circular formation.", circa: true),
@@ -54,16 +64,16 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "TerracottaArmy", date: -210, flavourText: "The Terracotta Army is a massive collection of life-sized clay soldiers buried near the tomb of China’s first emperor to guard him in the afterlife.", circa: true),
         HistoricItem(id: UUID(), picture: "OlmecColossalHeads", date: -900, flavourText: "The Olmec Colossal Heads are massive stone sculptures created by the Olmec civilization, one of the earliest known cultures in Mesoamerica.", circa: true),
         HistoricItem(id: UUID(), picture: "DanseusesBleues", date: 1897, flavourText: "“Danseuses Bleues” is a famous painting by Edgar Degas, a renowned French Impressionist artist.", circa: false),
-        HistoricItem(id: UUID(), picture: "AmericanGothic", date: 1930, flavourText: "“American Gothic” is a famous painting by Grant Wood. It is one of the most recognizable works of American art, known for its depiction of rural life and traditional values.", circa: false),
+        HistoricItem(id: UUID(), picture: "AmericanGothic", date: 1930, flavourText: "“American Gothic” is a famous painting by Grant Wood. It is one of the most recognizable works of American art, known for its depiction of rural life and traditional values.", circa: false, yOffset: 0.25),
         HistoricItem(id: UUID(), picture: "Nighthawks", date: 1942, flavourText: "“Nighthawks” is a famous painting by Edward Hopper. It is one of the most iconic artworks of American realism, known for its moody atmosphere.", circa: false),
         HistoricItem(id: UUID(), picture: "DimancheApresMidiIleGrandeJatte", date: 1884, flavourText: "“Un dimanche après-midi à l’Île de la Grande Jatte” is a famous pointillist painting by Georges Seurat.", circa: false),
         HistoricItem(id: UUID(), picture: "VoyageurContemplantUneMerDeNuages", date: 1818, flavourText: "“Voyageur contemplant une mer de nuages” is a famous Romantic painting by Caspar David Friedrich. It is one of the most iconic representations of Romanticism.", circa: false),
         HistoricItem(id: UUID(), picture: "NinthWave", date: 1850, flavourText: "“The Ninth Wave” is a famous maritime painting by Ivan Aivazovsky. It is considered one of the greatest seascapes in art history.", circa: false),
-        HistoricItem(id: UUID(), picture: "LibertyLeadingThePeople", date: 1830, flavourText: "“Liberty Leading the People” is a famous historical painting by Eugène Delacroix. It is one of the most iconic representations of revolution", circa: false),
+        HistoricItem(id: UUID(), picture: "LibertyLeadingThePeople", date: 1830, flavourText: "“Liberty Leading the People” is a famous historical painting by Eugène Delacroix. It is one of the most iconic representations of revolution", circa: false, yOffset: 0.1),
         HistoricItem(id: UUID(), picture: "NightWatch", date: 1830, flavourText: "“The Night Watch” is a famous Baroque painting by Rembrandt van Rijn. It is one of the most celebrated works of Dutch Golden Age art.", circa: false),
         HistoricItem(id: UUID(), picture: "ThePersistenceOfMemory", date: 1931, flavourText: "“The Persistence of Memory” is a famous Surrealist painting by Salvador Dalí. It is known for its dreamlike atmosphere.", circa: false),
         HistoricItem(id: UUID(), picture: "GreatWallOfChina", date: -220, flavourText: "The Great Wall of China is a massive ancient fortification built to protect China from invasions and control trade routes.", circa: true),
-        HistoricItem(id: UUID(), picture: "BorgundStaveChurch", date: 1200, flavourText: "The Borgund Stave Church is a medieval wooden church located in Norway, known for its Viking-era architecture.", circa: true),
+        HistoricItem(id: UUID(), picture: "BorgundStaveChurch", date: 1200, flavourText: "The Borgund Stave Church is a medieval wooden church located in Norway, known for its Viking-era architecture.", circa: true, yOffset: -0.1),
         HistoricItem(id: UUID(), picture: "HimejiCastle", date: 1333, flavourText: "Himeji Castle is one of Japan’s most famous and well-preserved castles, known for its elegant white appearance and advanced defensive design.", circa: false),
         HistoricItem(id: UUID(), picture: "NeuschwansteinCastle", date: 1869, flavourText: "Neuschwanstein Castle is a castle located in Bavaria, Germany, famous for its romantic design and breathtaking setting.", circa: false),
         HistoricItem(id: UUID(), picture: "TempleOfHeaven", date: 1406, flavourText: "The Temple of Heaven is a historic religious complex in Beijing, China, where emperors of the Ming and Qing Dynasties performed ceremonies to pray for good harvests.", circa: true),
@@ -87,14 +97,14 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "DiscoveriesMonument", date: 1958, flavourText: "The Monument to the Discoveries is a sculpture on the banks of the Tagus River in Lisbon’s Belém district. It honors Portugal’s Age of Discovery.", circa: false),
         HistoricItem(id: UUID(), picture: "TorreBelem", date: 1519, flavourText: "The Torre de Belém is a fortification near Lisbon, Portugal. It used to serve as a defensive structure and as a ceremonial gateway for explorers during the Age of Discoveries.", circa: false),
         HistoricItem(id: UUID(), picture: "MountRushmore", date: 1941, flavourText: "Mount Rushmore is a monumental granite sculpture in South Dakota, featuring the carved faces of four U.S. presidents: Washington, Jefferson, Roosevelt and Lincoln.", circa: false),
-        HistoricItem(id: UUID(), picture: "WashingtonMonument", date: 1888, flavourText: "The Washington Monument is a white marble obelisk located in Washington, D.C., built to honor George Washington, the first U.S. president.", circa: false),
+        HistoricItem(id: UUID(), picture: "WashingtonMonument", date: 1888, flavourText: "The Washington Monument is a white marble obelisk located in Washington, D.C., built to honor George Washington, the first U.S. president.", circa: false, yOffset: 0.1),
         HistoricItem(id: UUID(), picture: "SanctuaryBomJesusDoMonte", date: 1784, flavourText: "The Sanctuary of Bom Jesus do Monte, located in Braga, Portugal, is a landmark renowned for its monumental Baroque stairway and neoclassical basilica.", circa: false),
         HistoricItem(id: UUID(), picture: "PalacioDaPena", date: 1838, flavourText: "The Palácio Nacional da Pena is a palace in the Sintra Mountains, Portugal. The palace showcases an eclectic mix of architectural styles, reflecting the Romanticism of the era.", circa: false),
         HistoricItem(id: UUID(), picture: "HausmannHouses", date: 1853, flavourText: "Haussmann houses are elegant residential buildings that define much of Paris’s architectural identity. They feature uniform façades, wrought-iron balconies, and cream-colored stone.", circa: true),
         HistoricItem(id: UUID(), picture: "HallOfBulls", date: -16000, flavourText: "The Hall of Bulls in the Lascaux Cave, France, is a prehistoric cave famous for its striking Paleolithic cave paintings.", circa: false),
-        HistoricItem(id: UUID(), picture: "VenusMilo", date: -115, flavourText: "The Venus de Milo is an ancient Greek marble statue believed to represent Aphrodite, the goddess of love and beauty.", circa: true),
-        HistoricItem(id: UUID(), picture: "Moschophoros", date: -570, flavourText: "The Moschophoros, or “Calf Bearer”, is an ancient Greek statue, depicting a bearded man carrying a calf on his shoulders. It is a key example of early Archaic sculpture.", circa: true),
-        HistoricItem(id: UUID(), picture: "MuiredachHighCross", date: 855, flavourText: "Muiredach’s High Cross, located in Ireland, is a sandstone monument known for its intricate carvings. It features detailed biblical scenes from the Old and New Testaments.", circa: true),
+        HistoricItem(id: UUID(), picture: "VenusMilo", date: -115, flavourText: "The Venus de Milo is an ancient Greek marble statue believed to represent Aphrodite, the goddess of love and beauty.", circa: true, yOffset: 0.1),
+        HistoricItem(id: UUID(), picture: "Moschophoros", date: -570, flavourText: "The Moschophoros, or “Calf Bearer”, is an ancient Greek statue, depicting a bearded man carrying a calf on his shoulders. It is a key example of early Archaic sculpture.", circa: true, yOffset: 0.1),
+        HistoricItem(id: UUID(), picture: "MuiredachHighCross", date: 855, flavourText: "Muiredach’s High Cross, located in Ireland, is a sandstone monument known for its intricate carvings. It features detailed biblical scenes from the Old and New Testaments.", circa: true, yOffset: 0.1),
         HistoricItem(id: UUID(), picture: "MilesevaMonastery", date: 1234, flavourText: "Mileševa Monastery is a Serbian Orthodox monastery. Renowned for its exquisite frescoes, it houses the famous “White Angel”, considered a masterpiece of medieval European art.", circa: false),
         HistoricItem(id: UUID(), picture: "CodexAureus", date: 870, flavourText: "The Codex Aureus is a lavishly illuminated medieval manuscript. With its gold ink and decorations, it exemplifies the opulence and artistry of Carolingian scriptoria.", circa: false),
         HistoricItem(id: UUID(), picture: "IconChristAndAbbotMena", date: 550, flavourText: "An early Coptic icon showing Christ alongside Abbot Mena, symbolizing spiritual companionship and divine guidance.", circa: false),
@@ -102,7 +112,7 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "AztecSunStone", date: 1510, flavourText: "A monumental basalt sculpture symbolizing the Aztec cosmos and calendar, richly carved with mythological figures.", circa: true),
         HistoricItem(id: UUID(), picture: "LessayAbbey", date: 1080, flavourText: "A Romanesque Benedictine abbey in Normandy, known for its harmonious architecture and early use of rib vaults.", circa: false),
         HistoricItem(id: UUID(), picture: "MariaLaachAbbey", date: 1156, flavourText: "A Romanesque monastery by Lake Laach in Germany, blending spiritual function with striking architectural balance.", circa: true),
-        HistoricItem(id: UUID(), picture: "CloistersApocalypse", date: 1330, flavourText: "An illuminated manuscript depicting vivid scenes from the Book of Revelation, held at The Cloisters in New York.", circa: true),
+        HistoricItem(id: UUID(), picture: "CloistersApocalypse", date: 1330, flavourText: "An illuminated manuscript depicting vivid scenes from the Book of Revelation, held at The Cloisters in New York.", circa: true, yOffset: 0.28),
         HistoricItem(id: UUID(), picture: "AnnunciationVinci", date: 1474, flavourText: "A delicate early painting of the Annunciation attributed to Leonardo da Vinci, blending clarity with subtle emotion.", circa: true),
         HistoricItem(id: UUID(), picture: "MosaicFloorDogAlexandria", date: -175, flavourText: "A Hellenistic mosaic from Alexandria depicting a dog with remarkable realism, showcasing ancient Greek artistry.", circa: true),
         HistoricItem(id: UUID(), picture: "GreatTheaterOfEpidaurus", date: -320, flavourText: "A marvel of ancient Greek architecture, famed for its perfect acoustics and elegant semicircular design.", circa: true),
