@@ -104,10 +104,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("in viewDidLoad")
         setupLayout()
     }
     
     private func setupLayout() {
+        print("in setupLayout")
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         
@@ -161,14 +163,14 @@ class ViewController: UIViewController {
             endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        
+        print("before filling")
         view.layoutIfNeeded()
         fillElementsAndStartNewRound()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print("VIEW DID LAYOUT SUBVIEWS")
+        print("in viewDidLayoutSubviews")
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
         containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
         
