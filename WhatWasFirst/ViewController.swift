@@ -17,6 +17,13 @@ protocol EndGameAlertDelegate: AnyObject {
 
 class ViewController: UIViewController {
 
+    private var score: Int = 0
+    private var roundCounter: Int = 0
+    private var totalRounds: Int = 3
+    private var didSetupContent = false
+    private var isFirstRound: Bool = true
+    private var wasLastRound: Bool = false
+    
     private let borderWidth: CGFloat = 4
     private let buttonMargin: CGFloat = 50
     private let cornerRadius: CGFloat = 25
@@ -94,27 +101,18 @@ class ViewController: UIViewController {
     private var containerPaddingConstraintTop: NSLayoutConstraint!
     private var containerPaddingConstraintBottom: NSLayoutConstraint!
     
-    private var score: Int = 0
-    private var roundCounter: Int = 0
-    private var totalRounds: Int = 3
-    private var isFirstRound: Bool = true
-    private var wasLastRound: Bool = false
-    
     // MARK: - Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("in viewDidLoad")
         setupLayout()
     }
     
     private func setupLayout() {
-        print("in setupLayout")
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        
-        topHeightConstraint = topElement.heightAnchor.constraint(equalToConstant: 0)
-        bottomHeightConstraint = bottomElement.heightAnchor.constraint(equalToConstant: 0)
+        topHeightConstraint = topElement.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.385)
+        bottomHeightConstraint = bottomElement.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.385)
         
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
@@ -163,21 +161,17 @@ class ViewController: UIViewController {
             endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        print("before filling")
-        view.layoutIfNeeded()
-        fillElementsAndStartNewRound()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print("in viewDidLayoutSubviews")
-        containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
-        containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
-        
-        let sideSize = containerView.bounds.height / 2 - buttonMargin
-        topHeightConstraint.constant = sideSize
-        bottomHeightConstraint.constant = sideSize
-        view.layoutIfNeeded()
+        if !didSetupContent {
+            containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
+            containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
+            view.layoutIfNeeded()
+            fillElementsAndStartNewRound()
+            didSetupContent = true
+        }
     }
     
     // MARK: - Flow
@@ -185,9 +179,8 @@ class ViewController: UIViewController {
     @objc private func nextButtonTapped() {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         if wasLastRound {
-            endGameAlert.setText(withScore: score, outOf: totalRounds)
             endGameAlert.isHidden = false
-            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+            endGameAlert.activateAlert(withScore: score, outOf: totalRounds)
         } else {
             fillElementsAndStartNewRound()
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
@@ -207,13 +200,14 @@ class ViewController: UIViewController {
     }
     
     private func resetGame() {
-        self.score = 0
-        self.roundCounter = 0
-        self.wasLastRound = false
-        self.isFirstRound = true
+        score = 0
+        roundCounter = 0
+        wasLastRound = false
+        isFirstRound = true
         buttonSwitchAnimation(goingDown: false, resetting: true)
-        self.endGameAlert.isHidden = true
+        endGameAlert.isHidden = true
         fillElementsAndStartNewRound()
+        blockingUI(withImagesBlocked: false, withButtonBlocked: true)
     }
     
     // MARK: - Service

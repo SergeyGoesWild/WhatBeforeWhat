@@ -11,6 +11,8 @@ final class CustomAlert: UIView {
     
     weak var delegate: EndGameAlertDelegate?
     
+    var alertVerticalConstaint: NSLayoutConstraint!
+    
     private var alertBackgroundView: UIView = {
         let alertBackgroundView = UIView()
         alertBackgroundView.backgroundColor = AppColors.bgColour
@@ -24,7 +26,7 @@ final class CustomAlert: UIView {
     private var fadeBackgroundView: UIView = {
         let fadeBackgroundView = UIView()
         fadeBackgroundView.backgroundColor = .black
-        fadeBackgroundView.alpha = 0.75
+        fadeBackgroundView.alpha = 0
         fadeBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         return fadeBackgroundView
     }()
@@ -64,6 +66,7 @@ final class CustomAlert: UIView {
     }
     
     private func setupViews() {
+        alertVerticalConstaint = alertBackgroundView.centerYAnchor.constraint(equalTo: fadeBackgroundView.centerYAnchor, constant: -40)
         
         let stackView = UIStackView(arrangedSubviews: [labelView, buttonView])
         stackView.axis = .vertical
@@ -82,7 +85,7 @@ final class CustomAlert: UIView {
             fadeBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             alertBackgroundView.centerXAnchor.constraint(equalTo: fadeBackgroundView.centerXAnchor),
-            alertBackgroundView.centerYAnchor.constraint(equalTo: fadeBackgroundView.centerYAnchor),
+            alertVerticalConstaint,
             
             stackView.topAnchor.constraint(equalTo: alertBackgroundView.topAnchor, constant: 30),
             stackView.bottomAnchor.constraint(equalTo: alertBackgroundView.bottomAnchor, constant: -30),
@@ -100,11 +103,27 @@ final class CustomAlert: UIView {
     
     @objc func buttonTapped() {
         delegate?.didTapOkButton()
+        fadeBackgroundView.alpha = 0
+        alertVerticalConstaint.constant = -40
     }
     
     // MARK: - Service
     
-    func setText(withScore score: Int, outOf total: Int) {
-        labelView.text = "Your score: \n\(score) out of \(total)"
+    func activateAlert(withScore score: Int, outOf total: Int) {
+        self.labelView.text = "Your score: \n\(score) out of \(total)"
+        DispatchQueue.main.async {
+            self.launchAnimation()
+        }
+    }
+    
+    private func launchAnimation() {
+        buttonView.isUserInteractionEnabled = false
+        UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
+            self.fadeBackgroundView.alpha = 0.6
+            self.alertVerticalConstaint.constant = 0
+            self.layoutIfNeeded()
+        }, completion: { _ in
+            self.buttonView.isUserInteractionEnabled = true
+        })
     }
 }
