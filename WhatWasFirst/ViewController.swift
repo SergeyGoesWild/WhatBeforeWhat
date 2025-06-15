@@ -19,7 +19,7 @@ class ViewController: UIViewController {
 
     private var score: Int = 0
     private var roundCounter: Int = 0
-    private var totalRounds: Int = 3
+    private var totalRounds: Int = 10
     private var didSetupContent = false
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false

@@ -293,6 +293,7 @@
 				DEVELOPMENT_TEAM = C4AF6DCFK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhatWasFirst/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Which came first?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -329,6 +330,7 @@
 				DEVELOPMENT_TEAM = C4AF6DCFK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhatWasFirst/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Which came first?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
