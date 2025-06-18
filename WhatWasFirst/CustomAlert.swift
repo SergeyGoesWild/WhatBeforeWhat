@@ -110,7 +110,20 @@ final class CustomAlert: UIView {
     // MARK: - Service
     
     func activateAlert(withScore score: Int, outOf total: Int) {
-        self.labelView.text = "Your score: \n\(score) out of \(total)"
+        let normalText = "Your score: \n"
+        let boldText = "\(score) out of \(total)"
+        let fullString = NSMutableAttributedString()
+
+        let boldAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: 16)
+        ]
+        let normalAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 16, weight: .thin)
+        ]
+        fullString.append(NSAttributedString(string: normalText, attributes: normalAttributes))
+        fullString.append(NSAttributedString(string: boldText, attributes: boldAttributes))
+        
+        self.labelView.attributedText = fullString
         DispatchQueue.main.async {
             self.launchAnimation()
         }

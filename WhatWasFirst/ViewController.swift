@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     private var wasLastRound: Bool = false
     
     private let borderWidth: CGFloat = 4
-    private let buttonMargin: CGFloat = 50
     private let cornerRadius: CGFloat = 25
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
@@ -52,6 +51,18 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
+    }()
+    private lazy var buttonLabelContainer: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .clear
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
+    private lazy var counterElement: CounterView = {
+        let counterElement = CounterView(frame: .zero, totalRounds: totalRounds)
+        counterElement.translatesAutoresizingMaskIntoConstraints = false
+        counterElement.layer.cornerRadius = 12
+        return counterElement
     }()
     private lazy var topElement: ImageElement = {
         let topElement = ImageElement(frame: .zero, id: "top", delegate: self)
@@ -111,19 +122,21 @@ class ViewController: UIViewController {
     private func setupLayout() {
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        topHeightConstraint = topElement.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.385)
-        bottomHeightConstraint = bottomElement.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.385)
         
-        nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
-        introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
+        nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
+        introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
+        
+        counterElement.updateConterLabel(newRound: roundCounter + 1)
         
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(endGameAlert)
-        containerView.addSubview(introLabel)
-        containerView.addSubview(nextButton)
+        containerView.addSubview(buttonLabelContainer)
         containerView.addSubview(topElement)
         containerView.addSubview(bottomElement)
+        containerView.addSubview(counterElement)
+        buttonLabelContainer.addSubview(introLabel)
+        buttonLabelContainer.addSubview(nextButton)
         
         NSLayoutConstraint.activate([
             bgView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -136,22 +149,32 @@ class ViewController: UIViewController {
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sidePadding),
             containerPaddingConstraintBottom,
             
+            buttonLabelContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            buttonLabelContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            buttonLabelContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            buttonLabelContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            
             nextButtonAnimConstraint,
-            nextButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            nextButton.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.85),
+            nextButton.widthAnchor.constraint(equalTo: buttonLabelContainer.widthAnchor, multiplier: 0.85),
             
             introLabelAnimConstraint,
-            introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            introLabel.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
+            
+            counterElement.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
+            counterElement.widthAnchor.constraint(equalToConstant: 70),
+            counterElement.heightAnchor.constraint(equalToConstant: 40),
             
             topElement.topAnchor.constraint(equalTo: containerView.topAnchor),
-            topHeightConstraint,
+            topElement.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.43),
             topElement.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             topElement.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             topElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
             bottomElement.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            bottomHeightConstraint,
+            bottomElement.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.43),
             bottomElement.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             bottomElement.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             bottomElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -183,6 +206,7 @@ class ViewController: UIViewController {
             endGameAlert.activateAlert(withScore: score, outOf: totalRounds)
         } else {
             fillElementsAndStartNewRound()
+            counterElement.updateConterLabel(newRound: roundCounter + 1)
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
@@ -202,6 +226,9 @@ class ViewController: UIViewController {
     private func resetGame() {
         score = 0
         roundCounter = 0
+        counterElement.updateConterLabel(newRound: roundCounter + 1)
+        // otherwise the text will be animated
+//        counterElement.layoutIfNeeded()
         wasLastRound = false
         isFirstRound = true
         buttonSwitchAnimation(goingDown: false, resetting: true)
@@ -238,7 +265,7 @@ class ViewController: UIViewController {
             introLabelAnimConstraint.constant -= animDistanceOffset
         }
         UIView.animate(withDuration: animLenght, animations: {
-            self.view.layoutIfNeeded()
+            self.buttonLabelContainer.layoutIfNeeded()
         }, completion: { _ in
             self.blockingUI(withImagesBlocked: goingDown ? true : false, withButtonBlocked: goingDown ? false : true)
             if resetting {
