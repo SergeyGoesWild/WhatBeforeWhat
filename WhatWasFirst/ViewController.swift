@@ -61,6 +61,7 @@ class ViewController: UIViewController {
     private lazy var counterElement: CounterView = {
         let counterElement = CounterView(frame: .zero, totalRounds: totalRounds)
         counterElement.translatesAutoresizingMaskIntoConstraints = false
+        counterElement.clipsToBounds = true
         counterElement.layer.cornerRadius = 12
         return counterElement
     }()
@@ -164,8 +165,8 @@ class ViewController: UIViewController {
             
             counterElement.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            counterElement.widthAnchor.constraint(equalToConstant: 70),
-            counterElement.heightAnchor.constraint(equalToConstant: 40),
+            counterElement.widthAnchor.constraint(equalToConstant: 75),
+            counterElement.heightAnchor.constraint(equalToConstant: 30),
             
             topElement.topAnchor.constraint(equalTo: containerView.topAnchor),
             topElement.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.43),
