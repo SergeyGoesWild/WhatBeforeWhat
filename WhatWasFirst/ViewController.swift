@@ -193,6 +193,12 @@ class ViewController: UIViewController {
             containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
             containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
             view.layoutIfNeeded()
+            let smallScreen = view.frame.height < 812
+            if smallScreen {
+                introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
+            } else {
+                introLabel.font = UIFont.systemFont(ofSize: 30, weight: .black)
+            }
             fillElementsAndStartNewRound()
             didSetupContent = true
         }
