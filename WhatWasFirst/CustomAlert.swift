@@ -70,7 +70,7 @@ final class CustomAlert: UIView {
         
         let stackView = UIStackView(arrangedSubviews: [labelView, buttonView])
         stackView.axis = .vertical
-        stackView.spacing = 15
+        stackView.spacing = 30
         stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -110,18 +110,31 @@ final class CustomAlert: UIView {
     // MARK: - Service
     
     func activateAlert(withScore score: Int, outOf total: Int) {
-        let normalText = "Your score: \n"
-        let boldText = "\(score) out of \(total)"
+        let normalText01 = "With the score of"
+        let boldText = " \(score)/\(total),\n"
+        let normalText02 = "you get the title:\n\n"
+        let titleText = "Lord of Ancient Vases\n"
+        let explainerText = "(because you guessed right\nabout Walls of Troy)"
         let fullString = NSMutableAttributedString()
 
         let boldAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.boldSystemFont(ofSize: 16)
+            .font: UIFont.systemFont(ofSize: 16, weight: .heavy)
         ]
         let normalAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 16, weight: .regular)
+        ]
+        let cursiveAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.italicSystemFont(ofSize: 20)
+        ]
+        let explainerAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .thin)
         ]
-        fullString.append(NSAttributedString(string: normalText, attributes: normalAttributes))
+        
+        fullString.append(NSAttributedString(string: normalText01, attributes: normalAttributes))
         fullString.append(NSAttributedString(string: boldText, attributes: boldAttributes))
+        fullString.append(NSAttributedString(string: normalText02, attributes: normalAttributes))
+        fullString.append(NSAttributedString(string: titleText, attributes: cursiveAttributes))
+        fullString.append(NSAttributedString(string: explainerText, attributes: explainerAttributes))
         
         self.labelView.attributedText = fullString
         DispatchQueue.main.async {

@@ -22,8 +22,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telnov" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gou-B2-Oxe">
-                                        <rect key="frame" x="129.33333333333337" y="399" width="134.66666666666663" height="54"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                        <rect key="frame" x="114.66666666666667" y="393.66666666666669" width="163.66666666666663" height="64.666666666666686"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="55"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
