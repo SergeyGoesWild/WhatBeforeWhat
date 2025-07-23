@@ -109,22 +109,31 @@ final class CustomAlert: UIView {
     
     // MARK: - Service
     
-    func activateAlert(withScore score: Int, outOf total: Int) {
+    func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
+//        let normalText01 = "Score:"
+//        let boldText = " \(score)/\(total)\n\n"
+//        let normalText02 = "Your title:\n"
         let normalText01 = "With the score of"
         let boldText = " \(score)/\(total),\n"
         let normalText02 = "you get the title:\n\n"
-        let titleText = "Lord of Ancient Vases\n"
-        let explainerText = "(because you guessed right\nabout Walls of Troy)"
+        let titleText = object.0 + "\n"
+        var explainerText = ""
+        if let answerTitle = object.1?.name {
+            explainerText = "(because you guessed right\nabout \(answerTitle) 🏆)"
+        } else {
+            explainerText = "(because there was\nno correct answer 🫠)"
+        }
+        
         let fullString = NSMutableAttributedString()
 
         let boldAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .heavy)
         ]
         let normalAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .regular)
+            .font: UIFont.systemFont(ofSize: 16, weight: .light)
         ]
         let cursiveAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.italicSystemFont(ofSize: 20)
+            .font: UIFont.italicSystemFont(ofSize: 22)
         ]
         let explainerAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .thin)

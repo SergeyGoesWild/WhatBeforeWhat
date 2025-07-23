@@ -17,9 +17,8 @@ protocol EndGameAlertDelegate: AnyObject {
 
 class ViewController: UIViewController {
 
-    private var score: Int = 0
     private var roundCounter: Int = 0
-    private var totalRounds: Int = 1
+    private var totalRounds: Int = 4
     private var didSetupContent = false
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
@@ -31,6 +30,9 @@ class ViewController: UIViewController {
     private let animLenght: Double = 1.0
     
     private let dataProvider = DataProvider.shared
+    private let scoreTracker = ScoreTracker.shared
+    private let titleFactory = TitleFactory.shared
+    
     private var topElementData: HistoricItem!
     private var bottomElementData: HistoricItem!
     private lazy var endGameAlert: CustomAlert = {
@@ -209,8 +211,13 @@ class ViewController: UIViewController {
     @objc private func nextButtonTapped() {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         if wasLastRound {
+            
+            let results = scoreTracker.getScore()
+            let score = results.0
+            let answers = results.1
+            let titleObject = titleFactory.makeTitle(with: answers)
             endGameAlert.isHidden = false
-            endGameAlert.activateAlert(withScore: score, outOf: totalRounds)
+            endGameAlert.activateAlert(withScore: score, outOf: totalRounds, withTitleObject: titleObject)
         } else {
             fillElementsAndStartNewRound()
             counterElement.updateConterLabel(newRound: roundCounter + 1)
@@ -218,12 +225,8 @@ class ViewController: UIViewController {
         }
     }
     
-    private func checkResult(given id: String) {
-        if (id == "top" && topElementData.date < bottomElementData.date) || (id == "bottom" && bottomElementData.date < topElementData.date) {
-            score += 1
-        }
+    private func checkIfGameOver() {
         roundCounter += 1
-        
         if roundCounter == totalRounds {
             wasLastRound = true
             nextButton.setTitle("Finish", for: .normal)
@@ -231,11 +234,8 @@ class ViewController: UIViewController {
     }
     
     private func resetGame() {
-        score = 0
         roundCounter = 0
         counterElement.updateConterLabel(newRound: roundCounter + 1)
-        // otherwise the text will be animated
-//        counterElement.layoutIfNeeded()
         wasLastRound = false
         isFirstRound = true
         buttonSwitchAnimation(goingDown: false, resetting: true)
@@ -295,7 +295,8 @@ extension ViewController: ImageElementDelegate {
         topElement.showingOverlay()
         bottomElement.showingOverlay()
 
-        checkResult(given: id)
+        scoreTracker.sendData(withID: id, topElementData: topElementData, bottomElementData: bottomElementData)
+        checkIfGameOver()
     }
 }
 
