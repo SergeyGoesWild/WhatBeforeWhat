@@ -18,7 +18,7 @@ protocol EndGameAlertDelegate: AnyObject {
 class ViewController: UIViewController {
 
     private var roundCounter: Int = 0
-    private var totalRounds: Int = 4
+    private var totalRounds: Int = 10
     private var didSetupContent = false
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
@@ -216,8 +216,8 @@ class ViewController: UIViewController {
             let score = results.0
             let answers = results.1
             let titleObject = titleFactory.makeTitle(with: answers)
-            endGameAlert.isHidden = false
             endGameAlert.activateAlert(withScore: score, outOf: totalRounds, withTitleObject: titleObject)
+            endGameAlert.isHidden = false
         } else {
             fillElementsAndStartNewRound()
             counterElement.updateConterLabel(newRound: roundCounter + 1)

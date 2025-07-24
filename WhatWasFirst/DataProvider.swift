@@ -150,7 +150,6 @@ final class DataProvider {
         HistoricItem(id: UUID(), picture: "MosaicFloorDogAlexandria", date: -175, name: "the dog mosaic", flavourText: "A Hellenistic mosaic from Alexandria depicting a dog with remarkable realism, showcasing ancient Greek artistry.", circa: true, title: .antiquity),
         HistoricItem(id: UUID(), picture: "GreatTheaterOfEpidaurus", date: -320, name: "the Theater of Epidaurus", flavourText: "The Great Theater of Epidaurus is a marvel of ancient Greek architecture, famed for its perfect acoustics and elegant semicircular design.", circa: true, title: .antiquity),
         
-        
         HistoricItem(id: UUID(), picture: "AgamemnonMask", date: -1550, name: "Agamemnon Mask", flavourText: "The Mask of Agamemnon is a gold funerary mask from Mycenae, symbolizing early Greek royal burials.", circa: true, title: .ancientArt),
         HistoricItem(id: UUID(), picture: "FlatironBuilding", date: 1902, name: "еhe Flatiron Building", flavourText: "The Flatiron Building is a steel-framed skyscraper known for its triangular shape and iconic NYC status.", circa: false, title: .american, yOffset: 0.3),
         HistoricItem(id: UUID(), picture: "FrancoisCoignetHouse", date: 1855, name: "François Coignet House", flavourText: "The François Coignet House is the first building made with reinforced concrete, revolutionizing construction.", circa: false, title: .french),

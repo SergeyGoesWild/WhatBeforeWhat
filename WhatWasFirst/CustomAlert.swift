@@ -110,12 +110,9 @@ final class CustomAlert: UIView {
     // MARK: - Service
     
     func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
-//        let normalText01 = "Score:"
-//        let boldText = " \(score)/\(total)\n\n"
-//        let normalText02 = "Your title:\n"
         let normalText01 = "With the score of"
-        let boldText = " \(score)/\(total),\n"
-        let normalText02 = "you get the title:\n\n"
+        let boldText = " \(score)/\(total)"
+        let normalText02 = ",\nyou get the title:\n\n"
         let titleText = object.0 + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
@@ -152,6 +149,7 @@ final class CustomAlert: UIView {
     }
     
     private func launchAnimation() {
+        layoutIfNeeded()
         buttonView.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseOut, animations: {
             self.fadeBackgroundView.alpha = 0.6
