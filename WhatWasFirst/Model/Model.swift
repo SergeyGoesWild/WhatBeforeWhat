@@ -5,60 +5,99 @@
 //  Created by Sergey Telnov on 18/08/2025.
 //
 
+enum ButtonOutcome {
+    case gameEnded(title: String, answer: HistoricItem?)
+    case newRound(current: HistoricItem, next: HistoricItem)
+}
+
 final class Model {
-    func onClickImage() {
-        checkResult()
+    
+    private let totalRounds: Int = 10
+    private var currentRound: Int = 0
+    private var currentScore: Int = 0
+    private var rightAnswer: HistoricItem?
+    private var rightAnswers: [HistoricItem] = []
+    private var lastRound: Bool {
+        currentRound == totalRounds
     }
     
-    func onClickButton() {
+    private let titleFactory: TitleFactory
+    private let dataProvider: DataProvider
+    
+    init(titleFactory: TitleFactory, dataProvider: DataProvider) {
+        self.titleFactory = titleFactory
+        self.dataProvider = dataProvider
+    }
+    
+    func imageAction(guessedRight answer: Bool) {
+        checkResult(guessedRight: answer)
+    }
+    
+    func confirmAction() -> ButtonOutcome {
         if lastRound {
-            endGame()
+            let result = getAlertText()
+            let alertTitle = result.0
+            let chosenAnswer = result.1
+            return .gameEnded(title: alertTitle, answer: chosenAnswer)
         } else {
-            startNewRound()
+            let items = generateHistoricItems()
+            return .newRound(current: items.0, next: items.1)
         }
     }
     
-    func onClickAlert() {
-        restartGame()
+    func alertAction() -> (HistoricItem, HistoricItem) {
+        return restartGame()
     }
     
+//    --------------------------------------------------
     
     
-    
-    private func startNewRound() {
-        generateHistoricItems()
+    private func startNewRound() -> (HistoricItem, HistoricItem) {
+        return generateHistoricItems()
     }
     
-    private func checkResult() {
-        
+    private func checkResult(guessedRight answer: Bool) {
+        if answer {
+            currentScore += 1
+            guard let rightAnswer = rightAnswer else { return }
+            rightAnswers.append(rightAnswer)
+        }
     }
     
-    private func endGame() -> String {
+    private func endGame() -> (String, HistoricItem?) {
         return getAlertText()
     }
     
-    private func restartGame() {
+    private func restartGame() -> (HistoricItem, HistoricItem){
         resetStats()
-        startNewRound()
+        return startNewRound()
     }
     
     private func resetStats() {
-        
+        currentRound = 0
+        currentScore = 0
+        rightAnswers = []
     }
     
-    private func generateHistoricItems() {
-        
+    private func generateHistoricItems() -> (HistoricItem, HistoricItem) {
+        let items = dataProvider.provideItems()
+        if items.0.date < items.1.date {
+            rightAnswer = items.0
+        } else {
+            rightAnswer = items.1
+        }
+        return items
     }
     
-    private func getLevelCounter() -> String {
-        return "1/10"
+    private func getAlertText() -> (String, HistoricItem?) {
+        return titleFactory.makeTitle(with: rightAnswers)
     }
     
-    private func getButtonTitle() -> String {
-        return "Tap me!"
-    }
-    
-    private func getAlertText() -> String {
-        return "Hello, World!"
-    }
+//    private func getLevelCounter() -> String {
+//        return "1/10"
+//    }
+//    
+//    private func getButtonTitle() -> String {
+//        return "Tap me!"
+//    }
 }
