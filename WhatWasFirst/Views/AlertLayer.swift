@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CustomAlert: UIView {
+final class AlertLayer: UIView {
     
     weak var delegate: EndGameAlertDelegate?
     

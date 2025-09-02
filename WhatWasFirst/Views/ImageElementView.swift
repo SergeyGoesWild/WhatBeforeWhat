@@ -7,14 +7,14 @@
 
 import UIKit
 
-class ImageElement: UIView {
+final class ImageElementView: UIView {
     
     weak var delegate: ImageElementDelegate?
-    private let containerID: String!
-    private var isRightAnswer: Bool!
     
+    private var isRightAnswer: Bool!
     private var currentItem: HistoricItem!
     private var image: UIImage!
+    
     private var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,6 @@ class ImageElement: UIView {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 1.0
-        scrollView.delegate = self
         return scrollView
     }()
     private var placeholderView: UIView = {
@@ -97,10 +96,8 @@ class ImageElement: UIView {
     
     // MARK: - Setup
     
-    init(frame: CGRect, id: String, delegate: ImageElementDelegate?) {
-        self.containerID = id
+    init(frame: CGRect, delegate: ImageElementDelegate?) {
         self.delegate = delegate
-        
         super.init(frame: frame)
         setupLayout()
     }
@@ -260,10 +257,4 @@ class ImageElement: UIView {
             }
         }
     }
-}
-
-    // MARK: - Extensions
-
-extension ImageElement: UIScrollViewDelegate {
-    
 }

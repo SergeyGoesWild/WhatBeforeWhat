@@ -20,8 +20,7 @@ class ViewController: UIViewController {
     private var model: Model!
     private var currentState: GameState {
         get {
-            print("INSIDE")
-            return model.shareState()
+            model.shareState()
         }
     }
     
@@ -29,16 +28,12 @@ class ViewController: UIViewController {
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
     
-    private let borderWidth: CGFloat = 4
-    private let cornerRadius: CGFloat = 25
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
     private let animLenght: Double = 1.0
     
-    private var topElementData: HistoricItem!
-    private var bottomElementData: HistoricItem!
-    private lazy var endGameAlert: CustomAlert = {
-        let endGameAlert = CustomAlert(delegate: self)
+    private lazy var endGameAlert: AlertLayer = {
+        let endGameAlert = AlertLayer(delegate: self)
         endGameAlert.translatesAutoresizingMaskIntoConstraints = false
         endGameAlert.isHidden = true
         return endGameAlert
@@ -68,26 +63,6 @@ class ViewController: UIViewController {
         counterElement.clipsToBounds = true
         counterElement.layer.cornerRadius = 12
         return counterElement
-    }()
-    private lazy var topElement: ImageElement = {
-        let topElement = ImageElement(frame: .zero, id: "top", delegate: self)
-        topElement.translatesAutoresizingMaskIntoConstraints = false
-        topElement.layer.cornerRadius = cornerRadius
-        topElement.layer.borderWidth = borderWidth
-        topElement.layer.borderColor = AppColors.borderColour.cgColor
-        topElement.clipsToBounds = true
-        topElement.isUserInteractionEnabled = true
-        return topElement
-    }()
-    private lazy var bottomElement: ImageElement = {
-        let bottomElement = ImageElement(frame: .zero, id: "bottom", delegate: self)
-        bottomElement.translatesAutoresizingMaskIntoConstraints = false
-        bottomElement.layer.cornerRadius = cornerRadius
-        bottomElement.layer.borderWidth = borderWidth
-        bottomElement.layer.borderColor = AppColors.borderColour.cgColor
-        bottomElement.clipsToBounds = true
-        bottomElement.isUserInteractionEnabled = true
-        return bottomElement
     }()
     private lazy var introLabel: UILabel = {
         let introLabel = UILabel()
@@ -136,14 +111,11 @@ class ViewController: UIViewController {
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
         
-        
-        
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(endGameAlert)
         containerView.addSubview(buttonLabelContainer)
-        containerView.addSubview(topElement)
-        containerView.addSubview(bottomElement)
+        
         containerView.addSubview(counterElement)
         buttonLabelContainer.addSubview(introLabel)
         buttonLabelContainer.addSubview(nextButton)
@@ -176,18 +148,6 @@ class ViewController: UIViewController {
             counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             counterElement.widthAnchor.constraint(equalToConstant: 75),
             counterElement.heightAnchor.constraint(equalToConstant: 30),
-            
-            topElement.topAnchor.constraint(equalTo: containerView.topAnchor),
-            topElement.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.43),
-            topElement.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            topElement.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            topElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            
-            bottomElement.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            bottomElement.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.43),
-            bottomElement.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            bottomElement.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            bottomElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
             endGameAlert.topAnchor.constraint(equalTo: view.topAnchor),
             endGameAlert.leadingAnchor.constraint(equalTo: view.leadingAnchor),
