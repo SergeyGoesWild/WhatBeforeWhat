@@ -183,7 +183,7 @@ class ImageElement: UIView {
     
     @objc private func handleTap() {
         launchEmoji()
-        delegate?.didTapImageElement(with: containerID)
+        delegate?.didTapImageElement(with: isRightAnswer)
     }
     
     // MARK: - Service

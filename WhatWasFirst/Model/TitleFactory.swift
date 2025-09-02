@@ -23,8 +23,8 @@ enum Titles: String, CaseIterable {
 }
 
 final class TitleFactory {
-    static let shared = TitleFactory()
-    private init() {}
+    
+    init() {}
     
     func makeTitle(with answers: [HistoricItem]) -> (String, HistoricItem?) {
         let title = Titles.allCases.randomElement()!.rawValue

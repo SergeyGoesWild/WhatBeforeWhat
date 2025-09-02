@@ -9,7 +9,7 @@ import UIKit
 
 final class CounterView: UIView {
     
-    var totalRounds: Int!
+    var totalRounds: Int
     
     private lazy var bgView: UIView = {
         let bgView = UIView()
@@ -38,8 +38,8 @@ final class CounterView: UIView {
     }()
     
     init(frame: CGRect, totalRounds: Int) {
-        super.init(frame: frame)
         self.totalRounds = totalRounds
+        super.init(frame: frame)
         setupLayout()
     }
     
@@ -71,6 +71,6 @@ final class CounterView: UIView {
     }
     
     func updateConterLabel(newRound number: Int) {
-        counterLabel.text = "\(number) / \(totalRounds!)"
+        counterLabel.text = "\(number) / \(totalRounds)"
     }
 }

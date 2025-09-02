@@ -59,8 +59,8 @@ struct HistoricItem {
 }
 
 final class DataProvider {
-    static let shared = DataProvider()
-    private init() {}
+    
+    init() {}
     
     private var prevIndex1: Int?
     private var prevIndex2: Int?

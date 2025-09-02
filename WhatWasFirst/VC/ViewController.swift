@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ImageElementDelegate: AnyObject {
-    func didTapImageElement(with id: String)
+    func didTapImageElement(with guessedRight: Bool)
 }
 
 protocol EndGameAlertDelegate: AnyObject {
@@ -16,9 +16,16 @@ protocol EndGameAlertDelegate: AnyObject {
 }
 
 class ViewController: UIViewController {
-
-    private var roundCounter: Int = 0
-    private var totalRounds: Int = 10
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private var model: Model
+    private lazy var currentState: GameState = {
+        model.shareState()
+    }()
+    
     private var didSetupContent = false
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
@@ -28,10 +35,6 @@ class ViewController: UIViewController {
     private let sidePadding: CGFloat = 10
     private let animDistanceOffset: CGFloat = 100
     private let animLenght: Double = 1.0
-    
-    private let dataProvider = DataProvider.shared
-    private let scoreTracker = ScoreTracker.shared
-    private let titleFactory = TitleFactory.shared
     
     private var topElementData: HistoricItem!
     private var bottomElementData: HistoricItem!
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
         return containerView
     }()
     private lazy var counterElement: CounterView = {
-        let counterElement = CounterView(frame: .zero, totalRounds: totalRounds)
+        let counterElement = CounterView(frame: .zero, totalRounds: currentState.totalRounds)
         counterElement.translatesAutoresizingMaskIntoConstraints = false
         counterElement.clipsToBounds = true
         counterElement.layer.cornerRadius = 12
@@ -119,6 +122,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let titleFactory = TitleFactory()
+        let dataProvider = DataProvider()
+        model = Model(titleFactory: titleFactory, dataProvider: dataProvider)
         setupLayout()
     }
     
@@ -129,7 +135,7 @@ class ViewController: UIViewController {
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
         
-        counterElement.updateConterLabel(newRound: roundCounter + 1)
+        counterElement.updateConterLabel(newRound: 1)
         
         view.addSubview(bgView)
         view.addSubview(containerView)
@@ -201,7 +207,11 @@ class ViewController: UIViewController {
             } else {
                 introLabel.font = UIFont.systemFont(ofSize: 30, weight: .black)
             }
-            fillElementsAndStartNewRound()
+            
+            let items = model.generateHistoricItems()
+            updateElements(item01: items.0, item02: items.1)
+            updateTextUI()
+            
             didSetupContent = true
         }
     }
@@ -210,49 +220,37 @@ class ViewController: UIViewController {
     
     @objc private func nextButtonTapped() {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
-        if wasLastRound {
-            
-            let results = scoreTracker.getScore()
-            let score = results.0
-            let answers = results.1
-            let titleObject = titleFactory.makeTitle(with: answers)
-            endGameAlert.activateAlert(withScore: score, outOf: totalRounds, withTitleObject: titleObject)
+        switch model.nextStepAction() {
+        case .gameEnded(let title, let answer):
+            endGameAlert.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
             endGameAlert.isHidden = false
-        } else {
-            fillElementsAndStartNewRound()
-            counterElement.updateConterLabel(newRound: roundCounter + 1)
+        case .newRound(let item01, let item02):
+            updateTextUI()
+            updateElements(item01: item01, item02: item02)
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
     
-    private func checkIfGameOver() {
-        roundCounter += 1
-        if roundCounter == totalRounds {
-            wasLastRound = true
-            nextButton.setTitle("Finish", for: .normal)
-        }
+    private func updateTextUI() {
+        nextButton.setTitle(currentState.lastRound == true ? "Finish" : "Next", for: .normal)
+        counterElement.updateConterLabel(newRound: currentState.currentRound)
     }
     
-    private func resetGame() {
-        roundCounter = 0
-        counterElement.updateConterLabel(newRound: roundCounter + 1)
-        wasLastRound = false
-        isFirstRound = true
-        buttonSwitchAnimation(goingDown: false, resetting: true)
+    private func resetGameUI() {
+        let historicItems = model.alertOkAction()
+        updateElements(item01: historicItems.0, item02: historicItems.1)
+        
         endGameAlert.isHidden = true
-        fillElementsAndStartNewRound()
+        updateTextUI()
+        buttonSwitchAnimation(goingDown: false, resetting: true)
         blockingUI(withImagesBlocked: false, withButtonBlocked: true)
     }
     
     // MARK: - Service
     
-    private func fillElementsAndStartNewRound() {
-        let historicItems = dataProvider.provideItems()
-        topElementData = historicItems.0
-        bottomElementData = historicItems.1
-
-        topElement.updateItem(with: topElementData, isRightAnswer: topElementData.date < bottomElementData.date)
-        bottomElement.updateItem(with: bottomElementData, isRightAnswer: bottomElementData.date < topElementData.date)
+    private func updateElements(item01: HistoricItem, item02: HistoricItem) {
+        topElement.updateItem(with: item01, isRightAnswer: item01.date < item02.date)
+        bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
     }
     
     private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
@@ -285,7 +283,7 @@ class ViewController: UIViewController {
 // MARK: - Extensions
 
 extension ViewController: ImageElementDelegate {
-    func didTapImageElement(with id: String) {
+    func didTapImageElement(with guessedRight: Bool) {
         if isFirstRound {
             buttonSwitchAnimation(goingDown: true, resetting: false)
             isFirstRound = false
@@ -295,13 +293,12 @@ extension ViewController: ImageElementDelegate {
         topElement.showingOverlay()
         bottomElement.showingOverlay()
 
-        scoreTracker.sendData(withID: id, topElementData: topElementData, bottomElementData: bottomElementData)
-        checkIfGameOver()
+        model.checkAction(guessedRight: guessedRight)
     }
 }
 
 extension ViewController: EndGameAlertDelegate {
     func didTapOkButton() {
-        resetGame()
+        resetGameUI()
     }
 }

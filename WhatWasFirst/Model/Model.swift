@@ -5,52 +5,62 @@
 //  Created by Sergey Telnov on 18/08/2025.
 //
 
+struct GameState {
+    var currentRound: Int
+    let totalRounds: Int
+    var currentScore: Int
+    var lastRound: Bool
+}
+
 enum ButtonOutcome {
     case gameEnded(title: String, answer: HistoricItem?)
-    case newRound(current: HistoricItem, next: HistoricItem)
+    case newRound(item01: HistoricItem, item02: HistoricItem)
 }
 
 final class Model {
     
+    private var gameState: GameState
     private let totalRounds: Int = 10
-    private var currentRound: Int = 0
-    private var currentScore: Int = 0
+    
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
-    private var lastRound: Bool {
-        currentRound == totalRounds
-    }
     
-    private let titleFactory: TitleFactory
-    private let dataProvider: DataProvider
+    let titleFactory: TitleFactory
+    let dataProvider: DataProvider
     
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
+        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, lastRound: false)
     }
     
-    func imageAction(guessedRight answer: Bool) {
+    func checkAction(guessedRight answer: Bool) {
         checkResult(guessedRight: answer)
+        checkLastRound()
     }
     
-    func confirmAction() -> ButtonOutcome {
-        if lastRound {
+    func nextStepAction() -> ButtonOutcome {
+        if gameState.lastRound {
             let result = getAlertText()
             let alertTitle = result.0
             let chosenAnswer = result.1
             return .gameEnded(title: alertTitle, answer: chosenAnswer)
         } else {
             let items = generateHistoricItems()
-            return .newRound(current: items.0, next: items.1)
+            gameState.currentRound += 1
+            return .newRound(item01: items.0, item02: items.1)
         }
     }
     
-    func alertAction() -> (HistoricItem, HistoricItem) {
+    func alertOkAction() -> (HistoricItem, HistoricItem) {
         return restartGame()
     }
     
-//    --------------------------------------------------
+    func shareState() -> GameState {
+        return gameState
+    }
     
+//    --------------------------------------------------
     
     private func startNewRound() -> (HistoricItem, HistoricItem) {
         return generateHistoricItems()
@@ -58,9 +68,15 @@ final class Model {
     
     private func checkResult(guessedRight answer: Bool) {
         if answer {
-            currentScore += 1
+            gameState.currentScore += 1
             guard let rightAnswer = rightAnswer else { return }
             rightAnswers.append(rightAnswer)
+        }
+    }
+    
+    private func checkLastRound() {
+        if gameState.currentRound == totalRounds {
+            gameState.lastRound = true
         }
     }
     
@@ -74,12 +90,11 @@ final class Model {
     }
     
     private func resetStats() {
-        currentRound = 0
-        currentScore = 0
+        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: false)
         rightAnswers = []
     }
     
-    private func generateHistoricItems() -> (HistoricItem, HistoricItem) {
+    func generateHistoricItems() -> (HistoricItem, HistoricItem) {
         let items = dataProvider.provideItems()
         if items.0.date < items.1.date {
             rightAnswer = items.0
@@ -92,12 +107,4 @@ final class Model {
     private func getAlertText() -> (String, HistoricItem?) {
         return titleFactory.makeTitle(with: rightAnswers)
     }
-    
-//    private func getLevelCounter() -> String {
-//        return "1/10"
-//    }
-//    
-//    private func getButtonTitle() -> String {
-//        return "Tap me!"
-//    }
 }
