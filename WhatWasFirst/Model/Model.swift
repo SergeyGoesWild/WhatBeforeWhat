@@ -31,7 +31,7 @@ final class Model {
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
-        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, lastRound: false)
+        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: false)
     }
     
     func checkAction(guessedRight answer: Bool) {
@@ -57,6 +57,7 @@ final class Model {
     }
     
     func shareState() -> GameState {
+        print("GAME STATE: \(gameState)")
         return gameState
     }
     

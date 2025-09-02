@@ -17,14 +17,13 @@ protocol EndGameAlertDelegate: AnyObject {
 
 class ViewController: UIViewController {
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private var model: Model!
+    private var currentState: GameState {
+        get {
+            print("INSIDE")
+            return model.shareState()
+        }
     }
-    
-    private var model: Model
-    private lazy var currentState: GameState = {
-        model.shareState()
-    }()
     
     private var didSetupContent = false
     private var isFirstRound: Bool = true
@@ -122,9 +121,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let titleFactory = TitleFactory()
         let dataProvider = DataProvider()
-        model = Model(titleFactory: titleFactory, dataProvider: dataProvider)
+        self.model = Model(titleFactory: titleFactory, dataProvider: dataProvider)
+        
         setupLayout()
     }
     
@@ -135,7 +136,7 @@ class ViewController: UIViewController {
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
         
-        counterElement.updateConterLabel(newRound: 1)
+        
         
         view.addSubview(bgView)
         view.addSubview(containerView)
@@ -240,6 +241,7 @@ class ViewController: UIViewController {
         let historicItems = model.alertOkAction()
         updateElements(item01: historicItems.0, item02: historicItems.1)
         
+        isFirstRound = true
         endGameAlert.isHidden = true
         updateTextUI()
         buttonSwitchAnimation(goingDown: false, resetting: true)
@@ -292,8 +294,11 @@ extension ViewController: ImageElementDelegate {
         }
         topElement.showingOverlay()
         bottomElement.showingOverlay()
-
+        
         model.checkAction(guessedRight: guessedRight)
+        if currentState.lastRound {
+            updateTextUI()
+        }
     }
 }
 
