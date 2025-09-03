@@ -51,6 +51,21 @@ final class ImageElementsLayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func showOverlay(isShowing: Bool) {
+        if isShowing {
+            topElement.showingOverlay()
+            bottomElement.showingOverlay()
+        } else {
+            topElement.hidingOverlay()
+            bottomElement.hidingOverlay()
+        }
+    }
+    
+    func updateElements(item01: HistoricItem, item02: HistoricItem) {
+        topElement.updateItem(with: item01, isRightAnswer: item01.date < item02.date)
+        bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
+    }
+    
     private func setupLayout() {
         addSubview(containerView)
         containerView.addSubview(topElement)

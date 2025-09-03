@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     private let animDistanceOffset: CGFloat = 100
     private let animLenght: Double = 1.0
     
-    private lazy var endGameAlert: AlertLayer = {
+    private lazy var alertLayer: AlertLayer = {
         let endGameAlert = AlertLayer(delegate: self)
         endGameAlert.translatesAutoresizingMaskIntoConstraints = false
         endGameAlert.isHidden = true
@@ -50,6 +50,13 @@ class ViewController: UIViewController {
         containerView.backgroundColor = .clear
         containerView.translatesAutoresizingMaskIntoConstraints = false
         return containerView
+    }()
+    private lazy var imageLayer: ImageElementsLayer = {
+        let imageLayer = ImageElementsLayer(frame: .zero, delegate: self)
+        imageLayer.backgroundColor = .clear
+        imageLayer.translatesAutoresizingMaskIntoConstraints = false
+        imageLayer.isUserInteractionEnabled = true
+        return imageLayer
     }()
     private lazy var buttonLabelContainer: UIView = {
         let containerView = UIView()
@@ -113,9 +120,9 @@ class ViewController: UIViewController {
         
         view.addSubview(bgView)
         view.addSubview(containerView)
-        view.addSubview(endGameAlert)
+        view.addSubview(alertLayer)
         containerView.addSubview(buttonLabelContainer)
-        
+        containerView.addSubview(imageLayer)
         containerView.addSubview(counterElement)
         buttonLabelContainer.addSubview(introLabel)
         buttonLabelContainer.addSubview(nextButton)
@@ -130,6 +137,11 @@ class ViewController: UIViewController {
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sidePadding),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sidePadding),
             containerPaddingConstraintBottom,
+            
+            imageLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageLayer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
             buttonLabelContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             buttonLabelContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -149,10 +161,10 @@ class ViewController: UIViewController {
             counterElement.widthAnchor.constraint(equalToConstant: 75),
             counterElement.heightAnchor.constraint(equalToConstant: 30),
             
-            endGameAlert.topAnchor.constraint(equalTo: view.topAnchor),
-            endGameAlert.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            endGameAlert.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            endGameAlert.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            alertLayer.topAnchor.constraint(equalTo: view.topAnchor),
+            alertLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            alertLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            alertLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -183,8 +195,8 @@ class ViewController: UIViewController {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         switch model.nextStepAction() {
         case .gameEnded(let title, let answer):
-            endGameAlert.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
-            endGameAlert.isHidden = false
+            alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
+            alertLayer.isHidden = false
         case .newRound(let item01, let item02):
             updateTextUI()
             updateElements(item01: item01, item02: item02)
@@ -202,7 +214,7 @@ class ViewController: UIViewController {
         updateElements(item01: historicItems.0, item02: historicItems.1)
         
         isFirstRound = true
-        endGameAlert.isHidden = true
+        alertLayer.isHidden = true
         updateTextUI()
         buttonSwitchAnimation(goingDown: false, resetting: true)
         blockingUI(withImagesBlocked: false, withButtonBlocked: true)
@@ -211,13 +223,11 @@ class ViewController: UIViewController {
     // MARK: - Service
     
     private func updateElements(item01: HistoricItem, item02: HistoricItem) {
-        topElement.updateItem(with: item01, isRightAnswer: item01.date < item02.date)
-        bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
+        imageLayer.updateElements(item01: item01, item02: item02)
     }
     
     private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
-        topElement.isUserInteractionEnabled = !withImagesBlocked
-        bottomElement.isUserInteractionEnabled = !withImagesBlocked
+        imageLayer.isUserInteractionEnabled = !withImagesBlocked
         nextButton.isEnabled = !withButtonBlocked
         nextButton.alpha = withButtonBlocked ? 0.5 : 1
     }
@@ -252,8 +262,7 @@ extension ViewController: ImageElementDelegate {
         } else {
             blockingUI(withImagesBlocked: true, withButtonBlocked: false)
         }
-        topElement.showingOverlay()
-        bottomElement.showingOverlay()
+        imageLayer.showOverlay(isShowing: true)
         
         model.checkAction(guessedRight: guessedRight)
         if currentState.lastRound {
