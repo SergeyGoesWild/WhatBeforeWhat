@@ -90,5 +90,4 @@ final class ImageElementsLayer: UIView {
             bottomElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
         ])
     }
-    
 }

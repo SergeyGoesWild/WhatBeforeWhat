@@ -32,13 +32,6 @@ class ViewController: UIViewController {
     private let animDistanceOffset: CGFloat = 100
     private let animLenght: Double = 1.0
     
-    private lazy var alertLayer: AlertLayer = {
-        let endGameAlert = AlertLayer(delegate: self)
-        endGameAlert.translatesAutoresizingMaskIntoConstraints = false
-        endGameAlert.isHidden = true
-        return endGameAlert
-    }()
-    
     private lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = AppColors.bgColour
@@ -58,11 +51,19 @@ class ViewController: UIViewController {
         imageLayer.isUserInteractionEnabled = true
         return imageLayer
     }()
-    private lazy var buttonLabelContainer: UIView = {
-        let containerView = UIView()
-        containerView.backgroundColor = .clear
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        return containerView
+    private lazy var buttonLayer: ButtonLayer = {
+        // TODO: to FINISH
+        let buttonLayer = ButtonLayer(frame: .zero, delegate: self)
+        buttonLayer.backgroundColor = .clear
+        buttonLayer.translatesAutoresizingMaskIntoConstraints = false
+        buttonLayer.isUserInteractionEnabled = true
+        return buttonLayer
+    }()
+    private lazy var alertLayer: AlertLayer = {
+        let endGameAlert = AlertLayer(delegate: self)
+        endGameAlert.translatesAutoresizingMaskIntoConstraints = false
+        endGameAlert.isHidden = true
+        return endGameAlert
     }()
     private lazy var counterElement: CounterView = {
         let counterElement = CounterView(frame: .zero, totalRounds: currentState.totalRounds)
@@ -71,27 +72,8 @@ class ViewController: UIViewController {
         counterElement.layer.cornerRadius = 12
         return counterElement
     }()
-    private lazy var introLabel: UILabel = {
-        let introLabel = UILabel()
-        introLabel.translatesAutoresizingMaskIntoConstraints = false
-        introLabel.textColor = AppColors.labelColour
-        introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
-        introLabel.numberOfLines = 0
-        introLabel.text = "What was first?"
-        return introLabel
-    }()
-    private lazy var nextButton: UIButton = {
-        let nextButton = UIButton(type: .system)
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.setTitleColor(AppColors.bgColour, for: .normal)
-        nextButton.backgroundColor = AppColors.buttonColour
-        nextButton.layer.cornerRadius = 12
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.isEnabled = false
-        return nextButton
-    }()
     
+    // TODO: change constraints
     private var introLabelAnimConstraint: NSLayoutConstraint!
     private var nextButtonAnimConstraint: NSLayoutConstraint!
     private var topHeightConstraint: NSLayoutConstraint!
@@ -115,17 +97,12 @@ class ViewController: UIViewController {
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         
-        nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
-        introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
-        
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(alertLayer)
-        containerView.addSubview(buttonLabelContainer)
+        containerView.addSubview(buttonLayer)
         containerView.addSubview(imageLayer)
         containerView.addSubview(counterElement)
-        buttonLabelContainer.addSubview(introLabel)
-        buttonLabelContainer.addSubview(nextButton)
         
         NSLayoutConstraint.activate([
             bgView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -143,18 +120,10 @@ class ViewController: UIViewController {
             imageLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             imageLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
-            buttonLabelContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            buttonLabelContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            buttonLabelContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            buttonLabelContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
-            
-            nextButtonAnimConstraint,
-            nextButton.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
-            nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalTo: buttonLabelContainer.widthAnchor, multiplier: 0.85),
-            
-            introLabelAnimConstraint,
-            introLabel.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
+            buttonLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            buttonLayer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            buttonLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            buttonLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
             counterElement.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
