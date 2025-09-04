@@ -17,7 +17,7 @@ enum ButtonOutcome {
     case newRound(item01: HistoricItem, item02: HistoricItem)
 }
 
-final class Model {
+final class GameModel {
     
     private var gameState: GameState {
         didSet { onStateChange?(gameState) }

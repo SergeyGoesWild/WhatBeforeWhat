@@ -19,9 +19,9 @@ protocol NextButtonDelegate: AnyObject {
     func didTapNextButton()
 }
 
-class ViewController: UIViewController {
+class GameVC: UIViewController {
     
-    private var model: Model!
+    private var model: GameModel
     private var currentState: GameState {
         get {
             model.shareState()
@@ -80,15 +80,20 @@ class ViewController: UIViewController {
     
     // MARK: - Setup
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let titleFactory = TitleFactory()
-        let dataProvider = DataProvider()
-        self.model = Model(titleFactory: titleFactory, dataProvider: dataProvider)
+    init(model: GameModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
         model.onStateChange = { [weak self] state in
             self?.updateTextUI(state: state)
         }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupLayout()
     }
     
@@ -221,19 +226,19 @@ class ViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension ViewController: ImageElementDelegate {
+extension GameVC: ImageElementDelegate {
     func didTapImageElement(with guessedRight: Bool) {
         imageTapped(guessedRight: guessedRight)
     }
 }
 
-extension ViewController: EndGameAlertDelegate {
+extension GameVC: EndGameAlertDelegate {
     func didTapOkButton() {
         resetGameUI()
     }
 }
 
-extension ViewController: NextButtonDelegate {
+extension GameVC: NextButtonDelegate {
     func didTapNextButton() {
         nextButtonTapped()
     }
