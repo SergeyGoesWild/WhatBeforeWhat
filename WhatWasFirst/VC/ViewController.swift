@@ -15,6 +15,10 @@ protocol EndGameAlertDelegate: AnyObject {
     func didTapOkButton()
 }
 
+protocol NextButtonDelegate: AnyObject {
+    func didTapNextButton()
+}
+
 class ViewController: UIViewController {
     
     private var model: Model!
@@ -29,8 +33,7 @@ class ViewController: UIViewController {
     private var wasLastRound: Bool = false
     
     private let sidePadding: CGFloat = 10
-    private let animDistanceOffset: CGFloat = 100
-    private let animLenght: Double = 1.0
+    private let buttonAnimLength: Double = 1.0
     
     private lazy var bgView: UIView = {
         let bgView = UIView()
@@ -48,15 +51,12 @@ class ViewController: UIViewController {
         let imageLayer = ImageElementsLayer(frame: .zero, delegate: self)
         imageLayer.backgroundColor = .clear
         imageLayer.translatesAutoresizingMaskIntoConstraints = false
-        imageLayer.isUserInteractionEnabled = true
         return imageLayer
     }()
     private lazy var buttonLayer: ButtonLayer = {
-        // TODO: to FINISH
         let buttonLayer = ButtonLayer(frame: .zero, delegate: self)
         buttonLayer.backgroundColor = .clear
         buttonLayer.translatesAutoresizingMaskIntoConstraints = false
-        buttonLayer.isUserInteractionEnabled = true
         return buttonLayer
     }()
     private lazy var alertLayer: AlertLayer = {
@@ -73,9 +73,6 @@ class ViewController: UIViewController {
         return counterElement
     }()
     
-    // TODO: change constraints
-    private var introLabelAnimConstraint: NSLayoutConstraint!
-    private var nextButtonAnimConstraint: NSLayoutConstraint!
     private var topHeightConstraint: NSLayoutConstraint!
     private var bottomHeightConstraint: NSLayoutConstraint!
     private var containerPaddingConstraintTop: NSLayoutConstraint!
@@ -144,12 +141,9 @@ class ViewController: UIViewController {
             containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
             view.layoutIfNeeded()
             let smallScreen = view.frame.height < 812
-            if smallScreen {
-                introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
-            } else {
-                introLabel.font = UIFont.systemFont(ofSize: 30, weight: .black)
-            }
+            buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
             
+            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
             let items = model.generateHistoricItems()
             updateElements(item01: items.0, item02: items.1)
             updateTextUI()
@@ -160,7 +154,22 @@ class ViewController: UIViewController {
     
     // MARK: - Flow
     
-    @objc private func nextButtonTapped() {
+    private func imageTapped(guessedRight: Bool) {
+        if isFirstRound {
+            blockingUI(withImagesBlocked: true, withButtonBlocked: true)
+            launchButtonAnimation(goingDown: true, resetting: false) { [weak self] in
+                self?.blockingUI(withImagesBlocked: true, withButtonBlocked: false)
+            }
+            isFirstRound = false
+        } else {
+            blockingUI(withImagesBlocked: true, withButtonBlocked: false)
+        }
+        imageLayer.showOverlay(isShowing: true)
+        model.checkAction(guessedRight: guessedRight)
+        currentState.lastRound ? updateTextUI() : ()
+    }
+    
+    private func nextButtonTapped() {
         blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         switch model.nextStepAction() {
         case .gameEnded(let title, let answer):
@@ -174,19 +183,20 @@ class ViewController: UIViewController {
     }
     
     private func updateTextUI() {
-        nextButton.setTitle(currentState.lastRound == true ? "Finish" : "Next", for: .normal)
+        buttonLayer.setButtonTitle(currentState.lastRound == true ? "Finish" : "Next")
         counterElement.updateConterLabel(newRound: currentState.currentRound)
     }
     
     private func resetGameUI() {
+        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
+        launchButtonAnimation(goingDown: false, resetting: true) { [weak self] in
+            self?.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+        }
         let historicItems = model.alertOkAction()
         updateElements(item01: historicItems.0, item02: historicItems.1)
-        
         isFirstRound = true
         alertLayer.isHidden = true
         updateTextUI()
-        buttonSwitchAnimation(goingDown: false, resetting: true)
-        blockingUI(withImagesBlocked: false, withButtonBlocked: true)
     }
     
     // MARK: - Service
@@ -196,28 +206,17 @@ class ViewController: UIViewController {
     }
     
     private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
-        imageLayer.isUserInteractionEnabled = !withImagesBlocked
-        nextButton.isEnabled = !withButtonBlocked
-        nextButton.alpha = withButtonBlocked ? 0.5 : 1
+        imageLayer.blockImages(isBlocked: withImagesBlocked)
+        buttonLayer.blockButton(isBlocked: withButtonBlocked)
     }
     
-    private func buttonSwitchAnimation(goingDown: Bool, resetting: Bool) {
-        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
-        if goingDown {
-            nextButtonAnimConstraint.constant += animDistanceOffset
-            introLabelAnimConstraint.constant += animDistanceOffset
-        } else {
-            nextButtonAnimConstraint.constant -= animDistanceOffset
-            introLabelAnimConstraint.constant -= animDistanceOffset
-        }
-        UIView.animate(withDuration: animLenght, animations: {
-            self.buttonLabelContainer.layoutIfNeeded()
+    private func launchButtonAnimation(goingDown: Bool, resetting: Bool, completion: (() -> Void)? = nil) {
+        buttonLayer.prepareForAnimation(goingDown: goingDown)
+        UIView.animate(withDuration: buttonAnimLength, animations: {
+            self.buttonLayer.layoutIfNeeded()
         }, completion: { _ in
-            self.blockingUI(withImagesBlocked: goingDown ? true : false, withButtonBlocked: goingDown ? false : true)
-            if resetting {
-                self.nextButton.setTitle("Next", for: .normal)
-            }
-        } )
+            completion?()
+        })
     }
 }
 
@@ -225,23 +224,18 @@ class ViewController: UIViewController {
 
 extension ViewController: ImageElementDelegate {
     func didTapImageElement(with guessedRight: Bool) {
-        if isFirstRound {
-            buttonSwitchAnimation(goingDown: true, resetting: false)
-            isFirstRound = false
-        } else {
-            blockingUI(withImagesBlocked: true, withButtonBlocked: false)
-        }
-        imageLayer.showOverlay(isShowing: true)
-        
-        model.checkAction(guessedRight: guessedRight)
-        if currentState.lastRound {
-            updateTextUI()
-        }
+        imageTapped(guessedRight: guessedRight)
     }
 }
 
 extension ViewController: EndGameAlertDelegate {
     func didTapOkButton() {
         resetGameUI()
+    }
+}
+
+extension ViewController: NextButtonDelegate {
+    func didTapNextButton() {
+        nextButtonTapped()
     }
 }

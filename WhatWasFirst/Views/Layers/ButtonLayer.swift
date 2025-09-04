@@ -9,6 +9,13 @@ import UIKit
 
 final class ButtonLayer: UIView {
     
+    weak var delegate: NextButtonDelegate?
+    
+    private let animDistanceOffset: CGFloat = 100
+    
+    private var introLabelAnimConstraint: NSLayoutConstraint!
+    private var nextButtonAnimConstraint: NSLayoutConstraint!
+    
     private lazy var containerView: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .clear
@@ -36,8 +43,8 @@ final class ButtonLayer: UIView {
         return nextButton
     }()
     
-    init(frame: CGRect, delegate: ImageElementDelegate?) {
-        self.delegateToPass = delegate
+    init(frame: CGRect, delegate: NextButtonDelegate?) {
+        self.delegate = delegate
         super.init(frame: frame)
         setupLayout()
     }
@@ -46,9 +53,13 @@ final class ButtonLayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func nextButtonTapped() {
+        delegate?.didTapNextButton()
+    }
+    
     private func setupLayout() {
-        nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: -animDistanceOffset)
-        introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: buttonLabelContainer.centerYAnchor, constant: 0)
+        nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
+        introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
         
         addSubview(containerView)
         containerView.addSubview(introLabel)
@@ -60,18 +71,36 @@ final class ButtonLayer: UIView {
             containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            buttonLabelContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            buttonLabelContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            buttonLabelContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            buttonLabelContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
-            
             nextButtonAnimConstraint,
-            nextButton.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
+            nextButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalTo: buttonLabelContainer.widthAnchor, multiplier: 0.85),
+            nextButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.85),
             
             introLabelAnimConstraint,
-            introLabel.centerXAnchor.constraint(equalTo: buttonLabelContainer.centerXAnchor),
+            introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
         ])
+    }
+    
+    func prepareForAnimation(goingDown: Bool) {
+        if goingDown {
+            nextButtonAnimConstraint.constant += animDistanceOffset
+            introLabelAnimConstraint.constant += animDistanceOffset
+        } else {
+            nextButtonAnimConstraint.constant -= animDistanceOffset
+            introLabelAnimConstraint.constant -= animDistanceOffset
+        }
+    }
+    
+    func setButtonTitle(_ title: String) {
+        nextButton.setTitle(title, for: .normal)
+    }
+    
+    func blockButton(isBlocked: Bool) {
+        nextButton.isEnabled = !isBlocked
+        nextButton.alpha = isBlocked ? 0.5 : 1
+    }
+    
+    func setLabelFont(fontSize: CGFloat) {
+        introLabel.font = UIFont.systemFont(ofSize: fontSize, weight: .black)
     }
 }

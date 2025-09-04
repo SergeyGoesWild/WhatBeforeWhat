@@ -66,6 +66,10 @@ final class ImageElementsLayer: UIView {
         bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
     }
     
+    func blockImages(isBlocked: Bool) {
+        self.isUserInteractionEnabled = !isBlocked
+    }
+    
     private func setupLayout() {
         addSubview(containerView)
         containerView.addSubview(topElement)
