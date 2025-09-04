@@ -86,7 +86,9 @@ class ViewController: UIViewController {
         let titleFactory = TitleFactory()
         let dataProvider = DataProvider()
         self.model = Model(titleFactory: titleFactory, dataProvider: dataProvider)
-        
+        model.onStateChange = { [weak self] state in
+            self?.updateTextUI(state: state)
+        }
         setupLayout()
     }
     
@@ -143,10 +145,10 @@ class ViewController: UIViewController {
             let smallScreen = view.frame.height < 812
             buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
             
+            // TODO: May change this?
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
-            let items = model.generateHistoricItems()
-            updateElements(item01: items.0, item02: items.1)
-            updateTextUI()
+            let historicItems = model.alertOkAction()
+            updateElements(item01: historicItems.0, item02: historicItems.1)
             
             didSetupContent = true
         }
@@ -166,7 +168,6 @@ class ViewController: UIViewController {
         }
         imageLayer.showOverlay(isShowing: true)
         model.checkAction(guessedRight: guessedRight)
-        currentState.lastRound ? updateTextUI() : ()
     }
     
     private func nextButtonTapped() {
@@ -176,15 +177,14 @@ class ViewController: UIViewController {
             alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
             alertLayer.isHidden = false
         case .newRound(let item01, let item02):
-            updateTextUI()
             updateElements(item01: item01, item02: item02)
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)
         }
     }
     
-    private func updateTextUI() {
-        buttonLayer.setButtonTitle(currentState.lastRound == true ? "Finish" : "Next")
-        counterElement.updateConterLabel(newRound: currentState.currentRound)
+    private func updateTextUI(state: GameState) {
+        buttonLayer.setButtonTitle(state.lastRound == true ? "Finish" : "Next")
+        counterElement.updateConterLabel(newRound: state.currentRound)
     }
     
     private func resetGameUI() {
@@ -196,7 +196,6 @@ class ViewController: UIViewController {
         updateElements(item01: historicItems.0, item02: historicItems.1)
         isFirstRound = true
         alertLayer.isHidden = true
-        updateTextUI()
     }
     
     // MARK: - Service

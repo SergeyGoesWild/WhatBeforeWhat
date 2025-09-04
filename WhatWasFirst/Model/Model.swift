@@ -19,14 +19,18 @@ enum ButtonOutcome {
 
 final class Model {
     
-    private var gameState: GameState
-    private let totalRounds: Int = 10
+    private var gameState: GameState {
+        didSet { onStateChange?(gameState) }
+    }
     
+    private let totalRounds: Int = 10
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
     
     let titleFactory: TitleFactory
     let dataProvider: DataProvider
+    
+    var onStateChange: ((GameState) -> Void)?
     
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
@@ -57,11 +61,8 @@ final class Model {
     }
     
     func shareState() -> GameState {
-        print("GAME STATE: \(gameState)")
         return gameState
     }
-    
-//    --------------------------------------------------
     
     private func startNewRound() -> (HistoricItem, HistoricItem) {
         return generateHistoricItems()
