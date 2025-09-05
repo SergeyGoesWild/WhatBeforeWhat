@@ -56,8 +56,8 @@ final class AlertLayer: UIView {
     // MARK: - Setup
     
     init(delegate: EndGameAlertDelegate?) {
-        super.init(frame: .zero)
         self.delegate = delegate
+        super.init(frame: .zero)
         setupViews()
     }
     

@@ -72,6 +72,12 @@ class GameVC: UIViewController {
         counterElement.layer.cornerRadius = 12
         return counterElement
     }()
+    private lazy var particLayer: ParticleLayer = {
+        let particLayer = ParticleLayer()
+        particLayer.translatesAutoresizingMaskIntoConstraints = false
+        particLayer.isUserInteractionEnabled = false
+        return particLayer
+    }()
     
     private var topHeightConstraint: NSLayoutConstraint!
     private var bottomHeightConstraint: NSLayoutConstraint!
@@ -104,6 +110,7 @@ class GameVC: UIViewController {
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(alertLayer)
+        view.addSubview(particLayer)
         containerView.addSubview(buttonLayer)
         containerView.addSubview(imageLayer)
         containerView.addSubview(counterElement)
@@ -138,6 +145,11 @@ class GameVC: UIViewController {
             alertLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             alertLayer.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             alertLayer.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            particLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            particLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            particLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            particLayer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
         ])
     }
     
@@ -181,6 +193,7 @@ class GameVC: UIViewController {
         case .gameEnded(let title, let answer):
             alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
             alertLayer.isHidden = false
+            particLayer.startEmission()
         case .newRound(let item01, let item02):
             updateElements(item01: item01, item02: item02)
             blockingUI(withImagesBlocked: false, withButtonBlocked: true)

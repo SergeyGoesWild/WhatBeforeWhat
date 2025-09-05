@@ -6,49 +6,58 @@
 //
 import UIKit
 
-class ParticleLayer: UIView {
-    
-    private let emitter = CAEmitterLayer()
+final class ParticleLayer: UIView {
+    private var emitter: CAEmitterLayer
     
     override init(frame: CGRect) {
+        self.emitter = CAEmitterLayer()
         super.init(frame: frame)
-        setupParticles()
+        setupEmitter()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupParticles()
-    }
-    
-    private func setupParticles() {
-        let cell = CAEmitterCell()
-        cell.contents = UIImage(named: "star")?.cgImage
-        cell.birthRate = 5          // per second (base rate)
-        cell.lifetime = 10
-        cell.velocity = 200
-        cell.scale = 0.1
-        cell.scaleRange = 0.1
-        cell.spin = 0.5
-        cell.emissionLongitude = .pi
-        
-        emitter.emitterCells = [cell]
-        emitter.emitterShape = .line
-        emitter.birthRate = 0
-        layer.addSublayer(emitter)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        emitter.frame = bounds
-        emitter.emitterPosition = CGPoint(x: bounds.width / 2, y: -40)
+        print("IN LAYOUT SUBVIEWS")
+        emitter.emitterPosition = CGPoint(x: bounds.midX, y: -50)
         emitter.emitterSize = CGSize(width: bounds.width, height: 1)
     }
     
-    func startEmitting() {
-        emitter.birthRate = 1
+    private func setupEmitter() {
+        let cell = CAEmitterCell()
+        emitter.emitterShape = .line
+        cell.contents = UIImage(named: "star")?.cgImage
+        cell.birthRate = 20
+        cell.lifetime = 3
+        cell.velocity = 250
+        cell.yAcceleration = 200
+        cell.velocityRange = 60
+        cell.spin = 0.5
+        cell.spinRange = 3
+        cell.scale = 0.1
+        cell.scaleRange = 0.07
+        cell.emissionLongitude = .pi
+        
+        emitter.emitterCells = [cell]
+        emitter.birthRate = 0
     }
     
-    func stopEmitting() {
+    func startEmission() {
+        self.layer.addSublayer(emitter)
+        emitter.birthRate = 1
+        emitter.beginTime = CACurrentMediaTime()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.stopEmission()
+        }
+    }
+    
+    private func stopEmission() {
         emitter.birthRate = 0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.emitter.removeFromSuperlayer()
+        }
     }
 }
