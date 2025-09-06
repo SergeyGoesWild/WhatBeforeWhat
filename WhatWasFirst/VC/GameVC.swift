@@ -162,8 +162,7 @@ class GameVC: UIViewController {
             let smallScreen = view.frame.height < 812
             buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
             
-            // TODO: May change this?
-            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+            // TODO: May change this into a separate function?
             let historicItems = model.alertOkAction()
             updateElements(item01: historicItems.0, item02: historicItems.1)
             
@@ -175,20 +174,18 @@ class GameVC: UIViewController {
     
     private func imageTapped(guessedRight: Bool) {
         if isFirstRound {
-            blockingUI(withImagesBlocked: true, withButtonBlocked: true)
             launchButtonAnimation(goingDown: true, resetting: false) { [weak self] in
-                self?.blockingUI(withImagesBlocked: true, withButtonBlocked: false)
+                self?.buttonLayer.blockButton(isBlocked: false, blockVisible: true)
             }
             isFirstRound = false
         } else {
-            blockingUI(withImagesBlocked: true, withButtonBlocked: false)
+            buttonLayer.blockButton(isBlocked: false, blockVisible: true)
         }
         imageLayer.showOverlay(isShowing: true)
         model.checkAction(guessedRight: guessedRight)
     }
     
     private func nextButtonTapped() {
-        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
         switch model.nextStepAction() {
         case .gameEnded(let title, let answer):
             alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
@@ -196,7 +193,7 @@ class GameVC: UIViewController {
             particLayer.startEmission()
         case .newRound(let item01, let item02):
             updateElements(item01: item01, item02: item02)
-            blockingUI(withImagesBlocked: false, withButtonBlocked: true)
+            imageLayer.showOverlay(isShowing: false)
         }
     }
     
@@ -206,11 +203,9 @@ class GameVC: UIViewController {
     }
     
     private func resetGameUI() {
-        blockingUI(withImagesBlocked: true, withButtonBlocked: true)
-        launchButtonAnimation(goingDown: false, resetting: true) { [weak self] in
-            self?.blockingUI(withImagesBlocked: false, withButtonBlocked: true)
-        }
+        launchButtonAnimation(goingDown: false, resetting: true)
         let historicItems = model.alertOkAction()
+        imageLayer.showOverlay(isShowing: false)
         updateElements(item01: historicItems.0, item02: historicItems.1)
         isFirstRound = true
         alertLayer.isHidden = true
@@ -220,11 +215,6 @@ class GameVC: UIViewController {
     
     private func updateElements(item01: HistoricItem, item02: HistoricItem) {
         imageLayer.updateElements(item01: item01, item02: item02)
-    }
-    
-    private func blockingUI(withImagesBlocked: Bool, withButtonBlocked: Bool) {
-        imageLayer.blockImages(isBlocked: withImagesBlocked)
-        buttonLayer.blockButton(isBlocked: withButtonBlocked)
     }
     
     private func launchButtonAnimation(goingDown: Bool, resetting: Bool, completion: (() -> Void)? = nil) {

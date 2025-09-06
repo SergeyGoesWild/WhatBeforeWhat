@@ -175,7 +175,6 @@ final class ImageElementView: UIView {
         dateText.text = self.formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
         self.isRightAnswer = isRightAnswer
         resizeAndUpdateImage()
-        hidingOverlay()
     }
     
     @objc private func handleTap() {

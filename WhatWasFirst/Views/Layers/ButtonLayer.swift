@@ -54,6 +54,7 @@ final class ButtonLayer: UIView {
     }
     
     @objc func nextButtonTapped() {
+        blockButton(isBlocked: true, blockVisible: true)
         delegate?.didTapNextButton()
     }
     
@@ -95,9 +96,12 @@ final class ButtonLayer: UIView {
         nextButton.setTitle(title, for: .normal)
     }
     
-    func blockButton(isBlocked: Bool) {
+    func blockButton(isBlocked: Bool, blockVisible: Bool) {
+        print("Button: \(isBlocked ? "BLOCKED" : "UNblocked")")
         nextButton.isEnabled = !isBlocked
-        nextButton.alpha = isBlocked ? 0.5 : 1
+        if blockVisible {
+            nextButton.alpha = isBlocked ? 0.5 : 1
+        }
     }
     
     func setLabelFont(fontSize: CGFloat) {

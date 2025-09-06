@@ -53,11 +53,15 @@ final class ImageElementsLayer: UIView {
     
     func showOverlay(isShowing: Bool) {
         if isShowing {
+            print("Images: ", isShowing ? "BLOCKED" : "UNlocked")
             topElement.showingOverlay()
             bottomElement.showingOverlay()
+            blockImages(isBlocked: true)
         } else {
+            print("Images: ", isShowing ? "BLOCKED" : "UNlocked")
             topElement.hidingOverlay()
             bottomElement.hidingOverlay()
+            blockImages(isBlocked: false)
         }
     }
     
@@ -66,7 +70,7 @@ final class ImageElementsLayer: UIView {
         bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
     }
     
-    func blockImages(isBlocked: Bool) {
+    private func blockImages(isBlocked: Bool) {
         self.isUserInteractionEnabled = !isBlocked
     }
     
