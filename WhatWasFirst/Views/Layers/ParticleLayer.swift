@@ -21,7 +21,6 @@ final class ParticleLayer: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        print("IN LAYOUT SUBVIEWS")
         emitter.emitterPosition = CGPoint(x: bounds.midX, y: -50)
         emitter.emitterSize = CGSize(width: bounds.width, height: 1)
     }

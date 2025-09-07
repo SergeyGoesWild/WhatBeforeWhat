@@ -40,6 +40,7 @@ final class ButtonLayer: UIView {
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.isEnabled = false
+        nextButton.alpha = 0.5
         return nextButton
     }()
     
@@ -54,7 +55,7 @@ final class ButtonLayer: UIView {
     }
     
     @objc func nextButtonTapped() {
-        blockButton(isBlocked: true, blockVisible: true)
+        blockButton(isBlocked: true)
         delegate?.didTapNextButton()
     }
     
@@ -96,12 +97,9 @@ final class ButtonLayer: UIView {
         nextButton.setTitle(title, for: .normal)
     }
     
-    func blockButton(isBlocked: Bool, blockVisible: Bool) {
-        print("Button: \(isBlocked ? "BLOCKED" : "UNblocked")")
+    func blockButton(isBlocked: Bool) {
         nextButton.isEnabled = !isBlocked
-        if blockVisible {
-            nextButton.alpha = isBlocked ? 0.5 : 1
-        }
+        nextButton.alpha = isBlocked ? 0.5 : 1
     }
     
     func setLabelFont(fontSize: CGFloat) {

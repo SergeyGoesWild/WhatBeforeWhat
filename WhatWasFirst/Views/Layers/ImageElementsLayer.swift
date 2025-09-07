@@ -53,12 +53,10 @@ final class ImageElementsLayer: UIView {
     
     func showOverlay(isShowing: Bool) {
         if isShowing {
-            print("Images: ", isShowing ? "BLOCKED" : "UNlocked")
             topElement.showingOverlay()
             bottomElement.showingOverlay()
             blockImages(isBlocked: true)
         } else {
-            print("Images: ", isShowing ? "BLOCKED" : "UNlocked")
             topElement.hidingOverlay()
             bottomElement.hidingOverlay()
             blockImages(isBlocked: false)

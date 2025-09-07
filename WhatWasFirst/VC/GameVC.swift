@@ -85,7 +85,6 @@ class GameVC: UIViewController {
     private var containerPaddingConstraintBottom: NSLayoutConstraint!
     
     // MARK: - Setup
-    
     init(model: GameModel) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
@@ -156,30 +155,36 @@ class GameVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !didSetupContent {
-            containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
-            containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
-            view.layoutIfNeeded()
-            let smallScreen = view.frame.height < 812
-            buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
-            
-            // TODO: May change this into a separate function?
-            let historicItems = model.alertOkAction()
-            updateElements(item01: historicItems.0, item02: historicItems.1)
-            
+            setupResponsive()
+            prepareFirstRound()
+            print("IN")
             didSetupContent = true
         }
     }
     
+    private func setupResponsive() {
+        containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
+        containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
+        view.layoutIfNeeded()
+        let smallScreen = view.frame.height < 812
+        buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
+    }
+    
     // MARK: - Flow
+    private func prepareFirstRound() {
+        // Resetting stats and filling in the image elements
+        let historicItems = model.alertOkAction()
+        updateElements(item01: historicItems.0, item02: historicItems.1)
+    }
     
     private func imageTapped(guessedRight: Bool) {
         if isFirstRound {
-            launchButtonAnimation(goingDown: true, resetting: false) { [weak self] in
-                self?.buttonLayer.blockButton(isBlocked: false, blockVisible: true)
+            launchButtonAnimation(goingDown: true) { [weak self] in
+                self?.buttonLayer.blockButton(isBlocked: false)
             }
             isFirstRound = false
         } else {
-            buttonLayer.blockButton(isBlocked: false, blockVisible: true)
+            buttonLayer.blockButton(isBlocked: false)
         }
         imageLayer.showOverlay(isShowing: true)
         model.checkAction(guessedRight: guessedRight)
@@ -203,7 +208,7 @@ class GameVC: UIViewController {
     }
     
     private func resetGameUI() {
-        launchButtonAnimation(goingDown: false, resetting: true)
+        launchButtonAnimation(goingDown: false)
         let historicItems = model.alertOkAction()
         imageLayer.showOverlay(isShowing: false)
         updateElements(item01: historicItems.0, item02: historicItems.1)
@@ -212,12 +217,11 @@ class GameVC: UIViewController {
     }
     
     // MARK: - Service
-    
     private func updateElements(item01: HistoricItem, item02: HistoricItem) {
         imageLayer.updateElements(item01: item01, item02: item02)
     }
     
-    private func launchButtonAnimation(goingDown: Bool, resetting: Bool, completion: (() -> Void)? = nil) {
+    private func launchButtonAnimation(goingDown: Bool, completion: (() -> Void)? = nil) {
         buttonLayer.prepareForAnimation(goingDown: goingDown)
         UIView.animate(withDuration: buttonAnimLength, animations: {
             self.buttonLayer.layoutIfNeeded()
@@ -228,7 +232,6 @@ class GameVC: UIViewController {
 }
 
 // MARK: - Extensions
-
 extension GameVC: ImageElementDelegate {
     func didTapImageElement(with guessedRight: Bool) {
         imageTapped(guessedRight: guessedRight)

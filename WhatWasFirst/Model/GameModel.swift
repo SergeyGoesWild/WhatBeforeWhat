@@ -79,6 +79,8 @@ final class GameModel {
     private func checkLastRound() {
         if gameState.currentRound == totalRounds {
             gameState.lastRound = true
+        } else {
+            gameState.lastRound = false
         }
     }
     
@@ -92,11 +94,12 @@ final class GameModel {
     }
     
     private func resetStats() {
-        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: false)
+        // The lastRound parameter is left on TRUE intentionally to keep the "Finish" button text, while the button plays the animation. It will switch to false on the next click on any image.
+        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: true)
         rightAnswers = []
     }
     
-    func generateHistoricItems() -> (HistoricItem, HistoricItem) {
+    private func generateHistoricItems() -> (HistoricItem, HistoricItem) {
         let items = dataProvider.provideItems()
         if items.0.date < items.1.date {
             rightAnswer = items.0
