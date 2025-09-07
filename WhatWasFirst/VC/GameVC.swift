@@ -157,7 +157,6 @@ class GameVC: UIViewController {
         if !didSetupContent {
             setupResponsive()
             prepareFirstRound()
-            print("IN")
             didSetupContent = true
         }
     }
