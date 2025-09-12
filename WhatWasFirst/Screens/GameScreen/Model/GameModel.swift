@@ -5,6 +5,13 @@
 //  Created by Sergey Telnov on 18/08/2025.
 //
 
+protocol GameModelProtocol: AnyObject {
+    func checkAction(guessedRight answer: Bool)
+    func nextStepAction()
+    func alertOkAction()
+}
+
+
 enum ButtonText: String {
     case next = "Next"
     case finish = "Finish"
@@ -17,7 +24,7 @@ struct GameState {
     var buttonText: ButtonText
 }
 
-final class GameModel {
+final class GameModel: GameModelProtocol {
     
     private var gameState: GameState {
         didSet { onStateChange?(gameState) }
@@ -52,18 +59,16 @@ final class GameModel {
             let chosenAnswer = result.1
             onEndGame?(gameState.currentScore, gameState.totalRounds, alertTitle, chosenAnswer)
         } else {
-            let items = generateHistoricItems()
             gameState.currentRound += 1
+            let items = generateHistoricItems()
             onNewRound?(items.0, items.1)
         }
     }
     
-    func alertOkAction() -> (HistoricItem, HistoricItem) {
-        return restartGame()
-    }
-    
-    private func startNewRound() -> (HistoricItem, HistoricItem) {
-        return generateHistoricItems()
+    func alertOkAction() {
+        resetStats()
+        let items = generateHistoricItems()
+        onNewRound?(items.0, items.1)
     }
     
     private func checkResult(guessedRight answer: Bool) {
@@ -80,15 +85,6 @@ final class GameModel {
         } else {
             gameState.buttonText = .next
         }
-    }
-    
-    private func endGame() -> (String, HistoricItem?) {
-        return getAlertText()
-    }
-    
-    private func restartGame() -> (HistoricItem, HistoricItem){
-        resetStats()
-        return startNewRound()
     }
     
     private func resetStats() {

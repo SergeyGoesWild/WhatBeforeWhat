@@ -145,9 +145,9 @@ class GameVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !didSetupContent {
+            didSetupContent = true
             setupResponsive()
             prepareFirstRound()
-            didSetupContent = true
         }
     }
     
