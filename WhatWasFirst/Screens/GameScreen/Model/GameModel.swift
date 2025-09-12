@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  GameModel.swift
 //  WhatWasFirst
 //
 //  Created by Sergey Telnov on 18/08/2025.
@@ -27,8 +27,8 @@ final class GameModel {
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
     
-    let titleFactory: TitleFactory
-    let dataProvider: DataProvider
+    private let titleFactory: TitleFactory
+    private let dataProvider: DataProvider
     
     var onStateChange: ((GameState) -> Void)?
     
@@ -100,6 +100,7 @@ final class GameModel {
     }
     
     private func generateHistoricItems() -> (HistoricItem, HistoricItem) {
+        // TODO: remove the check in VC
         let items = dataProvider.provideItems()
         if items.0.date < items.1.date {
             rightAnswer = items.0
@@ -113,3 +114,5 @@ final class GameModel {
         return titleFactory.makeTitle(with: rightAnswers)
     }
 }
+
+// TODO: Maybe helpers?

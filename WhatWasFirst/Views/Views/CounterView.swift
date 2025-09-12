@@ -70,7 +70,7 @@ final class CounterView: UIView {
         ])
     }
     
-    func updateConterLabel(newRound number: Int) {
+    func updateCounterLabel(newRound number: Int) {
         counterLabel.text = "\(number) / \(totalRounds)"
     }
 }

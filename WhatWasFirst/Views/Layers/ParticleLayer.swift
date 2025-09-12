@@ -6,6 +6,8 @@
 //
 import UIKit
 
+// TODO: adjust stars position
+
 final class ParticleLayer: UIView {
     private var emitter: CAEmitterLayer
     

@@ -18,7 +18,7 @@ protocol EndGameAlertDelegate: AnyObject {
 protocol NextButtonDelegate: AnyObject {
     func didTapNextButton()
 }
-
+ 
 class GameVC: UIViewController {
     
     private var model: GameModel
@@ -31,9 +31,6 @@ class GameVC: UIViewController {
     private var didSetupContent = false
     private var isFirstRound: Bool = true
     private var wasLastRound: Bool = false
-    
-    private let sidePadding: CGFloat = 10
-    private let buttonAnimLength: Double = 1.0
     
     private lazy var bgView: UIView = {
         let bgView = UIView()
@@ -69,7 +66,7 @@ class GameVC: UIViewController {
         let counterElement = CounterView(frame: .zero, totalRounds: currentState.totalRounds)
         counterElement.translatesAutoresizingMaskIntoConstraints = false
         counterElement.clipsToBounds = true
-        counterElement.layer.cornerRadius = 12
+        counterElement.layer.cornerRadius = AppLayout.counterCorRad
         return counterElement
     }()
     private lazy var particLayer: ParticleLayer = {
@@ -105,7 +102,7 @@ class GameVC: UIViewController {
     private func setupLayout() {
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        
+        // TODO: spec func for this
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(alertLayer)
@@ -121,8 +118,8 @@ class GameVC: UIViewController {
             bgView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             containerPaddingConstraintTop,
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: sidePadding),
-            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -sidePadding),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: AppLayout.sidePadding),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -AppLayout.sidePadding),
             containerPaddingConstraintBottom,
             
             imageLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -135,10 +132,10 @@ class GameVC: UIViewController {
             buttonLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             buttonLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
-            counterElement.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
-            counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            counterElement.widthAnchor.constraint(equalToConstant: 75),
-            counterElement.heightAnchor.constraint(equalToConstant: 30),
+            counterElement.topAnchor.constraint(equalTo: containerView.topAnchor, constant: AppLayout.counterSpacing),
+            counterElement.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -AppLayout.counterSpacing),
+            counterElement.widthAnchor.constraint(equalToConstant: AppLayout.counterWidth),
+            counterElement.heightAnchor.constraint(equalToConstant: AppLayout.counterHeight),
             
             alertLayer.topAnchor.constraint(equalTo: view.topAnchor),
             alertLayer.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -162,11 +159,11 @@ class GameVC: UIViewController {
     }
     
     private func setupResponsive() {
-        containerPaddingConstraintTop.constant = view.safeAreaInsets.top < 24 ? 20 : 0
-        containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < 24 ? -20 : 0
+        containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
+        containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < AppThreshold.safeAreaInset ? -AppLayout.additionalVertPadding : 0
         view.layoutIfNeeded()
-        let smallScreen = view.frame.height < 812
-        buttonLayer.setLabelFont(fontSize: smallScreen ? 25 : 30)
+        let smallScreen = view.frame.height < AppThreshold.smallScreenLimit
+        buttonLayer.setLabelFont(fontSize: smallScreen ? AppLayout.smallLabelFont : AppLayout.bigLabelFont)
     }
     
     // MARK: - Flow
@@ -190,6 +187,7 @@ class GameVC: UIViewController {
     }
     
     private func nextButtonTapped() {
+        // TODO: split this block
         switch model.nextStepAction() {
         case .gameEnded(let title, let answer):
             alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
@@ -202,10 +200,12 @@ class GameVC: UIViewController {
     }
     
     private func updateTextUI(state: GameState) {
+        // TODO: model must return
         buttonLayer.setButtonTitle(state.lastRound == true ? "Finish" : "Next")
-        counterElement.updateConterLabel(newRound: state.currentRound)
+        // TODO: typo here
+        counterElement.updateCounterLabel(newRound: state.currentRound)
     }
-    
+    // TODO: folder structure to change
     private func resetGameUI() {
         launchButtonAnimation(goingDown: false)
         let historicItems = model.alertOkAction()
@@ -222,7 +222,7 @@ class GameVC: UIViewController {
     
     private func launchButtonAnimation(goingDown: Bool, completion: (() -> Void)? = nil) {
         buttonLayer.prepareForAnimation(goingDown: goingDown)
-        UIView.animate(withDuration: buttonAnimLength, animations: {
+        UIView.animate(withDuration: AppAnimations.buttonMove, animations: {
             self.buttonLayer.layoutIfNeeded()
         }, completion: { _ in
             completion?()
