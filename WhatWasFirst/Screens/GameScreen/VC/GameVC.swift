@@ -96,7 +96,7 @@ class GameVC: UIViewController {
     private func setupLayout() {
         containerPaddingConstraintTop = containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0)
         containerPaddingConstraintBottom = containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-        // TODO: spec func for this
+        
         view.addSubview(bgView)
         view.addSubview(containerView)
         view.addSubview(alertLayer)
@@ -176,6 +176,7 @@ class GameVC: UIViewController {
     
     private func nextButtonTapped() {
         // TODO: split this block
+        // TODO: additional protocols
         switch model.nextStepAction() {
         case .gameEnded(let title, let answer):
             alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
@@ -188,28 +189,8 @@ class GameVC: UIViewController {
     }
     
     private func updateTextUI(state: GameState) {
-        // TODO: model must return
-        buttonLayer.setButtonTitle(state.lastRound == true ? "Finish" : "Next")
+        buttonLayer.setButtonTitle(state.buttonText.rawValue)
         counterElement.updateCounterLabel(newRound: state.currentRound)
-    }
-
-    private func launchStars() {
-        let particLayer = ParticleLayer()
-        particLayer.translatesAutoresizingMaskIntoConstraints = false
-        particLayer.isUserInteractionEnabled = false
-        view.addSubview(particLayer)
-        NSLayoutConstraint.activate([
-            particLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            particLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            particLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
-            particLayer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-        ])
-        
-        particLayer.startEmission()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + AppAnimations.particleTime + AppAnimations.emittionDuration) {
-            particLayer.removeFromSuperview()
-        }
     }
     
     private func resetGameUI() {
@@ -233,6 +214,25 @@ class GameVC: UIViewController {
         }, completion: { _ in
             completion?()
         })
+    }
+    
+    private func launchStars() {
+        let particLayer = ParticleLayer()
+        particLayer.translatesAutoresizingMaskIntoConstraints = false
+        particLayer.isUserInteractionEnabled = false
+        view.addSubview(particLayer)
+        NSLayoutConstraint.activate([
+            particLayer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            particLayer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            particLayer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            particLayer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+        ])
+        
+        particLayer.startEmission()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppAnimations.particleTime + AppAnimations.emittionDuration) {
+            particLayer.removeFromSuperview()
+        }
     }
 }
 

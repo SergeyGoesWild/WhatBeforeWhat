@@ -5,11 +5,16 @@
 //  Created by Sergey Telnov on 18/08/2025.
 //
 
+enum ButtonText: String {
+    case next = "Next"
+    case finish = "Finish"
+}
+
 struct GameState {
     var currentRound: Int
     let totalRounds: Int
     var currentScore: Int
-    var lastRound: Bool
+    var buttonText: ButtonText
 }
 
 enum ButtonOutcome {
@@ -35,7 +40,7 @@ final class GameModel {
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
-        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: false)
+        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, buttonText: .next)
     }
     
     func checkAction(guessedRight answer: Bool) {
@@ -44,7 +49,7 @@ final class GameModel {
     }
     
     func nextStepAction() -> ButtonOutcome {
-        if gameState.lastRound {
+        if gameState.buttonText {
             let result = getAlertText()
             let alertTitle = result.0
             let chosenAnswer = result.1
@@ -78,9 +83,9 @@ final class GameModel {
     
     private func checkLastRound() {
         if gameState.currentRound == totalRounds {
-            gameState.lastRound = true
+            gameState.buttonText = .finish
         } else {
-            gameState.lastRound = false
+            gameState.buttonText = .next
         }
     }
     
@@ -95,7 +100,7 @@ final class GameModel {
     
     private func resetStats() {
         // The lastRound parameter is left on TRUE intentionally to keep the "Finish" button text, while the button plays the animation. It will switch to false on the next click on any image.
-        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, lastRound: true)
+        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, buttonText: .finish)
         rightAnswers = []
     }
     
@@ -114,5 +119,3 @@ final class GameModel {
         return titleFactory.makeTitle(with: rightAnswers)
     }
 }
-
-// TODO: Maybe helpers?
