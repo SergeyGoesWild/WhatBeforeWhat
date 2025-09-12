@@ -18,15 +18,13 @@ protocol EndGameAlertDelegate: AnyObject {
 protocol NextButtonDelegate: AnyObject {
     func didTapNextButton()
 }
- 
+
+// TODO: additional protocol for model
+// TODO: change alert text formatting
+
 class GameVC: UIViewController {
     
     private var model: GameModel
-    private var currentState: GameState {
-        get {
-            model.shareState()
-        }
-    }
     
     private var didSetupContent = false
     private var isFirstRound: Bool = true
@@ -63,7 +61,7 @@ class GameVC: UIViewController {
         return endGameAlert
     }()
     private lazy var counterElement: CounterView = {
-        let counterElement = CounterView(frame: .zero, totalRounds: currentState.totalRounds)
+        let counterElement = CounterView()
         counterElement.translatesAutoresizingMaskIntoConstraints = false
         counterElement.clipsToBounds = true
         counterElement.layer.cornerRadius = AppLayout.counterCorRad
@@ -79,8 +77,18 @@ class GameVC: UIViewController {
     init(model: GameModel) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
+        
         model.onStateChange = { [weak self] state in
             self?.updateTextUI(state: state)
+        }
+        model.onNewRound = { [weak self] historicItem1, historicItem2 in
+            self?.updateElements(item01: historicItem1, item02: historicItem2)
+            self?.imageLayer.showOverlay(isShowing: false)
+        }
+        model.onEndGame = { [weak self] score, rounds, title, answer in
+            self?.alertLayer.activateAlert(withScore: score, outOf: rounds, withTitleObject: (title, answer))
+            self?.alertLayer.isHidden = false
+            self?.launchStars()
         }
     }
     
@@ -175,22 +183,12 @@ class GameVC: UIViewController {
     }
     
     private func nextButtonTapped() {
-        // TODO: split this block
-        // TODO: additional protocols
-        switch model.nextStepAction() {
-        case .gameEnded(let title, let answer):
-            alertLayer.activateAlert(withScore: currentState.currentScore, outOf: currentState.totalRounds, withTitleObject: (title, answer))
-            alertLayer.isHidden = false
-            launchStars()
-        case .newRound(let item01, let item02):
-            updateElements(item01: item01, item02: item02)
-            imageLayer.showOverlay(isShowing: false)
-        }
+        model.nextStepAction()
     }
     
     private func updateTextUI(state: GameState) {
         buttonLayer.setButtonTitle(state.buttonText.rawValue)
-        counterElement.updateCounterLabel(newRound: state.currentRound)
+        counterElement.updateCounterLabel(currentNumber: state.currentRound, totalNumber: state.totalRounds)
     }
     
     private func resetGameUI() {

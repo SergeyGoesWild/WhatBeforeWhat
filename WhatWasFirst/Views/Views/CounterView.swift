@@ -9,8 +9,6 @@ import UIKit
 
 final class CounterView: UIView {
     
-    var totalRounds: Int
-    
     private lazy var bgView: UIView = {
         let bgView = UIView()
         bgView.backgroundColor = .black
@@ -37,8 +35,7 @@ final class CounterView: UIView {
         return blurEffect
     }()
     
-    init(frame: CGRect, totalRounds: Int) {
-        self.totalRounds = totalRounds
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
     }
@@ -70,7 +67,7 @@ final class CounterView: UIView {
         ])
     }
     
-    func updateCounterLabel(newRound number: Int) {
-        counterLabel.text = "\(number) / \(totalRounds)"
+    func updateCounterLabel(currentNumber: Int, totalNumber: Int) {
+        counterLabel.text = "\(currentNumber) / \(totalNumber)"
     }
 }

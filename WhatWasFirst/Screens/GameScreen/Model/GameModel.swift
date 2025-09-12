@@ -17,11 +17,6 @@ struct GameState {
     var buttonText: ButtonText
 }
 
-enum ButtonOutcome {
-    case gameEnded(title: String, answer: HistoricItem?)
-    case newRound(item01: HistoricItem, item02: HistoricItem)
-}
-
 final class GameModel {
     
     private var gameState: GameState {
@@ -36,6 +31,8 @@ final class GameModel {
     private let dataProvider: DataProvider
     
     var onStateChange: ((GameState) -> Void)?
+    var onNewRound: ((HistoricItem, HistoricItem) -> Void)?
+    var onEndGame: ((Int, Int, String, HistoricItem?) -> Void)?
     
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
@@ -48,25 +45,21 @@ final class GameModel {
         checkLastRound()
     }
     
-    func nextStepAction() -> ButtonOutcome {
-        if gameState.buttonText {
+    func nextStepAction() {
+        if gameState.currentRound == totalRounds {
             let result = getAlertText()
             let alertTitle = result.0
             let chosenAnswer = result.1
-            return .gameEnded(title: alertTitle, answer: chosenAnswer)
+            onEndGame?(gameState.currentScore, gameState.totalRounds, alertTitle, chosenAnswer)
         } else {
             let items = generateHistoricItems()
             gameState.currentRound += 1
-            return .newRound(item01: items.0, item02: items.1)
+            onNewRound?(items.0, items.1)
         }
     }
     
     func alertOkAction() -> (HistoricItem, HistoricItem) {
         return restartGame()
-    }
-    
-    func shareState() -> GameState {
-        return gameState
     }
     
     private func startNewRound() -> (HistoricItem, HistoricItem) {
