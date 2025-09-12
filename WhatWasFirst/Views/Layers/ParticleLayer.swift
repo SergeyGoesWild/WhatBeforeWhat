@@ -6,11 +6,9 @@
 //
 import UIKit
 
-// TODO: adjust stars position
-
 final class ParticleLayer: UIView {
     private var emitter: CAEmitterLayer
-    
+
     override init(frame: CGRect) {
         self.emitter = CAEmitterLayer()
         super.init(frame: frame)
@@ -23,16 +21,15 @@ final class ParticleLayer: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        emitter.emitterPosition = CGPoint(x: bounds.midX, y: -50)
+        emitter.emitterPosition = CGPoint(x: bounds.midX, y: AppLayout.particleOffset)
         emitter.emitterSize = CGSize(width: bounds.width, height: 1)
     }
     
     private func setupEmitter() {
         let cell = CAEmitterCell()
-        emitter.emitterShape = .line
         cell.contents = UIImage(named: "star")?.cgImage
-        cell.birthRate = 20
-        cell.lifetime = 3
+        cell.birthRate = 30
+        cell.lifetime = Float(AppAnimations.particleTime)
         cell.velocity = 250
         cell.yAcceleration = 200
         cell.velocityRange = 60
@@ -42,6 +39,7 @@ final class ParticleLayer: UIView {
         cell.scaleRange = 0.07
         cell.emissionLongitude = .pi
         
+        emitter.emitterShape = .line
         emitter.emitterCells = [cell]
         emitter.birthRate = 0
     }
@@ -50,15 +48,12 @@ final class ParticleLayer: UIView {
         self.layer.addSublayer(emitter)
         emitter.birthRate = 1
         emitter.beginTime = CACurrentMediaTime()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + AppAnimations.emittionDuration) {
             self.stopEmission()
         }
     }
     
     private func stopEmission() {
         emitter.birthRate = 0
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.emitter.removeFromSuperlayer()
-        }
     }
 }

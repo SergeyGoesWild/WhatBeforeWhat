@@ -26,10 +26,15 @@ enum AppLayout {
     
     static let smallLabelFont: CGFloat = 25
     static let bigLabelFont: CGFloat = 30
+    
+    static let particleOffset: CGFloat = -80
 }
 
 enum AppAnimations {
     static let buttonMove: Double = 1.0
+    
+    static let emittionDuration: Double = 1.0
+    static let particleTime: Double = 3.0
 }
 
 enum AppThreshold {
