@@ -111,8 +111,8 @@ final class AlertLayer: UIView {
     
     func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
         let normalText01 = "With the score of"
-        let boldText = " \(score)/\(total)"
-        let normalText02 = ",\nyou get the title:\n\n"
+        let boldText = " \(score) / \(total)"
+        let normalText02 = "\nyou get the title:\n\n"
         let titleText = object.0 + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
@@ -124,10 +124,10 @@ final class AlertLayer: UIView {
         let fullString = NSMutableAttributedString()
 
         let boldAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .heavy)
+            .font: UIFont.systemFont(ofSize: 16, weight: .bold)
         ]
         let normalAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .light)
+            .font: UIFont.systemFont(ofSize: 16, weight: .thin)
         ]
         let cursiveAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.italicSystemFont(ofSize: 22)

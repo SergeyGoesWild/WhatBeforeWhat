@@ -19,9 +19,6 @@ protocol NextButtonDelegate: AnyObject {
     func didTapNextButton()
 }
 
-// TODO: additional protocol for model
-// TODO: change alert text formatting
-
 class GameVC: UIViewController {
     
     private var model: GameModel
