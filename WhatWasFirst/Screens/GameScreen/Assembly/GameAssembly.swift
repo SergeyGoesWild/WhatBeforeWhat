@@ -6,8 +6,8 @@
 //
 
 import UIKit
-// TODO: naming to change
-final class AppAssembly {
+
+final class GameAssembly {
     private let titleFactory: TitleFactory
     private let dataProvider: DataProvider
     private let gameModel: GameModel
