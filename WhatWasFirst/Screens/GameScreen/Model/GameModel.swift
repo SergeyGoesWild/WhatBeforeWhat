@@ -9,8 +9,8 @@ protocol GameModelProtocol: AnyObject {
     func checkAction(guessedRight answer: Bool)
     func nextStepAction()
     func alertOkAction()
+    func startNewRound()
 }
-
 
 enum ButtonText: String {
     case next = "Next"
@@ -60,13 +60,16 @@ final class GameModel: GameModelProtocol {
             onEndGame?(gameState.currentScore, gameState.totalRounds, alertTitle, chosenAnswer)
         } else {
             gameState.currentRound += 1
-            let items = generateHistoricItems()
-            onNewRound?(items.0, items.1)
+            startNewRound()
         }
     }
     
     func alertOkAction() {
         resetStats()
+        startNewRound()
+    }
+    
+    func startNewRound() {
         let items = generateHistoricItems()
         onNewRound?(items.0, items.1)
     }

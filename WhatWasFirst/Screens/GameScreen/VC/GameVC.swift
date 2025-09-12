@@ -21,7 +21,7 @@ protocol NextButtonDelegate: AnyObject {
 
 class GameVC: UIViewController {
     
-    private var model: GameModel
+    private var model: GameModelProtocol
     
     private var didSetupContent = false
     private var isFirstRound: Bool = true
@@ -147,9 +147,12 @@ class GameVC: UIViewController {
         if !didSetupContent {
             didSetupContent = true
             setupResponsive()
-            prepareFirstRound()
+            // TODO: maybe I need a method to update images
+            model.startNewRound()
         }
     }
+    
+    // TODO: check images separately
     
     private func setupResponsive() {
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
@@ -160,12 +163,6 @@ class GameVC: UIViewController {
     }
     
     // MARK: - Flow
-    private func prepareFirstRound() {
-        // Resetting stats and filling in the image elements
-        let historicItems = model.alertOkAction()
-        updateElements(item01: historicItems.0, item02: historicItems.1)
-    }
-    
     private func imageTapped(guessedRight: Bool) {
         if isFirstRound {
             launchButtonAnimation(goingDown: true) { [weak self] in
@@ -190,9 +187,8 @@ class GameVC: UIViewController {
     
     private func resetGameUI() {
         launchButtonAnimation(goingDown: false)
-        let historicItems = model.alertOkAction()
+        model.alertOkAction()
         imageLayer.showOverlay(isShowing: false)
-        updateElements(item01: historicItems.0, item02: historicItems.1)
         isFirstRound = true
         alertLayer.isHidden = true
     }
@@ -231,7 +227,7 @@ class GameVC: UIViewController {
     }
 }
 
-// MARK: - Extensions
+    // MARK: - Extensions
 extension GameVC: ImageElementDelegate {
     func didTapImageElement(with guessedRight: Bool) {
         imageTapped(guessedRight: guessedRight)
