@@ -96,6 +96,7 @@ class GameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        model.startNewRound()
     }
     
     private func setupLayout() {
@@ -147,20 +148,19 @@ class GameVC: UIViewController {
         if !didSetupContent {
             didSetupContent = true
             setupResponsive()
-//            model.startNewRound()
         }
     }
     
-    private var didStartOnce = false
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard !didStartOnce else { return }
-        didStartOnce = true
-        DispatchQueue.main.async { [weak self] in
-            self?.model.startNewRound()
-        }
-    }
+//    private var didStartOnce = false
+//
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        guard !didStartOnce else { return }
+//        didStartOnce = true
+//        DispatchQueue.main.async { [weak self] in
+//            self?.model.startNewRound()
+//        }
+//    }
     
     private func setupResponsive() {
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
