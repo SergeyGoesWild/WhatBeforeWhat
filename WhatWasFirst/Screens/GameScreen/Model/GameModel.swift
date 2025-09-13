@@ -24,6 +24,11 @@ struct GameState {
     var buttonText: ButtonText
 }
 
+struct SharedItem {
+    var item: HistoricItem
+    var rightAnswer: Bool
+}
+
 final class GameModel: GameModelProtocol {
     
     private var gameState: GameState {
@@ -38,7 +43,7 @@ final class GameModel: GameModelProtocol {
     private let dataProvider: DataProvider
     
     var onStateChange: ((GameState) -> Void)?
-    var onNewRound: ((HistoricItem, HistoricItem) -> Void)?
+    var onNewRound: ((SharedItem, SharedItem) -> Void)?
     var onEndGame: ((Int, Int, String, HistoricItem?) -> Void)?
     
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
@@ -96,15 +101,15 @@ final class GameModel: GameModelProtocol {
         rightAnswers = []
     }
     
-    private func generateHistoricItems() -> (HistoricItem, HistoricItem) {
-        // TODO: remove the check in VC
+    private func generateHistoricItems() -> (SharedItem, SharedItem) {
         let items = dataProvider.provideItems()
         if items.0.date < items.1.date {
             rightAnswer = items.0
+            return (SharedItem(item: items.0, rightAnswer: true), SharedItem(item: items.1, rightAnswer: false))
         } else {
             rightAnswer = items.1
+            return (SharedItem(item: items.0, rightAnswer: false), SharedItem(item: items.1, rightAnswer: true))
         }
-        return items
     }
     
     private func getAlertText() -> (String, HistoricItem?) {

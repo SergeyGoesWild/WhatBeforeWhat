@@ -18,6 +18,7 @@ final class CounterView: UIView {
     }()
     private var counterLabel: UILabel = {
         let counterLabel = UILabel()
+        counterLabel.text = "1 / 10"
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
         counterLabel.textColor = AppColors.labelColour
         counterLabel.textAlignment = .center

@@ -78,8 +78,8 @@ class GameVC: UIViewController {
         model.onStateChange = { [weak self] state in
             self?.updateTextUI(state: state)
         }
-        model.onNewRound = { [weak self] historicItem1, historicItem2 in
-            self?.updateElements(item01: historicItem1, item02: historicItem2)
+        model.onNewRound = { [weak self] sharedItem01, sharedItem02 in
+            self?.updateElements(item01: sharedItem01, item02: sharedItem02)
             self?.imageLayer.showOverlay(isShowing: false)
         }
         model.onEndGame = { [weak self] score, rounds, title, answer in
@@ -147,12 +147,20 @@ class GameVC: UIViewController {
         if !didSetupContent {
             didSetupContent = true
             setupResponsive()
-            // TODO: maybe I need a method to update images
-            model.startNewRound()
+//            model.startNewRound()
         }
     }
     
-    // TODO: check images separately
+    private var didStartOnce = false
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !didStartOnce else { return }
+        didStartOnce = true
+        DispatchQueue.main.async { [weak self] in
+            self?.model.startNewRound()
+        }
+    }
     
     private func setupResponsive() {
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
@@ -194,7 +202,7 @@ class GameVC: UIViewController {
     }
     
     // MARK: - Service
-    private func updateElements(item01: HistoricItem, item02: HistoricItem) {
+    private func updateElements(item01: SharedItem, item02: SharedItem) {
         imageLayer.updateElements(item01: item01, item02: item02)
     }
     

@@ -63,9 +63,9 @@ final class ImageElementsLayer: UIView {
         }
     }
     
-    func updateElements(item01: HistoricItem, item02: HistoricItem) {
-        topElement.updateItem(with: item01, isRightAnswer: item01.date < item02.date)
-        bottomElement.updateItem(with: item02, isRightAnswer: item02.date < item01.date)
+    func updateElements(item01: SharedItem, item02: SharedItem) {
+        topElement.updateItem(with: item01.item, isRightAnswer: item01.rightAnswer)
+        bottomElement.updateItem(with: item02.item, isRightAnswer: item02.rightAnswer)
     }
     
     private func blockImages(isBlocked: Bool) {
