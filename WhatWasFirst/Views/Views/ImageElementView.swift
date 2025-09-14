@@ -20,23 +20,24 @@ final class ImageElementView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-//    private var backgroundImageView: UIImageView = {
-//        let backgroundImageView = UIImageView()
-//        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-//        return backgroundImageView
-//    }()
-//    private lazy var backgroundEffectView: UIVisualEffectView = {
-//        let backgroundEffectView = UIVisualEffectView(effect: blurEffect)
-//        backgroundEffectView.translatesAutoresizingMaskIntoConstraints = false
-//        return backgroundEffectView
-//    }()
-//    private lazy var blurEffect: UIBlurEffect = {
-//        let blurEffect = UIBlurEffect(style: .regular)
-//        return blurEffect
-//    }()
+    private var backgroundImageView: UIImageView = {
+        let backgroundImageView = UIImageView()
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        return backgroundImageView
+    }()
+    private lazy var backgroundEffectView: UIVisualEffectView = {
+        let backgroundEffectView = UIVisualEffectView(effect: blurEffect)
+        backgroundEffectView.translatesAutoresizingMaskIntoConstraints = false
+        return backgroundEffectView
+    }()
+    private lazy var blurEffect: UIBlurEffect = {
+        let blurEffect = UIBlurEffect(style: .regular)
+        return blurEffect
+    }()
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .clear
         scrollView.bounces = true
         scrollView.alwaysBounceHorizontal = true
         scrollView.alwaysBounceVertical = true
@@ -87,15 +88,15 @@ final class ImageElementView: UIView {
         return dataStackView
     }()
     
-    private var imageViewHeightConstraint: NSLayoutConstraint! = NSLayoutConstraint()
-    private var imageViewWidthConstraint: NSLayoutConstraint! = NSLayoutConstraint()
-    private var imageViewCenterXConstraint: NSLayoutConstraint! = NSLayoutConstraint()
-    private var imageViewCenterYConstraint: NSLayoutConstraint! = NSLayoutConstraint()
+    private var imageViewHeightConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var imageViewWidthConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var imageViewCenterXConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var imageViewCenterYConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
-//    private var backgroundImageHeightConstraint: NSLayoutConstraint!
-//    private var backgroundImageWidthConstraint: NSLayoutConstraint!
-    
-    private let zoomMargin: CGFloat = 60
+    private var backgroundImageHeightConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var backgroundImageWidthConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var backgroundImageCenterXConstraint: NSLayoutConstraint = NSLayoutConstraint()
+    private var backgroundImageCenterYConstraint: NSLayoutConstraint = NSLayoutConstraint()
     
     // MARK: - Setup
     
@@ -113,14 +114,16 @@ final class ImageElementView: UIView {
         let screenSize = UIScreen.main.bounds
         let smallScreen = screenSize.width <= 375 && screenSize.height < 812
         
-//        backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalToConstant: 0)
-//        backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalToConstant: 0)
-        
         flavorText.font = UIFont.systemFont(ofSize: smallScreen ? 19 : 22, weight: .thin)
         
+        let overlay = UIView()
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        overlay.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(placeholderView)
-//        addSubview(backgroundImageView)
-//        addSubview(backgroundEffectView)
+        addSubview(backgroundImageView)
+        addSubview(backgroundEffectView)
+        addSubview(overlay)
         addSubview(scrollView)
         scrollView.addSubview(imageView)
         addSubview(blackOverlay)
@@ -135,20 +138,20 @@ final class ImageElementView: UIView {
             placeholderView.topAnchor.constraint(equalTo: self.topAnchor),
             placeholderView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
+            backgroundEffectView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            backgroundEffectView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            backgroundEffectView.topAnchor.constraint(equalTo: self.topAnchor),
+            backgroundEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            overlay.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            overlay.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            overlay.topAnchor.constraint(equalTo: self.topAnchor),
+            overlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
             scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             scrollView.topAnchor.constraint(equalTo: self.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-//            backgroundImageWidthConstraint,
-//            backgroundImageHeightConstraint,
-//            backgroundImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            backgroundImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            
-//            backgroundEffectView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            backgroundEffectView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            backgroundEffectView.topAnchor.constraint(equalTo: self.topAnchor),
-//            backgroundEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             blackOverlay.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blackOverlay.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -197,16 +200,8 @@ final class ImageElementView: UIView {
         image = UIImage(contentsOfFile: path)
         setupImageConstraints(image: image)
         imageView.image = image
-//        backgroundImageView.image = image
-//        imageViewWidthConstraint.constant = newImageSize.width + zoomMargin
-//        imageViewHeightConstraint.constant = newImageSize.height + zoomMargin
-//        if let offset = currentItem.yOffset {
-//            imageViewOffsetConstraint.constant = self.bounds.height * offset
-//        } else {
-//            imageViewOffsetConstraint.constant = 0
-//        }
-//        backgroundImageWidthConstraint.constant = newImageSize.width
-//        backgroundImageHeightConstraint.constant = newImageSize.height
+        backgroundImageView.image = image
+
     }
     
     private func launchEmoji() {
@@ -228,42 +223,58 @@ final class ImageElementView: UIView {
     }
     
     private func setupImageConstraints(image: UIImage){
+        // TODO: bugs at start (animation + label not fitting)
+        // TODO: LOW maybe change the offset system, so it is centered around the image and not the imageElement
+        // TODO: LOW limit the scroll view scroll range
+        
         NSLayoutConstraint.deactivate([
+            backgroundImageWidthConstraint,
+            backgroundImageHeightConstraint,
+            backgroundImageCenterXConstraint,
+            backgroundImageCenterYConstraint,
+            
             imageViewWidthConstraint,
             imageViewHeightConstraint,
             imageViewCenterXConstraint,
             imageViewCenterYConstraint
         ])
         
-        // TODO: maybe change the offset system, so it is centered around the image and not the imageElement
-        // TODO: zoom in a bit
-        // TODO: limit the scroll view scroll range
-        // TODO: BG blur
-        // TODO: bugs at start (animation + label not fitting)
-        
         if image.size.width > image.size.height {
-            print("in HORIZONTAL")
             let ratio = image.size.width / image.size.height
-            let offset = self.bounds.height * (currentItem.yOffset ?? 0)
             imageViewWidthConstraint = imageView.widthAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: ratio)
             imageViewHeightConstraint = imageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
-            imageViewCenterXConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
-            imageViewCenterYConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
+            imageViewHeightConstraint.constant += AppLayout.zoomMargin
+            imageViewWidthConstraint.constant += AppLayout.zoomMargin * ratio
+            
+            backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalTo: scrollView.heightAnchor, multiplier: ratio)
+            backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         } else {
-            print("in VERTICAL")
             let ratio = image.size.height / image.size.width
-            let offset = self.bounds.height * (currentItem.yOffset ?? 0)
             imageViewWidthConstraint = imageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             imageViewHeightConstraint = imageView.heightAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: ratio)
-            imageViewCenterXConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
-            imageViewCenterYConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
+            imageViewWidthConstraint.constant += AppLayout.zoomMargin
+            imageViewHeightConstraint.constant += AppLayout.zoomMargin * ratio
+            
+            backgroundImageWidthConstraint = backgroundImageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            backgroundImageHeightConstraint = backgroundImageView.heightAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: ratio)
         }
         
+        let offset = self.bounds.height * (currentItem.yOffset ?? 0)
+        imageViewCenterXConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
+        imageViewCenterYConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
+        backgroundImageCenterXConstraint = backgroundImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
+        backgroundImageCenterYConstraint = backgroundImageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
+        
         NSLayoutConstraint.activate([
+            backgroundImageWidthConstraint,
+            backgroundImageHeightConstraint,
+            backgroundImageCenterXConstraint,
+            backgroundImageCenterYConstraint,
+            
             imageViewWidthConstraint,
             imageViewHeightConstraint,
             imageViewCenterXConstraint,
-            imageViewCenterYConstraint
+            imageViewCenterYConstraint,
         ])
     }
 }
