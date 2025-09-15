@@ -11,6 +11,8 @@ final class ImageElementView: UIView {
     
     weak var delegate: ImageElementDelegate?
     
+    private var firstLaunch: Bool = true
+    
     private var isRightAnswer: Bool!
     private var currentItem: HistoricItem!
     private var image: UIImage!
@@ -110,6 +112,16 @@ final class ImageElementView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if firstLaunch {
+            firstLaunch = false
+            let offset = self.bounds.height * (currentItem.yOffset ?? 0)
+            imageViewCenterYConstraint.constant = offset
+            backgroundImageCenterYConstraint.constant = offset
+        }
+    }
+    
     private func setupLayout() {
         let screenSize = UIScreen.main.bounds
         let smallScreen = screenSize.width <= 375 && screenSize.height < 812
@@ -117,7 +129,7 @@ final class ImageElementView: UIView {
         flavorText.font = UIFont.systemFont(ofSize: smallScreen ? 19 : 22, weight: .thin)
         
         let overlay = UIView()
-        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         overlay.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(placeholderView)
@@ -223,10 +235,6 @@ final class ImageElementView: UIView {
     }
     
     private func setupImageConstraints(image: UIImage){
-        // TODO: bugs at start (animation + label not fitting)
-        // TODO: LOW maybe change the offset system, so it is centered around the image and not the imageElement
-        // TODO: LOW limit the scroll view scroll range
-        
         NSLayoutConstraint.deactivate([
             backgroundImageWidthConstraint,
             backgroundImageHeightConstraint,
@@ -236,7 +244,7 @@ final class ImageElementView: UIView {
             imageViewWidthConstraint,
             imageViewHeightConstraint,
             imageViewCenterXConstraint,
-            imageViewCenterYConstraint
+            imageViewCenterYConstraint,
         ])
         
         if image.size.width > image.size.height {
@@ -260,10 +268,11 @@ final class ImageElementView: UIView {
         }
         
         let offset = self.bounds.height * (currentItem.yOffset ?? 0)
-        imageViewCenterXConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
         imageViewCenterYConstraint = imageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
-        backgroundImageCenterXConstraint = backgroundImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
         backgroundImageCenterYConstraint = backgroundImageView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: offset)
+        
+        imageViewCenterXConstraint = imageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
+        backgroundImageCenterXConstraint = backgroundImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor, constant: 0)
         
         NSLayoutConstraint.activate([
             backgroundImageWidthConstraint,

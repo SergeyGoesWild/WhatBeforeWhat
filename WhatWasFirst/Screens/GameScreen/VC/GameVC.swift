@@ -151,23 +151,12 @@ class GameVC: UIViewController {
         }
     }
     
-//    private var didStartOnce = false
-//
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        guard !didStartOnce else { return }
-//        didStartOnce = true
-//        DispatchQueue.main.async { [weak self] in
-//            self?.model.startNewRound()
-//        }
-//    }
-    
     private func setupResponsive() {
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
         containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < AppThreshold.safeAreaInset ? -AppLayout.additionalVertPadding : 0
-        view.layoutIfNeeded()
         let smallScreen = view.frame.height < AppThreshold.smallScreenLimit
         buttonLayer.setLabelFont(fontSize: smallScreen ? AppLayout.smallLabelFont : AppLayout.bigLabelFont)
+        view.layoutIfNeeded()
     }
     
     // MARK: - Flow
