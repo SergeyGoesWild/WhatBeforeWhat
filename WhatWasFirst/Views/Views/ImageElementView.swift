@@ -60,7 +60,7 @@ final class ImageElementView: UIView {
         let blackOverlay = UIView()
         blackOverlay.translatesAutoresizingMaskIntoConstraints = false
         blackOverlay.backgroundColor = .black
-        blackOverlay.alpha = 0.7
+        blackOverlay.alpha = 0.8
         blackOverlay.isHidden = true
         return blackOverlay
     }()

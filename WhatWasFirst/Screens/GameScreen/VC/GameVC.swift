@@ -25,7 +25,6 @@ class GameVC: UIViewController {
     
     private var didSetupContent = false
     private var isFirstRound: Bool = true
-    private var wasLastRound: Bool = false
     
     private lazy var bgView: UIView = {
         let bgView = UIView()

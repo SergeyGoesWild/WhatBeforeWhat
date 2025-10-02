@@ -16,9 +16,8 @@ final class CounterView: UIView {
         bgView.translatesAutoresizingMaskIntoConstraints = false
         return bgView
     }()
-    private var counterLabel: UILabel = {
+    private lazy var counterLabel: UILabel = {
         let counterLabel = UILabel()
-        counterLabel.text = "1 / 10"
         counterLabel.translatesAutoresizingMaskIntoConstraints = false
         counterLabel.textColor = AppColors.labelColour
         counterLabel.textAlignment = .center

@@ -32,7 +32,9 @@ struct SharedItem {
 final class GameModel: GameModelProtocol {
     
     private var gameState: GameState {
-        didSet { onStateChange?(gameState) }
+        didSet {
+            onStateChange?(gameState)
+        }
     }
     
     private let totalRounds: Int = 10
@@ -49,7 +51,7 @@ final class GameModel: GameModelProtocol {
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
-        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, buttonText: .next)
+        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: .next)
     }
     
     func checkAction(guessedRight answer: Bool) {
@@ -64,7 +66,6 @@ final class GameModel: GameModelProtocol {
             let chosenAnswer = result.1
             onEndGame?(gameState.currentScore, gameState.totalRounds, alertTitle, chosenAnswer)
         } else {
-            gameState.currentRound += 1
             startNewRound()
         }
     }
@@ -75,6 +76,7 @@ final class GameModel: GameModelProtocol {
     }
     
     func startNewRound() {
+        gameState.currentRound += 1
         let items = generateHistoricItems()
         onNewRound?(items.0, items.1)
     }
@@ -97,7 +99,7 @@ final class GameModel: GameModelProtocol {
     
     private func resetStats() {
         // The lastRound parameter is left on TRUE intentionally to keep the "Finish" button text, while the button plays the animation. It will switch to false on the next click on any image.
-        gameState = GameState(currentRound: 1, totalRounds: totalRounds, currentScore: 0, buttonText: .finish)
+        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: .finish)
         rightAnswers = []
     }
     

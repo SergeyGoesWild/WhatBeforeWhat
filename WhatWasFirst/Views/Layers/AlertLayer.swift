@@ -127,10 +127,10 @@ final class AlertLayer: UIView {
             .font: UIFont.systemFont(ofSize: 16, weight: .bold)
         ]
         let normalAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .thin)
+            .font: UIFont.systemFont(ofSize: 16, weight: .light)
         ]
         let cursiveAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.italicSystemFont(ofSize: 22)
+            .font: UIFont.systemFont(ofSize: 20, weight: .semibold)
         ]
         let explainerAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 16, weight: .thin)

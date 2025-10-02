@@ -15,11 +15,8 @@ enum Titles: String, CaseIterable {
     case adept = "Adept of"
     case savant = "Savant of"
     case captain = "Captain of"
-    case connoisseur = "Connoisseur of"
     case sage = "Sage of"
-    case lorekeeper = "Lorekeeper of"
     case guru = "Guru of"
-    case virtuoso = "Virtuoso of"
 }
 
 final class TitleFactory {
