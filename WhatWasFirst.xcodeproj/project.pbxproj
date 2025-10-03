@@ -271,11 +271,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = C4AF6DCFK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhatWasFirst/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "What was first?";
+				INFOPLIST_KEY_CFBundleDisplayName = "Which Was First?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -308,11 +308,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = C4AF6DCFK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WhatWasFirst/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "What was first?";
+				INFOPLIST_KEY_CFBundleDisplayName = "Which Was First?";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.educational-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

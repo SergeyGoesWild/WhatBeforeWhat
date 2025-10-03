@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Comp 2_00000.jpg",
+      "filename" : "Icon-Light.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Comp 4_00000.jpg",
+      "filename" : "Icon-Dark.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "Comp 2_00000 1.jpg",
+      "filename" : "Icon-Light 1.jpg",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
