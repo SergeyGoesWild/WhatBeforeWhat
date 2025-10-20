@@ -40,7 +40,7 @@ final class TitleFactory {
         } else {
             let randomIndex = Int.random(in: 0..<answers.count)
             let answer = answers[randomIndex]
-            return ("\(title) \(answer.title.rawValue)", answer)
+            return ("\(title) \(answer.title.localized)", answer)
         }
     }
 }

@@ -8,32 +8,63 @@
 import Foundation
 
 enum TitlesSpecific: String {
-    case ancientVase = "Ancient Vases"
-    case prehistoric = "Prehistoric Art"
-    case ancientArt = "Ancient Art"
-    case ancientArchi = "Oldest Buildings"
-    case artifact = "Ancient Artifacts"
-    case temple = "Temples and Churches"
-    case scroll = "Old Scrolls"
-    case gothic = "Gothic Things"
-    case baroque = "Baroque Things"
-    case neoClassical = "Neoclassical Art"
-    case avantgarde = "Avantgarde"
-    case renaissance = "Renaissance"
-    case impressionisme = "Impressionisme"
-    case romantisme = "Romantisme"
-    case point = "Pointillism"
-    case medieval = "Medieval Stuff"
-    case antiquity = "Cool Antiquity"
-    case victorian = "Victorian Stuff"
-    case paris = "Parisian Vibes"
-    case french = "French Art"
-    case dutch = "Dutch Art"
-    case slavic = "Slavic Vibes"
-    case asian = "Asian Style"
-    case indian = "Indian Vibes"
-    case american = "American Core"
-    case modern = "Modernity"
+    case ancientVase
+    case prehistoric
+    case ancientArt
+    case ancientArchi
+    case artifact
+    case temple
+    case scroll
+    case gothic
+    case baroque
+    case neoClassical
+    case avantgarde
+    case renaissance
+    case impressionisme
+    case romantisme
+    case point
+    case medieval
+    case antiquity
+    case victorian
+    case paris
+    case french
+    case dutch
+    case slavic
+    case asian
+    case indian
+    case american
+    case modern
+    
+    var localized: String {
+        switch self {
+        case .ancientVase: return UIStrings.string("Title.ancientVase")
+        case .prehistoric: return UIStrings.string("Title.prehistoric")
+        case .ancientArt: return UIStrings.string("Title.ancientArt")
+        case .ancientArchi: return UIStrings.string("Title.ancientArchi")
+        case .artifact: return UIStrings.string("Title.artifact")
+        case .temple: return UIStrings.string("Title.temple")
+        case .scroll: return UIStrings.string("Title.scroll")
+        case .gothic: return UIStrings.string("Title.gothic")
+        case .baroque: return UIStrings.string("Title.baroque")
+        case .neoClassical: return UIStrings.string("Title.neoClassical")
+        case .avantgarde: return UIStrings.string("Title.avantgarde")
+        case .renaissance: return UIStrings.string("Title.renaissance")
+        case .impressionisme: return UIStrings.string("Title.impressionisme")
+        case .romantisme: return UIStrings.string("Title.romantisme")
+        case .point: return UIStrings.string("Title.point")
+        case .medieval: return UIStrings.string("Title.medieval")
+        case .antiquity: return UIStrings.string("Title.antiquity")
+        case .victorian: return UIStrings.string("Title.victorian")
+        case .paris: return UIStrings.string("Title.paris")
+        case .french: return UIStrings.string("Title.french")
+        case .dutch: return UIStrings.string("Title.dutch")
+        case .slavic: return UIStrings.string("Title.slavic")
+        case .asian: return UIStrings.string("Title.asian")
+        case .indian: return UIStrings.string("Title.indian")
+        case .american: return UIStrings.string("Title.american")
+        case .modern: return UIStrings.string("Title.modern")
+        }
+    }
 }
 
 struct HistoricItem {

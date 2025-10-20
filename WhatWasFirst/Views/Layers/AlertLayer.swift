@@ -116,9 +116,9 @@ final class AlertLayer: UIView {
         let titleText = object.0 + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
-            explainerText = "(\(UIStrings.string("Alert.rightGuess")) \(answerTitle) 🏆)"
+            explainerText = "(\(UIStrings.string("Alert.rightGuess")) \(answerTitle))"
         } else {
-            explainerText = "(\(UIStrings.string("Alert.noRightGuess")) 🫠)"
+            explainerText = "(\(UIStrings.string("Alert.noRightGuess")))"
         }
         
         let fullString = NSMutableAttributedString()
