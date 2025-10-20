@@ -28,12 +28,12 @@ final class ButtonLayer: UIView {
         introLabel.textColor = AppColors.labelColour
         introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
         introLabel.numberOfLines = 0
-        introLabel.text = "What was first?"
+        introLabel.text = UIStrings.string("UI.centralQuestion")
         return introLabel
     }()
     private lazy var nextButton: UIButton = {
         let nextButton = UIButton(type: .system)
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle(UIStrings.string("UI.nextButton"), for: .normal)
         nextButton.setTitleColor(AppColors.bgColour, for: .normal)
         nextButton.backgroundColor = AppColors.buttonColour
         nextButton.layer.cornerRadius = 12

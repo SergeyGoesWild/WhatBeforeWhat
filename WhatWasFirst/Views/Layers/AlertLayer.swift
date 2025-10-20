@@ -110,15 +110,15 @@ final class AlertLayer: UIView {
     // MARK: - Service
     
     func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
-        let normalText01 = "With the score of"
-        let boldText = " \(score) / \(total)"
-        let normalText02 = "\nyou get the title:\n\n"
+        let normalText01 = UIStrings.string("Alert.line01")
+        let boldText = " \(score) / \(total),"
+        let normalText02 = "\n\(UIStrings.string("Alert.line02")):\n\n"
         let titleText = object.0 + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
-            explainerText = "(because you guessed right\nabout \(answerTitle) 🏆)"
+            explainerText = "(\(UIStrings.string("Alert.rightGuess")) \(answerTitle) 🏆)"
         } else {
-            explainerText = "(because there was\nno correct answer 🫠)"
+            explainerText = "(\(UIStrings.string("Alert.noRightGuess")) 🫠)"
         }
         
         let fullString = NSMutableAttributedString()

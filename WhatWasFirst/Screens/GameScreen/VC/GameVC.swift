@@ -177,7 +177,7 @@ class GameVC: UIViewController {
     }
     
     private func updateTextUI(state: GameState) {
-        buttonLayer.setButtonTitle(state.buttonText.rawValue)
+        buttonLayer.setButtonTitle(state.buttonText)
         counterElement.updateCounterLabel(currentNumber: state.currentRound, totalNumber: state.totalRounds)
     }
     

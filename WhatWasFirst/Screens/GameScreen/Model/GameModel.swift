@@ -13,15 +13,22 @@ protocol GameModelProtocol: AnyObject {
 }
 
 enum ButtonText: String {
-    case next = "Next"
-    case finish = "Finish"
+    case next
+    case finish
+    
+    var localized: String {
+        switch self {
+        case .next: return UIStrings.string("UI.nextButton")
+        case .finish: return UIStrings.string("UI.endButton")
+        }
+    }
 }
 
 struct GameState {
     var currentRound: Int
     let totalRounds: Int
     var currentScore: Int
-    var buttonText: ButtonText
+    var buttonText: String
 }
 
 struct SharedItem {
@@ -37,7 +44,7 @@ final class GameModel: GameModelProtocol {
         }
     }
     
-    private let totalRounds: Int = 10
+    private let totalRounds: Int = 2
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
     
@@ -51,7 +58,7 @@ final class GameModel: GameModelProtocol {
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
-        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: .next)
+        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: ButtonText.next.localized)
     }
     
     func checkAction(guessedRight answer: Bool) {
@@ -91,15 +98,15 @@ final class GameModel: GameModelProtocol {
     
     private func checkLastRound() {
         if gameState.currentRound == totalRounds {
-            gameState.buttonText = .finish
+            gameState.buttonText = ButtonText.finish.localized
         } else {
-            gameState.buttonText = .next
+            gameState.buttonText = ButtonText.next.localized
         }
     }
     
     private func resetStats() {
         // The lastRound parameter is left on TRUE intentionally to keep the "Finish" button text, while the button plays the animation. It will switch to false on the next click on any image.
-        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: .finish)
+        gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: ButtonText.finish.localized)
         rightAnswers = []
     }
     
