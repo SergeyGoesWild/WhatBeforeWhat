@@ -1,0 +1,5066 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "AgamemnonMask.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agamemnon Mask"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le masque d’Agamemnon"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маска Агамемнона"
+          }
+        }
+      }
+    },
+    "AgamemnonMask.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Mask of Agamemnon is a gold funerary mask from Mycenae, symbolizing early Greek royal burials."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masque funéraire en or de Mycènes, symbole des sépultures royales grecques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маска Агамемнона, это золотая погребальная маска из Микен, символ царских захоронений бронзового века."
+          }
+        }
+      }
+    },
+    "Akshardham.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akshardham"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’Akshardham"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Акшардхам"
+          }
+        }
+      }
+    },
+    "Akshardham.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akshardham is a modern Hindu temple in India, celebrated for its intricate carvings and spiritual ambiance."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temple hindou moderne en Inde, réputé pour ses sculptures détaillées et son atmosphère spirituelle."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Акшардхам - современный индуистский храм в Индии, поражающий сложной резьбой и духовной атмосферой."
+          }
+        }
+      }
+    },
+    "AmbassadeursLautrec.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Ambassadeurs poster"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’affiche des Ambassadeurs"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Плакат «Ambassadeurs»"
+          }
+        }
+      }
+    },
+    "AmbassadeursLautrec.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toulouse-Lautrec’s poster for Ambassadeurs captures the vivid energy of Parisian nightlife and cabaret."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Affiche de Toulouse-Lautrec capturant l’énergie du cabaret parisien."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Афиша художника Тулуз-Лотрека, передающая энергетику парижской ночной жизни и кабаре."
+          }
+        }
+      }
+    },
+    "AmericanGothic.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“American Gothic”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« American Gothic »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Американская готика»"
+          }
+        }
+      }
+    },
+    "AmericanGothic.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“American Gothic” is a famous painting by Grant Wood. It is one of the most recognizable works of American art, known for its depiction of rural life and traditional values."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture de Grant Wood, icône de l’art américain, représentant la vie rurale."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Американская готика» - это знаменитая картина Гранта Вуда, ставшая символом традиционных американских ценностей."
+          }
+        }
+      }
+    },
+    "AnnunciationVinci.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Annunciation painting"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’Annonciation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Благовещение»"
+          }
+        }
+      }
+    },
+    "AnnunciationVinci.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A delicate early painting of the Annunciation attributed to Leonardo da Vinci, blending clarity with subtle emotion."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture précoce attribuée à Léonard de Vinci, alliant clarté et émotion."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Благовещение” - ранняя картина, приписываемая Леонардо да Винчи, отличающаяся мягкостью и ясностью."
+          }
+        }
+      }
+    },
+    "AztecSunStone.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Aztec sun stone"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La pierre du Soleil aztèque"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ацтекский Солнечный камень"
+          }
+        }
+      }
+    },
+    "AztecSunStone.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Aztec sun stone is a monumental basalt sculpture symbolizing the Aztec cosmos and calendar, richly carved with mythological figures."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculpture monumentale en basalte représentant le cosmos et le calendrier aztèques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ацтекский cолнечный камень - это базальтовая скульптура, символизирующая космос и календарь ацтеков."
+          }
+        }
+      }
+    },
+    "BerlinWall.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Berlin Wall"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le mur de Berlin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Берлинская стена"
+          }
+        }
+      }
+    },
+    "BerlinWall.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Berlin Wall was a concrete barrier that divided East and West Berlin from 1961 to 1989, symbolizing the Cold War’s ideological divide."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Barrière ayant séparé Berlin-Est et Berlin-Ouest de 1961 à 1989, symbole de la guerre froide."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Берлинская стена - бетонный барьер, разделявший Восточный и Западный Берлин с 1961 по 1989 год, символ Холодной войны."
+          }
+        }
+      }
+    },
+    "BigBen.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Big Ben"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Big Ben"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Биг-Бен"
+          }
+        }
+      }
+    },
+    "BigBen.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Big Ben is the iconic clock tower of the Palace of Westminster in London, officially named the Elizabeth Tower. It is known for its massive bell and neo-Gothic design."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tour horloge emblématique du Palais de Westminster à Londres, renommée pour sa cloche monumentale."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знаменитая башня Вестминстерского дворца, Биг-Бен, в Лондоне, известная своим колоколом и неоготическим стилем."
+          }
+        }
+      }
+    },
+    "BlackSquare.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Black Square“"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Carré noir »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Чёрный квадрат»"
+          }
+        }
+      }
+    },
+    "BlackSquare.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Black square' painting by Kasimir Malevitch, considered one of the most radical artworks of its time."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tableau « Carré noir » de Kasimir Malevitch, considéré comme l’une des œuvres les plus radicales de son époque."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Картина Казимира Малевича «Чёрный квадрат», считающаяся одним из самых радикальных произведений своего времени."
+          }
+        }
+      }
+    },
+    "Bogolyubovo.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Church of the Intercession"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’église de l’Intercession sur la Nerl"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Церковь Покрова на Нерли"
+          }
+        }
+      }
+    },
+    "Bogolyubovo.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Church of the Intercession on the Nerl is an example of early Russian Orthodox architecture. With its elegant white limestone structure, it is gracefully set at the confluence of rivers."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exemple d’architecture orthodoxe russe primitive, en pierre blanche."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Церковь Покрова на Нерли является примером ранней русской архитектуры, изящно расположенный у слияния рек."
+          }
+        }
+      }
+    },
+    "BorgundStaveChurch.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Borgund Church"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’église de Borgund"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Церковь Боргунн"
+          }
+        }
+      }
+    },
+    "BorgundStaveChurch.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Borgund Stave Church is a medieval wooden church located in Norway, known for its Viking-era architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Église en bois médiévale de Norvège, typique de l’architecture viking."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Церковь Боргунн - средневековая деревянная церковь в Норвегии, образец архитектуры викингов."
+          }
+        }
+      }
+    },
+    "BreznevGraffiti.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“My God, Help Me...“ mural"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fresque « Mon Dieu, aide-moi… »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мурал «Господи, помоги мне…»"
+          }
+        }
+      }
+    },
+    "BreznevGraffiti.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The famous mural known as “My God, Help Me to Survive This Deadly Love”, showing a passionate kiss between Soviet leader Leonid Brezhnev and East German leader Erich Honecker."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fresque célèbre représentant le baiser entre Brejnev et Honecker."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Известное граффити с поцелуем Брежнева и Хонеккера, символизирующее идеологический парадокс."
+          }
+        }
+      }
+    },
+    "BurjKhalifa.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Burj Khalifa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Burj Khalifa"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бурдж-Халифа"
+          }
+        }
+      }
+    },
+    "BurjKhalifa.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Burj Khalifa is the tallest building in the world, located in Dubai, United Arab Emirates."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus haut gratte-ciel du monde, situé à Dubaï, aux Émirats arabes unis."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Самое высокое здание в мире, Бурдж-Халифа, расположенное в Дубае, ОАЭ."
+          }
+        }
+      }
+    },
+    "Cambridge.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the University of Cambridge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’université de Cambridge"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кембриджский университет"
+          }
+        }
+      }
+    },
+    "Cambridge.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The University of Cambridge is one of the world’s oldest and most prestigious universities. It has been a global center of learning and research for over 800 years."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’une des plus anciennes et prestigieuses universités du monde, centre majeur de recherche."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Один из старейших и самых престижных университетов мира, Кембриджский университет является центром науки и образования уже более 800 лет."
+          }
+        }
+      }
+    },
+    "CasaMila.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casa Milà"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Casa Milà"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каса Мила"
+          }
+        }
+      }
+    },
+    "CasaMila.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casa Milà is a famous modernist building in Barcelona, Spain, designed by the renowned architect Antoni Gaudí."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bâtiment moderniste célèbre de Barcelone, conçu par Antoni Gaudí."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каса Мила - знаменитое модернистское здание в Барселоне, спроектированное Антонио Гауди."
+          }
+        }
+      }
+    },
+    "CharlesBridge.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Charles Bridge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le pont Charles"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карлов мост"
+          }
+        }
+      }
+    },
+    "CharlesBridge.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Charles Bridge is a historic stone bridge in Prague, spanning the Vltava River and connecting the Old Town with the Prague Castle."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pont historique de Prague reliant la vieille ville au château."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Исторический каменный мост в Праге, Карлов мост, соединяющий Старый город и Пражский Град."
+          }
+        }
+      }
+    },
+    "CloistersApocalypse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Cloisters Apocalypse"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’Apocalypse des Cloisters"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Апокалипсис из Клуазеров"
+          }
+        }
+      }
+    },
+    "CloistersApocalypse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An illuminated manuscript depicting vivid scenes from the Book of Revelation, held at The Cloisters in New York."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuscrit enluminé représentant des scènes de l’Apocalypse, conservé à New York."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Иллюминированная рукопись с изображениями из «Откровений Иоанна», хранящаяся в Нью-Йорке."
+          }
+        }
+      }
+    },
+    "CodexAureus.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Codex Aureus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Codex Aureus"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Золотой кодекс (Codex Aureus)"
+          }
+        }
+      }
+    },
+    "CodexAureus.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Codex Aureus is a lavishly illuminated medieval manuscript. With its gold ink and decorations, it exemplifies the opulence and artistry of Carolingian scriptoria."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuscrit médiéval richement enluminé, écrit à l’encre d’or."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Золотой кодекс, роскошно иллюминированная рукопись, пример каролингского искусства."
+          }
+        }
+      }
+    },
+    "CodexRunicus.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Codex Runicus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Codex Runicus"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Codex Runicus"
+          }
+        }
+      }
+    },
+    "CodexRunicus.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Codex Runicus is a medieval manuscript written in runes, preserving ancient Scandinavian law."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuscrit médiéval écrit en runes, conservant le droit scandinave ancien."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Средневековая рукопись, записанная рунами, сохранившая древние скандинавские законы."
+          }
+        }
+      }
+    },
+    "Colosseum.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colosseum"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Colisée"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Колизей"
+          }
+        }
+      }
+    },
+    "Colosseum.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colosseum is one of the most famous and iconic structures of the Roman Empire and is considered one of the greatest works of Roman architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument emblématique de l’Empire romain, chef-d’œuvre de l’architecture antique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Колизей - это один из самых известных памятников Древнего Рима, выдающееся произведение римской архитектуры."
+          }
+        }
+      }
+    },
+    "CorinthianHelmet.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Corinthian Helmet"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le casque corinthien"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коринфский шлем"
+          }
+        }
+      }
+    },
+    "CorinthianHelmet.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Corinthian Helmet, with its bold shape, reflects the martial pride of ancient Greek hoplites."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casque grec antique symbolisant la fierté des hoplites."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коринфский шлем, отражающий гордость и воинский дух гоплитов."
+          }
+        }
+      }
+    },
+    "CupidDrivingChariot.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cupid painting"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Cupidon conduisant un char tiré par des griffons »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Картина «Амур, управляющий колесницей, запряжённой грифонами»"
+          }
+        }
+      }
+    },
+    "CupidDrivingChariot.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Cupid Driving a Chariot Drawn by Griffins“ reflects neoclassical fascination with myth and movement."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture néoclassique inspirée de la mythologie."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пример неоклассического интереса к мифологии и движению.\nКартина называется «Амур, управляющий колесницей, запряжённой грифонами»."
+          }
+        }
+      }
+    },
+    "DancingHouse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Dancing House"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Maison dansante"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Танцующий дом"
+          }
+        }
+      }
+    },
+    "DancingHouse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Dancing House is a modern architectural landmark in Prague, Czech Republic, known for its unusual design that resembles a dancing couple."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument d’architecture moderne à Prague, en République tchèque, rappelant un couple dansant."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Современная архитектурная достопримечательность Праги, “Танцующий дом”, известная своим дизайном, напоминающим танцующую пару."
+          }
+        }
+      }
+    },
+    "DanseusesBleues.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Danseuses Bleues”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Danseuses bleues »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Голубые танцовщицы»"
+          }
+        }
+      }
+    },
+    "DanseusesBleues.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Danseuses Bleues” is a famous painting by Edgar Degas, a renowned French Impressionist artist."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture célèbre d’Edgar Degas, maître impressionniste français."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Картина «Голубые танцовщицы» Эдгара Дега, одного из крупнейших французских импрессионистов."
+          }
+        }
+      }
+    },
+    "DimancheApresMidiIleGrandeJatte.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“L’Île de la Grande Jatte“"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Un dimanche après-midi à l’Île de la Grande Jatte »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Послеобеденное воскресенье на острове Гранд-Жатт»"
+          }
+        }
+      }
+    },
+    "DimancheApresMidiIleGrandeJatte.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Un dimanche après-midi à l’Île de la Grande Jatte” is a famous pointillist painting by Georges Seurat."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture pointilliste célèbre de Georges Seurat."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Послеобеденное воскресенье на острове Гранд-Жатт», знаменитая пуантилистская картина Жоржа Сёра́."
+          }
+        }
+      }
+    },
+    "DiscoveriesMonument.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Discoveries monument"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Monument des Découvertes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Памятник открытий"
+          }
+        }
+      }
+    },
+    "DiscoveriesMonument.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Monument to the Discoveries is a sculpture on the banks of the Tagus River in Lisbon’s Belém district. It honors Portugal’s Age of Discovery."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculpture de Lisbonne honorant l’âge des grandes découvertes portugaises."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скульптура в Лиссабоне, посвящённая эпохе Великих географических открытий Португалии."
+          }
+        }
+      }
+    },
+    "EiffelTower.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Eiffel Tower"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tour Eiffel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эйфелева башня"
+          }
+        }
+      }
+    },
+    "EiffelTower.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Eiffel Tower is a famous landmark symbolizing Paris and France. It was originally built for the 1889 World’s Fair."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Symbole de Paris et de la France, construite pour l’Exposition universelle de 1889."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эйфелева башня является знаковым символом Парижа, построенный к Всемирной выставке 1889 года."
+          }
+        }
+      }
+    },
+    "ElCastillo.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El Castillo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El Castillo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эль-Кастильо"
+          }
+        }
+      }
+    },
+    "ElCastillo.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temple of Kukulcan - a Mesoamerican step-pyramid in Mexico, built by the Maya civilization."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temple de Kukulcan, pyramide à degrés mésoaméricaine au Mexique, construite par la civilisation maya."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Храм Кукулькана - мезоамериканская ступенчатая пирамида в Мексике, построенная цивилизацией Майя."
+          }
+        }
+      }
+    },
+    "EmpireStateBuilding.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Empire State Building"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’Empire State Building"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эмпайр-стейт-билдинг"
+          }
+        }
+      }
+    },
+    "EmpireStateBuilding.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Empire State Building is a towering Art Deco skyscraper in New York City. It was once the tallest building in the world, surpassing the Eiffel Tower."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratte-ciel Art déco de New York, autrefois le plus haut bâtiment du monde."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эмпайр-стейт-билдинг. Арт-деко небоскрёб в Нью-Йорке, некогда самое высокое здание в мире."
+          }
+        }
+      }
+    },
+    "FlatironBuilding.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "еhe Flatiron Building"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Flatiron Building"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здание Флэтайрон"
+          }
+        }
+      }
+    },
+    "FlatironBuilding.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Flatiron Building is a steel-framed skyscraper known for its triangular shape and iconic NYC status."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratte-ciel new-yorkais à la forme triangulaire, emblème architectural."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Здание Флэтайрон. Нью-йоркский небоскрёб в форме утюга, ранний пример стального каркаса."
+          }
+        }
+      }
+    },
+    "FrancoisCoignetHouse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "François Coignet House"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La maison François Coignet"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дом Франсуа Куанье"
+          }
+        }
+      }
+    },
+    "FrancoisCoignetHouse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The François Coignet House is the first building made with reinforced concrete, revolutionizing construction."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premier bâtiment en béton armé, marquant une révolution dans la construction."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дом Франсуа Куанье. Это первое здание, построенное из железобетона, открывшее новую эру в строительстве. Сейчас заброшено."
+          }
+        }
+      }
+    },
+    "GavleGoat.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Gävle Goat"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La chèvre de Gävle"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Евльский козел"
+          }
+        }
+      }
+    },
+    "GavleGoat.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Gävle Goat is a Swedish holiday tradition often targeted by arson in a bizarre festive ritual."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tradition suédoise de Noël souvent marquée par des incendies rituels."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Евльский козел, шведская рождественский символ: огромная соломенная фигура, которую часто поджигают в качестве шутки."
+          }
+        }
+      }
+    },
+    "Gherkin.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Gherkin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Gherkin"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Огурец (The Gherkin)"
+          }
+        }
+      }
+    },
+    "Gherkin.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Gherkin, officially known as 30 St Mary Axe, is a distinctive glass skyscraper in London’s financial district."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratte-ciel de verre emblématique du quartier financier de Londres."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Огурец”, cовременный небоскрёб из стекла в финансовом районе Лондона."
+          }
+        }
+      }
+    },
+    "GirlPearlEarring.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Girl with a Pearl Earring'"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Jeune Fille à la perle »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Девушка с жемчужной серёжкой»"
+          }
+        }
+      }
+    },
+    "GirlPearlEarring.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Girl with a Pearl Earring' is a painting by Johannes Vermeer during the Dutch Golden Age."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture de Johannes Vermeer de l’âge d’or hollandais."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Девушка с жемчужной серёжкой», картина Яна Вермеера, созданная во времена Голландского Золотого века."
+          }
+        }
+      }
+    },
+    "GreatTheaterOfEpidaurus.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Theater of Epidaurus"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le théâtre d’Épidaure"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Театр в Эпидавре"
+          }
+        }
+      }
+    },
+    "GreatTheaterOfEpidaurus.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Great Theater of Epidaurus is a marvel of ancient Greek architecture, famed for its perfect acoustics and elegant semicircular design."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chef-d’œuvre grec antique célèbre pour son acoustique parfaite."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Театр в Эпидавре, древнегреческий театр, знаменитый своей акустикой и изящной архитектурой."
+          }
+        }
+      }
+    },
+    "GreatWallOfChina.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Great Wall"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Grande Muraille"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Великая китайская стена"
+          }
+        }
+      }
+    },
+    "GreatWallOfChina.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Great Wall of China is a massive ancient fortification built to protect China from invasions and control trade routes."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monumental ouvrage défensif bâti pour protéger la Chine et contrôler les routes commerciales."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Великая китайская стена, огромное древнее укрепление, построенное для защиты Китая и контроля торговых путей."
+          }
+        }
+      }
+    },
+    "GreatWaveOffKanagawa.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Great Wave off Kanagawa“"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Grande Vague de Kanagawa »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Большая волна в Канагаве»"
+          }
+        }
+      }
+    },
+    "GreatWaveOffKanagawa.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Great Wave off Kanagawa“ is a Japanese woodblock print by Katsushika Hokusai, one of the most recognizable works of Japanese art"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estampe japonaise de Katsushika Hokusai, l’une des œuvres les plus reconnaissables de l’art japonais."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Большая волна в Канагаве» - японская ксилография Кацусики Хокусая, одно из самых узнаваемых произведений японского искусства."
+          }
+        }
+      }
+    },
+    "HallOfBulls.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Hall of Bulls"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La salle des Taureaux"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зал быков"
+          }
+        }
+      }
+    },
+    "HallOfBulls.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Hall of Bulls in the Lascaux Cave, France, is a prehistoric cave famous for its striking Paleolithic cave paintings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partie de la grotte de Lascaux, célèbre pour ses peintures paléolithiques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зал быков - это часть пещеры Ласко (Франция), знаменитый палеолитическими изображениями животных."
+          }
+        }
+      }
+    },
+    "HandsCave.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Cave of Hands"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Cueva de las Manos"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пещера рук"
+          }
+        }
+      }
+    },
+    "HandsCave.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prehistoric hand paintings at the Cave of Hands in Argentina."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peintures préhistoriques de mains dans la Cueva de las Manos en Argentine."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доисторические изображения рук в пещере «Cueva de las Manos» в Аргентине."
+          }
+        }
+      }
+    },
+    "HausmannHouses.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haussmann houses"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les immeubles haussmanniens"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дома Османа"
+          }
+        }
+      }
+    },
+    "HausmannHouses.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haussmann houses are elegant residential buildings that define much of Paris’s architectural identity. They feature uniform façades, wrought-iron balconies, and cream-colored stone."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bâtiments résidentiels typiques de Paris, avec façades uniformes et balcons en fer forgé."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Османская архитектура, это элегантные жилые дома, определяющие облик Парижа: с балконами из кованого железа и фасадами из светлого камня."
+          }
+        }
+      }
+    },
+    "HimejiCastle.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Himeji Castle"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le château de Himeji"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Замок Химэдзи"
+          }
+        }
+      }
+    },
+    "HimejiCastle.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Himeji Castle is one of Japan’s most famous and well-preserved castles, known for its elegant white appearance and advanced defensive design."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’un des plus beaux châteaux du Japon, célèbre pour sa blancheur et sa conception défensive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Замок Химэдзи - один из самых известных замков Японии, отличающийся белизной и сложной системой обороны."
+          }
+        }
+      }
+    },
+    "HuntersInTheSnow.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Hunters in the Snow”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Les Chasseurs dans la neige »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Охотники на снегу»"
+          }
+        }
+      }
+    },
+    "HuntersInTheSnow.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Hunters in the Snow” by Pieter Bruegel is a Renaissance masterpiece depicting a group of hunters returning home. The painting shows harsh winter and the quiet rhythm of rural life."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chef-d’œuvre de Pieter Bruegel, représentant la vie rurale en hiver."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Охотники на снегу», картина Питера Брейгеля, изображающая возвращающихся охотников зимой, шедевр Возрождения."
+          }
+        }
+      }
+    },
+    "IconChristAndAbbotMena.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Christ and Abbot Mena icon"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’icône du Christ et de l’abbé Ménas"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Икона «Христос и аббат Мена»"
+          }
+        }
+      }
+    },
+    "IconChristAndAbbotMena.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An early Coptic icon showing Christ alongside Abbot Mena, symbolizing spiritual companionship and divine guidance."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Icône copte ancienne symbolisant la guidance divine et l’amitié spirituelle."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ранняя коптская икона, изображающая духовную дружбу Христа и аббата Мены."
+          }
+        }
+      }
+    },
+    "ItsukushimaShrine.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itsukushima Shrine"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le sanctuaire d’Itsukushima"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Святилище Ицукусима"
+          }
+        }
+      }
+    },
+    "ItsukushimaShrine.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Itsukushima Shrine is a historic landmark located in Japan, famous for its iconic “floating” torii gate that appears to rise from the sea at high tide."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument japonais célèbre pour son torii « flottant » à marée haute."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Святилище Ицукусима. Историческое место в Японии, известное «плавающими» воротами тории, поднимающимися из моря во время прилива."
+          }
+        }
+      }
+    },
+    "IvoryTabernacle.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the ivory tabernacle"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le tabernacle en ivoire"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шкатулка из слоновой кости"
+          }
+        }
+      }
+    },
+    "IvoryTabernacle.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A delicately carved Gothic ivory tabernacle, used to house the Eucharist, reflecting medieval religious artistry."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tabernacle gothique finement sculpté, destiné à abriter l’Eucharistie."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готическое резное произведение из слоновой кости, использовавшееся для хранения евхаристии."
+          }
+        }
+      }
+    },
+    "LaGrandPlace.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "la Grand-Place"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Grand-Place"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гран-Плас"
+          }
+        }
+      }
+    },
+    "LaGrandPlace.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Grand-Place in Brussels is a stunning central square surrounded by ornate guildhalls, the Town Hall, and the King’s House. It showcases a rich blend of Gothic and Baroque architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place centrale de Bruxelles entourée de splendides bâtiments gothiques et baroques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гран-Плас. Центральная площадь Брюсселя, окружённая богато украшенными гильдейскими домами и ратушей."
+          }
+        }
+      }
+    },
+    "LessayAbbey.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lessay Abbey"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’abbaye de Lessay"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аббатство Лессе"
+          }
+        }
+      }
+    },
+    "LessayAbbey.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Romanesque Benedictine abbey in Normandy, known for its harmonious architecture and early use of rib vaults."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbaye bénédictine romane de Normandie, pionnière de la voûte d’ogives."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аббатство Лессе.\nРоманское бенедиктинское аббатство в Нормандии, одно из первых с крестовыми сводами."
+          }
+        }
+      }
+    },
+    "LewisChessmen.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Lewis Chessmen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les pièces d’échecs de Lewis"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шахматы с острова Льюис"
+          }
+        }
+      }
+    },
+    "LewisChessmen.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Lewis Chessmen are medieval game pieces carved from walrus ivory, full of mystery and character."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Figurines médiévales sculptées dans l’ivoire de morse, mystérieuses et expressives."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Средневековые шахматные фигуры из моржовой кости, загадочные и выразительные."
+          }
+        }
+      }
+    },
+    "LibertyLeadingThePeople.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Liberty Leading the People”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Liberté guidant le peuple »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Свобода, ведущая народ»"
+          }
+        }
+      }
+    },
+    "LibertyLeadingThePeople.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Liberty Leading the People” is a famous historical painting by Eugène Delacroix. It is one of the most iconic representations of revolution"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau historique d’Eugène Delacroix, symbole de la révolution."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Свобода, ведущая народ». Историческая картина Эжена Делакруа, ставшая символом революции."
+          }
+        }
+      }
+    },
+    "LindisfarneGospels.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lindisfarne Gospels"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les Évangiles de Lindisfarne"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Евангелие из Линдисфарна"
+          }
+        }
+      }
+    },
+    "LindisfarneGospels.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Lindisfarne Gospels are a richly illuminated manuscript bridging Celtic art and Christian devotion."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuscrit enluminé unissant art celtique et dévotion chrétienne."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Евангелие из Линдисфарна. Богато оформленная рукопись, соединяющая кельтское искусство и христианство."
+          }
+        }
+      }
+    },
+    "Louvre.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Louvre Pyramid"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La pyramide du Louvre"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пирамида Лувра"
+          }
+        }
+      }
+    },
+    "Louvre.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Louvre Pyramid is a striking glass and steel structure at the heart of the Louvre courtyard in Paris that blends modern design with historic architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Structure en verre et acier au cœur du Louvre, mêlant modernité et patrimoine."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пирамида Лувра. Стеклянная и металлическая конструкция в центре двора Лувра, сочетающая современность и классику."
+          }
+        }
+      }
+    },
+    "LycurgusCup.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Lycurgus Cup"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La coupe de Lycurgue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кубок Ликурга"
+          }
+        }
+      }
+    },
+    "LycurgusCup.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Lycurgus Cup is a Roman glass marvel that changes color with light, showing ancient ”nanotech”."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chef-d’œuvre en verre romain changeant de couleur selon la lumière."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Римский стеклянный сосуд, меняющий цвет на свету являющийся древним примером технологий."
+          }
+        }
+      }
+    },
+    "ManesseCodex.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Manesse Codex"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Codex Manesse"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Манесский кодекс"
+          }
+        }
+      }
+    },
+    "ManesseCodex.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Manesse Codex is a vivid medieval manuscript celebrating courtly love and knightly poetry."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuscrit médiéval célébrant l’amour courtois et la poésie chevaleresque."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Манесский кодекс. Средневековая рукопись с изображениями рыцарей и поэтов, посвящённая куртуазной любви."
+          }
+        }
+      }
+    },
+    "MariaLaachAbbey.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maria Laach Abbey"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’abbaye de Maria Laach"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аббатство Мария-Лаах"
+          }
+        }
+      }
+    },
+    "MariaLaachAbbey.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Romanesque monastery by Lake Laach in Germany, blending spiritual function with striking architectural balance."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monastère roman allemand alliant équilibre spirituel et architectural."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аббатство Мария-Лаах. Романский монастырь на озере Лаах (Германия), образец гармоничной архитектуры."
+          }
+        }
+      }
+    },
+    "MaskOfTutankhamun.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Mask of Tutankhamun"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le masque de Toutankhamon"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Маска Тутанхамона"
+          }
+        }
+      }
+    },
+    "MaskOfTutankhamun.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Mask of Tutankhamun is an ancient Egyptian funerary mask made of solid gold that belonged to Pharaoh Tutankhamun, one of Egypt’s most famous rulers."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masque funéraire en or massif du pharaon Toutankhamon, l’un des plus célèbres souverains d’Égypte."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Древнеегипетская погребальная маска из чистого золота, принадлежавшая фараону Тутанхамону."
+          }
+        }
+      }
+    },
+    "MercuryPajou.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mercury statue"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statue de Mercure"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статуя Меркурия"
+          }
+        }
+      }
+    },
+    "MercuryPajou.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pajou’s Mercury is a dynamic neoclassical sculpture that captures the Roman god’s grace and swiftness."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculpture néoclassique de Pajou représentant le dieu romain du mouvement."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статуя Меркурия. Скульптура Пажу, изображающая римского бога в динамичной позе."
+          }
+        }
+      }
+    },
+    "MilesevaMonastery.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mileševa Monastery"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le monastère de Mileševa"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монастырь Милешева"
+          }
+        }
+      }
+    },
+    "MilesevaMonastery.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mileševa Monastery is a Serbian Orthodox monastery. Renowned for its exquisite frescoes, it houses the famous “White Angel”, considered a masterpiece of medieval European art."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monastère orthodoxe serbe abritant la fresque du « Ange blanc »."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монастырь Милешева. Сербский православный монастырь, известный фресками, включая знаменитого «Белого ангела»."
+          }
+        }
+      }
+    },
+    "Moai.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Moai"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les Moaï"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Моаи"
+          }
+        }
+      }
+    },
+    "Moai.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Moai are massive stone statues found on Easter Island, a remote island in the Pacific Ocean."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statues monumentales de l’île de Pâques, dans le Pacifique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Моаи - это огромные каменные статуи на острове Пасхи в Тихом океане."
+          }
+        }
+      }
+    },
+    "MonaLisa.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Mona Lisa”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Mona Lisa »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Мона Лиза»"
+          }
+        }
+      }
+    },
+    "MonaLisa.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Mona Lisa' a painting by Leonardo da Vinci, an archetypal masterpiece of the Italian Renaissance."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La « Joconde », peinture de Léonard de Vinci, chef-d’œuvre emblématique de la Renaissance italienne."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Мона Лиза» - это картина Леонардо да Винчи, являющаяся архетипическим шедевром итальянского Возрождения."
+          }
+        }
+      }
+    },
+    "MontSaintMichel.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mont Saint-Michel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Mont-Saint-Michel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мон-Сен-Мишель"
+          }
+        }
+      }
+    },
+    "MontSaintMichel.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mont Saint-Michel is a medieval abbey perched on a rocky island off the coast of Normandy. It has been a site of pilgrimage for centuries."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbaye médiévale perchée sur un îlot rocheux de Normandie, lieu de pèlerinage historique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мон-Сен-Мишель. Средневековое аббатство на скалистом острове у берегов Нормандии, место паломничества."
+          }
+        }
+      }
+    },
+    "MosaicFloorDogAlexandria.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the dog mosaic"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La mosaïque du chien"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мозаика с собакой"
+          }
+        }
+      }
+    },
+    "MosaicFloorDogAlexandria.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Hellenistic mosaic from Alexandria depicting a dog with remarkable realism, showcasing ancient Greek artistry."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mosaïque hellénistique d’Alexandrie représentant un chien avec un réalisme saisissant."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эллинистическая мозаика из Александрии, изображающая собаку с удивительным реализмом."
+          }
+        }
+      }
+    },
+    "Moschophoros.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Moschophoros"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Moschophore"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Москофор (Носитель тельца)"
+          }
+        }
+      }
+    },
+    "Moschophoros.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Moschophoros, or “Calf Bearer”, is an ancient Greek statue, depicting a bearded man carrying a calf on his shoulders. It is a key example of early Archaic sculpture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statue grecque archaïque représentant un homme portant un veau sur les épaules."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Москофор - древнегреческая статуя мужчины с телёнком на плечах, пример ранней архаической скульптуры."
+          }
+        }
+      }
+    },
+    "MoscowStateUniversity.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moscow State University"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’université d’État de Moscou"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "МГУ"
+          }
+        }
+      }
+    },
+    "MoscowStateUniversity.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moscow State University’s main tower is a Stalinist skyscraper blending Soviet ambition and neogothic flair."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tour principale de style stalinien alliant ambition soviétique et néogothique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Главное здание МГУ, сталинская высотка в стиле неоготики."
+          }
+        }
+      }
+    },
+    "MountRushmore.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mount Rushmore"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le mont Rushmore"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гора Рашмор"
+          }
+        }
+      }
+    },
+    "MountRushmore.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mount Rushmore is a monumental granite sculpture in South Dakota, featuring the carved faces of four U.S. presidents: Washington, Jefferson, Roosevelt and Lincoln."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculpture monumentale dans le Dakota du Sud représentant quatre présidents américains."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гора Рашмор, это монументальная скульптура в США с лицами четырёх президентов: Вашингтона, Джефферсона, Рузвельта и Линкольна."
+          }
+        }
+      }
+    },
+    "MuiredachHighCross.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muiredach’s Cross"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La croix de Muiredach"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Крест Мюредаха"
+          }
+        }
+      }
+    },
+    "MuiredachHighCross.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muiredach’s High Cross, located in Ireland, is a sandstone monument known for its intricate carvings. It features detailed biblical scenes from the Old and New Testaments."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument irlandais en grès orné de scènes bibliques détaillées."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Крест Мюредаха. Каменный крест в Ирландии с библейскими рельефами, один из лучших памятников раннехристианского искусства."
+          }
+        }
+      }
+    },
+    "MycenaeanVase.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mycenaean vase"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le vase mycénien"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Микенская ваза"
+          }
+        }
+      }
+    },
+    "MycenaeanVase.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Mycenaean vase showcases early Greek pottery styles, linking utility with artistic expression."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vase grec ancien alliant fonction utilitaire et esthétique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваза из Микен, пример ранней греческой керамики, сочетающей утилитарность и художественность."
+          }
+        }
+      }
+    },
+    "NefertitiBust.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nefertiti bust"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le buste de Néfertiti"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бюст Нефертити"
+          }
+        }
+      }
+    },
+    "NefertitiBust.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Bust of Nefertiti is a masterpiece of ancient Egyptian portraiture and timeless royal elegance."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chef-d’œuvre du portrait égyptien antique, symbole d’élégance royale."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бюст Нефертити. Шедевр древнеегипетского портрета, воплощение царственной красоты."
+          }
+        }
+      }
+    },
+    "NeuschwansteinCastle.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neuschwanstein Castle"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le château de Neuschwanstein"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Замок Нойшванштайн"
+          }
+        }
+      }
+    },
+    "NeuschwansteinCastle.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neuschwanstein Castle is a castle located in Bavaria, Germany, famous for its romantic design and breathtaking setting."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Château bavarois célèbre pour son style romantique et son cadre féerique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Замок в Баварии, Нойшванштайн, известный своим романтическим обликом и живописным расположением."
+          }
+        }
+      }
+    },
+    "Nighthawks.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Nighthawks”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Nighthawks »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Ночные ястребы»"
+          }
+        }
+      }
+    },
+    "Nighthawks.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Nighthawks” is a famous painting by Edward Hopper. It is one of the most iconic artworks of American realism, known for its moody atmosphere."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture d’Edward Hopper, œuvre emblématique du réalisme américain."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Ночные ястребы», картина Эдварда Хоппера, один из символов американского реализма."
+          }
+        }
+      }
+    },
+    "NightWatch.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Night Watch”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Ronde de nuit »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Ночной дозор»"
+          }
+        }
+      }
+    },
+    "NightWatch.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Night Watch” is a famous Baroque painting by Rembrandt van Rijn. It is one of the most celebrated works of Dutch Golden Age art."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture baroque célèbre de Rembrandt van Rijn, chef-d’œuvre de l’âge d’or hollandais."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Ночной дозор», знаменитая барочная картина Рембрандта ван Рейна, шедевр Голландского Золотого века."
+          }
+        }
+      }
+    },
+    "NinthWave.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Ninth Wave”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Neuvième Vague »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Девятый вал»"
+          }
+        }
+      }
+    },
+    "NinthWave.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Ninth Wave” is a famous maritime painting by Ivan Aivazovsky. It is considered one of the greatest seascapes in art history."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau maritime d’Ivan Aïvazovski, l’un des plus grands paysages marins de l’histoire."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Девятый вал», знаменитая морская картина Ивана Айвазовского, одно из величайших произведений морской живописи."
+          }
+        }
+      }
+    },
+    "NotreDameDeParis.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notre-Dame de Paris"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notre-Dame de Paris"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нотр-Дам-де-Пари"
+          }
+        }
+      }
+    },
+    "NotreDameDeParis.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notre-Dame is a famous Gothic cathedral in Paris, France."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cathédrale gothique célèbre située à Paris, en France."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нотр-Дам-де-Пари знаменитый готический собор в Париже."
+          }
+        }
+      }
+    },
+    "OlmecColossalHeads.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olmec Colossal Heads"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les têtes colossales olmèques"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ольмекские колоссальные головы"
+          }
+        }
+      }
+    },
+    "OlmecColossalHeads.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Olmec Colossal Heads are massive stone sculptures created by the Olmec civilization, one of the earliest known cultures in Mesoamerica."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculptures monumentales en pierre créées par la civilisation olmèque, l’une des plus anciennes de Mésoamérique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Каменные скульптуры голов, созданные цивилизацией ольмеков, одной из древнейших культур Мезоамерики."
+          }
+        }
+      }
+    },
+    "OsebergShip.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oseberg Ship"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le navire d’Oseberg"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Корабль из Усеберга"
+          }
+        }
+      }
+    },
+    "OsebergShip.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Oseberg Ship is a beautifully preserved Viking burial vessel rich in intricate woodwork and lore."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bateau funéraire viking magnifiquement orné de sculptures en bois."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Корабль из Усеберга - хорошо сохранившееся погребальное судно викингов с резным орнаментом."
+          }
+        }
+      }
+    },
+    "PalacioDaPena.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Palácio da Pena"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le palais de Pena"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дворец Пена"
+          }
+        }
+      }
+    },
+    "PalacioDaPena.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Palácio Nacional da Pena is a palace in the Sintra Mountains, Portugal. The palace showcases an eclectic mix of architectural styles, reflecting the Romanticism of the era."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palais romantique du XIXe siècle à Sintra, au Portugal, mêlant divers styles architecturaux."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дворец Пена - дворец в горах Синтры в Португалии, сочетающий эклектичные стили эпохи романтизма."
+          }
+        }
+      }
+    },
+    "PaleoliticFlute.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Paleolithic Flute"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La flûte paléolithique"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Палеолитическая флейта"
+          }
+        }
+      }
+    },
+    "PaleoliticFlute.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Paleolithic Flute is one of the world’s oldest instruments, carved from bone to create early music."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’un des plus anciens instruments du monde, taillé dans un os."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Палеолитическая флейта. Один из старейших музыкальных инструментов в мире, вырезанный из кости."
+          }
+        }
+      }
+    },
+    "ParthenonAthens.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Parthenon"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Parthénon"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Парфенон"
+          }
+        }
+      }
+    },
+    "ParthenonAthens.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Parthenon is an ancient Greek temple located on the Acropolis of Athens."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temple grec antique situé sur l’Acropole d’Athènes."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Парфенон, это древнегреческий храм, расположенный на Афинском Акрополе."
+          }
+        }
+      }
+    },
+    "Petra.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Petra"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Petra"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Петра"
+          }
+        }
+      }
+    },
+    "Petra.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Petra is an ancient city in Jordan. It is one of the New Seven Wonders of the World."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ancienne cité jordanienne, l’une des sept nouvelles merveilles du monde."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Петра, древний город в Иордании, одно из Новых семи чудес света."
+          }
+        }
+      }
+    },
+    "PiriReisMap.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piri Reis Map"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La carte de Piri Reis"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта Пири Рейса"
+          }
+        }
+      }
+    },
+    "PiriReisMap.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Piri Reis Map is a mysterious early world map blending Ottoman geography with ancient cartographic lore."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carte du monde ancienne mêlant géographie ottomane et traditions antiques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта Пири Рейса. Загадочная древняя карта мира, сочетающая османские и античные географические знания."
+          }
+        }
+      }
+    },
+    "RadeauDeLaMeduse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Le Radeau de la Méduse”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Le Radeau de la Méduse »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Плот «Медузы»"
+          }
+        }
+      }
+    },
+    "RadeauDeLaMeduse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Le Radeau de la Méduse” is a famous French Romantic painting by Théodore Géricault. It is depicting the real-life tragedy of a shipwreck."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture romantique française de Théodore Géricault illustrant un naufrage tragique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Плот «Медузы». Известная романтическая картина Теодора Жерико о трагедии кораблекрушения одноименного корабля."
+          }
+        }
+      }
+    },
+    "RasTransformation.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Ra inlay"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’incrustation de Rê"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Изображение бога Ра"
+          }
+        }
+      }
+    },
+    "RasTransformation.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This ancient Egyptian inlay depicting the squatting god Ra is a decorative element often made of colored stone, glass, or faience."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Élément décoratif égyptien représentant le dieu Rê, en pierre, verre ou faïence."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Древнеегипетное украшение из цветного камня, стекла или фаянса, изображающее бога Ра."
+          }
+        }
+      }
+    },
+    "RosettaStone.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Rosetta Stone"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La pierre de Rosette"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Розеттский камень"
+          }
+        }
+      }
+    },
+    "RosettaStone.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Rosetta Stone is an ancient Egyptian artifact that was crucial in deciphering Egyptian hieroglyphs. It contains the same text written in three different scripts."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artefact égyptien ayant permis de déchiffrer les hiéroglyphes grâce à ses trois écritures."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Древнеегипетский артефакт, Розеттский камень, позволивший расшифровать древние иероглифы, содержит один и тот же текст на трёх языках."
+          }
+        }
+      }
+    },
+    "SacreCoeur.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sacré-Cœur"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sacré-Cœur"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сакре-Кёр"
+          }
+        }
+      }
+    },
+    "SacreCoeur.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sacré-Cœur is a renowned Roman Catholic church located at the summit of Montmartre, Paris."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basilique catholique romaine située au sommet de Montmartre, à Paris."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сакре-Кёр, известная католическая церковь, расположенная на вершине Монмартра в Париже."
+          }
+        }
+      }
+    },
+    "SagradaFamilia.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sagrada Família"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Sagrada Família"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саграда Фамилия"
+          }
+        }
+      }
+    },
+    "SagradaFamilia.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Sagrada Família is a famous basilica in Barcelona, Spain. It is known for its intricate design and unfinished status."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Basilique emblématique de Barcelone, célèbre pour sa conception complexe et son inachèvement."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саграда Фамилия. Известная базилика в Барселоне, спроектированная Гауди, знаменита сложным дизайном и незавершённым состоянием."
+          }
+        }
+      }
+    },
+    "SaintBasilCathedral.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saint Basil's Cathedral"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cathédrale Saint-Basile"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Собор Василия Блаженного"
+          }
+        }
+      }
+    },
+    "SaintBasilCathedral.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saint Basil's Cathedral is situated on the Red Square in Moscow, this used-to-be church is known for its colorful onion-shaped domes and unique Russian Orthodox architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Située sur la place Rouge à Moscou, célèbre pour ses coupoles colorées et son architecture orthodoxe russe."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Собор Василия Блаженного. Расположен на Красной площади в Москве, известен своими разноцветными куполами и уникальным стилем архитектуры."
+          }
+        }
+      }
+    },
+    "SanctuaryBomJesusDoMonte.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Sanctuary of Bom Jesus do Monte"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le sanctuaire du Bon Jésus du Mont"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бом-Жезуш-ду-Монте"
+          }
+        }
+      }
+    },
+    "SanctuaryBomJesusDoMonte.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Sanctuary of Bom Jesus do Monte, located in Braga, Portugal, is a landmark renowned for its monumental Baroque stairway and neoclassical basilica."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lieu de pèlerinage de Braga, célèbre pour son escalier baroque monumental."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бом-Жезуш-ду-Монте.\nКомплекс в Браге (Португалия), известный своей барочной лестницей и неоклассической базиликой."
+          }
+        }
+      }
+    },
+    "SantaMariaDelFiore.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Santa Maria del Fiore"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Santa Maria del Fiore"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Санта-Мария-дель-Фьоре"
+          }
+        }
+      }
+    },
+    "SantaMariaDelFiore.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Santa Maria del Fiore is a famous church and a masterpiece of Italian Gothic and Renaissance architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Célèbre église, chef-d’œuvre de l’architecture gothique et Renaissance italienne."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Санта-Мария-дель-Фьоре.\nЗнаменитый собор, шедевр итальянской готики и архитектуры Ренессанса."
+          }
+        }
+      }
+    },
+    "SewuTemple.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sewu Temple"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le temple de Sewu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Храм Севу"
+          }
+        }
+      }
+    },
+    "SewuTemple.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sewu Temple is an ancient Buddhist temple complex. Tt showcases the grandeur of early Javanese architecture and religious harmony."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complexe bouddhiste ancien de Java, remarquable par son architecture javanaise."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Храм Севу. Древний буддийский храмовый комплекс на Яве, демонстрирующий величие ранней архитектуры этого региона."
+          }
+        }
+      }
+    },
+    "StarryNight.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Starry Night“"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Nuit étoilée »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Звёздная ночь»"
+          }
+        }
+      }
+    },
+    "StarryNight.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'Starry Night' is one of the most famous paintings in the world, created by Vincent van Gogh in 1889"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture mondialement célèbre de Vincent van Gogh, réalisée en 1889."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Звёздная ночь» одна из самых известных картин в мире, созданная Винсентом ван Гогом в 1889 году."
+          }
+        }
+      }
+    },
+    "StatueOfLiberty.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Statue of Liberty"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Statue de la Liberté"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статуя Свободы"
+          }
+        }
+      }
+    },
+    "StatueOfLiberty.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Statue of Liberty is a colossal neoclassical sculpture on Liberty Island in New York Harbor, gifted by France in 1886, symbolizing freedom and democracy."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statue colossale néoclassique offerte par la France en 1886, symbole de liberté."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статуя Свободы, огромная неоклассическая статуя на острове рядом с Нью-Йорком, подаренная Францией в 1886 году."
+          }
+        }
+      }
+    },
+    "Stonehenge.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stonehenge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stonehenge"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стоунхендж"
+          }
+        }
+      }
+    },
+    "Stonehenge.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stonehenge is a prehistoric monument located in Wiltshire, England, known for its massive standing stones arranged in a circular formation."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monument préhistorique du Wiltshire, en Angleterre, célèbre pour ses pierres dressées en cercle."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стоунхендж - доисторический памятник в Уилтшире (Англия), состоящий из огромных каменных глыб, расположенных по кругу."
+          }
+        }
+      }
+    },
+    "SuttonHooHelmet.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Sutton Hoo Helmet"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le casque de Sutton Hoo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шлем из Саттон-Ху"
+          }
+        }
+      }
+    },
+    "SuttonHooHelmet.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Sutton Hoo Helmet is a richly decorated Anglo-Saxon artifact that reveals warrior burial traditions."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Casque anglo-saxon richement décoré, témoin des traditions funéraires guerrières."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шлем из Саттон-Ху, богато украшенный англосаксонский шлем, важный артефакт воинских традиций."
+          }
+        }
+      }
+    },
+    "SydneyOperaHouse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Sydney Opera"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’Opéra de Sydney"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сиднейский оперный театр"
+          }
+        }
+      }
+    },
+    "SydneyOperaHouse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Sydney Opera House is a world-famous performing arts center located in Sydney, Australia. It is known for its sail-like design."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Centre des arts du spectacle à Sydney, connu pour sa forme évoquant des voiles."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Всемирно известный оперный центр в Сиднее в Австралии, с дизайном в форме парусов."
+          }
+        }
+      }
+    },
+    "TajMahal.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taj Mahal"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Taj Mahal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тадж-Махал"
+          }
+        }
+      }
+    },
+    "TajMahal.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taj Mahal is a world-famous mausoleum located in Agra, India. It is considered a symbol of love and devotion."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mausolée mondialement célèbre à Agra, en Inde, symbole d’amour et de dévotion."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тадж-Махал.\nВсемирно известный мавзолей в Агре (Индия), символ любви и преданности."
+          }
+        }
+      }
+    },
+    "TempleOfHeaven.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Temple of Heaven"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Temple du Ciel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Храм Неба"
+          }
+        }
+      }
+    },
+    "TempleOfHeaven.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Temple of Heaven is a historic religious complex in Beijing, China, where emperors of the Ming and Qing Dynasties performed ceremonies to pray for good harvests."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complexe religieux de Pékin où les empereurs priaient pour de bonnes récoltes."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Храм Неба.\nИсторический религиозный комплекс в Пекине, где императоры династий Мин и Цин молились о хорошем урожае."
+          }
+        }
+      }
+    },
+    "TerracottaArmy.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Terracotta Army"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’armée de terre cuite"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Терракотовая армия"
+          }
+        }
+      }
+    },
+    "TerracottaArmy.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Terracotta Army is a massive collection of life-sized clay soldiers buried near the tomb of China’s first emperor to guard him in the afterlife."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ensemble de soldats en argile grandeur nature enterrés près du tombeau du premier empereur chinois."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Терракотовая армия.\nКоллекция глиняных солдат, погребённых у мавзолея первого императора Китая для охраны в загробном мире."
+          }
+        }
+      }
+    },
+    "ThePersistenceOfMemory.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Persistence of Memory”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« La Persistance de la mémoire »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Постоянство памяти»"
+          }
+        }
+      }
+    },
+    "ThePersistenceOfMemory.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“The Persistence of Memory” is a famous Surrealist painting by Salvador Dalí. It is known for its dreamlike atmosphere."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau surréaliste de Salvador Dalí, célèbre pour son atmosphère onirique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Постоянство памяти» известная сюрреалистическая картина Сальвадора Дали."
+          }
+        }
+      }
+    },
+    "TheScream.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'The Scream'"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Le Cri »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Крик»"
+          }
+        }
+      }
+    },
+    "TheScream.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "'The Scream' is one of the most famous paintings in art history, created by Edvard Munch in 1893."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Œuvre emblématique de l’histoire de l’art, peinte par Edvard Munch en 1893."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Крик». Одна из самых знаменитых картин в истории искусства, созданная Эдвардом Мунком в 1893 году."
+          }
+        }
+      }
+    },
+    "ThreeGraces.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Three Graces"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les Trois Grâces"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Три грации"
+          }
+        }
+      }
+    },
+    "ThreeGraces.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Three Graces is a sculpture celebrating beauty, charm, and creativity from classical mythology."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sculpture célébrant la beauté, le charme et la créativité."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Три грации».\nСкульптурная группа, символизирующая красоту, очарование и творчество."
+          }
+        }
+      }
+    },
+    "TorreBelem.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Torre de Belém"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tour de Belém"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Башня Белен"
+          }
+        }
+      }
+    },
+    "TorreBelem.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Torre de Belém is a fortification near Lisbon, Portugal. It used to serve as a defensive structure and as a ceremonial gateway for explorers during the Age of Discoveries."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortification de Lisbonne servant autrefois de défense et de porte cérémonielle."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Башня Белен.\nФортификационное сооружение в Лиссабоне, служившее оборонительным пунктом и парадным входом для мореплавателей."
+          }
+        }
+      }
+    },
+    "TowerBridge.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tower Bridge"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Tower Bridge"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тауэрский мост"
+          }
+        }
+      }
+    },
+    "TowerBridge.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tower Bridge is a historic drawbridge in London across the River Thames, known for its twin towers and striking Victorian Gothic design."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pont basculant historique de Londres, célèbre pour ses deux tours néogothiques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тауэрский мост.\nИсторический разводной мост через Темзу в Лондоне, известный своими башнями в викторианском готическом стиле."
+          }
+        }
+      }
+    },
+    "TowerOfPisa.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Tower of Pisa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tour de Pise"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пизанская башня"
+          }
+        }
+      }
+    },
+    "TowerOfPisa.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leaning Tower of Pisa, is a famous bell tower located in Pisa, Italy. It is well-known for its unintentional tilt, caused by unstable foundation soil."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clocher célèbre de Pise, en Italie, connu pour son inclinaison due à un sol instable."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наклонная колокольня в Пизе (Италия), известная своим непреднамеренным наклоном из-за неустойчивого грунта."
+          }
+        }
+      }
+    },
+    "VenusHohleFels.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venus of Hohle Fels"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Vénus de Hohle Fels"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Венера из Холе-Фельс"
+          }
+        }
+      }
+    },
+    "VenusHohleFels.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Venus of Hohle Fels is one of the oldest known figurines, symbolizing fertility and early art."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Figurine parmi les plus anciennes connues, symbole de fécondité."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Одна из самых древних фигурок палеолитических Венер, символизирующая плодородие и зарождение искусства."
+          }
+        }
+      }
+    },
+    "VenusMilo.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Venus de Milo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Vénus de Milo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Венера Милосская"
+          }
+        }
+      }
+    },
+    "VenusMilo.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Venus de Milo is an ancient Greek marble statue believed to represent Aphrodite, the goddess of love and beauty."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statue grecque antique représentant probablement Aphrodite, déesse de l’amour."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Венера Милосская.\nДревнегреческая мраморная статуя, предположительно изображающая Афродиту."
+          }
+        }
+      }
+    },
+    "VoyageurContemplantUneMerDeNuages.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Voyageur contemplant une mer de nuages”"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "« Voyageur contemplant une mer de nuages »"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Странник над морем тумана»"
+          }
+        }
+      }
+    },
+    "VoyageurContemplantUneMerDeNuages.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Voyageur contemplant une mer de nuages” is a famous Romantic painting by Caspar David Friedrich. It is one of the most iconic representations of Romanticism."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peinture romantique de Caspar David Friedrich, symbole du romantisme."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Странник над морем тумана». Известная романтическая картина Каспара Давида Фридриха, символ эпохи романтизма."
+          }
+        }
+      }
+    },
+    "WalhallaLeoVonKlenze.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Walhalla"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Walhalla"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Вальхалла»"
+          }
+        }
+      }
+    },
+    "WalhallaLeoVonKlenze.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leo von Klenze’s Walhalla is a neoclassical hall of fame, honoring Germanic heroes in grand architecture."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panthéon néoclassique conçu par Leo von Klenze, honorant les héros germaniques."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "«Вальхалла», неоклассический зал славы, созданный Лео фон Кленце в честь германских героев."
+          }
+        }
+      }
+    },
+    "WallsOfTroy.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Walls of Troy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les murailles de Troie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стены Трои"
+          }
+        }
+      }
+    },
+    "WallsOfTroy.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Walls of Troy, steeped in myth, represent Bronze Age urban strength and epic war legends."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remparts légendaires de l’âge du bronze liés à la mythologie grecque."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стены Трои.\nЛегендарные укрепления бронзового века, воспетые в эпосах."
+          }
+        }
+      }
+    },
+    "WashingtonMonument.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the Washington Monument"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le Washington Monument"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монумент Вашингтона"
+          }
+        }
+      }
+    },
+    "WashingtonMonument.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Washington Monument is a white marble obelisk located in Washington, D.C., built to honor George Washington, the first U.S. president."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obélisque en marbre blanc à Washington, érigé en l’honneur de George Washington."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монумент Вашингтона.\nМраморный обелиск в Вашингтоне, воздвигнутый в честь первого президента США."
+          }
+        }
+      }
+    },
+    "WedgwoodUrn.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wedgwood urn"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L’urne Wedgwood"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваза Веджвуда"
+          }
+        }
+      }
+    },
+    "WedgwoodUrn.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This Wedgwood urn reflects neoclassical elegance in ceramics, blending art, science, and industry."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urne néoclassique illustrant l’élégance et l’innovation céramique."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваза Веджвуда.\nПример неоклассической керамики, сочетающий искусство, науку и индустрию."
+          }
+        }
+      }
+    },
+    "WhiteHouse.name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "the White House"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La Maison-Blanche"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Белый дом"
+          }
+        }
+      }
+    },
+    "WhiteHouse.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The White House is the official residence and workplace of the President of the United States, located in Washington, D.C."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Résidence officielle du président des États-Unis, située à Washington, D.C."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Белый дом.\nОфициальная резиденция и рабочее место президента США, расположенная в Вашингтоне."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

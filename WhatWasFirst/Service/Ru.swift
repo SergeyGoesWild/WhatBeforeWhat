@@ -5,6 +5,29 @@
 //  Created by Sergey Telnov on 19/10/2025.
 //
 
+//"TestKey" : {
+//      "extractionState" : "manual",
+//      "localizations" : {
+//        "en" : {
+//          "stringUnit" : {
+//            "state" : "translated",
+//            "value" : "Test"
+//          }
+//        },
+//        "fr" : {
+//          "stringUnit" : {
+//            "state" : "translated",
+//            "value" : "Test"
+//          }
+//        },
+//        "ru" : {
+//          "stringUnit" : {
+//            "state" : "translated",
+//            "value" : "Тест"
+//          }
+//        }
+//      }
+//    }
 
 //RU
 //Пещера рук — Доисторические изображения рук в пещере «Cueva de las Manos» в Аргентине.

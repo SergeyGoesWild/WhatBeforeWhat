@@ -204,7 +204,12 @@ final class ImageElementView: UIView {
     }
     
     private func formDateText(dateText: Int, circa: Bool) -> String {
-        return "Created: \(circa ? "circa" : "") \(abs(dateText)) \(dateText > 0 ? "AD" : "BC")"
+        let date = UIStrings.string("Result.date")
+        let circaText = UIStrings.string("Result.circa")
+        let adText = UIStrings.string("Result.ad")
+        let bcText = UIStrings.string("Result.bc")
+        
+        return "\(date) \(circa ? circaText : "") \(abs(dateText)) \(dateText > 0 ? adText : bcText)"
     }
     
     private func resizeAndUpdateImage() {

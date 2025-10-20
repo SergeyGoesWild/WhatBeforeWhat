@@ -10,7 +10,18 @@ import Foundation
 enum UIStrings {
     static func string(_ key: String) -> String {
         NSLocalizedString(key,
-                          tableName: "Localizable",
+                          tableName: "UI-Localizable",
+                          bundle: .main,
+                          value: key,
+                          comment: "")
+    }
+}
+
+
+enum DBStrings {
+    static func string(_ key: String) -> String {
+        NSLocalizedString(key,
+                          tableName: "DB-Localizable",
                           bundle: .main,
                           value: key,
                           comment: "")
