@@ -36,7 +36,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Masque funéraire en or de Mycènes, symbole des sépultures royales grecques."
+            "value" : "Le masque d’Agamemnon est un masque funéraire en or de Mycènes, symbole des sépultures royales grecques."
           }
         },
         "ru" : {
@@ -82,7 +82,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Temple hindou moderne en Inde, réputé pour ses sculptures détaillées et son atmosphère spirituelle."
+            "value" : "L’Akshardham - un temple hindou moderne en Inde, réputé pour ses sculptures détaillées et son atmosphère spirituelle."
           }
         },
         "ru" : {
@@ -128,7 +128,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Affiche de Toulouse-Lautrec capturant l’énergie du cabaret parisien."
+            "value" : "L’Affiche de Toulouse-Lautrec capturant l’énergie du cabaret parisien."
           }
         },
         "ru" : {
@@ -151,7 +151,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« American Gothic »"
+            "value" : "«American Gothic»"
           }
         },
         "ru" : {
@@ -174,7 +174,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture de Grant Wood, icône de l’art américain, représentant la vie rurale."
+            "value" : "«American Gothic», peinture de Grant Wood, icône de l’art américain, représentant la vie rurale."
           }
         },
         "ru" : {
@@ -197,7 +197,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’Annonciation"
+            "value" : "«L’Annonciation»"
           }
         },
         "ru" : {
@@ -220,7 +220,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture précoce attribuée à Léonard de Vinci, alliant clarté et émotion."
+            "value" : "«L’Annonciation», peinture précoce attribuée à Léonard de Vinci, alliant clarté et émotion."
           }
         },
         "ru" : {
@@ -266,7 +266,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculpture monumentale en basalte représentant le cosmos et le calendrier aztèques."
+            "value" : "La pierre du Soleil aztèque.\nSculpture monumentale en basalte représentant le cosmos et le calendrier aztèques."
           }
         },
         "ru" : {
@@ -312,7 +312,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Barrière ayant séparé Berlin-Est et Berlin-Ouest de 1961 à 1989, symbole de la guerre froide."
+            "value" : "Le mur de Berlin.\nBarrière ayant séparé Berlin-Est et Berlin-Ouest de 1961 à 1989, symbole de la guerre froide."
           }
         },
         "ru" : {
@@ -358,7 +358,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tour horloge emblématique du Palais de Westminster à Londres, renommée pour sa cloche monumentale."
+            "value" : "Big Ben. Tour horloge emblématique du Palais de Westminster à Londres, renommée pour sa cloche monumentale."
           }
         },
         "ru" : {
@@ -450,7 +450,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Exemple d’architecture orthodoxe russe primitive, en pierre blanche."
+            "value" : "L’église de l’Intercession sur la Nerl. Un exemple d’architecture orthodoxe russe primitive, en pierre blanche."
           }
         },
         "ru" : {
@@ -496,7 +496,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Église en bois médiévale de Norvège, typique de l’architecture viking."
+            "value" : "L’église de Borgund.\nÉglise en bois médiévale de Norvège, typique de l’architecture viking."
           }
         },
         "ru" : {
@@ -588,7 +588,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Plus haut gratte-ciel du monde, situé à Dubaï, aux Émirats arabes unis."
+            "value" : "Le Burj Khalifa, le plus haut gratte-ciel du monde, situé à Dubaï, aux Émirats arabes unis."
           }
         },
         "ru" : {
@@ -634,7 +634,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’une des plus anciennes et prestigieuses universités du monde, centre majeur de recherche."
+            "value" : "L’université de Cambridge.\nL’une des plus anciennes et prestigieuses universités du monde, centre majeur de recherche."
           }
         },
         "ru" : {
@@ -680,7 +680,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bâtiment moderniste célèbre de Barcelone, conçu par Antoni Gaudí."
+            "value" : "La Casa Milà. Bâtiment moderniste célèbre de Barcelone, conçu par Antoni Gaudí."
           }
         },
         "ru" : {
@@ -726,7 +726,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pont historique de Prague reliant la vieille ville au château."
+            "value" : "Le pont Charles - un pont historique de Prague reliant la vieille ville au château."
           }
         },
         "ru" : {
@@ -772,7 +772,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manuscrit enluminé représentant des scènes de l’Apocalypse, conservé à New York."
+            "value" : "L’Apocalypse des Cloisters.\nManuscrit enluminé représentant des scènes de l’Apocalypse, conservé à New York."
           }
         },
         "ru" : {
@@ -818,7 +818,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manuscrit médiéval richement enluminé, écrit à l’encre d’or."
+            "value" : "Le Codex Aureus.\nManuscrit médiéval richement enluminé, écrit à l’encre d’or."
           }
         },
         "ru" : {
@@ -910,7 +910,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monument emblématique de l’Empire romain, chef-d’œuvre de l’architecture antique."
+            "value" : "Le Colisée - un monument emblématique de l’Empire romain, chef-d’œuvre de l’architecture antique."
           }
         },
         "ru" : {
@@ -956,7 +956,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Casque grec antique symbolisant la fierté des hoplites."
+            "value" : "Le casque corinthien.\nCasque grec antique symbolisant la fierté des hoplites."
           }
         },
         "ru" : {
@@ -1002,7 +1002,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture néoclassique inspirée de la mythologie."
+            "value" : "« Cupidon conduisant un char tiré par des griffons ». Peinture néoclassique inspirée de la mythologie."
           }
         },
         "ru" : {
@@ -1048,7 +1048,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monument d’architecture moderne à Prague, en République tchèque, rappelant un couple dansant."
+            "value" : "La Maison dansante. Monument d’architecture moderne à Prague, en République tchèque, rappelant un couple dansant."
           }
         },
         "ru" : {
@@ -1094,7 +1094,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture célèbre d’Edgar Degas, maître impressionniste français."
+            "value" : "« Danseuses bleues », peinture célèbre d’Edgar Degas, maître impressionniste français."
           }
         },
         "ru" : {
@@ -1140,7 +1140,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture pointilliste célèbre de Georges Seurat."
+            "value" : "« Un dimanche après-midi à l’Île de la Grande Jatte ». Peinture pointilliste célèbre de Georges Seurat."
           }
         },
         "ru" : {
@@ -1186,7 +1186,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculpture de Lisbonne honorant l’âge des grandes découvertes portugaises."
+            "value" : "Le Monument des Découvertes.\nSculpture de Lisbonne honorant l’âge des grandes découvertes portugaises."
           }
         },
         "ru" : {
@@ -1232,7 +1232,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Symbole de Paris et de la France, construite pour l’Exposition universelle de 1889."
+            "value" : "La tour Eiffel. Symbole de Paris et de la France, construite pour l’Exposition universelle de 1889."
           }
         },
         "ru" : {
@@ -1324,7 +1324,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gratte-ciel Art déco de New York, autrefois le plus haut bâtiment du monde."
+            "value" : "L’Empire State Building.\nGratte-ciel Art déco de New York, autrefois le plus haut bâtiment du monde."
           }
         },
         "ru" : {
@@ -1370,7 +1370,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gratte-ciel new-yorkais à la forme triangulaire, emblème architectural."
+            "value" : "Le Flatiron Building.\nGratte-ciel new-yorkais à la forme triangulaire, emblème architectural."
           }
         },
         "ru" : {
@@ -1416,7 +1416,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Premier bâtiment en béton armé, marquant une révolution dans la construction."
+            "value" : "La maison François Coignet.\nPremier bâtiment en béton armé, marquant une révolution dans la construction. Actuellement abandonné."
           }
         },
         "ru" : {
@@ -1439,7 +1439,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La chèvre de Gävle"
+            "value" : "Le Bouc de Gävle"
           }
         },
         "ru" : {
@@ -1462,7 +1462,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tradition suédoise de Noël souvent marquée par des incendies rituels."
+            "value" : "Le Bouc de Gävle - le bouc de Noël suédois fait de paille. Souvent incendié avant la date prévue pour son démontage."
           }
         },
         "ru" : {
@@ -1508,7 +1508,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gratte-ciel de verre emblématique du quartier financier de Londres."
+            "value" : "Le Gherkin.\nLe gratte-ciel de verre emblématique du quartier financier de Londres."
           }
         },
         "ru" : {
@@ -1554,7 +1554,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture de Johannes Vermeer de l’âge d’or hollandais."
+            "value" : "« La Jeune Fille à la perle ».\nPeinture de Johannes Vermeer de l’âge d’or hollandais."
           }
         },
         "ru" : {
@@ -1600,7 +1600,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chef-d’œuvre grec antique célèbre pour son acoustique parfaite."
+            "value" : "Le théâtre d’Épidaure.\nLe chef-d’œuvre grec antique célèbre pour son acoustique parfaite."
           }
         },
         "ru" : {
@@ -1623,7 +1623,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La Grande Muraille"
+            "value" : "La Grande Muraille de Chine."
           }
         },
         "ru" : {
@@ -1646,7 +1646,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monumental ouvrage défensif bâti pour protéger la Chine et contrôler les routes commerciales."
+            "value" : "La Grande Muraille de Chine.\nL’ouvrage monumental défensif bâti pour protéger la Chine et contrôler les routes commerciales."
           }
         },
         "ru" : {
@@ -1692,7 +1692,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Estampe japonaise de Katsushika Hokusai, l’une des œuvres les plus reconnaissables de l’art japonais."
+            "value" : "« La Grande Vague de Kanagawa ».\nL’estampe japonaise de Katsushika Hokusai, l’une des œuvres les plus reconnaissables de l’art japonais."
           }
         },
         "ru" : {
@@ -1738,7 +1738,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partie de la grotte de Lascaux, célèbre pour ses peintures paléolithiques."
+            "value" : "La salle des Taureaux.\nUne partie de la grotte de Lascaux, célèbre pour ses peintures paléolithiques."
           }
         },
         "ru" : {
@@ -1784,7 +1784,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peintures préhistoriques de mains dans la Cueva de las Manos en Argentine."
+            "value" : "La Cueva de las Manos.\nLes peintures préhistoriques de mains dans la Cueva de las Manos en Argentine."
           }
         },
         "ru" : {
@@ -1830,7 +1830,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bâtiments résidentiels typiques de Paris, avec façades uniformes et balcons en fer forgé."
+            "value" : "Les immeubles haussmanniens.\nLes bâtiments résidentiels typiques de Paris avec façades uniformes et balcons en fer forgé."
           }
         },
         "ru" : {
@@ -1876,7 +1876,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’un des plus beaux châteaux du Japon, célèbre pour sa blancheur et sa conception défensive."
+            "value" : "Le château de Himeji.\nL’un des plus beaux châteaux du Japon, célèbre pour sa blancheur et sa conception défensive."
           }
         },
         "ru" : {
@@ -1922,7 +1922,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chef-d’œuvre de Pieter Bruegel, représentant la vie rurale en hiver."
+            "value" : "« Les Chasseurs dans la neige ».\nLe chef-d’œuvre de Pieter Bruegel, représentant la vie rurale en hiver."
           }
         },
         "ru" : {
@@ -1968,7 +1968,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icône copte ancienne symbolisant la guidance divine et l’amitié spirituelle."
+            "value" : "Icône copte ancienne symbolisant la guidance divine et l’amitié spirituelle entre Christ et l’abbé Ménas."
           }
         },
         "ru" : {
@@ -2014,7 +2014,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monument japonais célèbre pour son torii « flottant » à marée haute."
+            "value" : "Le sanctuaire d’Itsukushima.\nLe monument japonais célèbre pour son torii « flottant » à marée haute."
           }
         },
         "ru" : {
@@ -2060,7 +2060,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tabernacle gothique finement sculpté, destiné à abriter l’Eucharistie."
+            "value" : "Un tabernacle gothique en ivoire finement sculpté, destiné à abriter l’Eucharistie."
           }
         },
         "ru" : {
@@ -2106,7 +2106,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Place centrale de Bruxelles entourée de splendides bâtiments gothiques et baroques."
+            "value" : "La Grand-Place à Bruxelles.\nLa place centrale entourée de splendides bâtiments gothiques et baroques."
           }
         },
         "ru" : {
@@ -2152,7 +2152,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abbaye bénédictine romane de Normandie, pionnière de la voûte d’ogives."
+            "value" : "L’abbaye de Lessay.\nL’abbaye bénédictine romane de Normandie, pionnière de la voûte d’ogives."
           }
         },
         "ru" : {
@@ -2198,7 +2198,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Figurines médiévales sculptées dans l’ivoire de morse, mystérieuses et expressives."
+            "value" : "Les pièces d’échecs de Lewis.\nDes figurines médiévales sculptées dans l’ivoire de morse."
           }
         },
         "ru" : {
@@ -2244,7 +2244,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tableau historique d’Eugène Delacroix, symbole de la révolution."
+            "value" : "« La Liberté guidant le peuple ». Le tableau historique d’Eugène Delacroix, symbole de la révolution."
           }
         },
         "ru" : {
@@ -2290,7 +2290,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manuscrit enluminé unissant art celtique et dévotion chrétienne."
+            "value" : "Les Évangiles de Lindisfarne. Le manuscrit enluminé unissant art celtique et dévotion chrétienne."
           }
         },
         "ru" : {
@@ -2336,7 +2336,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Structure en verre et acier au cœur du Louvre, mêlant modernité et patrimoine."
+            "value" : "La pyramide du Louvre. La structure en verre et acier au cœur du Louvre, mêlant modernité et patrimoine."
           }
         },
         "ru" : {
@@ -2382,7 +2382,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chef-d’œuvre en verre romain changeant de couleur selon la lumière."
+            "value" : "La coupe de Lycurgue. Un chef-d’œuvre en verre romain changeant de couleur selon la lumière."
           }
         },
         "ru" : {
@@ -2428,7 +2428,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Manuscrit médiéval célébrant l’amour courtois et la poésie chevaleresque."
+            "value" : "Le Codex Manesse. Le manuscrit médiéval célébrant l’amour courtois et la poésie chevaleresque."
           }
         },
         "ru" : {
@@ -2474,7 +2474,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monastère roman allemand alliant équilibre spirituel et architectural."
+            "value" : "L’abbaye de Maria Laach. Un monastère roman allemand alliant équilibre spirituel et architectural."
           }
         },
         "ru" : {
@@ -2520,7 +2520,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Masque funéraire en or massif du pharaon Toutankhamon, l’un des plus célèbres souverains d’Égypte."
+            "value" : "Le masque de Toutankhamon. Le masque funéraire en or massif du pharaon Toutankhamon, l’un des plus célèbres souverains d’Égypte."
           }
         },
         "ru" : {
@@ -2566,7 +2566,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculpture néoclassique de Pajou représentant le dieu romain du mouvement."
+            "value" : "La statue de Mercure. Une sculpture néoclassique de Pajou représentant le dieu romain du mouvement."
           }
         },
         "ru" : {
@@ -2612,7 +2612,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monastère orthodoxe serbe abritant la fresque du « Ange blanc »."
+            "value" : "Le monastère orthodoxe de Mileševa abritant la fresque du « Ange blanc »."
           }
         },
         "ru" : {
@@ -2658,7 +2658,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statues monumentales de l’île de Pâques, dans le Pacifique."
+            "value" : "Les Moaï. Les Statues monumentales de l’île de Pâques, dans le Pacifique."
           }
         },
         "ru" : {
@@ -2750,7 +2750,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Abbaye médiévale perchée sur un îlot rocheux de Normandie, lieu de pèlerinage historique."
+            "value" : "Le Mont-Saint-Michel.\nL’abbaye médiévale perchée sur un îlot rocheux de Normandie, lieu de pèlerinage historique."
           }
         },
         "ru" : {
@@ -2842,7 +2842,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statue grecque archaïque représentant un homme portant un veau sur les épaules."
+            "value" : "Le Moschophore, une statue grecque archaïque représentant un homme portant un veau sur les épaules."
           }
         },
         "ru" : {
@@ -2888,7 +2888,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tour principale de style stalinien alliant ambition soviétique et néogothique."
+            "value" : "L’université d’État de Moscou. La tour principale de style stalinien alliant ambition soviétique et néogothique."
           }
         },
         "ru" : {
@@ -2934,7 +2934,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculpture monumentale dans le Dakota du Sud représentant quatre présidents américains."
+            "value" : "Le mont Rushmore.\nLa sculpture monumentale dans le Dakota du Sud représentant quatre présidents américains."
           }
         },
         "ru" : {
@@ -2980,7 +2980,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monument irlandais en grès orné de scènes bibliques détaillées."
+            "value" : "La croix de Muiredach, un monument irlandais en grès orné de scènes bibliques détaillées."
           }
         },
         "ru" : {
@@ -3026,7 +3026,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vase grec ancien alliant fonction utilitaire et esthétique."
+            "value" : "Le vase mycénien alliant les fonctions utilitaire et esthétique."
           }
         },
         "ru" : {
@@ -3072,7 +3072,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chef-d’œuvre du portrait égyptien antique, symbole d’élégance royale."
+            "value" : "Le buste de Néfertiti. Un chef-d’œuvre du portrait égyptien antique, symbole d’élégance royale."
           }
         },
         "ru" : {
@@ -3118,7 +3118,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Château bavarois célèbre pour son style romantique et son cadre féerique."
+            "value" : "Le château bavarois de Neuschwanstein célèbre pour son style romantique et son cadre féerique."
           }
         },
         "ru" : {
@@ -3164,7 +3164,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture d’Edward Hopper, œuvre emblématique du réalisme américain."
+            "value" : "« Nighthawks ».\nLa peinture d’Edward Hopper, œuvre emblématique du réalisme américain."
           }
         },
         "ru" : {
@@ -3210,7 +3210,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture baroque célèbre de Rembrandt van Rijn, chef-d’œuvre de l’âge d’or hollandais."
+            "value" : "« La Ronde de nuit ».\nLa peinture baroque célèbre de Rembrandt van Rijn, chef-d’œuvre de l’âge d’or hollandais."
           }
         },
         "ru" : {
@@ -3256,7 +3256,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tableau maritime d’Ivan Aïvazovski, l’un des plus grands paysages marins de l’histoire."
+            "value" : "« La Neuvième Vague ».\nLe tableau maritime d’Ivan Aïvazovski, l’un des plus grands paysages marins de l’histoire."
           }
         },
         "ru" : {
@@ -3302,7 +3302,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cathédrale gothique célèbre située à Paris, en France."
+            "value" : "Notre-Dame de Paris. Une cathédrale gothique célèbre située à Paris."
           }
         },
         "ru" : {
@@ -3348,7 +3348,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculptures monumentales en pierre créées par la civilisation olmèque, l’une des plus anciennes de Mésoamérique."
+            "value" : "Les sculptures en forme de têtes monumentales en pierre créées par la civilisation olmèque, l’une des plus anciennes de Mésoamérique."
           }
         },
         "ru" : {
@@ -3394,7 +3394,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bateau funéraire viking magnifiquement orné de sculptures en bois."
+            "value" : "Le navire d’Oseberg.\nUn Bateau funéraire viking magnifiquement orné de sculptures en bois."
           }
         },
         "ru" : {
@@ -3440,7 +3440,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Palais romantique du XIXe siècle à Sintra, au Portugal, mêlant divers styles architecturaux."
+            "value" : "Le palais de Pena. Un palais romantique du XIXe siècle à Sintra (Portugal), mêlant divers styles architecturaux."
           }
         },
         "ru" : {
@@ -3486,7 +3486,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’un des plus anciens instruments du monde, taillé dans un os."
+            "value" : "La flûte paléolithique. L’un des plus anciens instruments du monde, taillé dans un os."
           }
         },
         "ru" : {
@@ -3532,7 +3532,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Temple grec antique situé sur l’Acropole d’Athènes."
+            "value" : "Le Parthénon. Un temple grec antique situé sur l’Acropole d’Athènes."
           }
         },
         "ru" : {
@@ -3578,7 +3578,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ancienne cité jordanienne, l’une des sept nouvelles merveilles du monde."
+            "value" : "Petra. Ancienne ville jordanienne, l’une des sept nouvelles merveilles du monde."
           }
         },
         "ru" : {
@@ -3624,7 +3624,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Carte du monde ancienne mêlant géographie ottomane et traditions antiques."
+            "value" : "La carte de Piri Reis, une carte du monde ancienne mêlant géographie ottomane et des éléments décoratifs."
           }
         },
         "ru" : {
@@ -3670,7 +3670,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture romantique française de Théodore Géricault illustrant un naufrage tragique."
+            "value" : "« Le Radeau de la Méduse ».\nLa peinture romantique française de Théodore Géricault illustrant un naufrage tragique."
           }
         },
         "ru" : {
@@ -3716,7 +3716,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Élément décoratif égyptien représentant le dieu Rê, en pierre, verre ou faïence."
+            "value" : "Un élément décoratif égyptien représentant le dieu Rê, en pierre, verre ou faïence."
           }
         },
         "ru" : {
@@ -3762,7 +3762,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artefact égyptien ayant permis de déchiffrer les hiéroglyphes grâce à ses trois écritures."
+            "value" : "La pierre de Rosette. Un artefact égyptien ayant permis de déchiffrer les hiéroglyphes grâce à ses trois écritures."
           }
         },
         "ru" : {
@@ -3808,7 +3808,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Basilique catholique romaine située au sommet de Montmartre, à Paris."
+            "value" : "Sacré-Cœur. Une basilique catholique romaine située au sommet de Montmartre à Paris."
           }
         },
         "ru" : {
@@ -3854,7 +3854,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Basilique emblématique de Barcelone, célèbre pour sa conception complexe et son inachèvement."
+            "value" : "La Sagrada Família. La Basilique emblématique de Barcelone, célèbre pour sa conception complexe et son inachèvement."
           }
         },
         "ru" : {
@@ -3900,7 +3900,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Située sur la place Rouge à Moscou, célèbre pour ses coupoles colorées et son architecture orthodoxe russe."
+            "value" : "La cathédrale Saint-Basile. Elle est située sur la place Rouge à Moscou, célèbre pour ses coupoles colorées et son architecture orthodoxe russe."
           }
         },
         "ru" : {
@@ -3946,7 +3946,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lieu de pèlerinage de Braga, célèbre pour son escalier baroque monumental."
+            "value" : "Le sanctuaire du Bon Jésus du Mont, lieu de pèlerinage de Braga, célèbre pour son escalier baroque monumental."
           }
         },
         "ru" : {
@@ -3992,7 +3992,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Célèbre église, chef-d’œuvre de l’architecture gothique et Renaissance italienne."
+            "value" : "Santa Maria del Fiore - une célèbre église, chef-d’œuvre de l’architecture gothique et Renaissance italienne."
           }
         },
         "ru" : {
@@ -4038,7 +4038,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Complexe bouddhiste ancien de Java, remarquable par son architecture javanaise."
+            "value" : "Le temple de Sewu.\nCe complexe bouddhiste ancien de Java se distingue par son architecture javanaise."
           }
         },
         "ru" : {
@@ -4084,7 +4084,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture mondialement célèbre de Vincent van Gogh, réalisée en 1889."
+            "value" : "« La Nuit étoilée ».\nLe peinture mondialement célèbre de Vincent van Gogh, réalisée en 1889."
           }
         },
         "ru" : {
@@ -4130,7 +4130,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statue colossale néoclassique offerte par la France en 1886, symbole de liberté."
+            "value" : "La Statue de la Liberté.\nUne statue colossale néoclassique offerte par la France en 1886, symbole de liberté."
           }
         },
         "ru" : {
@@ -4176,7 +4176,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monument préhistorique du Wiltshire, en Angleterre, célèbre pour ses pierres dressées en cercle."
+            "value" : "Stonehenge. Un monument préhistorique du Wiltshire, en Angleterre, célèbre pour ses pierres dressées en cercle."
           }
         },
         "ru" : {
@@ -4222,7 +4222,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Casque anglo-saxon richement décoré, témoin des traditions funéraires guerrières."
+            "value" : "Le casque de Sutton Hoo.\nUn casque anglo-saxon richement décoré, témoin des traditions funéraires guerrières."
           }
         },
         "ru" : {
@@ -4268,7 +4268,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Centre des arts du spectacle à Sydney, connu pour sa forme évoquant des voiles."
+            "value" : "L’Opéra de Sydney. Ceci est un centre des arts du spectacle à Sydney, connu pour sa forme évoquant des voiles."
           }
         },
         "ru" : {
@@ -4314,7 +4314,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mausolée mondialement célèbre à Agra, en Inde, symbole d’amour et de dévotion."
+            "value" : "Le Taj Mahal. Le mausolée mondialement célèbre à Agra, en Inde, symbole d’amour et de dévotion."
           }
         },
         "ru" : {
@@ -4360,7 +4360,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Complexe religieux de Pékin où les empereurs priaient pour de bonnes récoltes."
+            "value" : "Le Temple du Ciel. C’est un complexe religieux de Pékin où les empereurs priaient pour de bonnes récoltes."
           }
         },
         "ru" : {
@@ -4406,7 +4406,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ensemble de soldats en argile grandeur nature enterrés près du tombeau du premier empereur chinois."
+            "value" : "L’armée de terre cuite.\nC’est un ensemble de soldats en argile grandeur nature enterrés près du tombeau du premier empereur chinois."
           }
         },
         "ru" : {
@@ -4452,7 +4452,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tableau surréaliste de Salvador Dalí, célèbre pour son atmosphère onirique."
+            "value" : "« La Persistance de la mémoire ».\nLe tableau surréaliste de Salvador Dalí, célèbre pour son atmosphère onirique."
           }
         },
         "ru" : {
@@ -4498,7 +4498,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Œuvre emblématique de l’histoire de l’art, peinte par Edvard Munch en 1893."
+            "value" : "« Le Cri ».\nUne oeuvre emblématique de l’histoire de l’art, peinte par Edvard Munch en 1893."
           }
         },
         "ru" : {
@@ -4544,7 +4544,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sculpture célébrant la beauté, le charme et la créativité."
+            "value" : "Les Trois Grâces.\nUne sculpture célébrant la beauté, le charme et la créativité."
           }
         },
         "ru" : {
@@ -4590,7 +4590,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fortification de Lisbonne servant autrefois de défense et de porte cérémonielle."
+            "value" : "La tour de Belém.\nUne fortification à Lisbonne servant autrefois de défense et de porte cérémonielle."
           }
         },
         "ru" : {
@@ -4636,7 +4636,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pont basculant historique de Londres, célèbre pour ses deux tours néogothiques."
+            "value" : "Le Tower Bridge.\nUn pont historique à Londres, célèbre pour ses deux tours néogothiques."
           }
         },
         "ru" : {
@@ -4682,7 +4682,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Clocher célèbre de Pise, en Italie, connu pour son inclinaison due à un sol instable."
+            "value" : "La tour de Pise. Le clocher célèbre de Pise (Italie), connu pour son inclinaison due à un sol instable."
           }
         },
         "ru" : {
@@ -4728,7 +4728,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Figurine parmi les plus anciennes connues, symbole de fécondité."
+            "value" : "La Vénus de Hohle Fels.\nUne figurine préhistorique, symbole de fécondité."
           }
         },
         "ru" : {
@@ -4774,7 +4774,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Statue grecque antique représentant probablement Aphrodite, déesse de l’amour."
+            "value" : "La Vénus de Milo.\nUne Statue grecque antique représentant probablement Aphrodite, déesse de l’amour."
           }
         },
         "ru" : {
@@ -4820,7 +4820,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Peinture romantique de Caspar David Friedrich, symbole du romantisme."
+            "value" : "« Voyageur contemplant une mer de nuages ». Une peinture romantique de Caspar David Friedrich, symbole du romantisme."
           }
         },
         "ru" : {
@@ -4866,7 +4866,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Panthéon néoclassique conçu par Leo von Klenze, honorant les héros germaniques."
+            "value" : "Le Walhalla, le panthéon néoclassique conçu par Leo von Klenze, honorant les héros germaniques."
           }
         },
         "ru" : {
@@ -4912,7 +4912,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remparts légendaires de l’âge du bronze liés à la mythologie grecque."
+            "value" : "Les murailles de Troie.\nLes remparts légendaires de l’âge du bronze liés à la mythologie grecque."
           }
         },
         "ru" : {
@@ -4958,7 +4958,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Obélisque en marbre blanc à Washington, érigé en l’honneur de George Washington."
+            "value" : "Le Washington Monument. Un obélisque en marbre blanc situé à Washington, érigé en l’honneur de George Washington."
           }
         },
         "ru" : {
@@ -5004,7 +5004,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Urne néoclassique illustrant l’élégance et l’innovation céramique."
+            "value" : "L’urne Wedgwood.\nUne urne néoclassique illustrant l’élégance et l’innovation céramique."
           }
         },
         "ru" : {
@@ -5050,7 +5050,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Résidence officielle du président des États-Unis, située à Washington, D.C."
+            "value" : "La Maison-Blanche.\nRésidence officielle du président des États-Unis, située à Washington, D.C."
           }
         },
         "ru" : {
