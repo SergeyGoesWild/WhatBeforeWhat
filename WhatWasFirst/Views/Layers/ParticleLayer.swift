@@ -28,14 +28,14 @@ final class ParticleLayer: UIView {
     private func setupEmitter() {
         let cell = CAEmitterCell()
         cell.contents = UIImage(named: "star")?.cgImage
-        cell.birthRate = 30
+        cell.birthRate = 50
         cell.lifetime = Float(AppAnimations.particleTime)
         cell.velocity = 250
-        cell.yAcceleration = 200
+        cell.yAcceleration = 250
         cell.velocityRange = 60
-        cell.spin = 0.5
+        cell.spin = 0.8
         cell.spinRange = 3
-        cell.scale = 0.1
+        cell.scale = 0.15
         cell.scaleRange = 0.07
         cell.emissionLongitude = .pi
         

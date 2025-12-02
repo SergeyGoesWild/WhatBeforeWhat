@@ -43,7 +43,7 @@ final class AlertLayer: UIView {
     private lazy var buttonView: UIButton = {
         let buttonView = UIButton(type: .system)
         buttonView.setTitle("OK", for: .normal)
-        buttonView.setTitleColor(AppColors.bgColour, for: .normal)
+        buttonView.setTitleColor(AppColors.okColour, for: .normal)
         buttonView.backgroundColor = AppColors.buttonColour
         buttonView.layer.cornerRadius = 8
         buttonView.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -111,12 +111,12 @@ final class AlertLayer: UIView {
     
     func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
         let normalText01 = UIStrings.string("Alert.line01")
-        let boldText = " \(score) / \(total),"
-        let normalText02 = "\n\(UIStrings.string("Alert.line02")):\n\n"
-        let titleText = object.0 + "\n"
+        let boldText = " \(score)/\(total)"
+        let normalText02 = ",\n\(UIStrings.string("Alert.line02")):\n\n"
+        let titleText = object.0 + "\n" + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
-            explainerText = "(\(UIStrings.string("Alert.rightGuess")) \(answerTitle))"
+            explainerText = "(\(UIStrings.string("Alert.rightGuess"))\n\(answerTitle))"
         } else {
             explainerText = "(\(UIStrings.string("Alert.noRightGuess")))"
         }
@@ -130,10 +130,10 @@ final class AlertLayer: UIView {
             .font: UIFont.systemFont(ofSize: 16, weight: .light)
         ]
         let cursiveAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 20, weight: .semibold)
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
         ]
         let explainerAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .thin)
+            .font: UIFont.systemFont(ofSize: 15, weight: .thin)
         ]
         
         fullString.append(NSAttributedString(string: normalText01, attributes: normalAttributes))

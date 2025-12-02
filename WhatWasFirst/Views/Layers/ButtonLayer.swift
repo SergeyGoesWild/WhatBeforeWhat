@@ -28,13 +28,15 @@ final class ButtonLayer: UIView {
         introLabel.textColor = AppColors.labelColour
         introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
         introLabel.numberOfLines = 0
+        introLabel.lineBreakMode = .byWordWrapping
         introLabel.text = UIStrings.string("UI.centralQuestion")
+        introLabel.textAlignment = .center
         return introLabel
     }()
     private lazy var nextButton: UIButton = {
         let nextButton = UIButton(type: .system)
         nextButton.setTitle(UIStrings.string("UI.nextButton"), for: .normal)
-        nextButton.setTitleColor(AppColors.bgColour, for: .normal)
+        nextButton.setTitleColor(AppColors.okColour, for: .normal)
         nextButton.backgroundColor = AppColors.buttonColour
         nextButton.layer.cornerRadius = 12
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
@@ -80,6 +82,7 @@ final class ButtonLayer: UIView {
             
             introLabelAnimConstraint,
             introLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            introLabel.widthAnchor.constraint(equalTo: containerView.widthAnchor, constant: -AppLayout.sidePadding * 2)
         ])
     }
     

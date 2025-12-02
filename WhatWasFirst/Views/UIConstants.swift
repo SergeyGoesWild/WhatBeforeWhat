@@ -10,9 +10,9 @@ import UIKit
 enum AppColors {
     static let bgColour = UIColor(named: "BackgroundColour")!
     static let borderColour = UIColor(named: "OutlineColour")!
+    static let okColour = UIColor(named: "OutlineColour")!
     static let buttonColour = UIColor(named: "ButtonColour")!
     static let labelColour = UIColor(named: "LabelColour")!
-    static let bgCoulourBackup: UIColor = UIColor(red: 0.32, green: 0.74, blue: 0.50, alpha: 1.00)
 }
 
 enum AppLayout {

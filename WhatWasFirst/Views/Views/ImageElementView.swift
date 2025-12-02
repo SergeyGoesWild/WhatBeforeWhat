@@ -69,6 +69,7 @@ final class ImageElementView: UIView {
         flavorText.translatesAutoresizingMaskIntoConstraints = false
         flavorText.textColor = .white
         flavorText.numberOfLines = 0
+        flavorText.lineBreakMode = .byWordWrapping
         return flavorText
     }()
     private var dateText: UILabel = {
@@ -77,6 +78,7 @@ final class ImageElementView: UIView {
         dateText.textColor = .white
         dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dateText.numberOfLines = 0
+        dateText.lineBreakMode = .byWordWrapping
         return dateText
     }()
     private lazy var dataStackView: UIStackView = {

@@ -76,19 +76,19 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "because you guessed right\nabout"
+            "value" : "you guessed right\nabout:"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "parce que vous avez bien\nrépondu au sujet de"
+            "value" : "La bonne réponse sur :"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "потому что вы правильно\nответили по теме\n"
+            "value" : "Правильно ответили о:"
           }
         }
       }
