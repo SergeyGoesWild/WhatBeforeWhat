@@ -77,8 +77,9 @@ final class ImageElementView: UIView {
         dateText.translatesAutoresizingMaskIntoConstraints = false
         dateText.textColor = .white
         dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        dateText.numberOfLines = 0
-        dateText.lineBreakMode = .byWordWrapping
+        dateText.numberOfLines = 1
+        dateText.adjustsFontSizeToFitWidth = true
+        dateText.minimumScaleFactor = 0.8
         return dateText
     }()
     private lazy var dataStackView: UIStackView = {
@@ -124,12 +125,7 @@ final class ImageElementView: UIView {
         }
     }
     
-    private func setupLayout() {
-        let screenSize = UIScreen.main.bounds
-        let smallScreen = screenSize.width <= 375 && screenSize.height < 812
-        
-        flavorText.font = UIFont.systemFont(ofSize: smallScreen ? 19 : 22, weight: .thin)
-        
+    private func setupLayout() {        
         let overlay = UIView()
         overlay.backgroundColor = UIColor.black.withAlphaComponent(0.2)
         overlay.translatesAutoresizingMaskIntoConstraints = false
@@ -182,8 +178,8 @@ final class ImageElementView: UIView {
     
     func updateItem(with newItem: HistoricItem, isRightAnswer: Bool) {
         currentItem = newItem
-        flavorText.text = self.currentItem.flavourText
-        dateText.text = self.formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
+        flavorText.attributedText = formFlavourText(text: self.currentItem.flavourText)
+        dateText.text = formDateText(dateText: self.currentItem.date, circa: self.currentItem.circa)
         self.isRightAnswer = isRightAnswer
         resizeAndUpdateImage()
     }
@@ -203,6 +199,21 @@ final class ImageElementView: UIView {
     func hidingOverlay() {
         blackOverlay.isHidden = true
         dataStackView.isHidden = true
+    }
+    
+    private func formFlavourText(text: String) -> NSAttributedString {
+           let paragraph = NSMutableParagraphStyle()
+           paragraph.hyphenationFactor = 0.7
+           paragraph.alignment = .left
+           paragraph.lineBreakMode = .byWordWrapping
+
+           let attrs: [NSAttributedString.Key: Any] = [
+               .paragraphStyle: paragraph,
+               .font: UIFont.systemFont(ofSize: 20, weight: .thin),
+               .foregroundColor: UIColor.white
+           ]
+
+           return NSAttributedString(string: text, attributes: attrs)
     }
     
     private func formDateText(dateText: Int, circa: Bool) -> String {

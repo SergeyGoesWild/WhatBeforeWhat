@@ -36,13 +36,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "vous recevez le titre de"
+            "value" : "vous recevez le titre:"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "вы получаете титул"
+            "value" : "вы получаете титул:"
           }
         }
       }
@@ -88,7 +88,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Правильно ответили о:"
+            "value" : "Правильно ответили про:"
           }
         }
       }

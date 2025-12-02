@@ -112,7 +112,7 @@ final class AlertLayer: UIView {
     func activateAlert(withScore score: Int, outOf total: Int, withTitleObject object: (String, HistoricItem?)) {
         let normalText01 = UIStrings.string("Alert.line01")
         let boldText = " \(score)/\(total)"
-        let normalText02 = ",\n\(UIStrings.string("Alert.line02")):\n\n"
+        let normalText02 = ",\n\(UIStrings.string("Alert.line02"))\n\n"
         let titleText = object.0 + "\n" + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
