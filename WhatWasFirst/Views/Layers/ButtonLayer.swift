@@ -11,6 +11,10 @@ final class ButtonLayer: UIView {
     
     weak var delegate: NextButtonDelegate?
     
+    private lazy var isSmallScreen: Bool = {
+        return UIScreen.main.bounds.height < AppThreshold.smallScreenLimit
+    }()
+    
     private let animDistanceOffset: CGFloat = 100
     
     private var introLabelAnimConstraint: NSLayoutConstraint!
@@ -26,7 +30,6 @@ final class ButtonLayer: UIView {
         let introLabel = UILabel()
         introLabel.translatesAutoresizingMaskIntoConstraints = false
         introLabel.textColor = AppColors.labelColour
-        introLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
         introLabel.numberOfLines = 0
         introLabel.lineBreakMode = .byWordWrapping
         introLabel.text = UIStrings.string("UI.centralQuestion")
@@ -62,6 +65,8 @@ final class ButtonLayer: UIView {
     }
     
     private func setupLayout() {
+        introLabel.font = UIFont.systemFont(ofSize: isSmallScreen ? 25 : 32, weight: .black)
+        
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
         
@@ -103,9 +108,5 @@ final class ButtonLayer: UIView {
     func blockButton(isBlocked: Bool) {
         nextButton.isEnabled = !isBlocked
         nextButton.alpha = isBlocked ? 0.5 : 1
-    }
-    
-    func setLabelFont(fontSize: CGFloat) {
-        introLabel.font = UIFont.systemFont(ofSize: fontSize, weight: .black)
     }
 }

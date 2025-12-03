@@ -153,8 +153,6 @@ class GameVC: UIViewController {
     private func setupResponsive() {
         containerPaddingConstraintTop.constant = view.safeAreaInsets.top < AppThreshold.safeAreaInset ? AppLayout.additionalVertPadding : 0
         containerPaddingConstraintBottom.constant = view.safeAreaInsets.bottom < AppThreshold.safeAreaInset ? -AppLayout.additionalVertPadding : 0
-        let smallScreen = view.frame.height < AppThreshold.smallScreenLimit
-        buttonLayer.setLabelFont(fontSize: smallScreen ? AppLayout.smallLabelFont : AppLayout.bigLabelFont)
         view.layoutIfNeeded()
     }
     

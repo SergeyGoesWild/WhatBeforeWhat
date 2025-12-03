@@ -44,7 +44,7 @@ final class GameModel: GameModelProtocol {
         }
     }
     
-    private let totalRounds: Int = 2
+    private var totalRounds: Int = 2
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
     
@@ -58,6 +58,7 @@ final class GameModel: GameModelProtocol {
     init(titleFactory: TitleFactory, dataProvider: DataProvider) {
         self.titleFactory = titleFactory
         self.dataProvider = dataProvider
+        self.totalRounds = dataProvider.data.count
         gameState = GameState(currentRound: 0, totalRounds: totalRounds, currentScore: 0, buttonText: ButtonText.next.localized)
     }
     
@@ -111,7 +112,7 @@ final class GameModel: GameModelProtocol {
     }
     
     private func generateHistoricItems() -> (SharedItem, SharedItem) {
-        let items = dataProvider.provideItems()
+        let items = (dataProvider.data[gameState.currentRound - 1], dataProvider.data[Int.random(in: 0..<totalRounds)])
         if items.0.date < items.1.date {
             rightAnswer = items.0
             return (SharedItem(item: items.0, rightAnswer: true), SharedItem(item: items.1, rightAnswer: false))

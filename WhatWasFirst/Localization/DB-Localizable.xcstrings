@@ -42,7 +42,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Маска Агамемнона, это золотая погребальная маска из Микен, символ царских захоронений бронзового века."
+            "value" : "Маска Агамемнона.\nЗолотая погребальная маска из Микен, символ царских захоронений бронзового века."
           }
         }
       }
@@ -88,7 +88,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Акшардхам - современный индуистский храм в Индии, поражающий сложной резьбой и духовной атмосферой."
+            "value" : "Акшардхам.\nСовременный индуистский храм в Индии, поражающий сложной резьбой и духовной атмосферой."
           }
         }
       }
@@ -174,13 +174,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«American Gothic», peinture de Grant Wood, icône de l’art américain, représentant la vie rurale."
+            "value" : "«American Gothic».\nLa peinture de Grant Wood, icône de l’art américain, représentant la vie rurale."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Американская готика» - это знаменитая картина Гранта Вуда, ставшая символом традиционных американских ценностей."
+            "value" : "«Американская готика».\nЗнаменитая картина Гранта Вуда, ставшая символом традиционных американских ценностей."
           }
         }
       }
@@ -220,13 +220,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«L’Annonciation», peinture précoce attribuée à Léonard de Vinci, alliant clarté et émotion."
+            "value" : "«L’Annonciation», une peinture précoce attribuée à Léonard de Vinci, alliant clarté et émotion."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Благовещение” - ранняя картина, приписываемая Леонардо да Винчи, отличающаяся мягкостью и ясностью."
+            "value" : "“Благовещение”.\nРанняя картина, приписываемая Леонардо да Винчи, отличающаяся мягкостью и ясностью."
           }
         }
       }
@@ -272,7 +272,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ацтекский cолнечный камень - это базальтовая скульптура, символизирующая космос и календарь ацтеков."
+            "value" : "Ацтекский cолнечный камень.\nБазальтовая скульптура, символизирующая космос и календарь ацтеков."
           }
         }
       }
@@ -318,7 +318,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Берлинская стена - бетонный барьер, разделявший Восточный и Западный Берлин с 1961 по 1989 год, символ Холодной войны."
+            "value" : "Берлинская стена.\nБетонный барьер, разделявший Восточный и Западный Берлин с 1961 по 1989 год, символ Холодной войны."
           }
         }
       }
@@ -450,7 +450,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’église de l’Intercession sur la Nerl. Un exemple d’architecture orthodoxe russe primitive, en pierre blanche."
+            "value" : "L’église de l’Intercession sur la Nerl.\nUn exemple d’architecture orthodoxe russe primitive, en pierre blanche."
           }
         },
         "ru" : {
@@ -502,7 +502,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Церковь Боргунн - средневековая деревянная церковь в Норвегии, образец архитектуры викингов."
+            "value" : "Церковь Боргунн.\nСредневековая деревянная церковь в Норвегии, образец архитектуры викингов."
           }
         }
       }
@@ -542,13 +542,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fresque célèbre représentant le baiser entre Brejnev et Honecker."
+            "value" : "La fresque célèbre à Berlin représentant le baiser entre Brejnev et Honecker."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Известное граффити с поцелуем Брежнева и Хонеккера, символизирующее идеологический парадокс."
+            "value" : "Известное граффити с поцелуем Брежнева и Хонеккера, символизирующее эпоху Холодной войны."
           }
         }
       }
@@ -640,7 +640,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Один из старейших и самых престижных университетов мира, Кембриджский университет является центром науки и образования уже более 800 лет."
+            "value" : "Один из старейших и самых престижных университетов мира, Кембриджский университет, является центром науки и образования уже более 800 лет."
           }
         }
       }
@@ -680,13 +680,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La Casa Milà. Bâtiment moderniste célèbre de Barcelone, conçu par Antoni Gaudí."
+            "value" : "La Casa Milà.\nLe bâtiment moderniste célèbre de Barcelone, conçu par Antoni Gaudí."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Каса Мила - знаменитое модернистское здание в Барселоне, спроектированное Антонио Гауди."
+            "value" : "Каса Мила.\nЗнаменитое модернистское здание в Барселоне, спроектированное Антонио Гауди."
           }
         }
       }
@@ -726,7 +726,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le pont Charles - un pont historique de Prague reliant la vieille ville au château."
+            "value" : "Le pont Charles.\nLe pont historique de Prague reliant la vieille ville au château."
           }
         },
         "ru" : {
@@ -778,7 +778,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Иллюминированная рукопись с изображениями из «Откровений Иоанна», хранящаяся в Нью-Йорке."
+            "value" : "Апокалипсис из Клуазеров.\nИллюминированная рукопись с изображениями из «Откровений Иоанна», хранящаяся в Нью-Йорке."
           }
         }
       }
@@ -824,7 +824,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Золотой кодекс, роскошно иллюминированная рукопись, пример каролингского искусства."
+            "value" : "Золотой кодекс.\nРоскошно иллюминированная рукопись, пример каролингского искусства."
           }
         }
       }
@@ -910,13 +910,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Colisée - un monument emblématique de l’Empire romain, chef-d’œuvre de l’architecture antique."
+            "value" : "Le Colisée. Monument emblématique de l’Empire romain, chef-d’œuvre de l’architecture antique."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Колизей - это один из самых известных памятников Древнего Рима, выдающееся произведение римской архитектуры."
+            "value" : "Колизей. Один из самых известных памятников Древнего Рима, выдающееся произведение римской архитектуры."
           }
         }
       }
@@ -962,7 +962,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Коринфский шлем, отражающий гордость и воинский дух гоплитов."
+            "value" : "Коринфский шлем.\nПредмет доспеха, отражающий гордость и воинский дух греческих гоплитов."
           }
         }
       }
@@ -985,7 +985,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Картина «Амур, управляющий колесницей, запряжённой грифонами»"
+            "value" : "«Амур, управляющий колесницей, запряжённой грифонами»"
           }
         }
       }
@@ -1048,7 +1048,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La Maison dansante. Monument d’architecture moderne à Prague, en République tchèque, rappelant un couple dansant."
+            "value" : "La Maison dansante.\nMonument d’architecture moderne à Prague, en République tchèque, rappelant un couple dansant."
           }
         },
         "ru" : {
@@ -1094,13 +1094,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« Danseuses bleues », peinture célèbre d’Edgar Degas, maître impressionniste français."
+            "value" : "« Danseuses bleues ».\nPeinture célèbre d’Edgar Degas, maître impressionniste français."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Картина «Голубые танцовщицы» Эдгара Дега, одного из крупнейших французских импрессионистов."
+            "value" : "«Голубые танцовщицы».\nКартина Эдгара Дега, одного из крупнейших французских импрессионистов."
           }
         }
       }
@@ -1146,7 +1146,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Послеобеденное воскресенье на острове Гранд-Жатт», знаменитая пуантилистская картина Жоржа Сёра́."
+            "value" : "«Послеобеденное воскресенье на острове Гранд-Жатт» - это знаменитая пуантилистская картина Жоржа Сёра́."
           }
         }
       }
@@ -1192,7 +1192,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Скульптура в Лиссабоне, посвящённая эпохе Великих географических открытий Португалии."
+            "value" : "Памятник открытий.\nСкульптура в Лиссабоне, посвящённая эпохе Великих географических открытий Португалии."
           }
         }
       }
@@ -1232,13 +1232,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La tour Eiffel. Symbole de Paris et de la France, construite pour l’Exposition universelle de 1889."
+            "value" : "La tour Eiffel.\nSymbole de Paris et de la France, construite pour l’Exposition universelle de 1889."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Эйфелева башня является знаковым символом Парижа, построенный к Всемирной выставке 1889 года."
+            "value" : "Эйфелева башня является знаковым символом Парижа. Была построенна к Всемирной выставке 1889 года."
           }
         }
       }
@@ -1284,7 +1284,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Храм Кукулькана - мезоамериканская ступенчатая пирамида в Мексике, построенная цивилизацией Майя."
+            "value" : "Мезоамериканская ступенчатая пирамида в Мексике под названием храм Кукулькана, построенная цивилизацией Майя."
           }
         }
       }
@@ -1330,7 +1330,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Эмпайр-стейт-билдинг. Арт-деко небоскрёб в Нью-Йорке, некогда самое высокое здание в мире."
+            "value" : "Эмпайр-стейт-билдинг.\nАрт-деко небоскрёб в Нью-Йорке, некогда самое высокое здание в мире."
           }
         }
       }
@@ -1376,7 +1376,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Здание Флэтайрон. Нью-йоркский небоскрёб в форме утюга, ранний пример стального каркаса."
+            "value" : "Здание Флэтайрон.\nНью-йоркский небоскрёб в форме утюга, ранний пример стального каркаса."
           }
         }
       }
@@ -1422,7 +1422,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дом Франсуа Куанье. Это первое здание, построенное из железобетона, открывшее новую эру в строительстве. Сейчас заброшено."
+            "value" : "Дом Франсуа Куанье.\nЭто первое здание, построенное из железобетона, открывшее новую эру в строительстве. Сейчас заброшено."
           }
         }
       }
@@ -1462,13 +1462,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Bouc de Gävle - le bouc de Noël suédois fait de paille. Souvent incendié avant la date prévue pour son démontage."
+            "value" : "Le Bouc de Gävle.\nLe bouc de Noël suédois fait de paille. Souvent incendié avant la date prévue pour son démontage."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Евльский козел, шведская рождественский символ: огромная соломенная фигура, которую часто поджигают в качестве шутки."
+            "value" : "Евльский козел.\nШведский рождественский символ: огромная соломенная фигура, которую часто поджигают в качестве шутки."
           }
         }
       }
@@ -1491,7 +1491,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Огурец (The Gherkin)"
+            "value" : "Огурец"
           }
         }
       }
@@ -1514,7 +1514,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Огурец”, cовременный небоскрёб из стекла в финансовом районе Лондона."
+            "value" : "“Огурец” - это небоскрёб из стекла в финансовом районе Лондона."
           }
         }
       }
@@ -1560,7 +1560,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Девушка с жемчужной серёжкой», картина Яна Вермеера, созданная во времена Голландского Золотого века."
+            "value" : "«Девушка с жемчужной серёжкой».\nКартина Яна Вермеера, созданная во времена Голландского Золотого века."
           }
         }
       }
@@ -1606,7 +1606,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Театр в Эпидавре, древнегреческий театр, знаменитый своей акустикой и изящной архитектурой."
+            "value" : "Театр в Эпидавре.\nДревнегреческий театр, знаменитый своей акустикой и изящной архитектурой."
           }
         }
       }
@@ -1652,7 +1652,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Великая китайская стена, огромное древнее укрепление, построенное для защиты Китая и контроля торговых путей."
+            "value" : "Великая китайская стена.\nОгромное древнее укрепление, построенное для защиты Китая и контроля торговых путей."
           }
         }
       }
@@ -1698,7 +1698,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Большая волна в Канагаве» - японская ксилография Кацусики Хокусая, одно из самых узнаваемых произведений японского искусства."
+            "value" : "«Большая волна в Канагаве».\nЯпонская ксилография Кацусики Хокусая, одно из самых узнаваемых произведений японского искусства."
           }
         }
       }
@@ -1744,7 +1744,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Зал быков - это часть пещеры Ласко (Франция), знаменитый палеолитическими изображениями животных."
+            "value" : "Зал быков.\nЭто часть пещеры Ласко во Франции. Она знаменита своими палеолитическими изображениями животных."
           }
         }
       }
@@ -1836,7 +1836,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Османская архитектура, это элегантные жилые дома, определяющие облик Парижа: с балконами из кованого железа и фасадами из светлого камня."
+            "value" : "Османская архитектура является архитектурным стилем, определяющим облик Парижа: с балконами из кованого железа и фасадами из светлого камня."
           }
         }
       }
@@ -1882,7 +1882,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Замок Химэдзи - один из самых известных замков Японии, отличающийся белизной и сложной системой обороны."
+            "value" : "Замок Химэдзи.\nОдин из самых известных замков Японии, отличающийся белизной и сложной системой обороны."
           }
         }
       }
@@ -1928,7 +1928,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Охотники на снегу», картина Питера Брейгеля, изображающая возвращающихся охотников зимой, шедевр Возрождения."
+            "value" : "«Охотники на снегу».\nКартина Питера Брейгеля, изображающая возвращающихся охотников зимой, шедевр Возрождения."
           }
         }
       }
@@ -1968,7 +1968,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Icône copte ancienne symbolisant la guidance divine et l’amitié spirituelle entre Christ et l’abbé Ménas."
+            "value" : "L’Icône copte ancienne symbolisant la guidance divine et l’amitié spirituelle entre Christ et l’abbé Ménas."
           }
         },
         "ru" : {
@@ -2020,7 +2020,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Святилище Ицукусима. Историческое место в Японии, известное «плавающими» воротами тории, поднимающимися из моря во время прилива."
+            "value" : "Святилище Ицукусима.\nИсторическое место в Японии, известное «плавающими» воротами тории, поднимающимися из моря во время прилива."
           }
         }
       }
@@ -2112,7 +2112,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Гран-Плас. Центральная площадь Брюсселя, окружённая богато украшенными гильдейскими домами и ратушей."
+            "value" : "Гран-Плас.\nЦентральная площадь Брюсселя, окружённая богато украшенными гильдейскими домами и ратушей."
           }
         }
       }
@@ -2244,13 +2244,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« La Liberté guidant le peuple ». Le tableau historique d’Eugène Delacroix, symbole de la révolution."
+            "value" : "« La Liberté guidant le peuple ».\nLe tableau historique d’Eugène Delacroix, symbole de la révolution."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Свобода, ведущая народ». Историческая картина Эжена Делакруа, ставшая символом революции."
+            "value" : "«Свобода, ведущая народ».\nИсторическая картина Эжена Делакруа, ставшая символом революции."
           }
         }
       }
@@ -2290,13 +2290,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les Évangiles de Lindisfarne. Le manuscrit enluminé unissant art celtique et dévotion chrétienne."
+            "value" : "Les Évangiles de Lindisfarne.\nLe manuscrit enluminé unissant art celtique et dévotion chrétienne."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Евангелие из Линдисфарна. Богато оформленная рукопись, соединяющая кельтское искусство и христианство."
+            "value" : "Евангелие из Линдисфарна.\nБогато оформленная рукопись, соединяющая кельтское искусство и христианство."
           }
         }
       }
@@ -2336,13 +2336,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La pyramide du Louvre. La structure en verre et acier au cœur du Louvre, mêlant modernité et patrimoine."
+            "value" : "La pyramide du Louvre.\nLa structure en verre et acier au cœur du Louvre, mêlant modernité et patrimoine."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Пирамида Лувра. Стеклянная и металлическая конструкция в центре двора Лувра, сочетающая современность и классику."
+            "value" : "Пирамида Лувра.\nСтеклянная и металлическая конструкция в центре двора Лувра, сочетающая современность и классику."
           }
         }
       }
@@ -2382,7 +2382,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La coupe de Lycurgue. Un chef-d’œuvre en verre romain changeant de couleur selon la lumière."
+            "value" : "La coupe de Lycurgue.\nUn chef-d’œuvre en verre romain changeant de couleur selon la lumière."
           }
         },
         "ru" : {
@@ -2428,13 +2428,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Codex Manesse. Le manuscrit médiéval célébrant l’amour courtois et la poésie chevaleresque."
+            "value" : "Le Codex Manesse.\nLe manuscrit médiéval célébrant l’amour courtois et la poésie chevaleresque."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Манесский кодекс. Средневековая рукопись с изображениями рыцарей и поэтов, посвящённая куртуазной любви."
+            "value" : "Манесский кодекс.\nСредневековая рукопись с изображениями рыцарей и поэтов, посвящённая куртуазной любви."
           }
         }
       }
@@ -2474,13 +2474,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’abbaye de Maria Laach. Un monastère roman allemand alliant équilibre spirituel et architectural."
+            "value" : "L’abbaye de Maria Laach.\nUn monastère roman allemand alliant équilibre spirituel et architectural."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Аббатство Мария-Лаах. Романский монастырь на озере Лаах (Германия), образец гармоничной архитектуры."
+            "value" : "Аббатство Мария-Лаах.\nРоманский монастырь на озере Лаах (Германия), образец гармоничной архитектуры."
           }
         }
       }
@@ -2520,7 +2520,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le masque de Toutankhamon. Le masque funéraire en or massif du pharaon Toutankhamon, l’un des plus célèbres souverains d’Égypte."
+            "value" : "Le masque de Toutankhamon.\nLe masque funéraire en or massif du pharaon Toutankhamon, l’un des plus célèbres souverains d’Égypte."
           }
         },
         "ru" : {
@@ -2566,13 +2566,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La statue de Mercure. Une sculpture néoclassique de Pajou représentant le dieu romain du mouvement."
+            "value" : "La statue de Mercure.\nUne sculpture néoclassique de Pajou représentant le dieu romain du mouvement."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Статуя Меркурия. Скульптура Пажу, изображающая римского бога в динамичной позе."
+            "value" : "Статуя Меркурия.\nСкульптура Пажу, изображающая римского бога в динамичной позе."
           }
         }
       }
@@ -2618,7 +2618,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Монастырь Милешева. Сербский православный монастырь, известный фресками, включая знаменитого «Белого ангела»."
+            "value" : "Монастырь Милешева.\nСербский православный монастырь, известный фресками, включая знаменитого «Белого ангела»."
           }
         }
       }
@@ -2710,7 +2710,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Мона Лиза» - это картина Леонардо да Винчи, являющаяся архетипическим шедевром итальянского Возрождения."
+            "value" : "Картина Леонардо да Винчи, «Мона Лиза», являющаяся архетипическим шедевром итальянского Возрождения."
           }
         }
       }
@@ -2756,7 +2756,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Мон-Сен-Мишель. Средневековое аббатство на скалистом острове у берегов Нормандии, место паломничества."
+            "value" : "Мон-Сен-Мишель.\nСредневековое аббатство на скалистом острове у берегов Нормандии, место паломничества."
           }
         }
       }
@@ -2825,7 +2825,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Москофор (Носитель тельца)"
+            "value" : "Москофор"
           }
         }
       }
@@ -2848,7 +2848,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Москофор - древнегреческая статуя мужчины с телёнком на плечах, пример ранней архаической скульптуры."
+            "value" : "Москофор.\nДревнегреческая статуя мужчины с телёнком на плечах, пример ранней архаической скульптуры."
           }
         }
       }
@@ -2888,7 +2888,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’université d’État de Moscou. La tour principale de style stalinien alliant ambition soviétique et néogothique."
+            "value" : "L’université d’État de Moscou.\nLa tour principale de style stalinien alliant ambition soviétique et néogothique."
           }
         },
         "ru" : {
@@ -2940,7 +2940,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Гора Рашмор, это монументальная скульптура в США с лицами четырёх президентов: Вашингтона, Джефферсона, Рузвельта и Линкольна."
+            "value" : "Гора Рашмор.\nМонументальная скульптура в США с лицами четырёх президентов: Вашингтона, Джефферсона, Рузвельта и Линкольна."
           }
         }
       }
@@ -2980,13 +2980,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La croix de Muiredach, un monument irlandais en grès orné de scènes bibliques détaillées."
+            "value" : "La croix de Muiredach.\nMonument irlandais en grès orné de scènes bibliques détaillées."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Крест Мюредаха. Каменный крест в Ирландии с библейскими рельефами, один из лучших памятников раннехристианского искусства."
+            "value" : "Крест Мюредаха.\nКаменный крест в Ирландии с библейскими рельефами, один из лучших памятников раннехристианского искусства."
           }
         }
       }
@@ -3072,13 +3072,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le buste de Néfertiti. Un chef-d’œuvre du portrait égyptien antique, symbole d’élégance royale."
+            "value" : "Le buste de Néfertiti.\nChef-d’œuvre du portrait égyptien antique, symbole d’élégance royale."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Бюст Нефертити. Шедевр древнеегипетского портрета, воплощение царственной красоты."
+            "value" : "Бюст Нефертити.\nШедевр древнеегипетского портрета, воплощение царственной красоты."
           }
         }
       }
@@ -3170,7 +3170,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Ночные ястребы», картина Эдварда Хоппера, один из символов американского реализма."
+            "value" : "«Ночные ястребы».\nКартина Эдварда Хоппера, один из символов американского реализма."
           }
         }
       }
@@ -3216,7 +3216,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Ночной дозор», знаменитая барочная картина Рембрандта ван Рейна, шедевр Голландского Золотого века."
+            "value" : "«Ночной дозор».\nЗнаменитая барочная картина Рембрандта ван Рейна, шедевр Голландского Золотого века."
           }
         }
       }
@@ -3262,7 +3262,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Девятый вал», знаменитая морская картина Ивана Айвазовского, одно из величайших произведений морской живописи."
+            "value" : "«Девятый вал».\nЗнаменитая картина Ивана Айвазовского, одно из величайших произведений морской живописи."
           }
         }
       }
@@ -3302,13 +3302,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Notre-Dame de Paris. Une cathédrale gothique célèbre située à Paris."
+            "value" : "Notre-Dame de Paris.\nUne cathédrale gothique célèbre située à Paris."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Нотр-Дам-де-Пари знаменитый готический собор в Париже."
+            "value" : "Нотр-Дам-де-Пари.\nЗнаменитый готический собор в Париже."
           }
         }
       }
@@ -3400,7 +3400,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Корабль из Усеберга - хорошо сохранившееся погребальное судно викингов с резным орнаментом."
+            "value" : "Корабль из Усеберга.\nХорошо сохранившееся погребальное судно викингов с резным орнаментом."
           }
         }
       }
@@ -3440,13 +3440,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le palais de Pena. Un palais romantique du XIXe siècle à Sintra (Portugal), mêlant divers styles architecturaux."
+            "value" : "Le palais de Pena.\nPalais romantique du XIXe siècle à Sintra (Portugal), mêlant divers styles architecturaux."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дворец Пена - дворец в горах Синтры в Португалии, сочетающий эклектичные стили эпохи романтизма."
+            "value" : "Дворец Пена.\nДворец в горах Синтры в Португалии, сочетающий эклектичные стили эпохи романтизма."
           }
         }
       }
@@ -3486,13 +3486,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La flûte paléolithique. L’un des plus anciens instruments du monde, taillé dans un os."
+            "value" : "La flûte paléolithique.\nL’un des plus anciens instruments du monde, taillé dans un os."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Палеолитическая флейта. Один из старейших музыкальных инструментов в мире, вырезанный из кости."
+            "value" : "Палеолитическая флейта.\nОдин из старейших музыкальных инструментов в мире, вырезанный из кости."
           }
         }
       }
@@ -3532,13 +3532,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Parthénon. Un temple grec antique situé sur l’Acropole d’Athènes."
+            "value" : "Le Parthénon.\nTemple grec antique situé sur l’Acropole d’Athènes."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Парфенон, это древнегреческий храм, расположенный на Афинском Акрополе."
+            "value" : "Парфенон.\nДревнегреческий храм, расположенный на Афинском Акрополе."
           }
         }
       }
@@ -3584,7 +3584,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Петра, древний город в Иордании, одно из Новых семи чудес света."
+            "value" : "Петра. Древний город в Иордании, одно из Новых семи чудес света."
           }
         }
       }
@@ -3624,7 +3624,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La carte de Piri Reis, une carte du monde ancienne mêlant géographie ottomane et des éléments décoratifs."
+            "value" : "La carte de Piri Reis.\nCarte du monde ancienne mêlant géographie ottomane et des éléments décoratifs."
           }
         },
         "ru" : {
@@ -3676,7 +3676,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Плот «Медузы». Известная романтическая картина Теодора Жерико о трагедии кораблекрушения одноименного корабля."
+            "value" : "«Плот «Медузы».\nИзвестная романтическая картина Теодора Жерико о трагедии кораблекрушения одноименного корабля."
           }
         }
       }
@@ -3762,7 +3762,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La pierre de Rosette. Un artefact égyptien ayant permis de déchiffrer les hiéroglyphes grâce à ses trois écritures."
+            "value" : "La pierre de Rosette.\nUn artefact égyptien ayant permis de déchiffrer les hiéroglyphes grâce à ses trois écritures."
           }
         },
         "ru" : {
@@ -3814,7 +3814,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сакре-Кёр, известная католическая церковь, расположенная на вершине Монмартра в Париже."
+            "value" : "Сакре-Кёр.\nИзвестная католическая церковь, расположенная на вершине Монмартра в Париже."
           }
         }
       }
@@ -3854,13 +3854,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La Sagrada Família. La Basilique emblématique de Barcelone, célèbre pour sa conception complexe et son inachèvement."
+            "value" : "La Sagrada Família.\nLa Basilique emblématique de Barcelone, célèbre pour sa conception complexe et son inachèvement."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Саграда Фамилия. Известная базилика в Барселоне, спроектированная Гауди, знаменита сложным дизайном и незавершённым состоянием."
+            "value" : "Саграда Фамилия.\nИзвестная базилика в Барселоне, спроектированная Гауди, знаменита сложным дизайном и незавершённым состоянием."
           }
         }
       }
@@ -3900,13 +3900,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La cathédrale Saint-Basile. Elle est située sur la place Rouge à Moscou, célèbre pour ses coupoles colorées et son architecture orthodoxe russe."
+            "value" : "La cathédrale Saint-Basile.\nElle est située sur la place Rouge à Moscou, célèbre pour ses coupoles colorées et son architecture orthodoxe russe."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Собор Василия Блаженного. Расположен на Красной площади в Москве, известен своими разноцветными куполами и уникальным стилем архитектуры."
+            "value" : "Собор Василия Блаженного.\nРасположен на Красной площади в Москве, известен своими разноцветными куполами и уникальным стилем архитектуры."
           }
         }
       }
@@ -3992,7 +3992,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Santa Maria del Fiore - une célèbre église, chef-d’œuvre de l’architecture gothique et Renaissance italienne."
+            "value" : "Santa Maria del Fiore.\nCélèbre église, chef-d’œuvre de l’architecture gothique et Renaissance italienne."
           }
         },
         "ru" : {
@@ -4044,7 +4044,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Храм Севу. Древний буддийский храмовый комплекс на Яве, демонстрирующий величие ранней архитектуры этого региона."
+            "value" : "Храм Севу.\nДревний буддийский храмовый комплекс на Яве, демонстрирующий величие ранней архитектуры этого региона."
           }
         }
       }
@@ -4090,7 +4090,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Звёздная ночь» одна из самых известных картин в мире, созданная Винсентом ван Гогом в 1889 году."
+            "value" : "«Звёздная ночь».\nОдна из самых известных картин в мире, созданная Винсентом ван Гогом в 1889 году."
           }
         }
       }
@@ -4136,7 +4136,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Статуя Свободы, огромная неоклассическая статуя на острове рядом с Нью-Йорком, подаренная Францией в 1886 году."
+            "value" : "Статуя Свободы.\nОгромная неоклассическая статуя на острове рядом с Нью-Йорком, подаренная Францией в 1886 году."
           }
         }
       }
@@ -4176,13 +4176,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stonehenge. Un monument préhistorique du Wiltshire, en Angleterre, célèbre pour ses pierres dressées en cercle."
+            "value" : "Stonehenge.\nUn monument préhistorique du Wiltshire, en Angleterre, célèbre pour ses pierres dressées en cercle."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Стоунхендж - доисторический памятник в Уилтшире (Англия), состоящий из огромных каменных глыб, расположенных по кругу."
+            "value" : "Стоунхендж - доисторический памятник в Англии, состоящий из огромных каменных глыб, расположенных по кругу."
           }
         }
       }
@@ -4228,7 +4228,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Шлем из Саттон-Ху, богато украшенный англосаксонский шлем, важный артефакт воинских традиций."
+            "value" : "Шлем из Саттон-Ху.\nБогато украшенный англосаксонский шлем, важный артефакт воинских традиций."
           }
         }
       }
@@ -4268,7 +4268,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L’Opéra de Sydney. Ceci est un centre des arts du spectacle à Sydney, connu pour sa forme évoquant des voiles."
+            "value" : "L’Opéra de Sydney.\nCeci est un centre des arts du spectacle à Sydney, connu pour sa forme évoquant des voiles."
           }
         },
         "ru" : {
@@ -4314,13 +4314,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Taj Mahal. Le mausolée mondialement célèbre à Agra, en Inde, symbole d’amour et de dévotion."
+            "value" : "Le Taj Mahal.\nLe mausolée mondialement célèbre à Agra, en Inde, symbole d’amour et de dévotion."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тадж-Махал.\nВсемирно известный мавзолей в Агре (Индия), символ любви и преданности."
+            "value" : "Тадж-Махал. Всемирно известный мавзолей в Агре (Индия), символ любви и преданности."
           }
         }
       }
@@ -4360,7 +4360,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Temple du Ciel. C’est un complexe religieux de Pékin où les empereurs priaient pour de bonnes récoltes."
+            "value" : "Le Temple du Ciel.\nC’est un complexe religieux de Pékin où les empereurs priaient pour de bonnes récoltes."
           }
         },
         "ru" : {
@@ -4458,7 +4458,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Постоянство памяти» известная сюрреалистическая картина Сальвадора Дали."
+            "value" : "«Постоянство памяти».\nИзвестная сюрреалистическая картина Сальвадора Дали."
           }
         }
       }
@@ -4504,7 +4504,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Крик». Одна из самых знаменитых картин в истории искусства, созданная Эдвардом Мунком в 1893 году."
+            "value" : "«Крик» - это одна из самых знаменитых картин в истории искусства, созданная Эдвардом Мунком в 1893 году."
           }
         }
       }
@@ -4682,13 +4682,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La tour de Pise. Le clocher célèbre de Pise (Italie), connu pour son inclinaison due à un sol instable."
+            "value" : "La tour de Pise.\nLe clocher célèbre de Pise (Italie), connu pour son inclinaison due à un sol instable."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Наклонная колокольня в Пизе (Италия), известная своим непреднамеренным наклоном из-за неустойчивого грунта."
+            "value" : "Пизанская башня.\nНаклонная колокольня в Пизе (Италия), известная своим непреднамеренным наклоном из-за неустойчивого грунта."
           }
         }
       }
@@ -4826,7 +4826,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Странник над морем тумана». Известная романтическая картина Каспара Давида Фридриха, символ эпохи романтизма."
+            "value" : "«Странник над морем тумана».\nИзвестная романтическая картина Каспара Давида Фридриха, символ эпохи романтизма."
           }
         }
       }
@@ -4958,7 +4958,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Washington Monument. Un obélisque en marbre blanc situé à Washington, érigé en l’honneur de George Washington."
+            "value" : "Le Washington Monument.\nUn obélisque en marbre blanc situé à Washington, érigé en l’honneur de George Washington."
           }
         },
         "ru" : {

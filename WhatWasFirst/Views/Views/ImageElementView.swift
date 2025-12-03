@@ -11,6 +11,10 @@ final class ImageElementView: UIView {
     
     weak var delegate: ImageElementDelegate?
     
+    private lazy var isSmallScreen: Bool = {
+        return UIScreen.main.bounds.height < AppThreshold.smallScreenLimit
+    }()
+    
     private var firstLaunch: Bool = true
     
     private var isRightAnswer: Bool!
@@ -60,7 +64,7 @@ final class ImageElementView: UIView {
         let blackOverlay = UIView()
         blackOverlay.translatesAutoresizingMaskIntoConstraints = false
         blackOverlay.backgroundColor = .black
-        blackOverlay.alpha = 0.8
+        blackOverlay.alpha = 0.85
         blackOverlay.isHidden = true
         return blackOverlay
     }()
@@ -76,7 +80,6 @@ final class ImageElementView: UIView {
         let dateText = UILabel()
         dateText.translatesAutoresizingMaskIntoConstraints = false
         dateText.textColor = .white
-        dateText.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         dateText.numberOfLines = 1
         dateText.adjustsFontSizeToFitWidth = true
         dateText.minimumScaleFactor = 0.8
@@ -126,14 +129,11 @@ final class ImageElementView: UIView {
     }
     
     private func setupLayout() {        
-        let overlay = UIView()
-        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        overlay.translatesAutoresizingMaskIntoConstraints = false
+        dateText.font = UIFont.systemFont(ofSize: isSmallScreen ? 24 : 28, weight: .bold)
         
         addSubview(placeholderView)
         addSubview(backgroundImageView)
         addSubview(backgroundEffectView)
-        addSubview(overlay)
         addSubview(scrollView)
         scrollView.addSubview(imageView)
         addSubview(blackOverlay)
@@ -152,11 +152,6 @@ final class ImageElementView: UIView {
             backgroundEffectView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundEffectView.topAnchor.constraint(equalTo: self.topAnchor),
             backgroundEffectView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            overlay.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            overlay.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            overlay.topAnchor.constraint(equalTo: self.topAnchor),
-            overlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
@@ -209,7 +204,7 @@ final class ImageElementView: UIView {
 
            let attrs: [NSAttributedString.Key: Any] = [
                .paragraphStyle: paragraph,
-               .font: UIFont.systemFont(ofSize: 20, weight: .thin),
+               .font: UIFont.systemFont(ofSize: isSmallScreen ? 20 : 26, weight: .thin),
                .foregroundColor: UIColor.white
            ]
 
