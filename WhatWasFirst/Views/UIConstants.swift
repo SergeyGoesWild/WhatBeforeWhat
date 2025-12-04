@@ -30,7 +30,7 @@ enum AppLayout {
     
     static let particleOffset: CGFloat = -80
     
-    static let zoomMargin: CGFloat = 60
+    static let zoomMargin: CGFloat = 70
 }
 
 enum AppAnimations {

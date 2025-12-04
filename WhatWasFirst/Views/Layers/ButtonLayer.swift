@@ -15,7 +15,7 @@ final class ButtonLayer: UIView {
         return UIScreen.main.bounds.height < AppThreshold.smallScreenLimit
     }()
     
-    private let animDistanceOffset: CGFloat = 100
+    private let animDistanceOffset: CGFloat = 115
     
     private var introLabelAnimConstraint: NSLayoutConstraint!
     private var nextButtonAnimConstraint: NSLayoutConstraint!

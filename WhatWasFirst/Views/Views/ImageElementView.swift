@@ -259,8 +259,8 @@ final class ImageElementView: UIView {
         let centerYConstraint = emojiLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0)
         centerYConstraint.isActive = true
         self.layoutIfNeeded()
-        centerYConstraint.constant = -270
-        UIView.animate(withDuration: 1.0, animations: {
+        centerYConstraint.constant = -310
+        UIView.animate(withDuration: 1.1, animations: {
             self.layoutIfNeeded()
         }, completion: { _ in
             emojiLabel.removeFromSuperview()
