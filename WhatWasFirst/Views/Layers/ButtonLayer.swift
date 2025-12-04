@@ -11,8 +11,15 @@ final class ButtonLayer: UIView {
     
     weak var delegate: NextButtonDelegate?
     
-    private lazy var isSmallScreen: Bool = {
-        return UIScreen.main.bounds.height < AppThreshold.smallScreenLimit
+    private let introFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 28
+        case .medium:
+            return 32
+        case .large:
+            return 36
+        }
     }()
     
     private let animDistanceOffset: CGFloat = 115
@@ -65,8 +72,7 @@ final class ButtonLayer: UIView {
     }
     
     private func setupLayout() {
-        introLabel.font = UIFont.systemFont(ofSize: isSmallScreen ? 27 : 34, weight: .black)
-        
+        introLabel.font = UIFont.systemFont(ofSize: introFontSize, weight: .black)
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)
         

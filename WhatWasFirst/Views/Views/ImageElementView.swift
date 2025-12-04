@@ -11,8 +11,26 @@ final class ImageElementView: UIView {
     
     weak var delegate: ImageElementDelegate?
     
-    private lazy var isSmallScreen: Bool = {
-        return UIScreen.main.bounds.height < AppThreshold.smallScreenLimit
+    private let flavorFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 21
+        case .medium:
+            return 23
+        case .large:
+            return 27
+        }
+    }()
+    
+    private let dateFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 25
+        case .medium:
+            return 27
+        case .large:
+            return 30
+        }
     }()
     
     private var firstLaunch: Bool = true
@@ -129,7 +147,7 @@ final class ImageElementView: UIView {
     }
     
     private func setupLayout() {
-        dateText.font = UIFont.systemFont(ofSize: isSmallScreen ? 24 : 28, weight: .bold)
+        dateText.font = UIFont.systemFont(ofSize: dateFontSize, weight: .bold)
         
         addSubview(placeholderView)
         addSubview(backgroundImageView)
@@ -225,7 +243,7 @@ final class ImageElementView: UIView {
         
         let attrs: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraph,
-            .font: UIFont.systemFont(ofSize: isSmallScreen ? 20 : 26, weight: .thin),
+            .font: UIFont.systemFont(ofSize: flavorFontSize, weight: .thin),
             .foregroundColor: UIColor.white
         ]
         

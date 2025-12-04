@@ -34,7 +34,7 @@ enum AppLayout {
 }
 
 enum AppAnimations {
-    static let buttonMove: Double = 1.0
+    static let buttonMove: Double = 1.1
     
     static let emittionDuration: Double = 1.0
     static let particleTime: Double = 3.0
@@ -42,9 +42,6 @@ enum AppAnimations {
 
 enum AppThreshold {
     static let smallScreenLimit: CGFloat = 812
+    static let bigScreenLimit: CGFloat = 852
     static let safeAreaInset: CGFloat = 24
-}
-
-enum AppFonts {
-    
 }

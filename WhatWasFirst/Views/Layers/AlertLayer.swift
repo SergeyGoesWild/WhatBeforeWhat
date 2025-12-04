@@ -11,6 +11,39 @@ final class AlertLayer: UIView {
     
     weak var delegate: EndGameAlertDelegate?
     
+    private let scoreFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 17
+        case .medium:
+            return 17
+        case .large:
+            return 19
+        }
+    }()
+    
+    private let titleFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 24
+        case .medium:
+            return 26
+        case .large:
+            return 28
+        }
+    }()
+    
+    private let explainerFontSize: CGFloat = {
+        switch UIScreen.main.category {
+        case .small:
+            return 15
+        case .medium:
+            return 15
+        case .large:
+            return 16
+        }
+    }()
+    
     var alertVerticalConstaint: NSLayoutConstraint!
     
     private var alertBackgroundView: UIView = {
@@ -86,13 +119,12 @@ final class AlertLayer: UIView {
             
             alertBackgroundView.centerXAnchor.constraint(equalTo: fadeBackgroundView.centerXAnchor),
             alertVerticalConstaint,
+            alertBackgroundView.widthAnchor.constraint(equalTo: fadeBackgroundView.widthAnchor, constant: -AppLayout.sidePadding * 4),
             
             stackView.topAnchor.constraint(equalTo: alertBackgroundView.topAnchor, constant: 30),
             stackView.bottomAnchor.constraint(equalTo: alertBackgroundView.bottomAnchor, constant: -30),
             stackView.leadingAnchor.constraint(equalTo: alertBackgroundView.leadingAnchor, constant: 30),
             stackView.trailingAnchor.constraint(equalTo: alertBackgroundView.trailingAnchor, constant: -30),
-            
-            alertBackgroundView.widthAnchor.constraint(lessThanOrEqualToConstant: 350),
             
             buttonView.widthAnchor.constraint(equalToConstant: 200),
             buttonView.heightAnchor.constraint(equalToConstant: 50),
@@ -113,7 +145,7 @@ final class AlertLayer: UIView {
         let normalText01 = UIStrings.string("Alert.line01")
         let boldText = " \(score)/\(total)"
         let normalText02 = ",\n\(UIStrings.string("Alert.line02"))\n\n"
-        let titleText = object.0 + "\n" + "\n"
+        let titleText = object.0 + "\n"
         var explainerText = ""
         if let answerTitle = object.1?.name {
             explainerText = "(\(UIStrings.string("Alert.rightGuess"))\n\(answerTitle))"
@@ -124,16 +156,16 @@ final class AlertLayer: UIView {
         let fullString = NSMutableAttributedString()
 
         let boldAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .bold)
+            .font: UIFont.systemFont(ofSize: scoreFontSize, weight: .bold)
         ]
         let normalAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 16, weight: .light)
+            .font: UIFont.systemFont(ofSize: scoreFontSize, weight: .light)
         ]
         let cursiveAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            .font: UIFont.systemFont(ofSize: titleFontSize, weight: .bold)
         ]
         let explainerAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15, weight: .light)
+            .font: UIFont.systemFont(ofSize: explainerFontSize, weight: .light)
         ]
         
         fullString.append(NSAttributedString(string: normalText01, attributes: normalAttributes))

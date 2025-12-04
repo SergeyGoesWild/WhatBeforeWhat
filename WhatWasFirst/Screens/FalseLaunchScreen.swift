@@ -12,7 +12,7 @@ final class FalseLaunchScreen: UIViewController {
         let label = UILabel()
         label.text = "Telnov"
         label.textAlignment = .center
-        label.font = .systemFont(ofSize: 60, weight: .heavy)
+        label.font = .systemFont(ofSize: 56, weight: .heavy)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
