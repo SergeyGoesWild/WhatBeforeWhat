@@ -133,7 +133,7 @@ final class AlertLayer: UIView {
             .font: UIFont.systemFont(ofSize: 18, weight: .bold)
         ]
         let explainerAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 15, weight: .thin)
+            .font: UIFont.systemFont(ofSize: 15, weight: .light)
         ]
         
         fullString.append(NSAttributedString(string: normalText01, attributes: normalAttributes))

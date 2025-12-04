@@ -65,7 +65,7 @@ final class ButtonLayer: UIView {
     }
     
     private func setupLayout() {
-        introLabel.font = UIFont.systemFont(ofSize: isSmallScreen ? 27 : 37, weight: .black)
+        introLabel.font = UIFont.systemFont(ofSize: isSmallScreen ? 27 : 34, weight: .black)
         
         nextButtonAnimConstraint = nextButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -animDistanceOffset)
         introLabelAnimConstraint = introLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 0)

@@ -13,7 +13,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ayant terminé avec le score de"
+            "value" : "Avec le score de"
           }
         },
         "ru" : {
@@ -59,7 +59,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "parce qu’il n’y a pas eu de\nbonnes réponses"
+            "value" : "parce qu’il n’y a pas eu\nde bonnes réponses"
           }
         },
         "ru" : {
@@ -76,7 +76,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "you guessed right\nabout:"
+            "value" : "you guessed right about:"
           }
         },
         "fr" : {
@@ -749,7 +749,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "de Rien"
+            "value" : "Rien"
           }
         },
         "ru" : {
