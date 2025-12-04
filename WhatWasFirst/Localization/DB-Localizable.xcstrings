@@ -536,7 +536,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The famous mural known as “My God, Help Me to Survive This Deadly Love”, showing a passionate kiss between Soviet leader Leonid Brezhnev and East German leader Erich Honecker."
+            "value" : "“My God, Help Me to Survive This Deadly Love” famous mural, showing a passionate kiss between Soviet leader Leonid Brezhnev and East German leader Erich Honecker."
           }
         },
         "fr" : {
@@ -1140,7 +1140,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« Un dimanche après-midi à l’Île de la Grande Jatte ». Peinture pointilliste célèbre de Georges Seurat."
+            "value" : "« Un dimanche après-midi à l’Île de la Grande Jatte ».\nPeinture pointilliste célèbre de Georges Seurat."
           }
         },
         "ru" : {
@@ -1502,7 +1502,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Gherkin, officially known as 30 St Mary Axe, is a distinctive glass skyscraper in London’s financial district."
+            "value" : "The Gherkin.\nOfficially known as 30 St Mary Axe, is a distinctive glass skyscraper in London’s financial district."
           }
         },
         "fr" : {
@@ -1548,7 +1548,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "'Girl with a Pearl Earring' is a painting by Johannes Vermeer during the Dutch Golden Age."
+            "value" : "'Girl with a Pearl Earring' is a painting of the Dutch Golden Age by Johannes Vermeer."
           }
         },
         "fr" : {
@@ -1686,7 +1686,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“The Great Wave off Kanagawa“ is a Japanese woodblock print by Katsushika Hokusai, one of the most recognizable works of Japanese art"
+            "value" : "“The Great Wave off Kanagawa“ is a Japanese woodblock print by Katsushika Hokusai, one of the most recognizable works of Japanese art."
           }
         },
         "fr" : {
@@ -1824,7 +1824,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Haussmann houses are elegant residential buildings that define much of Paris’s architectural identity. They feature uniform façades, wrought-iron balconies, and cream-colored stone."
+            "value" : "Haussmann houses are elegant residential buildings that define much of Paris’s architectural identity: uniform façades, wrought-iron balconies and cream-colored stone."
           }
         },
         "fr" : {
@@ -2238,7 +2238,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "“Liberty Leading the People” is a famous historical painting by Eugène Delacroix. It is one of the most iconic representations of revolution"
+            "value" : "“Liberty Leading the People” is a famous historical painting by Eugène Delacroix. It is one of the most iconic representations of revolution."
           }
         },
         "fr" : {
@@ -3532,7 +3532,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le Parthénon.\nTemple grec antique situé sur l’Acropole d’Athènes."
+            "value" : "Le Parthénon. Le temple grec antique situé sur l’Acropole d’Athènes."
           }
         },
         "ru" : {
@@ -3572,7 +3572,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Petra is an ancient city in Jordan. It is one of the New Seven Wonders of the World."
+            "value" : "Petra is an ancient city in Jordan.\nIt is one of the New Seven Wonders of the World."
           }
         },
         "fr" : {
@@ -4078,7 +4078,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "'Starry Night' is one of the most famous paintings in the world, created by Vincent van Gogh in 1889"
+            "value" : "'Starry Night' is one of the most famous paintings in the world, created by Vincent van Gogh in 1889."
           }
         },
         "fr" : {
@@ -4820,7 +4820,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "« Voyageur contemplant une mer de nuages ». Une peinture romantique de Caspar David Friedrich, symbole du romantisme."
+            "value" : "« Voyageur contemplant une mer de nuages ».\nUne peinture romantique de Caspar David Friedrich, symbole du romantisme."
           }
         },
         "ru" : {
@@ -4952,7 +4952,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Washington Monument is a white marble obelisk located in Washington, D.C., built to honor George Washington, the first U.S. president."
+            "value" : "The Washington Monument.\nIt is a white marble obelisk located in Washington, D.C., built to honor George Washington, the first U.S. president."
           }
         },
         "fr" : {

@@ -128,7 +128,7 @@ final class ImageElementView: UIView {
         }
     }
     
-    private func setupLayout() {        
+    private func setupLayout() {
         dateText.font = UIFont.systemFont(ofSize: isSmallScreen ? 24 : 28, weight: .bold)
         
         addSubview(placeholderView)
@@ -164,7 +164,7 @@ final class ImageElementView: UIView {
             blackOverlay.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
             dataStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-            dataStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12),
+            dataStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
             dataStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
     }
@@ -196,19 +196,40 @@ final class ImageElementView: UIView {
         dataStackView.isHidden = true
     }
     
+    private func textCleanUp(text: String) -> String {
+        let items = ["une", "l’une", "un", "l’un", "le", "la", "les", "de", "du", "des", "à", "au", "aux", "en", "sur", "par", "son", "sa", "ses",
+                     "a", "an", "the", "on", "in", "at", "of", "to", "his", "her", "its", "is", "are", "It is", "it is", "It", "it",
+                     "в", "на", "к", "под", "без", "во", "до", "для", "за", "из", "из-за", "о", "с", "про", "над", "после"
+                    ]
+        
+        var newString = text
+        for prep in items {
+            let pattern = "([ \\u00A0])(\(prep))( )"
+            
+            newString = newString.replacingOccurrences(
+                of: pattern,
+                with: "$1\(prep)\u{00A0}",
+                options: .regularExpression,
+                range: nil
+            )
+        }
+        
+        return newString
+    }
+    
     private func formFlavourText(text: String) -> NSAttributedString {
-           let paragraph = NSMutableParagraphStyle()
-           paragraph.hyphenationFactor = 0.7
-           paragraph.alignment = .left
-           paragraph.lineBreakMode = .byWordWrapping
-
-           let attrs: [NSAttributedString.Key: Any] = [
-               .paragraphStyle: paragraph,
-               .font: UIFont.systemFont(ofSize: isSmallScreen ? 20 : 26, weight: .thin),
-               .foregroundColor: UIColor.white
-           ]
-
-           return NSAttributedString(string: text, attributes: attrs)
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.hyphenationFactor = 0.7
+        paragraph.alignment = .left
+        paragraph.lineBreakMode = .byWordWrapping
+        
+        let attrs: [NSAttributedString.Key: Any] = [
+            .paragraphStyle: paragraph,
+            .font: UIFont.systemFont(ofSize: isSmallScreen ? 20 : 26, weight: .thin),
+            .foregroundColor: UIColor.white
+        ]
+        
+        return NSAttributedString(string: textCleanUp(text: text), attributes: attrs)
     }
     
     private func formDateText(dateText: Int, circa: Bool) -> String {
@@ -226,7 +247,6 @@ final class ImageElementView: UIView {
         setupImageConstraints(image: image)
         imageView.image = image
         backgroundImageView.image = image
-
     }
     
     private func launchEmoji() {
