@@ -36,11 +36,11 @@ final class AlertLayer: UIView {
     private let explainerFontSize: CGFloat = {
         switch UIScreen.main.category {
         case .small:
-            return 15
+            return 14
         case .medium:
-            return 15
+            return 14
         case .large:
-            return 16
+            return 14
         }
     }()
     

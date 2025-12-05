@@ -14,22 +14,22 @@ final class ImageElementView: UIView {
     private let flavorFontSize: CGFloat = {
         switch UIScreen.main.category {
         case .small:
-            return 21
+            return 20
         case .medium:
-            return 23
+            return 21
         case .large:
-            return 27
+            return 23
         }
     }()
     
     private let dateFontSize: CGFloat = {
         switch UIScreen.main.category {
         case .small:
-            return 25
+            return 24
         case .medium:
-            return 27
+            return 25
         case .large:
-            return 30
+            return 27
         }
     }()
     
