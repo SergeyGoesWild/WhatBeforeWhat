@@ -375,7 +375,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Baroque Things"
+            "value" : "Baroque"
           }
         },
         "fr" : {
@@ -726,7 +726,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Néo-classicisme"
+            "value" : "Néoclassicisme"
           }
         },
         "ru" : {

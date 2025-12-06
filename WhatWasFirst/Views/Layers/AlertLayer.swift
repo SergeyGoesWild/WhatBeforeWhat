@@ -174,7 +174,9 @@ final class AlertLayer: UIView {
         fullString.append(NSAttributedString(string: titleText, attributes: cursiveAttributes))
         fullString.append(NSAttributedString(string: explainerText, attributes: explainerAttributes))
         
-        self.labelView.attributedText = fullString
+        labelView.attributedText = fullString
+        labelView.lineBreakStrategy = .pushOut
+        
         DispatchQueue.main.async {
             self.launchAnimation()
         }

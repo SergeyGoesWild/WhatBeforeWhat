@@ -801,7 +801,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Золотой кодекс (Codex Aureus)"
+            "value" : "Золотой кодекс"
           }
         }
       }
@@ -847,7 +847,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Codex Runicus"
+            "value" : "Рунный кодекс"
           }
         }
       }
@@ -985,7 +985,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "«Амур, управляющий колесницей, запряжённой грифонами»"
+            "value" : "«Амур, управляющий колесницей»"
           }
         }
       }
@@ -1341,7 +1341,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "еhe Flatiron Building"
+            "value" : "the Flatiron Building"
           }
         },
         "fr" : {
@@ -1525,7 +1525,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "'Girl with a Pearl Earring'"
+            "value" : "“Girl with a Pearl Earring”"
           }
         },
         "fr" : {
@@ -1623,7 +1623,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La Grande Muraille de Chine."
+            "value" : "La Grande Muraille de Chine"
           }
         },
         "ru" : {
@@ -1939,7 +1939,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Christ and Abbot Mena icon"
+            "value" : "“Christ and Abbot Mena” icon"
           }
         },
         "fr" : {

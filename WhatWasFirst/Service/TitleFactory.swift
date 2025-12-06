@@ -36,11 +36,11 @@ final class TitleFactory {
     func makeTitle(with answers: [HistoricItem]) -> (String, HistoricItem?) {
         let title = Titles.allCases.randomElement()!.localized
         if answers.isEmpty {
-            return ("\(title) \(UIStrings.string("Title.nothing"))", nil)
+            return ("\(title) \(UIStrings.string("Title.nothing"))\u{00A0}\u{2060}🫠", nil)
         } else {
             let randomIndex = Int.random(in: 0..<answers.count)
             let answer = answers[randomIndex]
-            return ("\(title) \(answer.title.localized)", answer)
+            return ("\(title) \(answer.title.localized.0)\u{00A0}\u{2060}\(answer.title.localized.1)", answer)
         }
     }
 }

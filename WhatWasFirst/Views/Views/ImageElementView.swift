@@ -270,7 +270,7 @@ final class ImageElementView: UIView {
     private func launchEmoji() {
         let emojiLabel = UILabel()
         emojiLabel.text = isRightAnswer ? "✅" : "❌"
-        emojiLabel.font = .systemFont(ofSize: 200)
+        emojiLabel.font = .systemFont(ofSize: 180)
         emojiLabel.translatesAutoresizingMaskIntoConstraints = false
         addSubview(emojiLabel)
         emojiLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
