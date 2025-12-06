@@ -44,7 +44,7 @@ final class GameModel: GameModelProtocol {
         }
     }
     
-    private let totalRounds: Int = 2
+    private let totalRounds: Int = 10
     private var rightAnswer: HistoricItem?
     private var rightAnswers: [HistoricItem] = []
     
